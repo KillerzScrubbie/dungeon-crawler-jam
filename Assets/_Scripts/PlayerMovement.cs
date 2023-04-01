@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     [Header("Player Physics")]
     [SerializeField] private LayerMask obstacleLayers;
     [SerializeField] private LayerMask stairsLayers;
+    [SerializeField] private LayerMask stairsDownLayers;
 
     private Queue<EMovementTypes> inputQueue = new();
 
@@ -92,9 +93,13 @@ public class PlayerMovement : MonoBehaviour
 
         float duration = smoothTransition ? moveDuration : 0f;
 
-        if (CheckForStairs(direction))
+        if (CheckForStairs(direction, stairsLayers))
         {
             SetGridPos(transform.position + direction + Vector3.up);
+        }
+        else if (CheckForStairs(direction, stairsDownLayers))
+        {
+            SetGridPos(transform.position + direction + Vector3.down);
         }
         else
         {
@@ -109,9 +114,9 @@ public class PlayerMovement : MonoBehaviour
         return Physics.Raycast(transform.position, direction, gridSize, obstacleLayers);
     }
 
-    private bool CheckForStairs(Vector3 direction)
+    private bool CheckForStairs(Vector3 direction, LayerMask layers)
     {
-        return Physics.Raycast(transform.position, direction, gridSize, stairsLayers);
+        return Physics.Raycast(transform.position, direction, gridSize, layers);
     }
 
     private void Turn(bool turningLeft)

@@ -1519,6 +1519,9 @@ MonoBehaviour:
   stairsLayers:
     serializedVersion: 2
     m_Bits: 128
+  stairsDownLayers:
+    serializedVersion: 2
+    m_Bits: 256
 --- !u!43 &269552164
 Mesh:
   m_ObjectHideFlags: 0
@@ -3467,7 +3470,7 @@ PrefabInstance:
     - target: {fileID: 215634186309821118, guid: 361be435ab0b5a64485d4792859d647e,
         type: 3}
       propertyPath: m_VersionIndex
-      value: 1540
+      value: 1591
       objectReference: {fileID: 0}
     - target: {fileID: 3503860275730674645, guid: 361be435ab0b5a64485d4792859d647e,
         type: 3}

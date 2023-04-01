@@ -2382,6 +2382,37 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3749891274881555705, guid: bf1efbe8fcf2f5c468aaaba3e1cf580d,
+        type: 3}
+      propertyPath: _sounds.Array.size
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3749891274881555705, guid: bf1efbe8fcf2f5c468aaaba3e1cf580d,
+        type: 3}
+      propertyPath: _sounds.Array.data[0].clip
+      value: 
+      objectReference: {fileID: 8300000, guid: 74169a5185e8581459270632830d86d9, type: 3}
+    - target: {fileID: 3749891274881555705, guid: bf1efbe8fcf2f5c468aaaba3e1cf580d,
+        type: 3}
+      propertyPath: _sounds.Array.data[0].pitch
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3749891274881555705, guid: bf1efbe8fcf2f5c468aaaba3e1cf580d,
+        type: 3}
+      propertyPath: _sounds.Array.data[0].volume
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3749891274881555705, guid: bf1efbe8fcf2f5c468aaaba3e1cf580d,
+        type: 3}
+      propertyPath: _sounds.Array.data[0].audioName
+      value: playerDmg1
+      objectReference: {fileID: 0}
+    - target: {fileID: 3749891274881555705, guid: bf1efbe8fcf2f5c468aaaba3e1cf580d,
+        type: 3}
+      propertyPath: _sounds.Array.data[0].mixerGroup
+      value: 
+      objectReference: {fileID: 8219120640885313815, guid: e4133e5e7f34c4743be3fe0ab8e68812,
+        type: 2}
     - target: {fileID: 3749891274881555710, guid: bf1efbe8fcf2f5c468aaaba3e1cf580d,
         type: 3}
       propertyPath: m_Name

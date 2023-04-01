@@ -23,8 +23,12 @@ public class PlayerHp : MonoBehaviour, IDamageable
     [Button]
     public void TakeDamage(int damage)
     {
+        if (IsPlayerDead()) return;
+
+        AudioManager.instance.PlayOneRandomPitch("playerDmg1", .8f, 1.2f);
+
         _currentHP -= damage;
-        CheckIfPlayerDead();
+        ClampPlayerHp();
 
         OnPlayerUpdateHp?.Invoke(_currentHP, _maxHP);
     }
@@ -41,13 +45,22 @@ public class PlayerHp : MonoBehaviour, IDamageable
         TakeDamage(4);
     }
 
-    void CheckIfPlayerDead()
+    bool IsPlayerDead()
     {
+
         if (_currentHP <= 0)
         {
             _currentHP = 0;
             Debug.Log("Player is dead");
+            return true;
         }
+        else return false;
+    }
+
+    void ClampPlayerHp()
+    {
+        if (_currentHP <= 0) _currentHP = 0;
+        if (_currentHP >= _maxHP) _currentHP = _maxHP;
     }
 
 

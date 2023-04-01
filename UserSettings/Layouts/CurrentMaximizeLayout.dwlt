@@ -25,7 +25,7 @@ MonoBehaviour:
   m_MinSize: {x: 400, y: 200}
   m_MaxSize: {x: 32384, y: 16192}
   vertical: 0
-  controlID: 74441
+  controlID: 81394
 --- !u!114 &2
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -144,7 +144,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 200}
   m_MaxSize: {x: 16192, y: 16192}
   vertical: 1
-  controlID: 74442
+  controlID: 81395
 --- !u!114 &4
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -400,7 +400,7 @@ MonoBehaviour:
   m_Position:
     m_Target: {x: 0, y: 0.62, z: -0.3}
     speed: 2
-    m_Value: {x: 0.00005722046, y: 0.62003213, z: -0.29999998}
+    m_Value: {x: 0, y: 0.62, z: -0.3}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -449,11 +449,11 @@ MonoBehaviour:
   m_Rotation:
     m_Target: {x: -0.20649227, y: 0.38580474, z: -0.08903622, w: -0.8947557}
     speed: 2
-    m_Value: {x: 0, y: 0, z: 0, w: 1}
+    m_Value: {x: -0.20649227, y: 0.38580474, z: -0.08903622, w: -0.8947557}
   m_Size:
     m_Target: 5.4959636
     speed: 2
-    m_Value: 5.7549357
+    m_Value: 5.4959636
   m_Ortho:
     m_Target: 0
     speed: 2
@@ -502,7 +502,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 100}
   m_MaxSize: {x: 16192, y: 8096}
   vertical: 0
-  controlID: 74443
+  controlID: 81396
 --- !u!114 &7
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -609,7 +609,7 @@ MonoBehaviour:
   m_MinSize: {x: 100, y: 200}
   m_MaxSize: {x: 8096, y: 16192}
   vertical: 1
-  controlID: 74392
+  controlID: 81337
 --- !u!114 &11
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -669,23 +669,23 @@ MonoBehaviour:
   m_SceneHierarchy:
     m_TreeViewState:
       scrollPos: {x: 0, y: 0}
-      m_SelectedIDs: b0700000
+      m_SelectedIDs: 
       m_LastClickedID: 0
       m_ExpandedIDs: ce26f9ff2628f9ff742cf9ffc030f9ff1432f9ffa44cf9ff4e4ef9ffb24ff9ff1451f9ffac52f9fffc53f9fff620faff4622faffa424faff7262faff5c66faff6c67faff3e70faffa671faff9e72faff3477fafffe77faffbaa9fdffeaf0fdff38f2fdff5ef3fdffacf4fdff3205feff2a06feff02b3feff4cd1feffc8d5feff2c23ffffba48ffffae49ffffa24affff964bffff8a4cffffac4dffff6c4fffff6050ffff8251ffff7652ffff5256ffffa4d4ffff5ad5ffff56daffff4edcffff08ddffff94ddffff08deffff86deffff7ee1ffff44e2ffff1ae6ffffdce9ffff96ebfffff2ecffff12efffffb6efffff34f0ffff54f2ffff5ef3ffffa4f3ffffd8f3ffff64f5ffffdef8ffff34fbffff4282000054820000c2900000e0900000e490000080a100009ca10000b2a1000024a2000036ea000044ef00005aef0000baef0000d4ef0000
       m_RenameOverlay:
         m_UserAcceptedRename: 0
-        m_Name: Main Camera
-        m_OriginalName: Main Camera
+        m_Name: 
+        m_OriginalName: 
         m_EditFieldRect:
           serializedVersion: 2
           x: 0
           y: 0
           width: 0
           height: 0
-        m_UserData: 72254
+        m_UserData: 0
         m_IsWaitingForDelay: 0
         m_IsRenaming: 0
-        m_OriginalEventType: 0
+        m_OriginalEventType: 11
         m_IsRenamingFilename: 0
         m_ClientGUIView: {fileID: 11}
       m_SearchString: 
@@ -764,21 +764,21 @@ MonoBehaviour:
     m_SkipHidden: 0
     m_SearchArea: 1
     m_Folders:
-    - Assets/_Scenes
+    - Assets/Sounds
     m_Globs: []
     m_OriginalText: 
   m_ViewMode: 1
   m_StartGridSize: 16
   m_LastFolders:
-  - Assets/_Scenes
+  - Assets/Sounds
   m_LastFoldersGridSize: 16
   m_LastProjectPath: D:\Github\dungeon-crawler-jam
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 60}
-    m_SelectedIDs: 4c6f0000
-    m_LastClickedID: 28492
+    m_SelectedIDs: 0c8e0000
+    m_LastClickedID: 36364
     m_ExpandedIDs: 000000007c6d0000d0770000d277000082b3000084b3000086b3000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0
@@ -832,24 +832,24 @@ MonoBehaviour:
       m_Icon: {fileID: 0}
       m_ResourceFile: 
   m_ListAreaState:
-    m_SelectedInstanceIDs: b0700000
-    m_LastClickedInstanceID: 28848
+    m_SelectedInstanceIDs: 
+    m_LastClickedInstanceID: 0
     m_HadKeyboardFocusLastEvent: 1
     m_ExpandedInstanceIDs: c6230000000000007cb3000088b30000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
-      m_Name: SampleScene
-      m_OriginalName: SampleScene
+      m_Name: 
+      m_OriginalName: 
       m_EditFieldRect:
         serializedVersion: 2
         x: 0
         y: 0
         width: 0
         height: 0
-      m_UserData: 28850
+      m_UserData: 0
       m_IsWaitingForDelay: 0
       m_IsRenaming: 0
-      m_OriginalEventType: 0
+      m_OriginalEventType: 11
       m_IsRenamingFilename: 1
       m_ClientGUIView: {fileID: 13}
     m_CreateAssetUtility:

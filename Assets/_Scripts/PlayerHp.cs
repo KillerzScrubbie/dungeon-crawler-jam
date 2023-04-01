@@ -30,9 +30,15 @@ public class PlayerHp : MonoBehaviour, IDamageable
     }
 
     [Button]
-    public void TestTakeDamage()
+    public void TestTakeFiftyDamage()
     {
         TakeDamage(50);
+    }
+
+    [Button]
+    public void TestTakeFourDamage()
+    {
+        TakeDamage(4);
     }
 
     void CheckIfPlayerDead()

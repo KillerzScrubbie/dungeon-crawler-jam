@@ -24,7 +24,7 @@ public class PlayerHpUiDisplay : MonoBehaviour
         _hpSlider.fillAmount = hpPercent;
 
         _hpNow.SetText(nowHp.ToString());
-        _hpMax.SetText(maxHp.ToString());
+        _hpMax.SetText($"/{maxHp.ToString()}");
 
     }
 }

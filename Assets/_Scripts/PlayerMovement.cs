@@ -14,6 +14,8 @@ public class PlayerMovement : MonoBehaviour
     [Header("Player Physics")]
     [SerializeField] private LayerMask obstacleLayers;
 
+    private Queue<EMovementTypes> inputQueue = new Queue<EMovementTypes>();
+
     private PlayerInputController controller;
 
     private Vector3 targetGridPos;
@@ -22,9 +24,6 @@ public class PlayerMovement : MonoBehaviour
     private bool isMoving = false;
 
     private float gridSize = 1f;
-
-    // Constant Variable for Queues
-    private Queue<EMovementTypes> inputQueue = new Queue<EMovementTypes>();
 
     private void Awake()
     {

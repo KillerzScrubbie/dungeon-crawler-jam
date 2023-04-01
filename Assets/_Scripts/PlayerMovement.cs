@@ -4,17 +4,23 @@ using DG.Tweening;
 [RequireComponent(typeof(PlayerInputController))]
 public class PlayerMovement : MonoBehaviour
 {
+    [Header("Player Settings")]
     [SerializeField] private bool smoothTransition = false;
     [SerializeField] private float moveDuration = 0.15f;
     [SerializeField] private float rotationDuration = 0.15f;
+
+    [Space]
+    [Header("Player Physics")]
+    [SerializeField] private LayerMask obstacleLayers;
  
     private PlayerInputController controller;
 
     private Vector3 targetGridPos;
-    private Vector3 prevTargetGridPos;
-    private Vector3 nextTargetGridPos;
+    private Vector3 prevTargetGridPos; // Failsafe if player somehow glitches out or fall off the map.
 
     private bool isTurning = false;
+
+    private float gridSize = 1f;
 
     private void Awake()
     {
@@ -31,15 +37,22 @@ public class PlayerMovement : MonoBehaviour
 
     private void MoveForward()
     {
+        if (CheckForCollision()) return;
+
         float duration = smoothTransition ? moveDuration : 0f;
 
         SetGridPos(transform.position + transform.forward);
         transform.DOMove(targetGridPos, duration);
     }
 
+    private bool CheckForCollision()
+    {
+        return Physics.Raycast(transform.position, transform.forward, gridSize, obstacleLayers);
+    }
+
     private void Turn(bool turningLeft)
     {
-        if (isTurning) { return; }
+        if (isTurning) return;
 
         LockTurning(true);
 

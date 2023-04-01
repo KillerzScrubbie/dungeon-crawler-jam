@@ -6,6 +6,7 @@ public class PlayerInputController : MonoBehaviour
 {
     public event Action OnMove;
     public event Action<bool> OnTurn;
+    public event Action<EMovementTypes> OnQueue;
 
     private PlayerInput playerInputMap;
 
@@ -16,21 +17,24 @@ public class PlayerInputController : MonoBehaviour
 
     private void Start()
     {
-        playerInputMap.Player.Move.performed += _ => MoveForward();
-        playerInputMap.Player.LookLeft.performed += _ => Turn(true);
-        playerInputMap.Player.LookRight.performed += _ => Turn(false);
+        playerInputMap.Player.MoveForward.performed += _ => Move(EMovementTypes.Forward);
+        playerInputMap.Player.MoveBackwards.performed += _ => Move(EMovementTypes.Backward);
+        playerInputMap.Player.MoveLeft.performed += _ => Move(EMovementTypes.Left);
+        playerInputMap.Player.MoveRight.performed += _ => Move(EMovementTypes.Right);
+        playerInputMap.Player.LookLeft.performed += _ => Turn(EMovementTypes.TurnLeft);
+        playerInputMap.Player.LookRight.performed += _ => Turn(EMovementTypes.TurnRight);
     }
 
     private void OnEnable() => playerInputMap.Enable();
     private void OnDisable() => playerInputMap.Disable();
 
-    private void MoveForward()
+    private void Move(EMovementTypes type)
     {
-        OnMove?.Invoke();
+        OnQueue?.Invoke(type);
     }
 
-    private void Turn(bool turningLeft)
+    private void Turn(EMovementTypes type)
     {
-        OnTurn?.Invoke(turningLeft);
+        OnQueue?.Invoke(type);
     }
 }

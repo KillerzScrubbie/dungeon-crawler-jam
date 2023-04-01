@@ -1,5 +1,6 @@
 using UnityEngine;
 using DG.Tweening;
+using System.Collections.Generic;
 
 [RequireComponent(typeof(PlayerInputController))]
 public class PlayerMovement : MonoBehaviour
@@ -12,15 +13,19 @@ public class PlayerMovement : MonoBehaviour
     [Space]
     [Header("Player Physics")]
     [SerializeField] private LayerMask obstacleLayers;
- 
+
     private PlayerInputController controller;
 
     private Vector3 targetGridPos;
     private Vector3 prevTargetGridPos; // Failsafe if player somehow glitches out or fall off the map.
 
+    private bool isMoving = false;
     private bool isTurning = false;
 
     private float gridSize = 1f;
+
+    // Constant Variable for Queues
+    private Queue<EMovementTypes> inputQueue = new Queue<EMovementTypes>();
 
     private void Awake()
     {
@@ -29,20 +34,68 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
-        controller.OnMove += MoveForward;
-        controller.OnTurn += Turn;
+        controller.OnQueue += QueueMovement;
 
         SetGridPos(transform.position);
+    }
+
+    private void QueueMovement(EMovementTypes eMovementTypes)
+    {
+        if (inputQueue.Count > 1) { return; }
+
+        inputQueue.Enqueue(eMovementTypes);
+    }
+
+    private void Update()
+    {
+        if (inputQueue.Count == 0) { return; }
+
+        if (isMoving) { return; }
+
+        ProcessMovement();
+    }
+
+    private void ProcessMovement()
+    {
+        EMovementTypes movementType = inputQueue.Dequeue();
+        LockMovement(true);
+
+        switch (movementType)
+        {
+            case EMovementTypes.Forward:
+                MoveForward();
+                break;
+            case EMovementTypes.Backward:
+                Debug.Log("Back");
+                isMoving = false;
+                break;
+            case EMovementTypes.Left:
+                Debug.Log("Left");
+                isMoving = false;
+                break;
+            case EMovementTypes.Right:
+                Debug.Log("Right");
+                isMoving = false;
+                break;
+            case EMovementTypes.TurnLeft:
+                Turn(true);
+                break;
+            case EMovementTypes.TurnRight:
+                Turn(false);
+                break;
+        }
     }
 
     private void MoveForward()
     {
         if (CheckForCollision()) return;
 
+        if (isTurning) return;
+
         float duration = smoothTransition ? moveDuration : 0f;
 
         SetGridPos(transform.position + transform.forward);
-        transform.DOMove(targetGridPos, duration);
+        transform.DOMove(targetGridPos, duration).OnComplete(() => LockMovement(false));
     }
 
     private bool CheckForCollision()
@@ -52,10 +105,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void Turn(bool turningLeft)
     {
-        if (isTurning) return;
-
-        LockTurning(true);
-
         Vector3 currentRotation = transform.eulerAngles;
         float duration = smoothTransition ? rotationDuration : 0f;
 
@@ -71,10 +120,10 @@ public class PlayerMovement : MonoBehaviour
                 break;
         }
 
-        transform.DORotate(new Vector3(currentRotation.x, currentRotation.y + turnValue, currentRotation.z), duration).OnComplete(() => LockTurning(false));
+        transform.DORotate(new Vector3(currentRotation.x, currentRotation.y + turnValue, currentRotation.z), duration).OnComplete(() => LockMovement(false));
     }
 
-    private void LockTurning(bool state) => isTurning = state;
+    private void LockMovement(bool state) => isMoving = state;
 
     private void SetGridPos(Vector3 position)
     {

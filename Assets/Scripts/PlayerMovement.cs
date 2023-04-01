@@ -5,7 +5,15 @@ using UnityEngine;
 [RequireComponent(typeof(PlayerInputController))]
 public class PlayerMovement : MonoBehaviour
 {
-     private PlayerInputController controller;
+    [SerializeField] private bool smoothTransition = false;
+    [SerializeField] private float transitionSpeed = 10f;
+    [SerializeField] private float transitionRotationSpeed = 500f;
+ 
+    private PlayerInputController controller;
+
+    private Vector3 targetGridPos;
+    private Vector3 prevTargetGridPos;
+    private Vector3 nextTargetGridPos;
 
     private void Awake()
     {
@@ -16,6 +24,8 @@ public class PlayerMovement : MonoBehaviour
     {
         controller.OnMove += MoveForward;
         controller.OnTurn += Turn;
+
+        targetGridPos = Vector3Int.RoundToInt(transform.position);
     }
 
     private void MoveForward()

@@ -13,8 +13,9 @@ public class PlayerMovement : MonoBehaviour
     [Space]
     [Header("Player Physics")]
     [SerializeField] private LayerMask obstacleLayers;
+    [SerializeField] private LayerMask stairsLayers;
 
-    private Queue<EMovementTypes> inputQueue = new Queue<EMovementTypes>();
+    private Queue<EMovementTypes> inputQueue = new();
 
     private PlayerInputController controller;
 
@@ -91,13 +92,26 @@ public class PlayerMovement : MonoBehaviour
 
         float duration = smoothTransition ? moveDuration : 0f;
 
-        SetGridPos(transform.position + direction);
+        if (CheckForStairs(direction))
+        {
+            SetGridPos(transform.position + direction + Vector3.up);
+        }
+        else
+        {
+            SetGridPos(transform.position + direction);
+        }
+
         transform.DOMove(targetGridPos, duration).OnComplete(() => LockMovement(false));
     }
 
     private bool CheckForCollision(Vector3 direction)
     {
         return Physics.Raycast(transform.position, direction, gridSize, obstacleLayers);
+    }
+
+    private bool CheckForStairs(Vector3 direction)
+    {
+        return Physics.Raycast(transform.position, direction, gridSize, stairsLayers);
     }
 
     private void Turn(bool turningLeft)

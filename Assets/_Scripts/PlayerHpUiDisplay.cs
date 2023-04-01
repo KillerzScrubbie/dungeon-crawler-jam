@@ -1,11 +1,10 @@
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
-using System;
 
 public class PlayerHpUiDisplay : MonoBehaviour
 {
-    [SerializeField] Slider _hpSlider;
+    [SerializeField] Image _hpSlider;
     [SerializeField] TMP_Text _hpNow;
     [SerializeField] TMP_Text _hpMax;
 
@@ -21,8 +20,8 @@ public class PlayerHpUiDisplay : MonoBehaviour
     private void UpdatePlayerHp(int nowHp, int maxHp)
     {
         // in case max hp change it take that as well
-        _hpSlider.maxValue = maxHp;
-        _hpSlider.value = nowHp;
+        float hpPercent = (float)nowHp / maxHp;
+        _hpSlider.fillAmount = hpPercent;
 
         _hpNow.SetText(nowHp.ToString());
         _hpMax.SetText(maxHp.ToString());

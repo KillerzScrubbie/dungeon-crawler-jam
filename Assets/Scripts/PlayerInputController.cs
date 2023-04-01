@@ -1,18 +1,36 @@
 using System.Collections;
-using System.Collections.Generic;
+using System;
 using UnityEngine;
-using UnityEngine.InputSystem;
 
 public class PlayerInputController : MonoBehaviour
 {
-// private Vector2 _moveInput;
+    public event Action OnMove;
+    public event Action<bool> OnTurn;
 
-    private void OnMove(InputValue value)
+    private PlayerInput playerInputMap;
+
+    private void Awake()
     {
-        if (!value.isPressed) return;
+        playerInputMap = new PlayerInput();
+    }
 
-        var _moveInput = value.Get<Vector2>();
+    private void Start()
+    {
+        playerInputMap.Player.Move.performed += _ => MoveForward();
+        playerInputMap.Player.LookLeft.performed += _ => Turn(true);
+        playerInputMap.Player.LookRight.performed += _ => Turn(false);
+    }
 
-        Debug.Log($"{_moveInput}");
+    private void OnEnable() => playerInputMap.Enable();
+    private void OnDisable() => playerInputMap.Disable();
+
+    private void MoveForward()
+    {
+        OnMove?.Invoke();
+    }
+
+    private void Turn(bool turningLeft)
+    {
+        OnTurn?.Invoke(turningLeft);
     }
 }

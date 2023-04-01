@@ -1510,9 +1510,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: c23c6ec2a8699e04c8941d9613d7f8e4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  smoothTransition: 0
-  transitionSpeed: 10
-  transitionRotationDuration: 0.1
+  smoothTransition: 1
+  moveDuration: 0.15
+  rotationDuration: 0.15
 --- !u!1 &261935225
 GameObject:
   m_ObjectHideFlags: 0

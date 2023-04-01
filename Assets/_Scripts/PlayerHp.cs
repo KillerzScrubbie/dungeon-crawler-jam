@@ -1,10 +1,12 @@
 using UnityEngine;
 using System;
+using EasyButtons;
 
 public class PlayerHp : MonoBehaviour, IDamageable
 {
     [SerializeField] int _maxHP = 100;
     public int _currentHP { get; private set; }
+
     public static Action<int, int> OnPlayerUpdateHp;
 
     void Start()
@@ -18,6 +20,7 @@ public class PlayerHp : MonoBehaviour, IDamageable
         OnPlayerUpdateHp?.Invoke(_currentHP, _maxHP);
     }
 
+    [Button]
     public void TakeDamage(int damage)
     {
         _currentHP -= damage;
@@ -26,9 +29,19 @@ public class PlayerHp : MonoBehaviour, IDamageable
         OnPlayerUpdateHp?.Invoke(_currentHP, _maxHP);
     }
 
+    [Button]
+    public void TestTakeDamage()
+    {
+        TakeDamage(50);
+    }
+
     void CheckIfPlayerDead()
     {
-        if (_currentHP <= 0) Debug.Log("Player is dead");
+        if (_currentHP <= 0)
+        {
+            _currentHP = 0;
+            Debug.Log("Player is dead");
+        }
     }
 
 

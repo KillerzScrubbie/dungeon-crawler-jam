@@ -23,7 +23,7 @@ public class PlayerMovement : MonoBehaviour
 
     private bool isMoving = false;
 
-    private float gridSize = 1f;
+    private readonly float gridSize = 1f;
 
     private void Awake()
     {

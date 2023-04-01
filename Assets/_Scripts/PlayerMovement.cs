@@ -62,19 +62,16 @@ public class PlayerMovement : MonoBehaviour
         switch (movementType)
         {
             case EMovementTypes.Forward:
-                MoveForward();
+                Move(transform.forward);
                 break;
             case EMovementTypes.Backward:
-                Debug.Log("Back");
-                isMoving = false;
+                Move(-transform.forward);
                 break;
             case EMovementTypes.Left:
-                Debug.Log("Left");
-                isMoving = false;
+                Move(-transform.right);
                 break;
             case EMovementTypes.Right:
-                Debug.Log("Right");
-                isMoving = false;
+                Move(transform.right);
                 break;
             case EMovementTypes.TurnLeft:
                 Turn(true);
@@ -85,9 +82,9 @@ public class PlayerMovement : MonoBehaviour
         }
     }
 
-    private void MoveForward()
+    private void Move(Vector3 direction)
     {
-        if (CheckForCollision()) 
+        if (CheckForCollision(direction)) 
         {
             LockMovement(false);
             return; 
@@ -95,13 +92,13 @@ public class PlayerMovement : MonoBehaviour
 
         float duration = smoothTransition ? moveDuration : 0f;
 
-        SetGridPos(transform.position + transform.forward);
+        SetGridPos(transform.position + direction);
         transform.DOMove(targetGridPos, duration).OnComplete(() => LockMovement(false));
     }
 
-    private bool CheckForCollision()
+    private bool CheckForCollision(Vector3 direction)
     {
-        return Physics.Raycast(transform.position, transform.forward, gridSize, obstacleLayers);
+        return Physics.Raycast(transform.position, direction, gridSize, obstacleLayers);
     }
 
     private void Turn(bool turningLeft)

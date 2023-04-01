@@ -11,8 +11,9 @@ GameObject:
   - component: {fileID: 5702796731125375702}
   - component: {fileID: 5702796731125375703}
   - component: {fileID: 5702796731125375700}
-  - component: {fileID: 5702796731125375701}
   - component: {fileID: 7618169540540022691}
+  - component: {fileID: 5702796731125375701}
+  - component: {fileID: 348882745}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -73,6 +74,19 @@ MonoBehaviour:
   stairsDownLayers:
     serializedVersion: 2
     m_Bits: 256
+--- !u!114 &7618169540540022691
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5702796731125375698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 4ec70a20f429c9b4d90214c076b6b55a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _maxHP: 100
 --- !u!54 &5702796731125375701
 Rigidbody:
   m_ObjectHideFlags: 0
@@ -89,19 +103,19 @@ Rigidbody:
   m_Interpolate: 1
   m_Constraints: 112
   m_CollisionDetection: 0
---- !u!114 &7618169540540022691
-MonoBehaviour:
+--- !u!65 &348882745
+BoxCollider:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 5702796731125375698}
+  m_Material: {fileID: 0}
+  m_IsTrigger: 0
   m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4ec70a20f429c9b4d90214c076b6b55a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _maxHP: 100
+  serializedVersion: 2
+  m_Size: {x: 1, y: 1, z: 1}
+  m_Center: {x: 0, y: 0, z: 0}
 --- !u!1 &5702796731125985275
 GameObject:
   m_ObjectHideFlags: 0

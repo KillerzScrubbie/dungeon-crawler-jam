@@ -20,7 +20,6 @@ public class PlayerMovement : MonoBehaviour
     private Vector3 prevTargetGridPos; // Failsafe if player somehow glitches out or fall off the map.
 
     private bool isMoving = false;
-    private bool isTurning = false;
 
     private float gridSize = 1f;
 
@@ -88,9 +87,11 @@ public class PlayerMovement : MonoBehaviour
 
     private void MoveForward()
     {
-        if (CheckForCollision()) return;
-
-        if (isTurning) return;
+        if (CheckForCollision()) 
+        {
+            LockMovement(false);
+            return; 
+        }
 
         float duration = smoothTransition ? moveDuration : 0f;
 
@@ -132,7 +133,6 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnDestroy()
     {
-        controller.OnMove -= MoveForward;
-        controller.OnTurn -= Turn;
+        controller.OnQueue -= QueueMovement;
     }
 }

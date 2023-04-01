@@ -4,8 +4,6 @@ using UnityEngine;
 
 public class PlayerInputController : MonoBehaviour
 {
-    public event Action OnMove;
-    public event Action<bool> OnTurn;
     public event Action<EMovementTypes> OnQueue;
 
     private PlayerInput playerInputMap;

@@ -113,6 +113,7 @@ GameObject:
   m_Component:
   - component: {fileID: 5702796731125985272}
   - component: {fileID: 5702796731125985273}
+  - component: {fileID: 6622578155881909108}
   m_Layer: 0
   m_Name: Player Cam
   m_TagString: Untagged
@@ -174,6 +175,20 @@ MonoBehaviour:
         m_Calls: []
   m_LegacyBlendHint: 0
   m_ComponentOwner: {fileID: 5702796732611081433}
+--- !u!114 &6622578155881909108
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5702796731125985275}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 61fdcafed7e339a44aab3456ffc09a94, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _intensity: 1
+  _duration: 0.2
 --- !u!1 &5702796732611081432
 GameObject:
   m_ObjectHideFlags: 0
@@ -186,6 +201,7 @@ GameObject:
   - component: {fileID: 5702796732611081436}
   - component: {fileID: 5702796732611081439}
   - component: {fileID: 5702796732611081438}
+  - component: {fileID: 3934242206474422320}
   m_Layer: 0
   m_Name: cm
   m_TagString: Untagged
@@ -269,6 +285,23 @@ MonoBehaviour:
   m_YawDamping: 0
   m_RollDamping: 0
   m_AngularDamping: 0
+--- !u!114 &3934242206474422320
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5702796732611081432}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 68bb026fafb42b14791938953eaace77, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_NoiseProfile: {fileID: 11400000, guid: 69ce8388f6785dd4c8c39915efece2f4, type: 2}
+  m_PivotOffset: {x: 0, y: 0, z: 0}
+  m_AmplitudeGain: 0
+  m_FrequencyGain: 1
+  mNoiseOffsets: {x: 0, y: 0, z: 0}
 --- !u!1001 &5208038041705637032
 PrefabInstance:
   m_ObjectHideFlags: 0

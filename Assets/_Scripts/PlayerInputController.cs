@@ -19,19 +19,15 @@ public class PlayerInputController : MonoBehaviour
         playerInputMap.Player.MoveBackwards.performed += _ => Move(EMovementTypes.Backward);
         playerInputMap.Player.MoveLeft.performed += _ => Move(EMovementTypes.Left);
         playerInputMap.Player.MoveRight.performed += _ => Move(EMovementTypes.Right);
-        playerInputMap.Player.LookLeft.performed += _ => Turn(EMovementTypes.TurnLeft);
-        playerInputMap.Player.LookRight.performed += _ => Turn(EMovementTypes.TurnRight);
+        playerInputMap.Player.LookLeft.performed += _ => Move(EMovementTypes.TurnLeft);
+        playerInputMap.Player.LookRight.performed += _ => Move(EMovementTypes.TurnRight);
+        playerInputMap.Player.DimensionJump.performed += _ => Move(EMovementTypes.DimensionJump);
     }
 
     private void OnEnable() => playerInputMap.Enable();
     private void OnDisable() => playerInputMap.Disable();
 
     private void Move(EMovementTypes type)
-    {
-        OnQueue?.Invoke(type);
-    }
-
-    private void Turn(EMovementTypes type)
     {
         OnQueue?.Invoke(type);
     }

@@ -28,8 +28,11 @@ public class PlayerMovement : MonoBehaviour
     private RaycastHit hit;
 
     private bool isMoving = false;
+    private bool isMainDimension = true;
 
     private readonly float gridSize = 1f;
+    private readonly int dimensionOffset = 200;
+
     private float playerOffset = 0f;
 
     private void Awake()
@@ -86,6 +89,9 @@ public class PlayerMovement : MonoBehaviour
             case EMovementTypes.TurnRight:
                 Turn(false);
                 break;
+            case EMovementTypes.DimensionJump:
+                DimensionJump();
+                break;
         }
     }
 
@@ -136,6 +142,11 @@ public class PlayerMovement : MonoBehaviour
         return Physics.Raycast(transform.position, direction, gridSize, obstacleLayers);
     }
 
+    private bool CheckForCollisionInDimension(Vector3 position)
+    {
+        return Physics.OverlapBox(position, groundCheckCollider.bounds.extents / 2, Quaternion.identity, groundLayers).Length != 0;
+    }
+
     private bool CheckForStairs(Vector3 direction, LayerMask layers)
     {
         return Physics.Raycast(transform.position, direction, gridSize, layers);
@@ -176,6 +187,26 @@ public class PlayerMovement : MonoBehaviour
         }
 
         transform.DORotate(new Vector3(currentRotation.x, currentRotation.y + turnValue, currentRotation.z), duration).OnComplete(() => LockMovement(false));
+    }
+
+    private void DimensionJump()
+    {
+        Vector3 targetGridDimensionPos = isMainDimension ? 
+            transform.position + Vector3.left * dimensionOffset : 
+            transform.position + Vector3.right * dimensionOffset;
+
+        if (CheckForCollisionInDimension(targetGridDimensionPos))
+        {
+            LockMovement(false);
+            Debug.Log("BLOCKED");
+            return;
+        }
+
+        float duration = smoothTransition ? moveDuration : 0f;
+        isMainDimension = !isMainDimension;
+        SetGridPos(targetGridDimensionPos);
+
+        transform.DOMove(targetGridPos, duration).OnComplete(() => TryFalling(duration));
     }
 
     private void LockMovement(bool state) => isMoving = state;

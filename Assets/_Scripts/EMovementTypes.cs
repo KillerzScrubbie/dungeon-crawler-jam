@@ -6,4 +6,5 @@ public enum EMovementTypes
     Right,
     TurnLeft,
     TurnRight,
+    DimensionJump,
 }

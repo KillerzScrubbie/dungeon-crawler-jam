@@ -41,6 +41,46 @@ MonoBehaviour:
   dirtIntensity:
     m_OverrideState: 0
     m_Value: 0
+--- !u!114 &-7493506371390303481
+MonoBehaviour:
+  m_ObjectHideFlags: 3
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: cdfbdbb87d3286943a057f7791b43141, type: 3}
+  m_Name: ChannelMixer
+  m_EditorClassIdentifier: 
+  active: 1
+  redOutRedIn:
+    m_OverrideState: 1
+    m_Value: 102.82469
+  redOutGreenIn:
+    m_OverrideState: 1
+    m_Value: 5.649376
+  redOutBlueIn:
+    m_OverrideState: 1
+    m_Value: 5.649376
+  greenOutRedIn:
+    m_OverrideState: 0
+    m_Value: 0
+  greenOutGreenIn:
+    m_OverrideState: 0
+    m_Value: 100
+  greenOutBlueIn:
+    m_OverrideState: 0
+    m_Value: 0
+  blueOutRedIn:
+    m_OverrideState: 0
+    m_Value: 0
+  blueOutGreenIn:
+    m_OverrideState: 0
+    m_Value: 0
+  blueOutBlueIn:
+    m_OverrideState: 0
+    m_Value: 100
 --- !u!114 &-7011558710299706105
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -62,7 +102,7 @@ MonoBehaviour:
     m_Value: {x: 0.5, y: 0.5}
   intensity:
     m_OverrideState: 1
-    m_Value: 0.25
+    m_Value: 0.171
   smoothness:
     m_OverrideState: 1
     m_Value: 0.4
@@ -86,35 +126,7 @@ MonoBehaviour:
   - {fileID: -7893295128165547882}
   - {fileID: -7011558710299706105}
   - {fileID: 9091451926740527447}
-  - {fileID: 165308730181958315}
---- !u!114 &165308730181958315
-MonoBehaviour:
-  m_ObjectHideFlags: 3
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 0}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 66f335fb1ffd8684294ad653bf1c7564, type: 3}
-  m_Name: ColorAdjustments
-  m_EditorClassIdentifier: 
-  active: 1
-  postExposure:
-    m_OverrideState: 1
-    m_Value: 0
-  contrast:
-    m_OverrideState: 1
-    m_Value: 0
-  colorFilter:
-    m_OverrideState: 1
-    m_Value: {r: 1, g: 1, b: 1, a: 1}
-  hueShift:
-    m_OverrideState: 1
-    m_Value: 19
-  saturation:
-    m_OverrideState: 0
-    m_Value: 0
+  - {fileID: -7493506371390303481}
 --- !u!114 &849379129802519247
 MonoBehaviour:
   m_ObjectHideFlags: 3
@@ -146,4 +158,4 @@ MonoBehaviour:
   active: 1
   intensity:
     m_OverrideState: 1
-    m_Value: 0
+    m_Value: 0.02824688

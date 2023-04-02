@@ -4,17 +4,17 @@ using EasyButtons;
 
 public class PlayerHp : MonoBehaviour, IDamageable
 {
-    [SerializeField] int _maxHP = 100;
+    [SerializeField] private int _maxHP = 100;
     public int _currentHP { get; private set; }
 
     public static Action<int, int> OnPlayerUpdateHp;
 
-    void Start()
+    private void Start()
     {
         ResetPlayerHP();
     }
 
-    void ResetPlayerHP()
+    private void ResetPlayerHP()
     {
         _currentHP = _maxHP;
         OnPlayerUpdateHp?.Invoke(_currentHP, _maxHP);
@@ -23,15 +23,18 @@ public class PlayerHp : MonoBehaviour, IDamageable
     [Button]
     public void TakeDamage(int damage)
     {
-        if (IsPlayerDead()) return;
+        // AudioManager.instance.PlayOneRandomPitch("playerDmg1", .8f, 1.2f);
 
-        AudioManager.instance.PlayOneRandomPitch("playerDmg1", .8f, 1.2f);
-
-        _currentHP -= damage;
-        ClampPlayerHp();
-
+        _currentHP = Math.Clamp(_currentHP - damage, 0, _maxHP);
         OnPlayerUpdateHp?.Invoke(_currentHP, _maxHP);
+
+        if (!IsPlayerDead()) return;
+
+        Debug.Log("Dead");  // Game over here
     }
+
+
+    private bool IsPlayerDead() => _currentHP <= 0;
 
     [Button]
     public void TestTakeFiftyDamage()
@@ -44,25 +47,4 @@ public class PlayerHp : MonoBehaviour, IDamageable
     {
         TakeDamage(4);
     }
-
-    bool IsPlayerDead()
-    {
-
-        if (_currentHP <= 0)
-        {
-            _currentHP = 0;
-            Debug.Log("Player is dead");
-            return true;
-        }
-        else return false;
-    }
-
-    void ClampPlayerHp()
-    {
-        if (_currentHP <= 0) _currentHP = 0;
-        if (_currentHP >= _maxHP) _currentHP = _maxHP;
-    }
-
-
-
 }

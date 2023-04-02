@@ -5,6 +5,7 @@ public class CameraShake : MonoBehaviour
 {
     private CinemachineVirtualCamera cvc;
     CinemachineBasicMultiChannelPerlin perlin;
+    [SerializeField] Transform _camera;
     float shakeTimer;
     float shakeTotal;
     float startIntensity;
@@ -14,7 +15,7 @@ public class CameraShake : MonoBehaviour
 
     private void Awake()
     {
-        cvc = GetComponent<CinemachineVirtualCamera>();
+        cvc = _camera.GetComponent<CinemachineVirtualCamera>();
         perlin = cvc.GetCinemachineComponent<CinemachineBasicMultiChannelPerlin>();
     }
 

@@ -124,6 +124,9 @@ MonoBehaviour:
   stairsDownLayers:
     serializedVersion: 2
     m_Bits: 256
+  enemyLayers:
+    serializedVersion: 2
+    m_Bits: 1024
   groundCheckCollider: {fileID: 348882745}
 --- !u!114 &7618169540540022691
 MonoBehaviour:

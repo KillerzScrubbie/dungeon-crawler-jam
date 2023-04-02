@@ -2,6 +2,7 @@ using UnityEngine;
 using DG.Tweening;
 using System.Collections.Generic;
 using static UnityEditor.Experimental.GraphView.GraphView;
+using UnityEngine.UIElements;
 
 [RequireComponent(typeof(PlayerInputController))]
 public class PlayerMovement : MonoBehaviour
@@ -17,6 +18,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private LayerMask groundLayers;
     [SerializeField] private LayerMask stairsLayers;
     [SerializeField] private LayerMask stairsDownLayers;
+    [SerializeField] private LayerMask enemyLayers;
     [SerializeField] private BoxCollider groundCheckCollider;
 
     private Queue<EMovementTypes> inputQueue = new();
@@ -57,15 +59,25 @@ public class PlayerMovement : MonoBehaviour
 
     private void Update()
     {
-        if (inputQueue.Count == 0) { return; }
+        CheckForEnemy();
+        ProcessMovement();
+    }
 
+    private void CheckForEnemy()
+    {
         if (isMoving) { return; }
 
-        ProcessMovement();
+        if (Physics.OverlapSphere(transform.position, 0.2f, enemyLayers).Length == 0) { return; }
+
+        Debug.Log("FIGHT!");
     }
 
     private void ProcessMovement()
     {
+        if (inputQueue.Count == 0) { return; }
+
+        if (isMoving) { return; }
+
         EMovementTypes movementType = inputQueue.Dequeue();
         LockMovement(true);
 
@@ -144,7 +156,7 @@ public class PlayerMovement : MonoBehaviour
 
     private bool CheckForCollisionInDimension(Vector3 position)
     {
-        return Physics.OverlapSphere(position, 0f).Length != 0;
+        return Physics.OverlapSphere(position, 0f, groundLayers).Length != 0;
     }
 
     private bool CheckForStairs(Vector3 direction, LayerMask layers)

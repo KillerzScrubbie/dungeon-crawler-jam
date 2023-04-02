@@ -144,7 +144,7 @@ public class PlayerMovement : MonoBehaviour
 
     private bool CheckForCollisionInDimension(Vector3 position)
     {
-        return Physics.OverlapBox(position, groundCheckCollider.bounds.extents / 2, Quaternion.identity, groundLayers).Length != 0;
+        return Physics.OverlapSphere(position, 0f).Length != 0;
     }
 
     private bool CheckForStairs(Vector3 direction, LayerMask layers)

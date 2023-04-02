@@ -1,8 +1,6 @@
 using UnityEngine;
 using DG.Tweening;
 using System.Collections.Generic;
-using static UnityEditor.Experimental.GraphView.GraphView;
-using UnityEngine.UIElements;
 
 [RequireComponent(typeof(PlayerInputController))]
 public class PlayerMovement : MonoBehaviour

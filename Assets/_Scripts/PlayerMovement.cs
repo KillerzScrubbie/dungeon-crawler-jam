@@ -112,12 +112,23 @@ public class PlayerMovement : MonoBehaviour
             SetGridPos(transform.position + direction);
         }
 
+        transform.DOMove(targetGridPos, duration).OnComplete(() => TryFalling(duration));
+    }
+
+    private void TryFalling(float duration)
+    {
         if (!CheckGround(targetGridPos, out hit))
         {
-            targetGridPos.y = Mathf.RoundToInt(hit.point.y) + playerOffset;
-        }
+            float groundHeight = Mathf.RoundToInt(hit.point.y);
+            float fallDuration = Mathf.RoundToInt(targetGridPos.y - groundHeight) * duration * 0.5f;
 
-        transform.DOMove(targetGridPos, duration).OnComplete(() => LockMovement(false));
+            targetGridPos.y = Mathf.RoundToInt(hit.point.y) + playerOffset;
+            transform.DOMove(targetGridPos, fallDuration).SetEase(Ease.InQuad).OnComplete(() => LockMovement(false));
+        }
+        else
+        {
+            LockMovement(false);
+        }
     }
 
     private bool CheckForCollision(Vector3 direction)

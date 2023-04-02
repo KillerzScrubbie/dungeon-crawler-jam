@@ -1,6 +1,7 @@
 using UnityEngine;
 using DG.Tweening;
 using System.Collections.Generic;
+using static UnityEditor.Experimental.GraphView.GraphView;
 
 [RequireComponent(typeof(PlayerInputController))]
 public class PlayerMovement : MonoBehaviour
@@ -13,8 +14,10 @@ public class PlayerMovement : MonoBehaviour
     [Space]
     [Header("Player Physics")]
     [SerializeField] private LayerMask obstacleLayers;
+    [SerializeField] private LayerMask groundLayers;
     [SerializeField] private LayerMask stairsLayers;
     [SerializeField] private LayerMask stairsDownLayers;
+    [SerializeField] private BoxCollider groundCheckCollider;
 
     private Queue<EMovementTypes> inputQueue = new();
 
@@ -22,10 +25,12 @@ public class PlayerMovement : MonoBehaviour
 
     private Vector3 targetGridPos;
     private Vector3 prevTargetGridPos; // Failsafe if player somehow glitches out or fall off the map.
+    private RaycastHit hit;
 
     private bool isMoving = false;
 
     private readonly float gridSize = 1f;
+    private float playerOffset = 0f;
 
     private void Awake()
     {
@@ -36,6 +41,7 @@ public class PlayerMovement : MonoBehaviour
     {
         controller.OnQueue += QueueMovement;
 
+        playerOffset = transform.position.y;
         SetGridPos(transform.position);
     }
 
@@ -106,6 +112,11 @@ public class PlayerMovement : MonoBehaviour
             SetGridPos(transform.position + direction);
         }
 
+        if (!CheckGround(targetGridPos, out hit))
+        {
+            targetGridPos.y = Mathf.RoundToInt(hit.point.y) + playerOffset;
+        }
+
         transform.DOMove(targetGridPos, duration).OnComplete(() => LockMovement(false));
     }
 
@@ -117,6 +128,23 @@ public class PlayerMovement : MonoBehaviour
     private bool CheckForStairs(Vector3 direction, LayerMask layers)
     {
         return Physics.Raycast(transform.position, direction, gridSize, layers);
+    }
+
+    private bool CheckGround(Vector3 targetGridPosition, out RaycastHit ground)
+    {
+        bool findGroundInRange;
+
+        if (Physics.BoxCast(targetGridPosition, groundCheckCollider.bounds.extents / 2, Vector3.down, out ground, Quaternion.identity, 0.3f))
+        {
+            findGroundInRange = true;
+        }
+        else
+        {
+            Physics.BoxCast(targetGridPosition, groundCheckCollider.bounds.extents / 2, Vector3.down, out ground, Quaternion.identity, Mathf.Infinity, groundLayers);
+            findGroundInRange = false;
+        }
+
+        return findGroundInRange;
     }
 
     private void Turn(bool turningLeft)

@@ -25,6 +25,14 @@ public class PauseManager : MonoBehaviour
         isPaused = !isPaused;
     }
 
+    public void Resume()
+    {
+        pauseCanvas.SetActive(false);
+        isPaused = false;
+    }
+
+
+
     private void OnDestroy()
     {
         PlayerInputController.OnPause -= HandlePause;

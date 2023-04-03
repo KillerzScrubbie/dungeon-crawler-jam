@@ -13,9 +13,16 @@ public class ObjItems : ScriptableObject
     [Header("Action 1")]
     [SerializeField] private string actionName1;
     [SerializeField] private string itemDescription1;
+    [SerializeField] private int value1;
+    [SerializeField] private int manaCost1;
+    [SerializeField] private int actionCost1 = 1;
+    [SerializeField] private List<KeyValuePair<EEffectTypes, int>> effectList;
 
     [Space]
     [Header("Action 2")]
     [SerializeField] private string actionName2;
     [SerializeField] private string itemDescription2;
+    [SerializeField] private int value2;
+    [SerializeField] private int manaCost2;
+    [SerializeField] private int actionCost2 = 1;
 }

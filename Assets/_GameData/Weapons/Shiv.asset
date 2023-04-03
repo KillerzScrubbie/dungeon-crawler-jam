@@ -10,10 +10,12 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6278750603c2046459852c949329fdb7, type: 3}
-  m_Name: Default
+  m_Name: Shiv
   m_EditorClassIdentifier: 
   itemType: 0
-  itemName: 
+  itemName: Trusty Shiv
   itemIcon: {fileID: 0}
-  itemDescription1: 
-  itemDescription2: 
+  actionName1: Slice
+  itemDescription1: Deals 2 damage
+  actionName2: First Aid
+  itemDescription2: Heal 1 HP

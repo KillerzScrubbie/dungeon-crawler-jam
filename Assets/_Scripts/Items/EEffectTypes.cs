@@ -1,0 +1,19 @@
+public enum EEffectTypes
+{
+    DamageSingle,
+    Heal,
+    DamageInstances,
+    DamageAll,
+    DamageRandom,
+    Weak,
+    Vulnerable,
+    DamageToBlock,
+    GainWeak,
+    ManaNextTurn,
+    Block,
+    ManaThisTurn,
+    ActionEffective,
+    NegateDamage,
+    Spike,
+    ClearDebuff
+}

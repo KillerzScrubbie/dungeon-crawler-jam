@@ -58,12 +58,6 @@ public class PlayerMovement : MonoBehaviour
         inputQueue.Enqueue(eMovementTypes);
     }
 
-    /*private void Update()
-    {
-        CheckForEnemy();
-        ProcessMovement();
-    }*/
-
     public void UpdateMovement()
     {
         CheckForEnemy();

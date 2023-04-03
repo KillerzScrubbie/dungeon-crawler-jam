@@ -9,6 +9,6 @@ public class PlayerCombatState : PlayerBaseState
 
     public override void UpdateState(PlayerStateManager playerStateManager)
     {
-        Debug.Log("Update combat state");
+        
     }
 }

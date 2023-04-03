@@ -22,6 +22,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private BoxCollider groundCheckCollider;
 
     public event Action OnCombatEntered;
+    public static event Action OnDimensionJumpBlocked;
 
     private Queue<EMovementTypes> inputQueue = new();
 
@@ -212,7 +213,7 @@ public class PlayerMovement : MonoBehaviour
         if (CheckForCollisionInDimension(targetGridDimensionPos))
         {
             LockMovement(false);
-            Debug.Log("BLOCKED");
+            OnDimensionJumpBlocked?.Invoke();
             return;
         }
 

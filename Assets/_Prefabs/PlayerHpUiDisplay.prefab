@@ -291,7 +291,7 @@ MonoBehaviour:
   _hpSlider: {fileID: 1081210264997028862}
   _hpNow: {fileID: 1081210263355946851}
   _hpMax: {fileID: 1081210264117257818}
-  _takeDmgColor: {r: 0.8773585, g: 0.4272443, b: 0.20195799, a: 1}
+  _takeDmgColor: {r: 1, g: 1, b: 1, a: 1}
   _animationDuration: 0.2
   _easeType: 9
 --- !u!1 &1081210264117257812

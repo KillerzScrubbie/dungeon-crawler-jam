@@ -23,6 +23,7 @@ public class PlayerMovement : MonoBehaviour
 
     public event Action OnCombatEntered;
     public static event Action OnDimensionJumpBlocked;
+    public static event Action<float> OnTurned;
 
     private Queue<EMovementTypes> inputQueue = new();
 
@@ -201,7 +202,10 @@ public class PlayerMovement : MonoBehaviour
                 break;
         }
 
-        transform.DORotate(new Vector3(currentRotation.x, currentRotation.y + turnValue, currentRotation.z), duration).OnComplete(() => LockMovement(false));
+        float yRotation = currentRotation.y + turnValue;
+
+        OnTurned?.Invoke(-yRotation);
+        transform.DORotate(new Vector3(currentRotation.x, yRotation, currentRotation.z), duration).OnComplete(() => LockMovement(false));
     }
 
     private void DimensionJump()

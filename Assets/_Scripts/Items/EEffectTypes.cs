@@ -15,5 +15,8 @@ public enum EEffectTypes
     ActionEffective,
     NegateDamage,
     Spike,
-    ClearDebuff
+    ClearDebuff,
+    HealPercent,
+    ManaPercent,
+    Strength
 }

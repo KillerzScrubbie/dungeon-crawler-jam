@@ -1,18 +1,22 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using Sirenix.OdinInspector;
 
-public class ObjPotions : MonoBehaviour
+[CreateAssetMenu(fileName = "New Potion", menuName = "Create Potion")]
+public class ObjPotions : SerializedScriptableObject
 {
-    // Start is called before the first frame update
-    void Start()
-    {
-        
-    }
+    [PreviewField(60), HideLabel]
+    [HorizontalGroup("Split", 60)]
+    [SerializeField] private Sprite potionIcon;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
-    }
+    [VerticalGroup("Split/Right"), LabelWidth(120)]
+    [SerializeField] private string potionName;
+
+    [VerticalGroup("Split/Right"), LabelWidth(120)]
+    [TextArea(1, 2)]
+    [SerializeField] private string potionDescription;
+
+    [Space]
+    [SerializeField] private Dictionary<EEffectTypes, int> effectList = new();
 }

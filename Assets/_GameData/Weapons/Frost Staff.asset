@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6278750603c2046459852c949329fdb7, type: 3}
-  m_Name: Shiv
+  m_Name: Frost Staff
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -40,13 +40,25 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 12
-      Data: 1
+      Data: 2
     - Name: 
       Entry: 7
       Data: 
     - Name: $k
       Entry: 3
-      Data: 0
+      Data: 2
+    - Name: $v
+      Entry: 3
+      Data: 2
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 7
     - Name: $v
       Entry: 3
       Data: 2
@@ -74,10 +86,10 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 3
-      Data: 1
+      Data: 0
     - Name: $v
       Entry: 3
-      Data: 1
+      Data: 8
     - Name: 
       Entry: 8
       Data: 
@@ -88,13 +100,13 @@ MonoBehaviour:
       Entry: 8
       Data: 
   itemType: 0
-  itemName: Trusty Shiv
-  itemIcon: {fileID: 21300000, guid: 35a4b82577676244f9b550c2d3fd05e2, type: 3}
-  actionName1: Slice
-  itemDescription1: Deals 2 damage
-  manaCost1: 1
+  itemName: Frost Staff
+  itemIcon: {fileID: 21300000, guid: 649900e0feaf6bb4f805f758867796c0, type: 3}
+  actionName1: Cold Embrace
+  itemDescription1: Deals 2 damage\n Gain Block equal to damage dealt.
+  manaCost1: 3
   actionCost1: 1
-  actionName2: First Aid
-  itemDescription2: Heal 1 HP
+  actionName2: Ice Ball
+  itemDescription2: Deals 8 damage
   manaCost2: 2
   actionCost2: 1

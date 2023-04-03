@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6278750603c2046459852c949329fdb7, type: 3}
-  m_Name: Shiv
+  m_Name: Dark Chestplate
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -46,10 +46,10 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 3
-      Data: 0
+      Data: 10
     - Name: $v
       Entry: 3
-      Data: 2
+      Data: 15
     - Name: 
       Entry: 8
       Data: 
@@ -74,10 +74,10 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 3
-      Data: 1
+      Data: 11
     - Name: $v
       Entry: 3
-      Data: 1
+      Data: 2
     - Name: 
       Entry: 8
       Data: 
@@ -87,14 +87,14 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-  itemType: 0
-  itemName: Trusty Shiv
-  itemIcon: {fileID: 21300000, guid: 35a4b82577676244f9b550c2d3fd05e2, type: 3}
-  actionName1: Slice
-  itemDescription1: Deals 2 damage
-  manaCost1: 1
+  itemType: 1
+  itemName: Dark Chestplate
+  itemIcon: {fileID: 21300000, guid: 584d087b48bb46a49aa862e942ebdcb3, type: 3}
+  actionName1: Resilience
+  itemDescription1: Gain 15 Block
+  manaCost1: 4
   actionCost1: 1
-  actionName2: First Aid
-  itemDescription2: Heal 1 HP
-  manaCost2: 2
-  actionCost2: 1
+  actionName2: Air Siphon
+  itemDescription2: Gain 3 MP
+  manaCost2: 0
+  actionCost2: 2

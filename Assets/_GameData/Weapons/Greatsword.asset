@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6278750603c2046459852c949329fdb7, type: 3}
-  m_Name: Shiv
+  m_Name: Greatsword
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -49,7 +49,7 @@ MonoBehaviour:
       Data: 0
     - Name: $v
       Entry: 3
-      Data: 2
+      Data: 9
     - Name: 
       Entry: 8
       Data: 
@@ -68,16 +68,28 @@ MonoBehaviour:
       Data: 1
     - Name: 
       Entry: 12
-      Data: 1
+      Data: 2
     - Name: 
       Entry: 7
       Data: 
     - Name: $k
       Entry: 3
-      Data: 1
+      Data: 0
     - Name: $v
       Entry: 3
-      Data: 1
+      Data: 20
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 8
+    - Name: $v
+      Entry: 3
+      Data: 2
     - Name: 
       Entry: 8
       Data: 
@@ -88,13 +100,13 @@ MonoBehaviour:
       Entry: 8
       Data: 
   itemType: 0
-  itemName: Trusty Shiv
-  itemIcon: {fileID: 21300000, guid: 35a4b82577676244f9b550c2d3fd05e2, type: 3}
-  actionName1: Slice
-  itemDescription1: Deals 2 damage
-  manaCost1: 1
+  itemName: Greatsword
+  itemIcon: {fileID: 21300000, guid: 76716b5bd1980f5478366651ce05d31a, type: 3}
+  actionName1: Elegant Strike
+  itemDescription1: Deals 9 damage
+  manaCost1: 2
   actionCost1: 1
-  actionName2: First Aid
-  itemDescription2: Heal 1 HP
-  manaCost2: 2
+  actionName2: Super Swing
+  itemDescription2: Deals 20 damage\n Gain 2 Weak
+  manaCost2: 4
   actionCost2: 1

@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6278750603c2046459852c949329fdb7, type: 3}
-  m_Name: Shiv
+  m_Name: Achilles Boots
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -40,16 +40,28 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 12
-      Data: 1
+      Data: 2
     - Name: 
       Entry: 7
       Data: 
     - Name: $k
       Entry: 3
-      Data: 0
+      Data: 10
     - Name: $v
       Entry: 3
-      Data: 2
+      Data: 3
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 12
+    - Name: $v
+      Entry: 3
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -74,7 +86,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 3
-      Data: 1
+      Data: 13
     - Name: $v
       Entry: 3
       Data: 1
@@ -87,14 +99,14 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-  itemType: 0
-  itemName: Trusty Shiv
-  itemIcon: {fileID: 21300000, guid: 35a4b82577676244f9b550c2d3fd05e2, type: 3}
-  actionName1: Slice
-  itemDescription1: Deals 2 damage
-  manaCost1: 1
-  actionCost1: 1
-  actionName2: First Aid
-  itemDescription2: Heal 1 HP
-  manaCost2: 2
-  actionCost2: 1
+  itemType: 1
+  itemName: Achilles' Boots
+  itemIcon: {fileID: 21300000, guid: a66ccd1304b393148b9cea2e0ef6aefd, type: 3}
+  actionName1: Dash
+  itemDescription1: Gain 3 Block\n Next Action is 25% more effective
+  manaCost1: 2
+  actionCost1: 2
+  actionName2: Strafe
+  itemDescription2: 10% chance to negate damage for 1 turn
+  manaCost2: 5
+  actionCost2: 2

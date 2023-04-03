@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6278750603c2046459852c949329fdb7, type: 3}
-  m_Name: Shiv
+  m_Name: Mythril Hammer
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -49,7 +49,7 @@ MonoBehaviour:
       Data: 0
     - Name: $v
       Entry: 3
-      Data: 2
+      Data: 15
     - Name: 
       Entry: 8
       Data: 
@@ -68,13 +68,37 @@ MonoBehaviour:
       Data: 1
     - Name: 
       Entry: 12
-      Data: 1
+      Data: 3
     - Name: 
       Entry: 7
       Data: 
     - Name: $k
       Entry: 3
+      Data: 0
+    - Name: $v
+      Entry: 3
+      Data: 6
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 5
+    - Name: $v
+      Entry: 3
       Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 6
     - Name: $v
       Entry: 3
       Data: 1
@@ -88,13 +112,13 @@ MonoBehaviour:
       Entry: 8
       Data: 
   itemType: 0
-  itemName: Trusty Shiv
-  itemIcon: {fileID: 21300000, guid: 35a4b82577676244f9b550c2d3fd05e2, type: 3}
-  actionName1: Slice
-  itemDescription1: Deals 2 damage
-  manaCost1: 1
+  itemName: Mythril Hammer
+  itemIcon: {fileID: 21300000, guid: aa36607b8b124534f89602ff3e285666, type: 3}
+  actionName1: Bonk
+  itemDescription1: Deals 15 damage
+  manaCost1: 4
   actionCost1: 1
-  actionName2: First Aid
-  itemDescription2: Heal 1 HP
-  manaCost2: 2
+  actionName2: Seismic Slam
+  itemDescription2: Deals 6 damage\n Apply 1 Weak and 1 Vulnerable
+  manaCost2: 4
   actionCost2: 1

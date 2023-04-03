@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 6278750603c2046459852c949329fdb7, type: 3}
-  m_Name: Shiv
+  m_Name: Kunai
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -68,13 +68,25 @@ MonoBehaviour:
       Data: 1
     - Name: 
       Entry: 12
-      Data: 1
+      Data: 2
     - Name: 
       Entry: 7
       Data: 
     - Name: $k
       Entry: 3
-      Data: 1
+      Data: 0
+    - Name: $v
+      Entry: 3
+      Data: 5
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 6
     - Name: $v
       Entry: 3
       Data: 1
@@ -88,13 +100,13 @@ MonoBehaviour:
       Entry: 8
       Data: 
   itemType: 0
-  itemName: Trusty Shiv
-  itemIcon: {fileID: 21300000, guid: 35a4b82577676244f9b550c2d3fd05e2, type: 3}
-  actionName1: Slice
-  itemDescription1: Deals 2 damage
+  itemName: Kunai
+  itemIcon: {fileID: 21300000, guid: e717b6e8cb03d84419e5b567619280e2, type: 3}
+  actionName1: Swift Stab
+  itemDescription1: Deals 2 danage\n Cost 0 Action
   manaCost1: 1
-  actionCost1: 1
-  actionName2: First Aid
-  itemDescription2: Heal 1 HP
+  actionCost1: 0
+  actionName2: Precision Throw
+  itemDescription2: Deals 5 damage\n Apply 1 Vulnerable
   manaCost2: 2
   actionCost2: 1

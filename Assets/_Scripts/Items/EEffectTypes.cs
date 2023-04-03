@@ -2,9 +2,9 @@ public enum EEffectTypes
 {
     DamageSingle,
     Heal,
-    DamageInstances,
     DamageAll,
     DamageRandom,
+    DamageInstances,
     Weak,
     Vulnerable,
     DamageToBlock,

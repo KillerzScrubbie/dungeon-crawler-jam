@@ -24,7 +24,7 @@ public class PlayerHpUiDisplay : MonoBehaviour
         PlayerHp.OnPlayerUpdateHp -= UpdatePlayerHp;
     }
 
-    void Start()
+    void Awake()
     {
         _startColor = _hpSlider.color;
     }

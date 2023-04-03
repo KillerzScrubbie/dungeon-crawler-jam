@@ -78,7 +78,6 @@ public class PlayerMovement : MonoBehaviour
 
         controller.DisableMovement();
         OnCombatEntered?.Invoke();
-        Debug.Log("COMBAT!");
     }
 
     private void ProcessMovement()
@@ -227,7 +226,7 @@ public class PlayerMovement : MonoBehaviour
         isMainDimension = !isMainDimension;
         SetGridPos(targetGridDimensionPos);
 
-        transform.DOMove(targetGridPos, duration).OnComplete(() => TryFalling(duration));
+        transform.DOMove(targetGridPos, 0f).OnComplete(() => TryFalling(duration));
     }
 
     private void LockMovement(bool state) => isMoving = state;

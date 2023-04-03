@@ -40,13 +40,25 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 12
-      Data: 0
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 17
+    - Name: $v
+      Entry: 3
+      Data: 30
+    - Name: 
+      Entry: 8
+      Data: 
     - Name: 
       Entry: 13
       Data: 
     - Name: 
       Entry: 8
       Data: 
-  potionIcon: {fileID: 0}
-  potionName: 
-  potionDescription: 
+  potionIcon: {fileID: 21300000, guid: f9b428aa2b3226043872ccc56b56f7ff, type: 3}
+  potionName: Mana Potion
+  potionDescription: Recover Mana 30% of your max MP

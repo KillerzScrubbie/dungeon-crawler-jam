@@ -24,4 +24,6 @@ public class ObjItems : SerializedScriptableObject
     [SerializeField] private int manaCost2;
     [SerializeField] private int actionCost2 = 1;
     [SerializeField] private Dictionary<EEffectTypes, int> effectList2 = new();
+
+    public string Name { get { return itemName; }}
 }

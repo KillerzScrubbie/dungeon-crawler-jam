@@ -1,10 +1,10 @@
-using System.Collections;
 using System;
 using UnityEngine;
 
 public class PlayerInputController : MonoBehaviour
 {
     public event Action<EMovementTypes> OnQueue;
+    public static event Action OnPause;
 
     private PlayerInput playerInputMap;
 
@@ -22,6 +22,8 @@ public class PlayerInputController : MonoBehaviour
         playerInputMap.Player.LookLeft.performed += _ => Move(EMovementTypes.TurnLeft);
         playerInputMap.Player.LookRight.performed += _ => Move(EMovementTypes.TurnRight);
         playerInputMap.Player.DimensionJump.performed += _ => Move(EMovementTypes.DimensionJump);
+
+        playerInputMap.UI.Pause.performed += _ => Pause();
     }
 
     public void DisableMovement()
@@ -40,5 +42,10 @@ public class PlayerInputController : MonoBehaviour
     private void Move(EMovementTypes type)
     {
         OnQueue?.Invoke(type);
+    }
+
+    private void Pause()
+    {
+        OnPause?.Invoke();
     }
 }

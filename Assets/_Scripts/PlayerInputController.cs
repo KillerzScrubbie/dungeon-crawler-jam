@@ -24,6 +24,16 @@ public class PlayerInputController : MonoBehaviour
         playerInputMap.Player.DimensionJump.performed += _ => Move(EMovementTypes.DimensionJump);
     }
 
+    public void DisableMovement()
+    {
+        playerInputMap.Player.Disable();
+    }
+
+    public void EnableMovement()
+    {
+        playerInputMap.Player.Enable();
+    }
+
     private void OnEnable() => playerInputMap.Enable();
     private void OnDisable() => playerInputMap.Disable();
 

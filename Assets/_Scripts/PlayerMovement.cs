@@ -1,6 +1,7 @@
 using UnityEngine;
 using DG.Tweening;
 using System.Collections.Generic;
+using System;
 
 [RequireComponent(typeof(PlayerInputController))]
 public class PlayerMovement : MonoBehaviour
@@ -9,6 +10,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private bool smoothTransition = false;
     [SerializeField] private float moveDuration = 0.15f;
     [SerializeField] private float rotationDuration = 0.15f;
+    [SerializeField] private int dimensionOffset = 200;
 
     [Space]
     [Header("Player Physics")]
@@ -18,6 +20,8 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private LayerMask stairsDownLayers;
     [SerializeField] private LayerMask enemyLayers;
     [SerializeField] private BoxCollider groundCheckCollider;
+
+    public event Action OnCombatEntered;
 
     private Queue<EMovementTypes> inputQueue = new();
 
@@ -31,7 +35,6 @@ public class PlayerMovement : MonoBehaviour
     private bool isMainDimension = true;
 
     private readonly float gridSize = 1f;
-    private readonly int dimensionOffset = 200;
 
     private float playerOffset = 0f;
 
@@ -55,7 +58,13 @@ public class PlayerMovement : MonoBehaviour
         inputQueue.Enqueue(eMovementTypes);
     }
 
-    private void Update()
+    /*private void Update()
+    {
+        CheckForEnemy();
+        ProcessMovement();
+    }*/
+
+    public void UpdateMovement()
     {
         CheckForEnemy();
         ProcessMovement();
@@ -67,7 +76,9 @@ public class PlayerMovement : MonoBehaviour
 
         if (Physics.OverlapSphere(transform.position, 0.2f, enemyLayers).Length == 0) { return; }
 
-        Debug.Log("FIGHT!");
+        controller.DisableMovement();
+        OnCombatEntered?.Invoke();
+        Debug.Log("COMBAT!");
     }
 
     private void ProcessMovement()

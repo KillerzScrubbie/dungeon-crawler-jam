@@ -7,7 +7,11 @@ public class GameSetting : MonoBehaviour
 
     [SerializeField] SliderWithText _fovSlider;
     [SerializeField] Toggle _toggleSmooth;
+
     string TOGGLE_SMOOTH_SETTING_SAVE_NAME = "saved_smooth";
+
+    public static Action<float> OnFovChange;
+    public static Action<bool> OnSmoothChange;
 
     void Start()
     {
@@ -29,15 +33,16 @@ public class GameSetting : MonoBehaviour
 
     void UpdateToggleValue(bool newBool)
     {
-        // trigger event here
-        Debug.Log(newBool);
+        OnSmoothChange?.Invoke(newBool);
+
         PlayerPrefs.SetInt(TOGGLE_SMOOTH_SETTING_SAVE_NAME, newBool ? 1 : 0);
     }
 
 
     void UpdateSliderValue(SliderWithText sliderGroup, float value)
     {
-        // trigger event here
+        OnFovChange?.Invoke(value);
+
         sliderGroup.UpdateSliderText(value);
         PlayerPrefs.SetFloat(sliderGroup._valueName, value);
     }

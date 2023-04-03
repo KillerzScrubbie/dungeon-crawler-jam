@@ -117,10 +117,10 @@ public class PlayerMovement : MonoBehaviour
 
     private void Move(Vector3 direction)
     {
-        if (CheckForCollision(direction)) 
+        if (CheckForCollision(direction))
         {
             LockMovement(false);
-            return; 
+            return;
         }
 
         float duration = smoothTransition ? moveDuration : 0f;
@@ -211,8 +211,8 @@ public class PlayerMovement : MonoBehaviour
 
     private void DimensionJump()
     {
-        Vector3 targetGridDimensionPos = isMainDimension ? 
-            transform.position + Vector3.left * dimensionOffset : 
+        Vector3 targetGridDimensionPos = isMainDimension ?
+            transform.position + Vector3.left * dimensionOffset :
             transform.position + Vector3.right * dimensionOffset;
 
         if (CheckForCollisionInDimension(targetGridDimensionPos))
@@ -239,5 +239,10 @@ public class PlayerMovement : MonoBehaviour
     private void OnDestroy()
     {
         controller.OnQueue -= QueueMovement;
+    }
+
+    public void SetSmoothMovement(bool newMovementType)
+    {
+        smoothTransition = newMovementType;
     }
 }

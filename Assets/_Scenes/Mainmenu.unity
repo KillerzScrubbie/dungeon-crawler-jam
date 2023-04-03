@@ -2993,7 +2993,7 @@ MonoBehaviour:
   _fovSlider:
     _slider: {fileID: 8881510477574299502}
     _text: {fileID: 8881510478553048405}
-    _valueName: fov
+    _valueName: saved_fov
   _toggleSmooth: {fileID: 1540395605}
 --- !u!1 &1966339123
 GameObject:

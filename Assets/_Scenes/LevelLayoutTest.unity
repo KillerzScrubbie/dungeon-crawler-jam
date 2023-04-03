@@ -12233,41 +12233,6 @@ PrefabInstance:
       objectReference: {fileID: 1748857067}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8cd1d76141f3c8841bfa3892b2239604, type: 3}
---- !u!1 &2141543306 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 2791410468605971282, guid: 6ef45f3714be5984aac84c8bc23f595c,
-    type: 3}
-  m_PrefabInstance: {fileID: 2791410469824729304}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &2141543312
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2141543306}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 847a14d4dc9cc43679ab34fc78e0182f, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  version: 4
-  autoRepath:
-    mode: 2
-    period: 0.5
-    sensitivity: 10
-    maximumPeriod: 3
-    visualizeSensitivity: 0
-  canMove: 1
-  speed: 0.2
-  orientation: 0
-  enableRotation: 0
-  rotationSpeed: 10
-  interpolatePathSwitches: 1
-  switchPathInterpolationSpeed: 5
-  targetCompatibility: {fileID: 0}
-  repathRateCompatibility: NaN
-  canSearchCompability: 0
 --- !u!4 &2144647755 stripped
 Transform:
   m_CorrespondingSourceObject: {fileID: 1657392229290460979, guid: d8f7397b0647fc74cb4deb2425940251,
@@ -12346,28 +12311,7 @@ PrefabInstance:
       propertyPath: target
       value: 
       objectReference: {fileID: 2091934092}
-    - target: {fileID: 2791410468605971286, guid: 6ef45f3714be5984aac84c8bc23f595c,
-        type: 3}
-      propertyPath: radius
-      value: 0.8
-      objectReference: {fileID: 0}
-    - target: {fileID: 2791410468605971286, guid: 6ef45f3714be5984aac84c8bc23f595c,
-        type: 3}
-      propertyPath: m_Enabled
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2791410468605971286, guid: 6ef45f3714be5984aac84c8bc23f595c,
-        type: 3}
-      propertyPath: endReachedDistance
-      value: 0.2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2791410468605971286, guid: 6ef45f3714be5984aac84c8bc23f595c,
-        type: 3}
-      propertyPath: pickNextWaypointDist
-      value: 0.3
-      objectReference: {fileID: 0}
-    m_RemovedComponents:
-    - {fileID: 2791410468605971286, guid: 6ef45f3714be5984aac84c8bc23f595c, type: 3}
+    m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 6ef45f3714be5984aac84c8bc23f595c, type: 3}
 --- !u!1001 &2821437054571709768
 PrefabInstance:

@@ -10,12 +10,13 @@ public enum EMenu
 
 public class MenuManager : MonoBehaviour
 {
+    [SerializeField] GameObject _mainMenu;
     [SerializeField] GameObject _option;
     [SerializeField] GameObject _credit;
 
     void Start()
     {
-        DisableAllMenu();
+        OpenMenu(0);
     }
 
     public void OpenMenu(int targetMenu)
@@ -25,6 +26,7 @@ public class MenuManager : MonoBehaviour
         switch ((EMenu)targetMenu)
         {
             case EMenu.Normal:
+                _mainMenu.SetActive(true);
                 break;
             case EMenu.Option:
                 _option.SetActive(true);
@@ -39,5 +41,7 @@ public class MenuManager : MonoBehaviour
     {
         _option.SetActive(false);
         _credit.SetActive(false);
+        _mainMenu.SetActive(false);
     }
+
 }

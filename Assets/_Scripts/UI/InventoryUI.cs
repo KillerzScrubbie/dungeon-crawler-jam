@@ -16,8 +16,8 @@ public class InventoryUI : SerializedMonoBehaviour
 
     private void Start()
     {
-        // inventory.OnInventoryUpdated += SetInventory;
         PlayerInputController.OnInventoryOpened += HandleInventoryPopup;
+        MouseClickDetector.OnChestClicked += HandleChestOpened;
     }
 
     public void OnClicked()
@@ -30,9 +30,16 @@ public class InventoryUI : SerializedMonoBehaviour
         inventoryPanel.SetActive(!inventoryPanel.activeSelf);
     }
 
+    private void HandleChestOpened(ObjItems item)
+    {
+        inventory.AddItem(item);
+    }
+
     public void SetInventory(Inventory inventory)
     {
         this.inventory = inventory;
+        inventory.OnInventoryUpdated += RefreshInventoryItems;
+
         RefreshInventoryItems();
     }
 
@@ -57,7 +64,8 @@ public class InventoryUI : SerializedMonoBehaviour
 
     private void OnDestroy()
     {
-        // inventory.OnInventoryUpdated -= SetInventory;
+        inventory.OnInventoryUpdated -= RefreshInventoryItems;
         PlayerInputController.OnInventoryOpened -= HandleInventoryPopup;
+        MouseClickDetector.OnChestClicked -= HandleChestOpened;
     }
 }

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.InputSystem;
 
@@ -7,6 +8,8 @@ public class MouseClickDetector : MonoBehaviour
     [SerializeField] private LayerMask lootMask;
 
     private Camera mainCamera;
+
+    public static event Action<ObjItems> OnChestClicked;
 
     private void Start()
     {
@@ -25,9 +28,10 @@ public class MouseClickDetector : MonoBehaviour
         Ray ray = mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
         RaycastHit hit;
 
-        if (Physics.Raycast(ray, out hit, rayDistance, lootMask))
-        {
-            Debug.Log(hit.transform.name);
-        }
+        if (!Physics.Raycast(ray, out hit, rayDistance, lootMask)) { return; }
+
+        if (!hit.transform.TryGetComponent(out ChestLoot loot)) { return; }
+
+        OnChestClicked?.Invoke(loot.GetItem());
     }
 }

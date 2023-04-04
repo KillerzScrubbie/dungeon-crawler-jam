@@ -7,7 +7,7 @@ public class Inventory
     private Dictionary<int, ObjItems> itemList;
     private List<ObjPotions> potionList;
 
-    public event Action<Inventory> OnInventoryUpdated;
+    public event Action OnInventoryUpdated;
 
     private readonly int maxItemSlots = 4;
     private readonly int maxPotionSlots = 2;
@@ -38,7 +38,7 @@ public class Inventory
         }
         
         Debug.Log($"Added {item.Name} to slot {itemSlot}");
-        // OnInventoryUpdated?.Invoke(this);
+        OnInventoryUpdated?.Invoke();
     }
 
     public void AddPotion(ObjPotions potion)

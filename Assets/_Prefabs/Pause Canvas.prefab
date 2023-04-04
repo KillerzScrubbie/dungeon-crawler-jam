@@ -1722,10 +1722,10 @@ MonoBehaviour:
   m_FillRect: {fileID: 7449556676737982875}
   m_HandleRect: {fileID: 5748122357730933122}
   m_Direction: 0
-  m_MinValue: 90
-  m_MaxValue: 110
+  m_MinValue: 50
+  m_MaxValue: 75
   m_WholeNumbers: 0
-  m_Value: 101.4
+  m_Value: 58
   m_OnValueChanged:
     m_PersistentCalls:
       m_Calls: []
@@ -3172,7 +3172,7 @@ MonoBehaviour:
   m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
-    m_Bits: 4294967295
+    m_Bits: 4087
 --- !u!1 &7123164094413666005
 GameObject:
   m_ObjectHideFlags: 0

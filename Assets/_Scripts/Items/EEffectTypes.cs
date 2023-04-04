@@ -18,5 +18,6 @@ public enum EEffectTypes
     ClearDebuff,
     HealPercent,
     ManaPercent,
-    Strength
+    Strength,
+    Exhaust,
 }

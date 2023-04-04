@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -19,6 +18,11 @@ public class InventoryUI : SerializedMonoBehaviour
     {
         // inventory.OnInventoryUpdated += SetInventory;
         PlayerInputController.OnInventoryOpened += HandleInventoryPopup;
+    }
+
+    public void OnClicked()
+    {
+        HandleInventoryPopup();
     }
 
     private void HandleInventoryPopup()

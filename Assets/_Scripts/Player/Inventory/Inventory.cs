@@ -1,5 +1,4 @@
 using System;
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -25,8 +24,7 @@ public class Inventory
 
         if (itemSlot > maxItemSlots - 1)
         {
-            itemList[0] = item;
-            Debug.Log(itemList.Count);
+            Debug.Log("Full");
             return;
         }
 

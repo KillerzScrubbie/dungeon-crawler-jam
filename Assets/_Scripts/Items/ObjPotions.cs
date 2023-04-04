@@ -1,4 +1,3 @@
-using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using Sirenix.OdinInspector;
@@ -19,4 +18,10 @@ public class ObjPotions : SerializedScriptableObject
 
     [Space]
     [SerializeField] private Dictionary<EEffectTypes, int> effectList = new();
+
+    public Sprite Icon { get { return potionIcon; } }
+    public string Name { get { return potionName; } }
+    public string Description { get { return potionDescription; } }
+    public Dictionary<EEffectTypes, int> EffectList { get {  return effectList; } }
+
 }

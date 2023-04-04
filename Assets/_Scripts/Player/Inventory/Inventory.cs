@@ -25,7 +25,8 @@ public class Inventory
 
         if (itemSlot > maxItemSlots - 1)
         {
-            Debug.Log("FULL!");
+            itemList[0] = item;
+            Debug.Log(itemList.Count);
             return;
         }
 

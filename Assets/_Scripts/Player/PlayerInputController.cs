@@ -5,6 +5,7 @@ public class PlayerInputController : MonoBehaviour
 {
     public event Action<EMovementTypes> OnQueue;
     public static event Action OnPause;
+    public static event Action OnInventoryOpened;
 
     private PlayerInput playerInputMap;
 
@@ -22,6 +23,8 @@ public class PlayerInputController : MonoBehaviour
         playerInputMap.Player.LookLeft.performed += _ => Move(EMovementTypes.TurnLeft);
         playerInputMap.Player.LookRight.performed += _ => Move(EMovementTypes.TurnRight);
         playerInputMap.Player.DimensionJump.performed += _ => Move(EMovementTypes.DimensionJump);
+
+        playerInputMap.Inventory.Inventory.performed += _ => OpenInventory();
 
         playerInputMap.UI.Pause.performed += _ => Pause();
     }
@@ -47,5 +50,23 @@ public class PlayerInputController : MonoBehaviour
     private void Pause()
     {
         OnPause?.Invoke();
+    }
+
+    private void OpenInventory()
+    {
+        OnInventoryOpened?.Invoke();
+    }
+
+    public void SetInventoryActive(bool state)
+    {
+        switch (state)
+        {
+            case false:
+                playerInputMap.Inventory.Inventory.Disable();
+                break;
+            case true:
+                playerInputMap.Inventory.Inventory.Enable();
+                break;
+        }
     }
 }

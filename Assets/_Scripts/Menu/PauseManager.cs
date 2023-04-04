@@ -6,6 +6,13 @@ public class PauseManager : MonoBehaviour
 
     private bool isPaused = false;
 
+    private PlayerInputController controller;
+
+    private void Awake()
+    {
+        controller = FindObjectOfType<PlayerInputController>();
+    }
+
     private void Start()
     {
         PlayerInputController.OnPause += HandlePause;
@@ -15,12 +22,18 @@ public class PauseManager : MonoBehaviour
     {
         if (isPaused)
         {
-            pauseCanvas.SetActive(false);
+            Resume();
         }
         else
         {
-            pauseCanvas.SetActive(true);
+            Pause();
         }
+    }
+
+    private void Pause()
+    {
+        pauseCanvas.SetActive(true);
+        controller.DisableMovement();
 
         isPaused = !isPaused;
     }
@@ -28,10 +41,10 @@ public class PauseManager : MonoBehaviour
     public void Resume()
     {
         pauseCanvas.SetActive(false);
-        isPaused = false;
+        controller.EnableMovement();
+
+        isPaused = !isPaused;
     }
-
-
 
     private void OnDestroy()
     {

@@ -238,15 +238,6 @@
                     "processors": "",
                     "interactions": "",
                     "initialStateCheck": false
-                },
-                {
-                    "name": "Inventory",
-                    "type": "Button",
-                    "id": "d1cccf56-efa9-476c-8add-8a2d2b7a8454",
-                    "expectedControlType": "Button",
-                    "processors": "",
-                    "interactions": "",
-                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -260,10 +251,27 @@
                     "action": "Pause",
                     "isComposite": false,
                     "isPartOfComposite": false
-                },
+                }
+            ]
+        },
+        {
+            "name": "Inventory",
+            "id": "7939e808-8c1e-4d70-8c2f-c8fa582a07f1",
+            "actions": [
+                {
+                    "name": "Inventory",
+                    "type": "Button",
+                    "id": "7a9f6e02-90bf-484e-9add-1e4b21d17905",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "",
+                    "initialStateCheck": false
+                }
+            ],
+            "bindings": [
                 {
                     "name": "",
-                    "id": "a095a842-c4b6-4498-a8cc-ec852a5a31f2",
+                    "id": "c4684b21-f181-4c37-8603-8d15884b2b19",
                     "path": "<Keyboard>/i",
                     "interactions": "",
                     "processors": "",

@@ -26,4 +26,5 @@ public class ObjItems : SerializedScriptableObject
     [SerializeField] private Dictionary<EEffectTypes, int> effectList2 = new();
 
     public string Name { get { return itemName; }}
+    public Sprite Icon { get { return itemIcon; }}
 }

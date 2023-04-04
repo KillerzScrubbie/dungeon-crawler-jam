@@ -5,26 +5,37 @@ using UnityEngine;
 public class Inventory
 {
     private Dictionary<int, ObjItems> itemList;
-    private List<ObjPotions> potionList;
+    private Dictionary<int, ObjPotions> potionList;
+    private Dictionary<int, ObjItems> equippedList;
 
     public event Action OnInventoryUpdated;
+    public event Action OnPotionUpdated;
+    public event Action OnEquippedUpdated;
 
     private readonly int maxItemSlots = 4;
     private readonly int maxPotionSlots = 2;
 
     public Inventory()
     {
-        itemList = new Dictionary<int, ObjItems>(maxItemSlots);
-        potionList = new List<ObjPotions>();
+        itemList = new Dictionary<int, ObjItems>();
+        potionList = new Dictionary<int, ObjPotions>();
     }
 
     public void AddItem(ObjItems item, int slot = -1)
     {
-        int itemSlot = slot >= 0 ? slot : itemList.Count;
+        int itemSlot = slot >= 0 ? slot : maxItemSlots;
+
+        for (int i = 0; i < maxItemSlots; i++)
+        {
+            if (itemList.ContainsKey(i)) continue;
+
+            itemSlot = i;
+            break;
+        }
 
         if (itemSlot > maxItemSlots - 1)
         {
-            Debug.Log("Full");
+            Debug.Log("Inventory Full");
             return;
         }
 
@@ -37,13 +48,56 @@ public class Inventory
             itemList.Add(itemSlot, item);
         }
         
-        Debug.Log($"Added {item.Name} to slot {itemSlot}");
         OnInventoryUpdated?.Invoke();
     }
 
-    public void AddPotion(ObjPotions potion)
+    public void RemoveItem(int slot) 
     {
-        potionList.Add(potion);
+        itemList.Remove(slot);
+
+        OnInventoryUpdated?.Invoke();
+    }
+
+    public void SwapItemPosition(EInventorySlot slotType1, int slot1, EInventorySlot slotType2, int slot2)
+    {
+
+    }
+
+    public void AddPotion(ObjPotions potion, int slot = -1)
+    {
+        int potionSlot = slot >= 0 ? slot : maxPotionSlots;
+
+        for (int i = 0; i < maxPotionSlots; i++)
+        {
+            if (potionList.ContainsKey(i)) continue;
+
+            potionSlot = i;
+            break;
+        }
+
+        if (potionSlot > maxPotionSlots - 1)
+        {
+            Debug.Log("Potions Full");
+            return;
+        }
+
+        if (potionList.ContainsKey(potionSlot))
+        {
+            potionList[potionSlot] = potion;
+        }
+        else
+        {
+            potionList.Add(potionSlot, potion);
+        }
+
+        OnPotionUpdated?.Invoke();
+    }
+
+    public void RemovePotion(int slot)
+    {
+        potionList.Remove(slot);
+
+        OnPotionUpdated?.Invoke();
     }
 
     public Dictionary<int, ObjItems> GetItemList()
@@ -51,7 +105,7 @@ public class Inventory
         return itemList;
     }
 
-    public List<ObjPotions> GetPotionList()
+    public Dictionary<int, ObjPotions> GetPotionList()
     {
         return potionList;
     }

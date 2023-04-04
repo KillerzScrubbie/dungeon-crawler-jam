@@ -5,6 +5,7 @@ public class ChestLoot : MonoBehaviour
 {
     [SerializeField] private bool isRandomized = false;
     [SerializeField] private ObjItems item;
+    [SerializeField] private ObjPotions potion;
 
     [SerializeField] private List<ObjItems> items;
 
@@ -17,20 +18,11 @@ public class ChestLoot : MonoBehaviour
         item = items[Random.Range(0, items.Count)];
     }
 
-    public void SetItem(ObjItems item)
-    {
-        this.item = item;
-    }
-
     public ObjItems GetItem() => item;
+    public ObjPotions GetPotion() => potion;
 
     public void DestroySelf()
     {
         gameObject.SetActive(false);
     }
-
-    /*public static ChestLoot SpawnChestLoot(ObjItems item, bool isRandomized = false)
-    {
-
-    }*/
 }

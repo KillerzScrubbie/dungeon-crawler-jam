@@ -18,6 +18,7 @@ public class InventoryUI : SerializedMonoBehaviour
     {
         PlayerInputController.OnInventoryOpened += HandleInventoryPopup;
         MouseClickDetector.OnChestClicked += HandleChestOpened;
+        ItemData.OnItemRemoved += HandleItemRemoved;
     }
 
     public void OnClicked()
@@ -30,23 +31,25 @@ public class InventoryUI : SerializedMonoBehaviour
         inventoryPanel.SetActive(!inventoryPanel.activeSelf);
     }
 
-    private void HandleChestOpened(ObjItems item)
+    private void HandleChestOpened(ObjItems item, ObjPotions potion)
     {
-        inventory.AddItem(item);
+        if (item != null) { inventory.AddItem(item); }
+        if (potion != null) { inventory.AddPotion(potion); }
     }
 
     public void SetInventory(Inventory inventory)
     {
         this.inventory = inventory;
         inventory.OnInventoryUpdated += RefreshInventoryItems;
+        inventory.OnPotionUpdated += RefreshPotionItems;
 
         RefreshInventoryItems();
+        RefreshPotionItems();
     }
 
     private void RefreshInventoryItems()
     {
         Dictionary<int, ObjItems> inventoryItemList = inventory.GetItemList();
-        // int inventoryCount = inventoryItemList.Count;
 
         for (int i = 0; i < itemSlots.Count; i++)
         {
@@ -61,12 +64,6 @@ public class InventoryUI : SerializedMonoBehaviour
             ObjItems item = inventoryItemList[i];
             ItemData itemData = currentSlot.GetComponent<ItemData>();
 
-            if (item == null)
-            {
-                currentSlot.enabled = false;
-                continue;
-            }
-
             if (itemData.Item == item)
             {
                 continue;
@@ -78,10 +75,57 @@ public class InventoryUI : SerializedMonoBehaviour
         }
     }
 
+    private void RefreshPotionItems()
+    {
+        Dictionary<int, ObjPotions> potionItemList = inventory.GetPotionList();
+
+        for (int i = 0; i < potionSlots.Count; i++)
+        {
+            Image currentSlot = potionSlots[i];
+
+            if (!potionItemList.ContainsKey(i))
+            {
+                currentSlot.enabled = false;
+                continue;
+            }
+
+            ObjPotions potion = potionItemList[i];
+            ItemData potionData = currentSlot.GetComponent<ItemData>();
+
+            if (potionData.Potion == potion)
+            {
+                continue;
+            }
+
+            currentSlot.enabled = true;
+            potionData.Potion = potion;
+            currentSlot.sprite = potion.Icon;
+        }
+    }
+
+    private void HandleItemRemoved(EInventorySlot slotType, int slot)
+    {
+        switch (slotType)
+        {
+            case EInventorySlot.Inventory:
+                inventory.RemoveItem(slot);
+                break;
+            case EInventorySlot.Equipped:
+                // inventory.RemoveEquipped(slot);
+                break;
+            case EInventorySlot.Potions:
+                inventory.RemovePotion(slot);
+                break;
+        }
+        
+    }
+
     private void OnDestroy()
     {
         inventory.OnInventoryUpdated -= RefreshInventoryItems;
+        inventory.OnPotionUpdated -= RefreshPotionItems;
         PlayerInputController.OnInventoryOpened -= HandleInventoryPopup;
         MouseClickDetector.OnChestClicked -= HandleChestOpened;
+        ItemData.OnItemRemoved -= HandleItemRemoved;
     }
 }

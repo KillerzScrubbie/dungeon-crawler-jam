@@ -9,7 +9,7 @@ public class MouseClickDetector : MonoBehaviour
 
     private Camera mainCamera;
 
-    public static event Action<ObjItems> OnChestClicked;
+    public static event Action<ObjItems, ObjPotions> OnChestClicked;
 
     private void Start()
     {
@@ -32,6 +32,6 @@ public class MouseClickDetector : MonoBehaviour
 
         if (!hit.transform.TryGetComponent(out ChestLoot loot)) { return; }
 
-        OnChestClicked?.Invoke(loot.GetItem());
+        OnChestClicked?.Invoke(loot.GetItem(), loot.GetPotion());
     }
 }

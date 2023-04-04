@@ -90,6 +90,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 0}
+  potion: {fileID: 0}
+  slot: 0
+  id: 2
 --- !u!1 &4500252555164689243
 GameObject:
   m_ObjectHideFlags: 0
@@ -536,6 +539,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 0}
+  potion: {fileID: 0}
+  slot: 0
+  id: 0
 --- !u!1 &4500252555657334845
 GameObject:
   m_ObjectHideFlags: 0
@@ -1386,6 +1392,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 0}
+  potion: {fileID: 0}
+  slot: 1
+  id: 0
 --- !u!1 &4500252556688051848
 GameObject:
   m_ObjectHideFlags: 0
@@ -2159,6 +2168,7 @@ GameObject:
   - component: {fileID: 4500252557106738289}
   - component: {fileID: 4500252557106738291}
   - component: {fileID: 4500252557106738288}
+  - component: {fileID: 6337931209071424737}
   m_Layer: 5
   m_Name: Potion Image 1
   m_TagString: Untagged
@@ -2224,6 +2234,22 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &6337931209071424737
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 4500252557106738294}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b90a1ceb8ba65b04bbcd3ee22e58042b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 0}
+  potion: {fileID: 0}
+  slot: 2
+  id: 0
 --- !u!1 &4506798285217092112
 GameObject:
   m_ObjectHideFlags: 0
@@ -2314,6 +2340,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 0}
+  potion: {fileID: 0}
+  slot: 0
+  id: 3
 --- !u!1 &5792597903841164189
 GameObject:
   m_ObjectHideFlags: 0
@@ -2325,6 +2354,7 @@ GameObject:
   - component: {fileID: 8796024796387506277}
   - component: {fileID: 4257076856769608500}
   - component: {fileID: 5882721726458432831}
+  - component: {fileID: 5280822972127170871}
   m_Layer: 5
   m_Name: Potion Image 2
   m_TagString: Untagged
@@ -2390,6 +2420,22 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &5280822972127170871
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5792597903841164189}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b90a1ceb8ba65b04bbcd3ee22e58042b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  item: {fileID: 0}
+  potion: {fileID: 0}
+  slot: 2
+  id: 1
 --- !u!1 &6650012160113969345
 GameObject:
   m_ObjectHideFlags: 0
@@ -2480,6 +2526,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 0}
+  potion: {fileID: 0}
+  slot: 1
+  id: 1
 --- !u!1 &6733562090476071131
 GameObject:
   m_ObjectHideFlags: 0
@@ -2570,6 +2619,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 0}
+  potion: {fileID: 0}
+  slot: 1
+  id: 2
 --- !u!1 &7630865629040132757
 GameObject:
   m_ObjectHideFlags: 0
@@ -2660,6 +2712,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 0}
+  potion: {fileID: 0}
+  slot: 0
+  id: 1
 --- !u!1 &9011589358228495906
 GameObject:
   m_ObjectHideFlags: 0
@@ -2750,3 +2805,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   item: {fileID: 0}
+  potion: {fileID: 0}
+  slot: 1
+  id: 3

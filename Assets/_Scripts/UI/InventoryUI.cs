@@ -46,20 +46,36 @@ public class InventoryUI : SerializedMonoBehaviour
     private void RefreshInventoryItems()
     {
         Dictionary<int, ObjItems> inventoryItemList = inventory.GetItemList();
-        int inventoryCount = inventoryItemList.Count;
+        // int inventoryCount = inventoryItemList.Count;
 
-        for (int i = 0; i < inventoryCount; i++)
+        for (int i = 0; i < itemSlots.Count; i++)
         {
+            Image currentSlot = itemSlots[i];
+
+            if (!inventoryItemList.ContainsKey(i))
+            {
+                currentSlot.enabled = false;
+                continue;
+            }
+
             ObjItems item = inventoryItemList[i];
-            if (item == null) continue;
+            ItemData itemData = currentSlot.GetComponent<ItemData>();
 
-            itemSlots[i].sprite = item.Icon;
+            if (item == null)
+            {
+                currentSlot.enabled = false;
+                continue;
+            }
+
+            if (itemData.Item == item)
+            {
+                continue;
+            }
+
+            currentSlot.enabled = true;
+            itemData.Item = item;
+            currentSlot.sprite = item.Icon;
         }
-
-        /*for (int i = itemSlots.Count - inventoryCount - 1; i >= 0; i--)
-        {
-            itemSlots[i].sprite = inventoryItemList[i].Icon;
-        }*/
     }
 
     private void OnDestroy()

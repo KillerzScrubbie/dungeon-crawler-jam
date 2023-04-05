@@ -1,5 +1,7 @@
 using System;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 public class MouseClickDetector : MonoBehaviour
@@ -30,8 +32,21 @@ public class MouseClickDetector : MonoBehaviour
 
         if (!Physics.Raycast(ray, out hit, rayDistance, lootMask)) { return; }
 
+        if (IsMouseOverUIObject()) { return; }
+
         if (!hit.transform.TryGetComponent(out ChestLoot loot)) { return; }
 
         OnChestClicked?.Invoke(loot.GetItem(), loot.GetPotion());
+    }
+
+    private bool IsMouseOverUIObject()
+    {
+        PointerEventData eventDataCurrentPosition = new(EventSystem.current)
+        {
+            position = Mouse.current.position.ReadValue()
+        };
+        List<RaycastResult> results = new();
+        EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
+        return results.Count > 0;
     }
 }

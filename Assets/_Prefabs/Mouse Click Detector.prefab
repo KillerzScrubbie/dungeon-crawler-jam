@@ -44,7 +44,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 8964b1d3581d26d43aaa4ea40fff95a1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  rayDistance: 1.5
+  rayDistance: 1.8
   lootMask:
     serializedVersion: 2
     m_Bits: 4096

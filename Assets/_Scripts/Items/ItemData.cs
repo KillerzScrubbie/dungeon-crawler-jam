@@ -91,7 +91,7 @@ public class ItemData : MonoBehaviour, IPointerEnterHandler, IPointerClickHandle
                 ShowItemTooltip(item);
                 break;
             case EInventorySlot.Equipped:
-                if (item.Name == null) break;
+                if (item == null) break;
                 ShowItemTooltip(item);
                 break;
             case EInventorySlot.Potions:

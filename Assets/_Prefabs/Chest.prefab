@@ -398,6 +398,10 @@ MonoBehaviour:
   useTimeDelay: 0
   header: <color=yellow>Chest
   content: Click to open chest
+  rayDistance: 1.8
+  lootMask:
+    serializedVersion: 2
+    m_Bits: 4096
 --- !u!1 &7863113107666804419
 GameObject:
   m_ObjectHideFlags: 0

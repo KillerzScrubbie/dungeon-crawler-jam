@@ -31,7 +31,7 @@ public class Inventory
         {
             if (itemList.ContainsKey(i)) continue;
 
-            itemSlot = i;
+            itemSlot = itemSlot < maxItemSlots ? itemSlot : i;
             break;
         }
 
@@ -69,7 +69,7 @@ public class Inventory
         {
             if (equippedList.ContainsKey(i)) continue;
 
-            equippedSlot = i;
+            equippedSlot = i < maxEquippedSlots ? equippedSlot : i;
             break;
         }
 
@@ -104,7 +104,9 @@ public class Inventory
         EInventorySlot startSlotType = slotType1;
         EInventorySlot endSlotType = slotType2;
         int startSlotId = slot1;
-        int endSlotId = slot2;
+        int endSlotId = slot2;   
+
+        if (slotType1 == slotType2 && slot1 == slot2) { return; }
 
         ObjItems item1 = null;
         ObjItems item2 = null;
@@ -112,14 +114,17 @@ public class Inventory
         switch (startSlotType)
         {
             case EInventorySlot.Equipped:
+                if (!equippedList.ContainsKey(startSlotId)) { break; }
+
                 item1 = equippedList[startSlotId];
                 RemoveEquipped(startSlotId);
                 break;
 
             case EInventorySlot.Inventory:
+                if (!itemList.ContainsKey(startSlotId)) { break; }
+
                 item1 = itemList[startSlotId];
                 RemoveItem(startSlotId);
-
                 break;
 
             default:
@@ -129,8 +134,11 @@ public class Inventory
         switch (endSlotType)
         {
             case EInventorySlot.Equipped:
-                item2 = equippedList[endSlotId];
-                RemoveEquipped(endSlotId);
+                if (equippedList.ContainsKey(endSlotId))
+                {
+                    item2 = equippedList[endSlotId];
+                    RemoveEquipped(endSlotId);
+                } 
 
                 if (item1 == null) { break; }
                 AddEquipped(item1, endSlotId);
@@ -138,14 +146,16 @@ public class Inventory
                 break;
 
             case EInventorySlot.Inventory:
-                item2 = itemList[endSlotId];
-                RemoveItem(endSlotId);
+                if (itemList.ContainsKey(endSlotId))
+                {
+                    item2 = itemList[endSlotId];
+                    RemoveItem(endSlotId);
+                }   
 
                 if (item1 == null) { break; }
                 AddItem(item1, endSlotId);
 
                 break;
-
             default:
                 break;
         }
@@ -177,7 +187,7 @@ public class Inventory
         {
             if (potionList.ContainsKey(i)) continue;
 
-            potionSlot = i;
+            potionSlot = potionSlot < maxPotionSlots ? potionSlot : i;
             break;
         }
 

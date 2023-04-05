@@ -1,3 +1,4 @@
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
@@ -21,12 +22,10 @@ public class InventoryUI : SerializedMonoBehaviour
 
     private Inventory inventory;
     private ChestLoot currentChest;
-    private Canvas canvas;
 
-    private void Awake()
-    {
-        canvas = GetComponent<Canvas>();
-    }
+    public static event Action<ItemData, bool> OnSwapped;
+
+    private bool isSwapping = false;
 
     private void Start()
     {
@@ -37,6 +36,7 @@ public class InventoryUI : SerializedMonoBehaviour
         ItemData.OnItemLooted += HandleItemLooted;
         ItemData.OnPotionLooted += HandlePotionLooted;
         ItemData.OnPromptClicked += HandlePromptClicked;
+        ItemData.OnItemSuccessSwapped += HandleItemSwapped;
     }
 
     public void OnClicked()
@@ -46,6 +46,8 @@ public class InventoryUI : SerializedMonoBehaviour
 
     private void HandlePromptClicked(ItemData itemData, EInventorySlot slot, RectTransform promptAnchorTransform)
     {
+        if (isSwapping) { return; }
+
         string useButtonText = "Use";
 
         promptPanel.transform.position = promptAnchorTransform.position;
@@ -61,7 +63,7 @@ public class InventoryUI : SerializedMonoBehaviour
                 break;
             case EInventorySlot.Equipped:
                 useButtonText = "Swap";
-                // useButton.onClick.AddListener(() => );
+                useButton.onClick.AddListener(() => EquipItem(itemData));
                 break;
             case EInventorySlot.Potions:
                 useButtonText = "Drink";
@@ -78,7 +80,16 @@ public class InventoryUI : SerializedMonoBehaviour
 
     private void EquipItem(ItemData itemData)
     {
-        itemData.RemoveItem();
+        isSwapping = true;
+        OnSwapped?.Invoke(itemData, isSwapping);
+        promptPanel.SetActive(false);
+    }
+
+    private void HandleItemSwapped(EInventorySlot slot1, int id1, EInventorySlot slot2, int id2)
+    {
+        inventory.SwapItemPosition(slot1, id1, slot2, id2);
+        isSwapping = false;
+        OnSwapped?.Invoke(null, isSwapping);
     }
 
     private void UsePotion(ItemData itemData)
@@ -105,6 +116,8 @@ public class InventoryUI : SerializedMonoBehaviour
     private void HandleInventoryPopup()
     {
         bool inventoryStatus = inventoryPanel.activeSelf;
+        isSwapping = false;
+        OnSwapped?.Invoke(null, isSwapping);
         inventoryPanel.SetActive(!inventoryStatus);
 
         if (!inventoryStatus) { return; }
@@ -146,7 +159,10 @@ public class InventoryUI : SerializedMonoBehaviour
     {
         for (int i = 0; i < chestSlots.Count; i++)
         {
-            chestSlots[i].enabled = false;
+            Image currentSlot = chestSlots[i];
+
+            currentSlot.enabled = false;
+            currentSlot.GetComponent<ItemData>().Item = null;
         }
     }
 
@@ -314,5 +330,6 @@ public class InventoryUI : SerializedMonoBehaviour
         ItemData.OnItemLooted -= HandleItemLooted;
         ItemData.OnPotionLooted -= HandlePotionLooted;
         ItemData.OnPromptClicked -= HandlePromptClicked;
+        ItemData.OnItemSuccessSwapped -= HandleItemSwapped;
     }
 }

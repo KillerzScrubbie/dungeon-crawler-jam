@@ -1,5 +1,5 @@
 using UnityEngine;
-// using UnityEngine.InputSystem;
+using UnityEngine.InputSystem;
 using UnityEngine.UI;
 using TMPro;
 
@@ -12,15 +12,14 @@ public class Tooltip : MonoBehaviour
     public TMP_Text contentField;
 
     public LayoutElement layoutElementObj;
-
     public RectTransform rectTrans;
 
-    public Vector2 offSet= new Vector2(30, 20);
+    public Vector2 offSet = new Vector2(30, 20);
 
     // to make it not become bad when it show on center like if not 200 in each edge it will not set the pivot
-    public Vector2 customRange = new Vector2(200, 200);
+    public Vector2 customRange;
 
-    private void Awake() 
+    private void Awake()
     {
         rectTrans = GetComponent<RectTransform>();
     }
@@ -28,14 +27,12 @@ public class Tooltip : MonoBehaviour
     void smartCustomRange()
     {
         // get box width and height and set range accordingly
-        customRange = new Vector2 (rectTrans.rect.width, rectTrans.rect.height);
+        customRange = new Vector2(rectTrans.rect.width, rectTrans.rect.height);
     }
 
-
-     
-    public void SetText(string content, string header="")
+    public void SetText(string content, string header = "")
     {
-        if(string.IsNullOrEmpty(header))
+        if (string.IsNullOrEmpty(header))
         {
             headerField.gameObject.SetActive(false);
         }
@@ -46,42 +43,23 @@ public class Tooltip : MonoBehaviour
         }
 
         contentField.SetText(content);
-        // smart range
         smartCustomRange();
-
         DoBoxSize();
 
     }
 
 
-    private void Update() 
+    void Update()
     {
-        //CHoose one below
-
-        // DoUpdatePosNewInput();
-        DoUpdatePosOldInput();
-
+        DoUpdatePosNewInput();
     }
-
 
     public void DoUpdatePosNewInput()
     {
-        // if use new input system use this code below 
-
-        // Vector2 position = Mouse.current.position.ReadValue();
-        // DoSetPosSmart(position);
-
-    }
-
-    public void DoUpdatePosOldInput()
-    {
-        // if use old input system use this code below 
-
-        Vector2 position = Input.mousePosition;
+        Vector2 position = Mouse.current.position.ReadValue();
         DoSetPosSmart(position);
-
-
     }
+
 
     void DoSetPosSmart(Vector2 position)
     {
@@ -90,35 +68,30 @@ public class Tooltip : MonoBehaviour
         {
             // set pivot to 0 1 - it will be lower right
             rectTrans.pivot = new Vector2(0, 1);
-
             // this should alway set after pivot 
-            transform.position = position+offSet;
+            transform.position = position + offSet;
             return;
         }
-
         float pivotX = position.x / Screen.width;
         float pivotY = position.y / Screen.height;
 
         rectTrans.pivot = new Vector2(pivotX, pivotY);
-
         // this should alway set after pivot 
         // not use offset if it in edge of screen 
         transform.position = position;
-
     }
 
-    
+
     void DoBoxSize()
     {
         int headerLength = headerField.text.Length;
         int contentLength = contentField.text.Length;
-        layoutElementObj.enabled = Mathf.Max(headerField.preferredWidth, contentField.preferredWidth) >= layoutElementObj.preferredWidth; 
+        layoutElementObj.enabled = Mathf.Max(headerField.preferredWidth, contentField.preferredWidth) >= layoutElementObj.preferredWidth;
     }
 
-    // code from internet
     public bool IsBetweenFloat(float testValue, float bound1, float bound2)
     {
-        return (testValue >= Mathf.Min(bound1,bound2) && testValue <= Mathf.Max(bound1,bound2));
+        return (testValue >= Mathf.Min(bound1, bound2) && testValue <= Mathf.Max(bound1, bound2));
     }
 
 

@@ -4063,6 +4063,16 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 7296627026726419361, guid: e284c6ed21889c94ab87f6b4c828e7c4,
+        type: 3}
+      propertyPath: customRange.x
+      value: 10
+      objectReference: {fileID: 0}
+    - target: {fileID: 7296627026726419361, guid: e284c6ed21889c94ab87f6b4c828e7c4,
+        type: 3}
+      propertyPath: customRange.y
+      value: 10
+      objectReference: {fileID: 0}
     - target: {fileID: 7296627027635202521, guid: e284c6ed21889c94ab87f6b4c828e7c4,
         type: 3}
       propertyPath: m_Name

@@ -45,7 +45,6 @@ public class ObjItems : SerializedScriptableObject
 
     public string GetActionDescription()
     {
-        Debug.Log("wa");
         return $"<b>{actionName1}</b>: <color=#D2D2D2>{itemDescription1}</color>\n<b>{actionName2}</b>: <color=#D2D2D2>{itemDescription2}</color>";
     }
 }

@@ -1,30 +1,21 @@
 using UnityEngine;
-using UnityEngine.UI;
 
 public class ToolTipSystem : MonoBehaviour
 {
-    /* 
-    เรื่องการ fade UI ยากไปเลยยังไม่ได้ใส่เข้ามา
-    */
-
     public static ToolTipSystem current;
     public Tooltip tooltip;
     public static LeanTweenType easeType;
 
-    private void Awake() 
+    private void Awake()
     {
         current = this;
     }
-    
-    public static void Show(string content, string header="")
-    {
-        // choose one below
 
-        // current.tooltip.DoUpdatePosNewInput();
-        current.tooltip.DoUpdatePosOldInput();
+    public static void Show(string content, string header = "")
+    {
+        current.tooltip.DoUpdatePosNewInput();
 
         popUpAnimation();
-
         current.tooltip.SetText(content, header);
         current.tooltip.gameObject.SetActive(true);
     }
@@ -32,7 +23,6 @@ public class ToolTipSystem : MonoBehaviour
 
     public static void popUpAnimation()
     {
-        //Animation!
         LeanTween.scale(current.tooltip.gameObject, new Vector3(1.02f, 1.02f, 1.02f), .04f).setOnComplete(() =>
         {
             LeanTween.scale(current.tooltip.gameObject, new Vector3(1f, 1f, 1f), .06f).setEase(easeType);
@@ -43,12 +33,7 @@ public class ToolTipSystem : MonoBehaviour
 
     public static void JustShow()
     {
-        // choose one below
-
-        // current.tooltip.DoUpdatePosNewInput();
-        current.tooltip.DoUpdatePosOldInput();
-
-
+        current.tooltip.DoUpdatePosNewInput();
         current.tooltip.gameObject.SetActive(true);
     }
 

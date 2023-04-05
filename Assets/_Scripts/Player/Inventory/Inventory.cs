@@ -20,6 +20,7 @@ public class Inventory
     {
         itemList = new Dictionary<int, ObjItems>();
         potionList = new Dictionary<int, ObjPotions>();
+        equippedList = new Dictionary<int, ObjItems>();
     }
 
     public bool AddItem(ObjItems item, int slot = -1)
@@ -95,7 +96,7 @@ public class Inventory
     {
         equippedList.Remove(slot);
 
-        OnInventoryUpdated?.Invoke();
+        OnEquippedUpdated?.Invoke();
     }
 
     public void SwapItemPosition(EInventorySlot slotType1, int slot1, EInventorySlot slotType2, int slot2)
@@ -166,7 +167,6 @@ public class Inventory
             default:
                 break;
         }
-
     }
 
     public bool AddPotion(ObjPotions potion, int slot = -1)
@@ -215,5 +215,10 @@ public class Inventory
     public Dictionary<int, ObjPotions> GetPotionList()
     {
         return potionList;
+    }
+
+    public Dictionary<int, ObjItems> GetEquippedList()
+    {
+        return equippedList;
     }
 }

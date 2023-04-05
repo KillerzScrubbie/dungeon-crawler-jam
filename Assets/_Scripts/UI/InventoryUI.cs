@@ -2,13 +2,16 @@ using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 using Sirenix.OdinInspector;
-using static UnityEditor.Progress;
-using System;
+using TMPro;
 
 public class InventoryUI : SerializedMonoBehaviour
 {
     [SerializeField] private GameObject inventoryPanel;
     [SerializeField] private GameObject chestPanel;
+    [SerializeField] private GameObject promptPanel;
+    [SerializeField] private TextMeshProUGUI usageText;
+    [SerializeField] private Button useButton;
+    [SerializeField] private Button discardButton;
 
     [Space]
     [SerializeField] private List<Image> itemSlots;
@@ -18,6 +21,12 @@ public class InventoryUI : SerializedMonoBehaviour
 
     private Inventory inventory;
     private ChestLoot currentChest;
+    private Canvas canvas;
+
+    private void Awake()
+    {
+        canvas = GetComponent<Canvas>();
+    }
 
     private void Start()
     {
@@ -27,11 +36,61 @@ public class InventoryUI : SerializedMonoBehaviour
         ItemData.OnItemRemoved += HandleItemRemoved;
         ItemData.OnItemLooted += HandleItemLooted;
         ItemData.OnPotionLooted += HandlePotionLooted;
+        ItemData.OnPromptClicked += HandlePromptClicked;
     }
 
     public void OnClicked()
     {
         HandleInventoryPopup();
+    }
+
+    private void HandlePromptClicked(ItemData itemData, EInventorySlot slot, RectTransform promptAnchorTransform)
+    {
+        string useButtonText = "Use";
+
+        promptPanel.transform.position = promptAnchorTransform.position;
+
+        useButton.onClick.RemoveAllListeners();
+        discardButton.onClick.RemoveAllListeners();
+
+        switch (slot)
+        {
+            case EInventorySlot.Inventory:
+                useButtonText = "Equip";
+                useButton.onClick.AddListener(() => EquipItem(itemData));
+                break;
+            case EInventorySlot.Equipped:
+                useButtonText = "Swap";
+                // useButton.onClick.AddListener(() => );
+                break;
+            case EInventorySlot.Potions:
+                useButtonText = "Drink";
+                useButton.onClick.AddListener(() => UsePotion(itemData));
+                break;
+            default:
+                break;
+        }
+
+        discardButton.onClick.AddListener(() => RemoveItem(itemData));
+        usageText.text = useButtonText;
+        promptPanel.SetActive(true);
+    }
+
+    private void EquipItem(ItemData itemData)
+    {
+        itemData.RemoveItem();
+    }
+
+    private void UsePotion(ItemData itemData)
+    {
+        itemData.UsePotion();
+        promptPanel.SetActive(false);
+    }
+
+    private void RemoveItem(ItemData itemData)
+    {
+        itemData.RemoveItem();
+        promptPanel.SetActive(false);
     }
 
     public void CloseChest(bool sameChest = false)
@@ -63,8 +122,6 @@ public class InventoryUI : SerializedMonoBehaviour
         currentChest = chest;
 
         ProcessChestLootUI(items, potions);
-        /*if (item != null) { inventory.AddItem(item); }
-        if (potion != null) { inventory.AddPotion(potion); }*/
     }
 
     private void HandleItemLooted(ItemData itemData, ObjItems item, int slot)
@@ -129,9 +186,11 @@ public class InventoryUI : SerializedMonoBehaviour
         this.inventory = inventory;
         inventory.OnInventoryUpdated += RefreshInventoryItems;
         inventory.OnPotionUpdated += RefreshPotionItems;
+        inventory.OnEquippedUpdated += RefreshEquippedItems;
 
         RefreshInventoryItems();
         RefreshPotionItems();
+        RefreshEquippedItems();
     }
 
     private void RefreshInventoryItems()
@@ -190,6 +249,34 @@ public class InventoryUI : SerializedMonoBehaviour
         }
     }
 
+    private void RefreshEquippedItems()
+    {
+        Dictionary<int, ObjItems> equippedItemList = inventory.GetEquippedList();
+
+        for (int i = 0; i < equippedSlots.Count; i++)
+        {
+            Image currentSlot = equippedSlots[i];
+
+            if (!equippedItemList.ContainsKey(i))
+            {
+                currentSlot.enabled = false;
+                continue;
+            }
+
+            ObjItems item = equippedItemList[i];
+            ItemData itemData = currentSlot.GetComponent<ItemData>();
+
+            if (itemData.Item == item)
+            {
+                continue;
+            }
+
+            currentSlot.enabled = true;
+            itemData.Item = item;
+            currentSlot.sprite = item.Icon;
+        }
+    }
+
     private void HandleItemRemoved(EInventorySlot slotType, int slot)
     {
         switch (slotType)
@@ -198,7 +285,7 @@ public class InventoryUI : SerializedMonoBehaviour
                 inventory.RemoveItem(slot);
                 break;
             case EInventorySlot.Equipped:
-                // inventory.RemoveEquipped(slot);
+                inventory.RemoveEquipped(slot);
                 break;
             case EInventorySlot.Potions:
                 inventory.RemovePotion(slot);
@@ -219,11 +306,13 @@ public class InventoryUI : SerializedMonoBehaviour
     {
         inventory.OnInventoryUpdated -= RefreshInventoryItems;
         inventory.OnPotionUpdated -= RefreshPotionItems;
+        inventory.OnEquippedUpdated -= RefreshEquippedItems;
         PlayerInputController.OnInventoryOpened -= HandleInventoryPopup;
         PlayerInputController.OnQueue -= HandleMovement;
         MouseClickDetector.OnChestClicked -= HandleChestOpened;
         ItemData.OnItemRemoved -= HandleItemRemoved;
         ItemData.OnItemLooted -= HandleItemLooted;
         ItemData.OnPotionLooted -= HandlePotionLooted;
+        ItemData.OnPromptClicked -= HandlePromptClicked;
     }
 }

@@ -8,10 +8,12 @@ public class ItemData : MonoBehaviour, IPointerEnterHandler, IPointerClickHandle
     [SerializeField] private ObjPotions potion;
     [SerializeField] private EInventorySlot slot;
     [SerializeField] private int id;
+    [SerializeField] private RectTransform promptAnchorTransform;
 
     public static event Action<EInventorySlot, int> OnItemRemoved;
     public static event Action<ItemData, ObjItems, int> OnItemLooted;
     public static event Action<ItemData, ObjPotions, int> OnPotionLooted;
+    public static event Action<ItemData, EInventorySlot, RectTransform> OnPromptClicked;
 
     public ObjItems Item { get { return item; } set { item = value; } }
     public ObjPotions Potion { get { return potion; } set { potion = value; } }
@@ -24,10 +26,8 @@ public class ItemData : MonoBehaviour, IPointerEnterHandler, IPointerClickHandle
         LeanTween.reset();
     }
 
-
     public void OnPointerClick(PointerEventData eventData)
     {
-        // Prompt();
         ProcessClick();
     }
 
@@ -47,10 +47,8 @@ public class ItemData : MonoBehaviour, IPointerEnterHandler, IPointerClickHandle
         {
             case EInventorySlot.Inventory:
             case EInventorySlot.Equipped:
-                // Prompt to drop
-                break;
             case EInventorySlot.Potions:
-                UsePotion();
+                Prompt();
                 break;
             case EInventorySlot.Chest:
                 if (item != null)
@@ -73,12 +71,12 @@ public class ItemData : MonoBehaviour, IPointerEnterHandler, IPointerClickHandle
         RemoveItem();
     }
 
-    void ShowItemTooltip(ObjItems _item)
+    private void ShowItemTooltip(ObjItems _item)
     {
         ToolTipSystem.Show(_item.GetActionDescription(), _item.Name);
     }
 
-    void ShowPotionTooltip(ObjPotions _potion)
+    private void ShowPotionTooltip(ObjPotions _potion)
     {
         ToolTipSystem.Show(_potion.Description, _potion.name);
     }
@@ -125,11 +123,10 @@ public class ItemData : MonoBehaviour, IPointerEnterHandler, IPointerClickHandle
 
     private void Prompt()
     {
-        // Show use and drop
-        // Set buttons for use and drop
+        OnPromptClicked?.Invoke(this, slot, promptAnchorTransform);
     }
 
-    private void UsePotion()
+    public void UsePotion()
     {
         if (slot != EInventorySlot.Potions) { return; }
 
@@ -137,7 +134,7 @@ public class ItemData : MonoBehaviour, IPointerEnterHandler, IPointerClickHandle
         RemoveItem();
     }
 
-    private void RemoveItem()
+    public void RemoveItem()
     {
         switch (slot)
         {

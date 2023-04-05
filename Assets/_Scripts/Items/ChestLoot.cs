@@ -80,7 +80,7 @@ public class ChestLoot : MonoBehaviour
     private void HideLoot()
     {
         loot.SetActive(false);
-        pointLight.intensity = 0.1f;
+        pointLight.intensity = 0.05f;
         pointLight.range = 1f;
     }
 }

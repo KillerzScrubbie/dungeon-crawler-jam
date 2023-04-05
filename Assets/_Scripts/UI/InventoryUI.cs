@@ -216,15 +216,16 @@ public class InventoryUI : SerializedMonoBehaviour
         for (int i = 0; i < itemSlots.Count; i++)
         {
             Image currentSlot = itemSlots[i];
+            ItemData itemData = currentSlot.GetComponent<ItemData>();
 
             if (!inventoryItemList.ContainsKey(i))
             {
                 currentSlot.enabled = false;
+                itemData.Item = null;
                 continue;
             }
 
             ObjItems item = inventoryItemList[i];
-            ItemData itemData = currentSlot.GetComponent<ItemData>();
 
             if (itemData.Item == item)
             {
@@ -244,15 +245,16 @@ public class InventoryUI : SerializedMonoBehaviour
         for (int i = 0; i < potionSlots.Count; i++)
         {
             Image currentSlot = potionSlots[i];
+            ItemData potionData = currentSlot.GetComponent<ItemData>();
 
             if (!potionItemList.ContainsKey(i))
             {
                 currentSlot.enabled = false;
+                potionData.Potion = null;
                 continue;
             }
 
-            ObjPotions potion = potionItemList[i];
-            ItemData potionData = currentSlot.GetComponent<ItemData>();
+            ObjPotions potion = potionItemList[i];   
 
             if (potionData.Potion == potion)
             {
@@ -272,15 +274,16 @@ public class InventoryUI : SerializedMonoBehaviour
         for (int i = 0; i < equippedSlots.Count; i++)
         {
             Image currentSlot = equippedSlots[i];
+            ItemData itemData = currentSlot.GetComponent<ItemData>();
 
             if (!equippedItemList.ContainsKey(i))
             {
                 currentSlot.enabled = false;
+                itemData.Item = null;
                 continue;
             }
 
             ObjItems item = equippedItemList[i];
-            ItemData itemData = currentSlot.GetComponent<ItemData>();
 
             if (itemData.Item == item)
             {

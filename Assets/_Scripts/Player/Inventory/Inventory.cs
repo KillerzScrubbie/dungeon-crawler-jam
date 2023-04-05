@@ -104,7 +104,7 @@ public class Inventory
         EInventorySlot startSlotType = slotType1;
         EInventorySlot endSlotType = slotType2;
         int startSlotId = slot1;
-        int endSlotId = slot2;   
+        int endSlotId = slot2;
 
         if (slotType1 == slotType2 && slot1 == slot2) { return; }
 
@@ -154,7 +154,7 @@ public class Inventory
 
                 if (item1 == null) { break; }
                 AddItem(item1, endSlotId);
-
+                Debug.Log($"Added {item1.Name} to slot {endSlotId}");
                 break;
             default:
                 break;

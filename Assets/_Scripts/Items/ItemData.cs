@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class ItemData : MonoBehaviour, IPointerEnterHandler, IPointerClickHandler, IPointerExitHandler, IPointerDownHandler, IBeginDragHandler, IEndDragHandler, IDragHandler
+public class ItemData : MonoBehaviour, IPointerEnterHandler, IPointerClickHandler, IPointerExitHandler
 {
     [SerializeField] private ObjItems item;
     [SerializeField] private ObjPotions potion;
@@ -13,19 +13,9 @@ public class ItemData : MonoBehaviour, IPointerEnterHandler, IPointerClickHandle
     public static event Action<ItemData, ObjItems, int> OnItemLooted;
     public static event Action<ItemData, ObjPotions, int> OnPotionLooted;
 
-    private Canvas canvas;
-    private RectTransform dragPreview;
-
     public ObjItems Item { get { return item; } set { item = value; } }
     public ObjPotions Potion { get { return potion; } set { potion = value; } }
 
-    private void Awake()
-    {
-        dragPreview = GetComponent<RectTransform>();
-        //dragPreview = GameObject.Find("DragPreview").GetComponent<RectTransform>();
-        canvas = GameObject.Find("Inventory Canvas").GetComponent<Canvas>();
-        //Debug.Log(transform.root.name);
-    }
 
     public void OnPointerClick(PointerEventData eventData)
     {
@@ -41,26 +31,6 @@ public class ItemData : MonoBehaviour, IPointerEnterHandler, IPointerClickHandle
     public void OnPointerExit(PointerEventData eventData)
     {
         HideToolTip();
-    }
-
-    public void OnPointerDown(PointerEventData eventData)
-    {
-        Debug.Log("Click");
-    }
-
-    public void OnBeginDrag(PointerEventData eventData)
-    {
-        Debug.Log("Begin Drag");
-    }
-
-    public void OnDrag(PointerEventData eventData)
-    {
-        dragPreview.anchoredPosition += eventData.delta / canvas.scaleFactor;
-    }
-
-    public void OnEndDrag(PointerEventData eventData)
-    {
-        Debug.Log("End Drag");
     }
 
     private void ProcessClick()

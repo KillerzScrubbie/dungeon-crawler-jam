@@ -22,6 +22,7 @@ public class InventoryUI : SerializedMonoBehaviour
     private void Start()
     {
         PlayerInputController.OnInventoryOpened += HandleInventoryPopup;
+        PlayerInputController.OnQueue += HandleMovement;
         MouseClickDetector.OnChestClicked += HandleChestOpened;
         ItemData.OnItemRemoved += HandleItemRemoved;
         ItemData.OnItemLooted += HandleItemLooted;
@@ -33,10 +34,12 @@ public class InventoryUI : SerializedMonoBehaviour
         HandleInventoryPopup();
     }
 
-    public void CloseChest()
+    public void CloseChest(bool sameChest = false)
     {
         if (currentChest == null) { return; }
 
+        if (sameChest) { return; }
+        
         currentChest.CloseChest();
     }
 
@@ -48,8 +51,7 @@ public class InventoryUI : SerializedMonoBehaviour
         if (!inventoryStatus) { return; }
 
         chestPanel.SetActive(false);
-
-        CloseChest();
+        CloseChest(false);
     }
 
     private void HandleChestOpened(ChestLoot chest, List<ObjItems> items, List<ObjPotions> potions)
@@ -57,6 +59,7 @@ public class InventoryUI : SerializedMonoBehaviour
         inventoryPanel.SetActive(true);
         chestPanel.SetActive(true);
 
+        CloseChest(currentChest == chest);
         currentChest = chest;
 
         ProcessChestLootUI(items, potions);
@@ -206,11 +209,18 @@ public class InventoryUI : SerializedMonoBehaviour
         
     }
 
+    private void HandleMovement(EMovementTypes movementType)
+    {
+        CloseChest();
+        chestPanel.SetActive(false);
+    }
+
     private void OnDestroy()
     {
         inventory.OnInventoryUpdated -= RefreshInventoryItems;
         inventory.OnPotionUpdated -= RefreshPotionItems;
         PlayerInputController.OnInventoryOpened -= HandleInventoryPopup;
+        PlayerInputController.OnQueue -= HandleMovement;
         MouseClickDetector.OnChestClicked -= HandleChestOpened;
         ItemData.OnItemRemoved -= HandleItemRemoved;
         ItemData.OnItemLooted -= HandleItemLooted;

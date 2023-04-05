@@ -16,6 +16,7 @@ public class ChestLoot : MonoBehaviour
     [Space]
     [SerializeField] private Transform chestTop;
     [SerializeField] private GameObject loot;
+    [SerializeField] private Light pointLight;
     [SerializeField] private float chestOpenDuration = 1f;
 
     private readonly Vector3 normalChestPos = new(270f, 0f, 0f);
@@ -79,5 +80,7 @@ public class ChestLoot : MonoBehaviour
     private void HideLoot()
     {
         loot.SetActive(false);
+        pointLight.intensity = 0.1f;
+        pointLight.range = 1f;
     }
 }

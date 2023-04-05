@@ -47,7 +47,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void Start()
     {
-        controller.OnQueue += QueueMovement;
+        PlayerInputController.OnQueue += QueueMovement;
 
         playerOffset = transform.position.y;
         SetGridPos(transform.position);
@@ -235,13 +235,13 @@ public class PlayerMovement : MonoBehaviour
         targetGridPos = new Vector3(Mathf.RoundToInt(position.x), position.y, Mathf.RoundToInt(position.z));
     }
 
-    private void OnDestroy()
-    {
-        controller.OnQueue -= QueueMovement;
-    }
-
     public void SetSmoothMovement(bool newMovementType)
     {
         smoothTransition = newMovementType;
+    }
+
+    private void OnDestroy()
+    {
+        PlayerInputController.OnQueue -= QueueMovement;
     }
 }

@@ -3,7 +3,7 @@ using UnityEngine;
 
 public class PlayerInputController : MonoBehaviour
 {
-    public event Action<EMovementTypes> OnQueue;
+    public static event Action<EMovementTypes> OnQueue;
     public static event Action OnPause;
     public static event Action OnInventoryOpened;
 

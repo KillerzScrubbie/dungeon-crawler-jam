@@ -19,5 +19,6 @@ public enum EEffectTypes
     HealPercent,
     ManaPercent,
     Strength,
-    Exhaust,
+    ActionGain,
+    MaxHP,
 }

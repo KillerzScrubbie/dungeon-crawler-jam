@@ -367,8 +367,16 @@ MonoBehaviour:
   - {fileID: 11400000, guid: 2b501392b2574614eb044298a1307caa, type: 2}
   - {fileID: 11400000, guid: 20dc966f5d95b8b438a2ce8875d5b375, type: 2}
   potions:
+  - {fileID: 11400000, guid: 2660ac62cfd00424b809eb380f2ed312, type: 2}
+  - {fileID: 11400000, guid: 61abda4ef728b334f986d9077493c58f, type: 2}
+  - {fileID: 11400000, guid: 25146b18a82dbb641a1ad2e88903872b, type: 2}
+  - {fileID: 11400000, guid: f577e49912c665d4a9e0282b301000f3, type: 2}
   - {fileID: 11400000, guid: a959847b76dfa3e4fb4a21266ead8d0d, type: 2}
   - {fileID: 11400000, guid: cddc4245c7ec34e4a9374967d32ab97d, type: 2}
+  - {fileID: 11400000, guid: acd48ca4298e2d64cb38daaa1f5f498e, type: 2}
+  - {fileID: 11400000, guid: f2a2ac012407d2c4e8873b8a7b722bd0, type: 2}
+  - {fileID: 11400000, guid: 33b2405c093f703419b964733f434c8d, type: 2}
+  - {fileID: 11400000, guid: 3dd07f6850094ec4183e90e2ff86473a, type: 2}
   chestTop: {fileID: 3922958296411625791}
   loot: {fileID: 7863113107666804419}
   pointLight: {fileID: 5168590460414799270}

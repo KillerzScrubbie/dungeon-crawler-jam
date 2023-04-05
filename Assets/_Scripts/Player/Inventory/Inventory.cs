@@ -154,7 +154,6 @@ public class Inventory
 
                 if (item1 == null) { break; }
                 AddItem(item1, endSlotId);
-                Debug.Log($"Added {item1.Name} to slot {endSlotId}");
                 break;
             default:
                 break;

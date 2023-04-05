@@ -40,13 +40,11 @@ public class ToolTipTrigger : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 
     void OnMouseEnter()
     {
-        Debug.Log("mouse enter");
         ShowTooltip();
     }
 
     void OnMouseExit()
     {
-        Debug.Log("mouse exit");
         HideTooltip();
     }
 

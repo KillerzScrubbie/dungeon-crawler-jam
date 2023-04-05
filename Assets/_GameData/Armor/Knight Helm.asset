@@ -107,6 +107,6 @@ MonoBehaviour:
   manaCost1: 1
   actionCost1: 1
   actionName2: Purify
-  itemDescription2: Heal 3 HP\n Remove all debuffs
+  itemDescription2: Heal 3 HP\nRemove all debuffs
   manaCost2: 6
   actionCost2: 2

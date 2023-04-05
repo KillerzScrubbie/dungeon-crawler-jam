@@ -22,6 +22,7 @@ public class Tooltip : MonoBehaviour
     private void Awake()
     {
         rectTrans = GetComponent<RectTransform>();
+        // smartCustomRange();
     }
 
     void smartCustomRange()
@@ -32,6 +33,7 @@ public class Tooltip : MonoBehaviour
 
     public void SetText(string content, string header = "")
     {
+
         if (string.IsNullOrEmpty(header))
         {
             headerField.gameObject.SetActive(false);
@@ -43,7 +45,7 @@ public class Tooltip : MonoBehaviour
         }
 
         contentField.SetText(content);
-        smartCustomRange();
+
         DoBoxSize();
 
     }
@@ -57,6 +59,7 @@ public class Tooltip : MonoBehaviour
     public void DoUpdatePosNewInput()
     {
         Vector2 position = Mouse.current.position.ReadValue();
+        smartCustomRange();
         DoSetPosSmart(position);
     }
 
@@ -64,6 +67,7 @@ public class Tooltip : MonoBehaviour
     void DoSetPosSmart(Vector2 position)
     {
         // add own code to make it off set if in between center 
+
         if (IsBetweenFloat(position.x, customRange.x, Screen.width - customRange.x) && IsBetweenFloat(position.y, customRange.y, Screen.height - customRange.y))
         {
             // set pivot to 0 1 - it will be lower right
@@ -72,13 +76,16 @@ public class Tooltip : MonoBehaviour
             transform.position = position + offSet;
             return;
         }
-        float pivotX = position.x / Screen.width;
-        float pivotY = position.y / Screen.height;
+        else
+        {
+            float pivotX = position.x / Screen.width;
+            float pivotY = position.y / Screen.height;
 
-        rectTrans.pivot = new Vector2(pivotX, pivotY);
-        // this should alway set after pivot 
-        // not use offset if it in edge of screen 
-        transform.position = position;
+            rectTrans.pivot = new Vector2(pivotX, pivotY);
+            // this should alway set after pivot 
+            // not use offset if it in edge of screen 
+            transform.position = position;
+        }
     }
 
 

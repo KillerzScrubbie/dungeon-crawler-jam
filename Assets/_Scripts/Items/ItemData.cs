@@ -2,7 +2,7 @@ using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
-public class ItemData : MonoBehaviour, IPointerEnterHandler, IPointerDownHandler
+public class ItemData : MonoBehaviour, IPointerEnterHandler, IPointerDownHandler, IPointerExitHandler 
 {
     [SerializeField] private ObjItems item;
     [SerializeField] private ObjPotions potion;
@@ -16,12 +16,51 @@ public class ItemData : MonoBehaviour, IPointerEnterHandler, IPointerDownHandler
 
     public void OnPointerDown(PointerEventData eventData)
     {
-        RemoveItem();
+        // Prompt();
+        UsePotion();
     }
 
     public void OnPointerEnter(PointerEventData eventData)
     {
-        // Debug.Log(Item.Action1);
+        ShowToolTip();
+    }
+
+    public void OnPointerExit(PointerEventData eventData)
+    {
+        HideToolTip();
+    }
+
+    private void ShowToolTip()
+    {
+        switch (slot)
+        {
+            case EInventorySlot.Inventory:
+            case EInventorySlot.Equipped:
+                // Show item data
+                break;
+            case EInventorySlot.Potions:
+                // Show potion data
+                break;
+        }
+    }
+
+    private void HideToolTip()
+    {
+        // Hide both item and potion tooltip
+    }
+
+    private void Prompt()
+    {
+        // Show use and drop
+        // Set buttons for use and drop
+    }
+
+    private void UsePotion()
+    {
+        if (slot != EInventorySlot.Potions) { return; }
+
+        PotionManager.UsePotion(potion);
+        RemoveItem();
     }
 
     private void RemoveItem()
@@ -40,4 +79,6 @@ public class ItemData : MonoBehaviour, IPointerEnterHandler, IPointerDownHandler
         
         OnItemRemoved?.Invoke(slot, id);
     }
+
+    
 }

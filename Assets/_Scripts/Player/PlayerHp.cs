@@ -13,6 +13,8 @@ public class PlayerHp : MonoBehaviour, IDamageable
 
     private void Start()
     {
+        PotionManager.OnHealPotionUsed += HealPercentage;
+
         ResetPlayerHP();
     }
 
@@ -20,6 +22,13 @@ public class PlayerHp : MonoBehaviour, IDamageable
     {
         _currentHP = _maxHP;
         OnPlayerUpdateHp?.Invoke(_currentHP, _maxHP);
+    }
+
+    private void HealPercentage(int percentage)
+    {
+        int healValue = Mathf.CeilToInt(_maxHP * percentage / 100f);
+
+        Heal(healValue);
     }
 
     [Button]
@@ -63,5 +72,10 @@ public class PlayerHp : MonoBehaviour, IDamageable
     public void TestTakeFourDamage()
     {
         TakeDamage(5);
+    }
+
+    private void OnDestroy()
+    {
+        PotionManager.OnHealPotionUsed -= HealPercentage;
     }
 }

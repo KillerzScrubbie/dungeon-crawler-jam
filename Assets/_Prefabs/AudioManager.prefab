@@ -77,4 +77,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playName: bg1
-  StopOtherMusic: 0
+  StopOtherMusic: 1

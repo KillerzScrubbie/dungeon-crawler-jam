@@ -21,7 +21,7 @@ public class Inventory
         potionList = new Dictionary<int, ObjPotions>();
     }
 
-    public void AddItem(ObjItems item, int slot = -1)
+    public bool AddItem(ObjItems item, int slot = -1)
     {
         int itemSlot = slot >= 0 ? slot : maxItemSlots;
 
@@ -36,7 +36,7 @@ public class Inventory
         if (itemSlot > maxItemSlots - 1)
         {
             Debug.Log("Inventory Full");
-            return;
+            return false;
         }
 
         if (itemList.ContainsKey(itemSlot)) 
@@ -49,6 +49,7 @@ public class Inventory
         }
         
         OnInventoryUpdated?.Invoke();
+        return true;
     }
 
     public void RemoveItem(int slot) 
@@ -63,7 +64,7 @@ public class Inventory
 
     }
 
-    public void AddPotion(ObjPotions potion, int slot = -1)
+    public bool AddPotion(ObjPotions potion, int slot = -1)
     {
         int potionSlot = slot >= 0 ? slot : maxPotionSlots;
 
@@ -78,7 +79,7 @@ public class Inventory
         if (potionSlot > maxPotionSlots - 1)
         {
             Debug.Log("Potions Full");
-            return;
+            return false;
         }
 
         if (potionList.ContainsKey(potionSlot))
@@ -91,6 +92,7 @@ public class Inventory
         }
 
         OnPotionUpdated?.Invoke();
+        return true;
     }
 
     public void RemovePotion(int slot)

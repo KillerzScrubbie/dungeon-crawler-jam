@@ -11,7 +11,7 @@ public class MouseClickDetector : MonoBehaviour
 
     private Camera mainCamera;
 
-    public static event Action<ObjItems, ObjPotions> OnChestClicked;
+    public static event Action<ChestLoot, List<ObjItems>, List<ObjPotions>> OnChestClicked;
 
     private void Start()
     {
@@ -36,7 +36,8 @@ public class MouseClickDetector : MonoBehaviour
 
         if (!hit.transform.TryGetComponent(out ChestLoot loot)) { return; }
 
-        OnChestClicked?.Invoke(loot.GetItem(), loot.GetPotion());
+        loot.OpenChest();
+        OnChestClicked?.Invoke(loot, loot.GetItems(), loot.GetPotions());
     }
 
     private bool IsMouseOverUIObject()

@@ -2,5 +2,6 @@ public enum EInventorySlot
 {
     Inventory,
     Equipped,
-    Potions
+    Potions,
+    Chest
 }

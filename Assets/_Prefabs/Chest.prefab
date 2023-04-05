@@ -349,7 +349,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   isRandomized: 1
-  item: {fileID: 11400000, guid: 5ec3a3d39d566c942916e7f7f179d6bc, type: 2}
+  isEmpty: 0
+  itemsInChest: []
+  potionsInChest: []
+  maxPossibleLoot: 2
   items:
   - {fileID: 11400000, guid: 6b64033242e939a418ac67beff0ca38a, type: 2}
   - {fileID: 11400000, guid: 119b20004bd075c4484f3736ffc5b3b2, type: 2}
@@ -363,6 +366,12 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e3dab0355d3bf354ba3b307614b168cb, type: 2}
   - {fileID: 11400000, guid: 2b501392b2574614eb044298a1307caa, type: 2}
   - {fileID: 11400000, guid: 20dc966f5d95b8b438a2ce8875d5b375, type: 2}
+  potions:
+  - {fileID: 11400000, guid: a959847b76dfa3e4fb4a21266ead8d0d, type: 2}
+  - {fileID: 11400000, guid: cddc4245c7ec34e4a9374967d32ab97d, type: 2}
+  chestTop: {fileID: 3922958296411625791}
+  loot: {fileID: 7863113107666804419}
+  chestOpenDuration: 0.5
 --- !u!1 &7863113107666804419
 GameObject:
   m_ObjectHideFlags: 0

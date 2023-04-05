@@ -10,6 +10,8 @@ public class ItemData : MonoBehaviour, IPointerEnterHandler, IPointerDownHandler
     [SerializeField] private int id;
 
     public static event Action<EInventorySlot, int> OnItemRemoved;
+    public static event Action<ItemData, ObjItems, int> OnItemLooted;
+    public static event Action<ItemData, ObjPotions, int> OnPotionLooted;
 
     public ObjItems Item { get { return item; } set { item = value; } }
     public ObjPotions Potion { get { return potion; } set { potion = value; } }
@@ -17,7 +19,7 @@ public class ItemData : MonoBehaviour, IPointerEnterHandler, IPointerDownHandler
     public void OnPointerDown(PointerEventData eventData)
     {
         // Prompt();
-        UsePotion();
+        ProcessClick();
     }
 
     public void OnPointerEnter(PointerEventData eventData)
@@ -30,6 +32,38 @@ public class ItemData : MonoBehaviour, IPointerEnterHandler, IPointerDownHandler
         HideToolTip();
     }
 
+    private void ProcessClick()
+    {
+        switch (slot)
+        {
+            case EInventorySlot.Inventory:
+            case EInventorySlot.Equipped:
+                // Prompt to drop
+                break;
+            case EInventorySlot.Potions:
+                UsePotion();
+                break;
+            case EInventorySlot.Chest:
+                if (item != null)
+                {
+                    OnItemLooted?.Invoke(this, item, id);
+                    break;
+                }
+                else if (potion != null)
+                {
+                    OnPotionLooted?.Invoke(this, potion, id);
+                    break;
+                }
+
+                break;
+        }
+    }
+
+    public void Loot()
+    {
+        RemoveItem();
+    }
+
     private void ShowToolTip()
     {
         switch (slot)
@@ -40,6 +74,19 @@ public class ItemData : MonoBehaviour, IPointerEnterHandler, IPointerDownHandler
                 break;
             case EInventorySlot.Potions:
                 // Show potion data
+                break;
+            case EInventorySlot.Chest:
+                if (item != null)
+                {
+                    // show item
+                    break;
+                }
+                else if (potion != null)
+                {
+                    // show potion
+                    break;
+                }
+                
                 break;
         }
     }
@@ -73,6 +120,11 @@ public class ItemData : MonoBehaviour, IPointerEnterHandler, IPointerDownHandler
                 break;
 
             case EInventorySlot.Potions:
+                potion = null;
+                break;
+
+            case EInventorySlot.Chest:
+                item = null;
                 potion = null;
                 break;
         }

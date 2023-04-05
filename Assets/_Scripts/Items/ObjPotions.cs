@@ -10,6 +10,9 @@ public class ObjPotions : SerializedScriptableObject
     [SerializeField] private Sprite potionIcon;
 
     [VerticalGroup("Split/Right"), LabelWidth(120)]
+    [SerializeField] private EItemTypes itemType = EItemTypes.Potion;
+
+    [VerticalGroup("Split/Right"), LabelWidth(120)]
     [SerializeField] private string potionName;
 
     [VerticalGroup("Split/Right"), LabelWidth(120)]
@@ -20,6 +23,7 @@ public class ObjPotions : SerializedScriptableObject
     [SerializeField] private Dictionary<EEffectTypes, int> effectList = new();
 
     public Sprite Icon { get { return potionIcon; } }
+    public EItemTypes ItemTypes { get { return itemType; } }
     public string Name { get { return potionName; } }
     public string Description { get { return potionDescription; } }
     public Dictionary<EEffectTypes, int> EffectList { get {  return effectList; } }

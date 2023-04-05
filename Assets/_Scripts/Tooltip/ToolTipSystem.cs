@@ -17,6 +17,7 @@ public class ToolTipSystem : MonoBehaviour
 
         popUpAnimation();
         current.tooltip.SetText(content, header);
+        current.tooltip.DoUpdatePosNewInput();
         current.tooltip.gameObject.SetActive(true);
     }
 

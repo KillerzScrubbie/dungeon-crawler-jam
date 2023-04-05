@@ -297,6 +297,7 @@ GameObject:
   - component: {fileID: 6424392808267716002}
   - component: {fileID: 324477117317210005}
   - component: {fileID: 7441253096733166765}
+  - component: {fileID: 404623748936658775}
   m_Layer: 12
   m_Name: Chest
   m_TagString: Untagged
@@ -381,6 +382,22 @@ MonoBehaviour:
   loot: {fileID: 7863113107666804419}
   pointLight: {fileID: 5168590460414799270}
   chestOpenDuration: 0.5
+--- !u!114 &404623748936658775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6424392808267716003}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42ff5b97d68888848bbd8ac995da8463, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeBeforePopUp: 0.1
+  useTimeDelay: 0
+  header: <color=yellow>Chest
+  content: Click to open chest
 --- !u!1 &7863113107666804419
 GameObject:
   m_ObjectHideFlags: 0

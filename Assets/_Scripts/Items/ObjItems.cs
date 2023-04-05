@@ -26,11 +26,11 @@ public class ObjItems : SerializedScriptableObject
     [SerializeField] private Dictionary<EEffectTypes, int> effectList2 = new();
 
     public EItemTypes ItemType { get { return itemType; } }
-    public string Name { get { return itemName; }}
-    public Sprite Icon { get { return itemIcon; }}
+    public string Name { get { return itemName; } }
+    public Sprite Icon { get { return itemIcon; } }
 
     // Action 1
-    public string Action1 { get { return actionName1; }}
+    public string Action1 { get { return actionName1; } }
     public string Description1 { get { return itemDescription1; } }
     public int ManaCost1 { get { return manaCost1; } }
     public int ActionCost1 { get { return actionCost1; } }
@@ -42,4 +42,10 @@ public class ObjItems : SerializedScriptableObject
     public int ManaCost2 { get { return manaCost2; } }
     public int ActionCost2 { get { return actionCost2; } }
     public Dictionary<EEffectTypes, int> EffectList2 { get { return effectList2; } }
+
+    public string GetActionDescription()
+    {
+        Debug.Log("wa");
+        return $"<b>{actionName1}</b>: <color=#D2D2D2>{itemDescription1}</color>\n<b>{actionName2}</b>: <color=#D2D2D2>{itemDescription2}</color>";
+    }
 }

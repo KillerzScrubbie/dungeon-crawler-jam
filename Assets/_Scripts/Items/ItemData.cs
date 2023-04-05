@@ -16,6 +16,14 @@ public class ItemData : MonoBehaviour, IPointerEnterHandler, IPointerClickHandle
     public ObjItems Item { get { return item; } set { item = value; } }
     public ObjPotions Potion { get { return potion; } set { potion = value; } }
 
+    public bool useTimeDelay = true;
+    public static LTDescr delay;
+
+    void Start()
+    {
+        LeanTween.reset();
+    }
+
 
     public void OnPointerClick(PointerEventData eventData)
     {
@@ -65,36 +73,54 @@ public class ItemData : MonoBehaviour, IPointerEnterHandler, IPointerClickHandle
         RemoveItem();
     }
 
+    void ShowItemTooltip(ObjItems _item)
+    {
+        ToolTipSystem.Show(_item.GetActionDescription(), _item.Name);
+    }
+
+    void ShowPotionTooltip(ObjPotions _potion)
+    {
+        ToolTipSystem.Show(_potion.Description, _potion.name);
+    }
+
     private void ShowToolTip()
     {
         switch (slot)
         {
             case EInventorySlot.Inventory:
+                ShowItemTooltip(item);
+                break;
             case EInventorySlot.Equipped:
-                // Show item data
+                if (item.Name == null) break;
+                ShowItemTooltip(item);
                 break;
             case EInventorySlot.Potions:
-                // Show potion data
+                ShowPotionTooltip(potion);
                 break;
             case EInventorySlot.Chest:
                 if (item != null)
                 {
-                    // show item
+                    ShowItemTooltip(item);
                     break;
                 }
                 else if (potion != null)
                 {
+
+                    ShowPotionTooltip(potion);
                     // show potion
                     break;
                 }
-                
+
                 break;
         }
     }
 
     private void HideToolTip()
     {
-        // Hide both item and potion tooltip
+        if (ToolTipSystem.current != null)
+        {
+            ToolTipSystem.Hide();
+        }
     }
 
     private void Prompt()
@@ -129,7 +155,7 @@ public class ItemData : MonoBehaviour, IPointerEnterHandler, IPointerClickHandle
                 potion = null;
                 break;
         }
-        
+
         OnItemRemoved?.Invoke(slot, id);
     }
 }

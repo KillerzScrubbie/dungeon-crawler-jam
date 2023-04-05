@@ -9,7 +9,6 @@ public class PlayerStateManager : MonoBehaviour
     private PlayerCombatState playerCombatState = new();
     private PlayerExplorationState playerExplorationState = new();
 
-
     public PlayerMovement GetPlayerMovement() => playerMovement;
 
     // Get States
@@ -21,7 +20,7 @@ public class PlayerStateManager : MonoBehaviour
         currentState = playerExplorationState;
         currentState.EnterState(this);
 
-        playerMovement.OnCombatEntered += SwitchToCombatState;
+        PlayerMovement.OnCombatEntered += SwitchToCombatState;
     }
 
     private void Update()
@@ -42,6 +41,6 @@ public class PlayerStateManager : MonoBehaviour
 
     private void OnDestroy()
     {
-        playerMovement.OnCombatEntered -= SwitchToCombatState;
+        PlayerMovement.OnCombatEntered -= SwitchToCombatState;
     }
 }

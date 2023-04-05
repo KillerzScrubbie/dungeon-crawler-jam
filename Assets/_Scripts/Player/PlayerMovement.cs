@@ -21,7 +21,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private LayerMask enemyLayers;
     [SerializeField] private BoxCollider groundCheckCollider;
 
-    public event Action OnCombatEntered;
+    public static event Action OnCombatEntered;
     public static event Action OnDimensionJumpBlocked;
     public static event Action<float> OnTurned;
 

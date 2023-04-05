@@ -398,7 +398,7 @@ MonoBehaviour:
   useTimeDelay: 0
   header: <color=yellow>Chest
   content: Click to open chest
-  rayDistance: 1.5
+  rayDistance: 1.8
   lootMask:
     serializedVersion: 2
     m_Bits: 4096

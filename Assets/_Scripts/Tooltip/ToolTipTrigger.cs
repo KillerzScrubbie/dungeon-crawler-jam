@@ -44,6 +44,13 @@ public class ToolTipTrigger : MonoBehaviour, IPointerEnterHandler, IPointerExitH
         ToolTipSystem.Show(content, header);
     }
 
+    void RayDistanceCheck()
+    {
+        Ray ray = mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
+        RaycastHit hit;
+        if (!Physics.Raycast(ray, out hit, rayDistance, lootMask)) { return; }
+    }
+
     void OnMouseEnter()
     {
 

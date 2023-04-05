@@ -10,6 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3749891274881555704}
   - component: {fileID: 3749891274881555705}
+  - component: {fileID: 989881808566818251}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -44,4 +45,36 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 76d1b46b200eb5e408bbee7d9b025291, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _sounds: []
+  _sounds:
+  - audioName: playerDmg1
+    clip: {fileID: 8300000, guid: 74169a5185e8581459270632830d86d9, type: 3}
+    mixerGroup: {fileID: 8219120640885313815, guid: e4133e5e7f34c4743be3fe0ab8e68812,
+      type: 2}
+    volume: 0.508
+    pitch: 1
+    blend: 0
+    loop: 0
+    source: {fileID: 0}
+  - audioName: bg1
+    clip: {fileID: 8300000, guid: 462c1cbccccf0c3409f7656e9490173b, type: 3}
+    mixerGroup: {fileID: 8426698837903981537, guid: e4133e5e7f34c4743be3fe0ab8e68812,
+      type: 2}
+    volume: 0.05
+    pitch: 1
+    blend: 0
+    loop: 1
+    source: {fileID: 0}
+--- !u!114 &989881808566818251
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 3749891274881555710}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 77a8721dfa9e7d94d9e661f4be744ae4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  playName: bg1
+  StopOtherMusic: 0

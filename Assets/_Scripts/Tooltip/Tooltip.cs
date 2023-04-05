@@ -71,17 +71,19 @@ public class Tooltip : MonoBehaviour
         if (IsBetweenFloat(position.x, customRange.x, Screen.width - customRange.x) && IsBetweenFloat(position.y, customRange.y, Screen.height - customRange.y))
         {
             // set pivot to 0 1 - it will be lower right
-            rectTrans.pivot = new Vector2(0, 1);
+            rectTrans.pivot = new Vector2(1, 0);
             // this should alway set after pivot 
             transform.position = position + offSet;
             return;
         }
         else
         {
-            float pivotX = position.x / Screen.width;
-            float pivotY = position.y / Screen.height;
+            // float pivotX = position.x / Screen.width;
+            // float pivotY = position.y / Screen.height;
 
-            rectTrans.pivot = new Vector2(pivotX, pivotY);
+            // rectTrans.pivot = new Vector2(pivotX, pivotY);
+
+            rectTrans.pivot = new Vector2(1, 0);
             // this should alway set after pivot 
             // not use offset if it in edge of screen 
             transform.position = position;

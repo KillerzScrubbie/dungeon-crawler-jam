@@ -158,7 +158,7 @@ MonoBehaviour:
   contentField: {fileID: 7296627028240319783}
   layoutElementObj: {fileID: 7296627026726419362}
   rectTrans: {fileID: 7296627026726419375}
-  offSet: {x: 30, y: 20}
+  offSet: {x: -20, y: 20}
   customRange: {x: 200, y: 200}
 --- !u!1 &7296627027635202521
 GameObject:

@@ -34,7 +34,7 @@ public class PlayerHp : MonoBehaviour, IDamageable
     [Button]
     public void TakeDamage(int damage)
     {
-        // AudioManager.instance.PlayOneRandomPitch("playerDmg1", .8f, 1.2f);
+        AudioManager.instance?.PlayOneRandomPitch("playerDmg1", .8f, 1.2f);
         _currentHP = Math.Clamp(_currentHP - damage, 0, _maxHP);
         OnPlayerUpdateHp?.Invoke(_currentHP, _maxHP);
         OnPlayerTakeDamage?.Invoke(damage);
@@ -47,7 +47,7 @@ public class PlayerHp : MonoBehaviour, IDamageable
     public void Heal(int healValue)
     {
         if (IsPlayerDead()) return;
-        // AudioManager.instance.PlayOneRandomPitch("playerDmg1", .8f, 1.2f);
+        AudioManager.instance?.PlayOneRandomPitch("playerDmg1", .8f, 1.2f);
         _currentHP = Math.Clamp(_currentHP + healValue, 0, _maxHP);
         OnPlayerUpdateHp?.Invoke(_currentHP, _maxHP);
         OnPlayerHeal?.Invoke(healValue);

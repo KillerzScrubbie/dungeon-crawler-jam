@@ -40,13 +40,11 @@ public class ToolTipTrigger : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 
     void OnMouseEnter()
     {
-        Debug.Log("mouse enter");
         ShowTooltip();
     }
 
     void OnMouseExit()
     {
-        Debug.Log("mouse exit");
         HideTooltip();
     }
 
@@ -58,15 +56,17 @@ public class ToolTipTrigger : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 
     private static void HideTooltip()
     {
+
+        if (ToolTipSystem.current != null)
+        {
+            ToolTipSystem.Hide();
+        }
+
         if (delay == null)
         {
             return;
         }
         LeanTween.cancel(delay.uniqueId);
 
-        if (ToolTipSystem.current != null)
-        {
-            ToolTipSystem.Hide();
-        }
     }
 }

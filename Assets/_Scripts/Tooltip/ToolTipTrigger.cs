@@ -1,4 +1,5 @@
 using UnityEngine;
+using UnityEngine.InputSystem;
 using UnityEngine.EventSystems;
 
 public class ToolTipTrigger : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler
@@ -11,9 +12,14 @@ public class ToolTipTrigger : MonoBehaviour, IPointerEnterHandler, IPointerExitH
     [Multiline()]
     public string content;
 
+    [SerializeField] private float rayDistance = 1.5f;
+    [SerializeField] private LayerMask lootMask;
+    private Camera mainCamera;
+
     private void Start()
     {
         LeanTween.reset();
+        mainCamera = Camera.main;
     }
 
 
@@ -40,6 +46,10 @@ public class ToolTipTrigger : MonoBehaviour, IPointerEnterHandler, IPointerExitH
 
     void OnMouseEnter()
     {
+
+        Ray ray = mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
+        RaycastHit hit;
+        if (!Physics.Raycast(ray, out hit, rayDistance, lootMask)) { return; }
         ShowTooltip();
     }
 

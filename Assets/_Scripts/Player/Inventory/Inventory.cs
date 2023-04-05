@@ -14,6 +14,7 @@ public class Inventory
 
     private readonly int maxItemSlots = 4;
     private readonly int maxPotionSlots = 2;
+    private readonly int maxEquippedSlots = 4;
 
     public Inventory()
     {
@@ -59,8 +60,112 @@ public class Inventory
         OnInventoryUpdated?.Invoke();
     }
 
+    public bool AddEquipped(ObjItems item, int slot = -1)
+    {
+        int equippedSlot = slot >= 0 ? slot : maxEquippedSlots;
+
+        for (int i = 0; i < maxEquippedSlots; i++)
+        {
+            if (equippedList.ContainsKey(i)) continue;
+
+            equippedSlot = i;
+            break;
+        }
+
+        if (equippedSlot > maxEquippedSlots - 1)
+        {
+            Debug.Log("Equipped Full");
+            return false;
+        }
+
+        if (equippedList.ContainsKey(equippedSlot))
+        {
+            equippedList[equippedSlot] = item;
+        }
+        else
+        {
+            equippedList.Add(equippedSlot, item);
+        }
+
+        OnEquippedUpdated?.Invoke();
+        return true;
+    }
+
+    public void RemoveEquipped(int slot)
+    {
+        equippedList.Remove(slot);
+
+        OnInventoryUpdated?.Invoke();
+    }
+
     public void SwapItemPosition(EInventorySlot slotType1, int slot1, EInventorySlot slotType2, int slot2)
     {
+        EInventorySlot startSlotType = slotType1;
+        EInventorySlot endSlotType = slotType2;
+        int startSlotId = slot1;
+        int endSlotId = slot2;
+
+        ObjItems item1 = null;
+        ObjItems item2 = null;
+
+        switch (startSlotType)
+        {
+            case EInventorySlot.Equipped:
+                item1 = equippedList[startSlotId];
+                RemoveEquipped(startSlotId);
+                break;
+
+            case EInventorySlot.Inventory:
+                item1 = itemList[startSlotId];
+                RemoveItem(startSlotId);
+
+                break;
+
+            default:
+                break;
+        }
+
+        switch (endSlotType)
+        {
+            case EInventorySlot.Equipped:
+                item2 = equippedList[endSlotId];
+                RemoveEquipped(endSlotId);
+
+                if (item1 == null) { break; }
+                AddEquipped(item1, endSlotId);
+
+                break;
+
+            case EInventorySlot.Inventory:
+                item2 = itemList[endSlotId];
+                RemoveItem(endSlotId);
+
+                if (item1 == null) { break; }
+                AddItem(item1, endSlotId);
+
+                break;
+
+            default:
+                break;
+        }
+
+        switch (startSlotType)
+        {
+            case EInventorySlot.Equipped:
+                if (item2 == null) { break; }
+                AddEquipped(item2, startSlotId);
+
+                break;
+
+            case EInventorySlot.Inventory:
+                if (item2 == null) { break; }
+                AddItem(item2, startSlotId);
+
+                break;
+
+            default:
+                break;
+        }
 
     }
 

@@ -27,6 +27,8 @@ public class InventoryUI : SerializedMonoBehaviour
 
     private bool isSwapping = false;
 
+    public Inventory Inventory { get { return inventory; } }
+
     private void Start()
     {
         PlayerInputController.OnInventoryOpened += HandleInventoryPopup;

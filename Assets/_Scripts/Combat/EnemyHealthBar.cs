@@ -17,11 +17,6 @@ public class EnemyHealthBar : MonoBehaviour
         healthSystem.OnHealthUpdated += HandleHealthUpdated;
     }
 
-    private void Start()
-    {
-        
-    }
-
     public void Setup(int maxHealth)
     {
         healthSystem.SetupEnemy(maxHealth);

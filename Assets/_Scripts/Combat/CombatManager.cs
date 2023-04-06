@@ -15,8 +15,6 @@ public class CombatManager : MonoBehaviour
     [Space]
     [Header("Player Control Slots List")]
     [SerializeField] private List<Image> actionsSlot;
-    [SerializeField] private List<GameObject> equippedSlot;
-    [SerializeField] private List<GameObject> potionSlot;
 
     private ObjEnemyGroup currentCombatGroup;
     private List<ObjEnemy> enemyList = new();

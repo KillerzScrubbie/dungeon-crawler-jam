@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2538107560793142323}
   - component: {fileID: 2538107560793142321}
   - component: {fileID: 2538107560793142322}
+  - component: {fileID: 454973329662987839}
   m_Layer: 5
   m_Name: Combat Screen Slot
   m_TagString: Untagged
@@ -32,6 +33,7 @@ RectTransform:
   m_Children:
   - {fileID: 2538107561044566535}
   - {fileID: 2538107561592385410}
+  - {fileID: 8159985429010656871}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -79,6 +81,40 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &454973329662987839
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2538107560793142332}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3664865dea51a8147be2bbb4a3de8389, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  defaultWeapon: {fileID: 11400000, guid: e64964d2d6680d6418301f20b710f48b, type: 2}
+  outline: {fileID: 2538107561044566534}
+  icon: {fileID: 2538107561592385409}
+  combatSlot: 0
+  id: 0
+  inventoryUI: {fileID: 0}
+  actionsPanel: {fileID: 0}
+  actionButtons: []
+  actionTexts: []
+  actionDescription: []
+  energyCosts: []
+  anchor: {fileID: 8159985429010656871}
+  potionPromptPanel: {fileID: 0}
+  colorUsable:
+    serializedVersion: 2
+    rgba: 4289441103
+  colorSelected:
+    serializedVersion: 2
+    rgba: 4283289813
+  colorDisable:
+    serializedVersion: 2
+    rgba: 4282663742
 --- !u!1 &2538107561044566528
 GameObject:
   m_ObjectHideFlags: 0
@@ -232,3 +268,39 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &6354557301604845376
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 8159985429010656871}
+  m_Layer: 5
+  m_Name: Anchor
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!224 &8159985429010656871
+RectTransform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6354557301604845376}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 2538107560793142323}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_AnchorMin: {x: 0.5, y: 1}
+  m_AnchorMax: {x: 0.5, y: 1}
+  m_AnchoredPosition: {x: 0, y: 20}
+  m_SizeDelta: {x: 100, y: 100}
+  m_Pivot: {x: 0.5, y: 1}

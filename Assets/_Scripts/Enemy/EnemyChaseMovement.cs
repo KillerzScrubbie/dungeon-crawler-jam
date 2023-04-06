@@ -14,12 +14,17 @@ public class EnemyChaseMovement : MonoBehaviour
     private EnemyPathfindingAI ai;
 
     private bool isChasing = false;
+    private bool reachedEndOfPath = false;
 
     private void Awake()
     {
         seeker = GetComponent<Seeker>();
         ai = GetComponent<EnemyPathfindingAI>();
+    }
 
+    private void Start()
+    {
+        PlayerMovement.OnCombatEntered += HandleCombatEntered;
     }
 
     public void OnChaseEntered()
@@ -38,14 +43,20 @@ public class EnemyChaseMovement : MonoBehaviour
     {
         if (!isChasing) { return; }
 
-        // Check if enemy reaches last seen location
+        if (!reachedEndOfPath) { return; }
 
         OnPatrolStarted?.Invoke();
+    }
+
+    public void ReachEndOfPath()
+    {
+        reachedEndOfPath = true;
     }
 
     private void SetPath(Vector3 targetPos)
     {
         seeker.StartPath(transform.position, targetPos);
+        reachedEndOfPath = false;
     }
 
     private void OnTriggerEnter(Collider other)
@@ -60,7 +71,6 @@ public class EnemyChaseMovement : MonoBehaviour
         if (!other.TryGetComponent(out PlayerMovement playerMovement)) { return; }
 
         SetPath(playerMovement.transform.position);
-
     }
 
     private void OnTriggerExit(Collider other)
@@ -68,7 +78,15 @@ public class EnemyChaseMovement : MonoBehaviour
         if (!other.TryGetComponent(out PlayerMovement playerMovement)) { return; }
 
         isChasing = false;
-
     }
-    // If player in combat, also call this. OnCombatEntered?.Invoke(this);
+    
+    private void HandleCombatEntered()
+    {
+        OnCombatEntered?.Invoke(this);
+    }
+
+    private void OnDestroy()
+    {
+        PlayerMovement.OnCombatEntered -= HandleCombatEntered;
+    }
 }

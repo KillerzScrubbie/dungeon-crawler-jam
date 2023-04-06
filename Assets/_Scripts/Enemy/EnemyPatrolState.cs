@@ -12,8 +12,13 @@ public class EnemyPatrolState : EnemyBaseState
         enemyStateManager.GetEnemyMovement().UpdatePatrolMovement();
     }
 
-    public override void OnLeaveState(EnemyStateManager enemyStateManager)
+    public override void LeaveState(EnemyStateManager enemyStateManager)
     {
         enemyStateManager.GetEnemyMovement().OnPatrolExited();
+    }
+
+    public override void OnFinishedPath(EnemyStateManager enemyStateManager)
+    {
+        enemyStateManager.GetEnemyMovement().ReachEndOfPath();
     }
 }

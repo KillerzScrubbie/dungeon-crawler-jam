@@ -5,10 +5,11 @@ public class EnemyPathfindingAI : AILerp
 {
     [Space]
     [Header("Custom Fields")]
-    [SerializeField] private EnemyMovement enemyMovement;
+    [SerializeField] private EnemyStateManager enemyStateManager;
 
     public override void OnTargetReached()
     {
-        enemyMovement.FindRandomPath();
+        enemyStateManager.HandlePathingFinished();
+        // Debug.Log("END");
     }
 }

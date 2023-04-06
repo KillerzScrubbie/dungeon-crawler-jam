@@ -1,5 +1,3 @@
-using UnityEngine;
-
 public class EnemyChaseState : EnemyBaseState
 {
     public override void EnterState(EnemyStateManager enemyStateManager)
@@ -12,8 +10,13 @@ public class EnemyChaseState : EnemyBaseState
         enemyStateManager.GetEnemyChaseMovement().UpdateChaseMovement();
     }
 
-    public override void OnLeaveState(EnemyStateManager enemyStateManager)
+    public override void LeaveState(EnemyStateManager enemyStateManager)
     {
         enemyStateManager.GetEnemyChaseMovement().OnChaseExited();
+    }
+
+    public override void OnFinishedPath(EnemyStateManager enemyStateManager)
+    {
+        enemyStateManager.GetEnemyChaseMovement().ReachEndOfPath();
     }
 }

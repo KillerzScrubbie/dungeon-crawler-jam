@@ -3,10 +3,12 @@ using UnityEngine;
 public class EnemyStateManager : MonoBehaviour
 {
     [SerializeField] private EnemyMovement enemyMovement;
-    [SerializeField] private EnemyChaseMovement chaseMovement;
+    [SerializeField] private EnemyChaseMovement enemyChaseMovement;
 
     private EnemyBaseState currentState;
     private EnemyBaseState previousState;
+
+    private EnemyChaseMovement currentEnemyInCombat;
 
     private EnemyCombatState enemyCombatState = new();
     private EnemyChaseState enemyChaseState = new();
@@ -19,12 +21,13 @@ public class EnemyStateManager : MonoBehaviour
     public EnemyPausedState GetPausedState() => enemyPausedState;
 
     public EnemyMovement GetEnemyMovement() => enemyMovement;
-    public EnemyChaseMovement GetEnemyChaseMovement() => chaseMovement;
+    public EnemyChaseMovement GetEnemyChaseMovement() => enemyChaseMovement;
 
     private void Start()
     {
         enemyMovement.OnChase += SwitchToChaseState;
         EnemyChaseMovement.OnCombatEntered += SwitchToCombatState;
+        enemyChaseMovement.OnPatrolStarted += SwitchToPatrolState;
 
         currentState = GetPatrolState();
         currentState.EnterState(this);
@@ -35,14 +38,18 @@ public class EnemyStateManager : MonoBehaviour
         currentState.UpdateState(this);
     }
 
-    private void SwitchToCombatState(EnemyChaseMovement chaseMovement)
+    private void SwitchToCombatState(EnemyChaseMovement enemyChaseMovement)
     {
-        if (this.chaseMovement != chaseMovement)
+        if (currentEnemyInCombat == null) { goto AssignCombat; }
+
+        if (this.enemyChaseMovement != enemyChaseMovement)
         {
             SwitchToPausedState();
             return;
         }
 
+        AssignCombat:
+        currentEnemyInCombat = enemyChaseMovement;
         SwitchState(enemyCombatState);
     }
 
@@ -68,14 +75,21 @@ public class EnemyStateManager : MonoBehaviour
         if (currentState == state) return;
 
         previousState = currentState;
-        currentState.OnLeaveState(this);
+        currentState.LeaveState(this);
         currentState = state;
         state.EnterState(this);
     }
 
+    public void HandlePathingFinished()
+    {
+        currentState.OnFinishedPath(this);
+    }
+
+    // Pool enemies? if yes change to ondisable
     private void OnDestroy()
     {
         enemyMovement.OnChase -= SwitchToChaseState;
         EnemyChaseMovement.OnCombatEntered -= SwitchToCombatState;
+        enemyChaseMovement.OnPatrolStarted -= SwitchToPatrolState;
     }
 }

@@ -1,14 +1,17 @@
 using Pathfinding;
 using System;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
 {
-    [SerializeField] private Transform targetPosition;
+    [SerializeField] private Transform locationListParent;
     [SerializeField] private float speed = 0.2f;
     [SerializeField] private float nextWaypointDistance = 0.5f;
 
     public event Action OnChase;
+
+    private List<Transform> locationList = new();
 
     private Seeker seeker;
     private EnemyPathfindingAI ai;
@@ -21,7 +24,13 @@ public class EnemyMovement : MonoBehaviour
 
     private void Start()
     {
-        SetPath(targetPosition.position);
+        foreach (Transform location in locationListParent)
+        {
+            locationList.Add(location);
+            Debug.Log(location);
+        }
+
+        FindRandomPath();
     }
 
     public void OnPatrolEntered()
@@ -39,6 +48,11 @@ public class EnemyMovement : MonoBehaviour
         //if (playerFinderCollider.) { }
     }
 
+    public void ReachEndOfPath()
+    {
+        FindRandomPath();
+    }
+
     private void SetPath(Vector3 targetPos)
     {
         seeker.StartPath(transform.position, targetPos);
@@ -46,7 +60,9 @@ public class EnemyMovement : MonoBehaviour
 
     public void FindRandomPath()
     {
-        SetPath(targetPosition.position);
+        Transform randomPath = locationList[UnityEngine.Random.Range(0, locationList.Count)];
+
+        SetPath(randomPath.position);
     }
 
     private void OnTriggerStay(Collider other)

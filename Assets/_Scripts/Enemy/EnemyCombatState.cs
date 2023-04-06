@@ -12,7 +12,12 @@ public class EnemyCombatState : EnemyBaseState
 
     }
 
-    public override void OnLeaveState(EnemyStateManager enemyStateManager)
+    public override void LeaveState(EnemyStateManager enemyStateManager)
+    {
+
+    }
+
+    public override void OnFinishedPath(EnemyStateManager enemyStateManager)
     {
 
     }

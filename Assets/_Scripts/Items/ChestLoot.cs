@@ -20,8 +20,11 @@ public class ChestLoot : MonoBehaviour
     [SerializeField] private float chestOpenDuration = 1f;
     [SerializeField] private float chestCloseDuration = 2f;
 
+    bool _isChestOpen;
+
     private readonly Vector3 normalChestPos = new(270f, 0f, 0f);
     private readonly Vector3 openChestPos = new(200f, 0f, 0f);
+
 
     // Random rand = new Random(Guid.NewGuid().GetHashCode());
 
@@ -48,7 +51,9 @@ public class ChestLoot : MonoBehaviour
 
     public void OpenChest()
     {
-        AudioManager.instance?.Play("chestOpen");
+        if (!_isChestOpen) AudioManager.instance?.Play("chestOpen"); // play only on first open
+
+        _isChestOpen = true;
         chestTop.DOLocalRotate(openChestPos, chestOpenDuration).SetEase(Ease.OutBounce);
     }
 
@@ -56,7 +61,8 @@ public class ChestLoot : MonoBehaviour
     {
         if (isEmpty) return;
 
-        AudioManager.instance?.Play("chestClose");
+        if (_isChestOpen) AudioManager.instance?.Play("chestClose");
+        _isChestOpen = false;
         chestTop.DOLocalRotate(normalChestPos, chestCloseDuration).SetEase(Ease.InCubic);
     }
 

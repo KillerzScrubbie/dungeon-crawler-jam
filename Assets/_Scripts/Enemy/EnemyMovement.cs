@@ -1,4 +1,5 @@
 using Pathfinding;
+using System;
 using UnityEngine;
 
 public class EnemyMovement : MonoBehaviour
@@ -7,15 +8,15 @@ public class EnemyMovement : MonoBehaviour
     [SerializeField] private float speed = 0.2f;
     [SerializeField] private float nextWaypointDistance = 0.5f;
 
+    public event Action OnChase;
+
     private Seeker seeker;
-    private AILerp ai;
-    private Collider playerFinderCollider;
+    private EnemyPathfindingAI ai;
 
     private void Awake()
     {
         seeker = GetComponent<Seeker>();
-        ai = GetComponent<AILerp>();
-        playerFinderCollider = GetComponent<Collider>();
+        ai = GetComponent<EnemyPathfindingAI>();
     }
 
     private void Start()
@@ -23,17 +24,17 @@ public class EnemyMovement : MonoBehaviour
         SetPath(targetPosition.position);
     }
 
-    public void OnStateEntered()
+    public void OnPatrolEntered()
     {
         ai.speed = speed;
     }
 
-    public void OnStateExited()
+    public void OnPatrolExited()
     {
         ai.speed = 0f;
     }
 
-    public void UpdateMovement()
+    public void UpdatePatrolMovement()
     {
         //if (playerFinderCollider.) { }
     }
@@ -43,11 +44,16 @@ public class EnemyMovement : MonoBehaviour
         seeker.StartPath(transform.position, targetPos);
     }
 
+    public void FindRandomPath()
+    {
+        SetPath(targetPosition.position);
+    }
+
     private void OnTriggerStay(Collider other)
     {
         if (other.TryGetComponent(out PlayerMovement playerMovement))
         {
-            SetPath(playerMovement.transform.position);
+            OnChase?.Invoke();
         }
     }
 }

@@ -17,10 +17,10 @@ public class PlayerStateManager : MonoBehaviour
 
     private void Start()
     {
+        PlayerMovement.OnCombatEntered += SwitchToCombatState;
+
         currentState = playerExplorationState;
         currentState.EnterState(this);
-
-        PlayerMovement.OnCombatEntered += SwitchToCombatState;
     }
 
     private void Update()
@@ -35,6 +35,8 @@ public class PlayerStateManager : MonoBehaviour
 
     public void SwitchState(PlayerBaseState state)
     {
+        if (state != currentState) { return; }
+
         currentState = state;
         state.EnterState(this);
     }

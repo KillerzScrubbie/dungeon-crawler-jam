@@ -1,13 +1,17 @@
 using UnityEngine;
 using Cinemachine;
+using UnityEngine.Audio;
 using System;
 
 public class SettingLoader : MonoBehaviour
 {
     [SerializeField] CinemachineVirtualCamera _cvc;
     [SerializeField] PlayerMovement _playerMovementScpt;
+
+
     string TOGGLE_SMOOTH_SETTING_SAVE_NAME = "saved_smooth";
     string FOV_SETTING_NAME = "saved_fov";
+
 
     void Start()
     {

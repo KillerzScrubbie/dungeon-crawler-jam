@@ -109,9 +109,10 @@ GameObject:
   - component: {fileID: 348882745}
   - component: {fileID: 1211158138}
   - component: {fileID: 2354045199951414987}
+  - component: {fileID: 278468642089684577}
   m_Layer: 0
   m_Name: Player
-  m_TagString: Untagged
+  m_TagString: Player
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -244,6 +245,22 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   itemsToAdd: []
   inventoryUI: {fileID: 0}
+--- !u!54 &278468642089684577
+Rigidbody:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 5702796731125375698}
+  serializedVersion: 2
+  m_Mass: 1
+  m_Drag: 0
+  m_AngularDrag: 0
+  m_UseGravity: 0
+  m_IsKinematic: 1
+  m_Interpolate: 1
+  m_Constraints: 126
+  m_CollisionDetection: 0
 --- !u!1 &5702796731125985275
 GameObject:
   m_ObjectHideFlags: 0

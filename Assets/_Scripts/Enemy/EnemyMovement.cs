@@ -9,16 +9,18 @@ public class EnemyMovement : MonoBehaviour
 
     private Seeker seeker;
     private AILerp ai;
+    private Collider playerFinderCollider;
 
     private void Awake()
     {
         seeker = GetComponent<Seeker>();
         ai = GetComponent<AILerp>();
+        playerFinderCollider = GetComponent<Collider>();
     }
 
     private void Start()
     {
-        seeker.StartPath(transform.position, targetPosition.position);
+        SetPath(targetPosition.position);
     }
 
     public void OnStateEntered()
@@ -33,6 +35,19 @@ public class EnemyMovement : MonoBehaviour
 
     public void UpdateMovement()
     {
-        
+        //if (playerFinderCollider.) { }
+    }
+
+    private void SetPath(Vector3 targetPos)
+    {
+        seeker.StartPath(transform.position, targetPos);
+    }
+
+    private void OnTriggerStay(Collider other)
+    {
+        if (other.TryGetComponent(out PlayerMovement playerMovement))
+        {
+            SetPath(playerMovement.transform.position);
+        }
     }
 }

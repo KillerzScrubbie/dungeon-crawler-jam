@@ -4577,6 +4577,18 @@ Transform:
     type: 3}
   m_PrefabInstance: {fileID: 186377561}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &684642669 stripped
+MonoBehaviour:
+  m_CorrespondingSourceObject: {fileID: 5591827499794147968, guid: 1619e23534275234f8e8bcb0d94f123e,
+    type: 3}
+  m_PrefabInstance: {fileID: 701655297822411010}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c74d9ba80b61cef46a4fcdda69fe500f, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!43 &697827489
 Mesh:
   m_ObjectHideFlags: 0
@@ -17488,6 +17500,11 @@ PrefabInstance:
       propertyPath: doors.Array.size
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 6320310869594270095, guid: 4d5e99a0ff859fe47a68879464c7f83e,
+        type: 3}
+      propertyPath: doors.Array.data[0]
+      value: 
+      objectReference: {fileID: 684642669}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 4d5e99a0ff859fe47a68879464c7f83e, type: 3}
 --- !u!1001 &4283180468381949190

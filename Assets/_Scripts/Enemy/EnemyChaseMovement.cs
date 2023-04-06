@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class EnemyChaseMovement : MonoBehaviour
 {
-    [SerializeField] private float speed = 0.2f;
     [SerializeField] private EnemyCombatDetector detector;
 
     public static event Action<EnemyChaseMovement> OnCombatEntered;
@@ -12,20 +11,30 @@ public class EnemyChaseMovement : MonoBehaviour
 
     private Seeker seeker;
     private EnemyPathfindingAI ai;
+    private EnemyData enemyData;
 
     private bool isChasing = false;
     private bool reachedEndOfPath = false;
     private bool isInState = false;
 
+    private float speed = 0.2f;
+
     private void Awake()
     {
         seeker = GetComponent<Seeker>();
         ai = GetComponent<EnemyPathfindingAI>();
+        enemyData = transform.parent.gameObject.GetComponent<EnemyData>();
+        enemyData.OnInitializeSpeed += SetSpeed;
     }
 
     private void Start()
     {
-        detector.OnCombatDetected += HandleCombatEntered;
+        detector.OnCombatDetected += HandleCombatEntered;  
+    }
+
+    public void SetSpeed(float speed)
+    {
+        this.speed = speed;
     }
 
     public void OnChaseEntered()
@@ -98,5 +107,6 @@ public class EnemyChaseMovement : MonoBehaviour
     private void OnDestroy()
     {
         detector.OnCombatDetected -= HandleCombatEntered;
+        enemyData.OnInitializeSpeed -= SetSpeed;
     }
 }

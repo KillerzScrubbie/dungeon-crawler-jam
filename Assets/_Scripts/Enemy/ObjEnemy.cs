@@ -7,6 +7,7 @@ public class ObjEnemy : SerializedScriptableObject
 {
     [SerializeField] private Sprite image;
     [SerializeField] private string enemyName;
+    [SerializeField] private int maxHealth;
     [SerializeField] private float minSpeed = 0.1f;
     [SerializeField] private float maxSpeed = 0.8f;
 
@@ -16,7 +17,12 @@ public class ObjEnemy : SerializedScriptableObject
 
     public Sprite Image { get { return image; } }
     public string EnemyName { get { return enemyName; } }
+    public int MaxHealth { get {  return maxHealth; } }
     public float GetRandomSpeed() => Random.Range(minSpeed, maxSpeed);
     public Dictionary<EEffectTypes, int> EffectList1 { get {  return effectList1; } }
     public Dictionary<EEffectTypes, int> EffectList2 { get {  return effectList2; } }
+    public Dictionary<EEffectTypes, int> GetRandomIntent()
+    {
+        return (Random.Range(0, 2) == 0) ? effectList1 : effectList2;
+    }
 }

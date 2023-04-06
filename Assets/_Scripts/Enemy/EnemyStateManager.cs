@@ -2,6 +2,7 @@ using UnityEngine;
 
 public class EnemyStateManager : MonoBehaviour
 {
+    [SerializeField] private EnemyData enemyData;
     [SerializeField] private EnemyMovement enemyMovement;
     [SerializeField] private EnemyChaseMovement enemyChaseMovement;
 
@@ -20,6 +21,8 @@ public class EnemyStateManager : MonoBehaviour
 
     public EnemyMovement GetEnemyMovement() => enemyMovement;
     public EnemyChaseMovement GetEnemyChaseMovement() => enemyChaseMovement;
+
+    public EnemyData EnemyData => enemyData;
 
     private void Start()
     {

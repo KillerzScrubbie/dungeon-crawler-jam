@@ -1,10 +1,13 @@
+using System;
 using UnityEngine;
 
 public class EnemyCombatState : EnemyBaseState
 {
+    public static event Action<EnemyData> OnCombatEntered;
+
     public override void EnterState(EnemyStateManager enemyStateManager)
     {
-        Debug.Log("Entered combat state");
+        OnCombatEntered?.Invoke(enemyStateManager.EnemyData);
     }
 
     public override void UpdateState(EnemyStateManager enemyStateManager)

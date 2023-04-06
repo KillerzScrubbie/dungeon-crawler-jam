@@ -6,7 +6,6 @@ using UnityEngine;
 public class EnemyMovement : MonoBehaviour
 {
     [SerializeField] private Transform locationListParent;
-    [SerializeField] private float speed = 0.2f;
 
     public event Action OnChase;
 
@@ -14,11 +13,15 @@ public class EnemyMovement : MonoBehaviour
 
     private Seeker seeker;
     private EnemyPathfindingAI ai;
+    private EnemyData enemyData;
+    private float speed = 0.2f;
 
     private void Awake()
     {
         seeker = GetComponent<Seeker>();
         ai = GetComponent<EnemyPathfindingAI>();
+        enemyData = transform.parent.gameObject.GetComponent<EnemyData>();
+        enemyData.OnInitializeSpeed += SetSpeed;
     }
 
     private void Start()
@@ -26,10 +29,14 @@ public class EnemyMovement : MonoBehaviour
         foreach (Transform location in locationListParent)
         {
             locationList.Add(location);
-            Debug.Log(location);
         }
 
         FindRandomPath();
+    }
+
+    public void SetSpeed(float speed)
+    {
+        this.speed = speed;
     }
 
     public void OnPatrolEntered()
@@ -70,5 +77,10 @@ public class EnemyMovement : MonoBehaviour
         {
             OnChase?.Invoke();
         }
+    }
+
+    private void OnDestroy()
+    {
+        enemyData.OnInitializeSpeed -= SetSpeed;
     }
 }

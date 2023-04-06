@@ -35,7 +35,7 @@ public class PlayerStateManager : MonoBehaviour
 
     public void SwitchState(PlayerBaseState state)
     {
-        if (state != currentState) { return; }
+        if (state == currentState) { return; }
 
         currentState = state;
         state.EnterState(this);

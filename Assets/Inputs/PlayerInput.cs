@@ -234,17 +234,6 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""action"": ""DimensionJump"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
-                },
-                {
-                    ""name"": """",
-                    ""id"": ""abb6b373-2193-4205-8377-c8d808e168dd"",
-                    ""path"": ""<Mouse>/rightButton"",
-                    ""interactions"": """",
-                    ""processors"": """",
-                    ""groups"": ""Player"",
-                    ""action"": ""DimensionJump"",
-                    ""isComposite"": false,
-                    ""isPartOfComposite"": false
                 }
             ]
         },

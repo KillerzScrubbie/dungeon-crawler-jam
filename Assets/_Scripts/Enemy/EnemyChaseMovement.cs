@@ -5,7 +5,7 @@ using UnityEngine;
 public class EnemyChaseMovement : MonoBehaviour
 {
     [SerializeField] private float speed = 0.2f;
-    [SerializeField] private float nextWaypointDistance = 0.5f;
+    [SerializeField] private EnemyCombatDetector detector;
 
     public static event Action<EnemyChaseMovement> OnCombatEntered;
     public event Action OnPatrolStarted;
@@ -15,6 +15,7 @@ public class EnemyChaseMovement : MonoBehaviour
 
     private bool isChasing = false;
     private bool reachedEndOfPath = false;
+    private bool isInState = false;
 
     private void Awake()
     {
@@ -24,19 +25,21 @@ public class EnemyChaseMovement : MonoBehaviour
 
     private void Start()
     {
-        PlayerMovement.OnCombatEntered += HandleCombatEntered;
+        detector.OnCombatDetected += HandleCombatEntered;
     }
 
     public void OnChaseEntered()
     {
         ai.speed = speed;
         isChasing = true;
+        isInState = true;
     }
 
     public void OnChaseExited()
     {
         ai.speed = 0f;
         isChasing = false;
+        isInState = false;
     }
 
     public void UpdateChaseMovement()
@@ -61,6 +64,8 @@ public class EnemyChaseMovement : MonoBehaviour
 
     private void OnTriggerEnter(Collider other)
     {
+        if (!isInState) { return; }
+
         if (!other.TryGetComponent(out PlayerMovement playerMovement)) { return; }
 
         isChasing = true;
@@ -68,6 +73,8 @@ public class EnemyChaseMovement : MonoBehaviour
 
     private void OnTriggerStay(Collider other)
     {
+        if (!isInState) { return; }
+
         if (!other.TryGetComponent(out PlayerMovement playerMovement)) { return; }
 
         SetPath(playerMovement.transform.position);
@@ -75,6 +82,8 @@ public class EnemyChaseMovement : MonoBehaviour
 
     private void OnTriggerExit(Collider other)
     {
+        if (!isInState) { return; }
+
         if (!other.TryGetComponent(out PlayerMovement playerMovement)) { return; }
 
         isChasing = false;
@@ -83,10 +92,11 @@ public class EnemyChaseMovement : MonoBehaviour
     private void HandleCombatEntered()
     {
         OnCombatEntered?.Invoke(this);
+        gameObject.SetActive(false);
     }
 
     private void OnDestroy()
     {
-        PlayerMovement.OnCombatEntered -= HandleCombatEntered;
+        detector.OnCombatDetected -= HandleCombatEntered;
     }
 }

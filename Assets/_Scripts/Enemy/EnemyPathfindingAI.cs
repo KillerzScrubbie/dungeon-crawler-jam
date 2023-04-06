@@ -10,6 +10,5 @@ public class EnemyPathfindingAI : AILerp
     public override void OnTargetReached()
     {
         enemyStateManager.HandlePathingFinished();
-        // Debug.Log("END");
     }
 }

@@ -8,8 +8,6 @@ public class EnemyStateManager : MonoBehaviour
     private EnemyBaseState currentState;
     private EnemyBaseState previousState;
 
-    private EnemyChaseMovement currentEnemyInCombat;
-
     private EnemyCombatState enemyCombatState = new();
     private EnemyChaseState enemyChaseState = new();
     private EnemyPatrolState enemyPatrolState = new();
@@ -40,23 +38,17 @@ public class EnemyStateManager : MonoBehaviour
 
     private void SwitchToCombatState(EnemyChaseMovement enemyChaseMovement)
     {
-        if (currentEnemyInCombat == null) { goto AssignCombat; }
-
         if (this.enemyChaseMovement != enemyChaseMovement)
         {
             SwitchToPausedState();
             return;
         }
 
-        AssignCombat:
-        currentEnemyInCombat = enemyChaseMovement;
         SwitchState(enemyCombatState);
     }
 
     private void SwitchToChaseState()
     {
-        // if (this.enemyMovement != enemyMovement) { return; }
-
         SwitchState(enemyChaseState);
     }
 
@@ -68,6 +60,11 @@ public class EnemyStateManager : MonoBehaviour
     private void SwitchToPausedState()
     {
         SwitchState(enemyPausedState);
+    }
+
+    private void SwitchToPreviousState()
+    {
+        SwitchState(previousState);
     }
 
     public void SwitchState(EnemyBaseState state)

@@ -70,9 +70,13 @@ public class PlayerMovement : MonoBehaviour
     {
         if (isMoving) { return; }
 
-        if (Physics.OverlapSphere(transform.position, 0.2f, enemyLayers).Length == 0) { return; }
+        Collider[] enemies = Physics.OverlapSphere(transform.position, 0.2f, enemyLayers);
+
+        if (enemies.Length == 0) { return; }
 
         controller.DisableMovement();
+
+        enemies[0].GetComponent<EnemyCombatDetector>().EnterCombat();
         OnCombatEntered?.Invoke();
     }
 

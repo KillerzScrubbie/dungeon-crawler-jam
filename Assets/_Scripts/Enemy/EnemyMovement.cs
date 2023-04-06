@@ -7,7 +7,6 @@ public class EnemyMovement : MonoBehaviour
 {
     [SerializeField] private Transform locationListParent;
     [SerializeField] private float speed = 0.2f;
-    [SerializeField] private float nextWaypointDistance = 0.5f;
 
     public event Action OnChase;
 
@@ -45,7 +44,7 @@ public class EnemyMovement : MonoBehaviour
 
     public void UpdatePatrolMovement()
     {
-        //if (playerFinderCollider.) { }
+        
     }
 
     public void ReachEndOfPath()

@@ -4,11 +4,16 @@ public class EnemyPatrolState : EnemyBaseState
 {
     public override void EnterState(EnemyStateManager enemyStateManager)
     {
-        Debug.Log("Entered patrol state");
+        enemyStateManager.GetEnemyMovement().OnStateEntered();
     }
 
     public override void UpdateState(EnemyStateManager enemyStateManager)
     {
+        enemyStateManager.GetEnemyMovement().UpdateMovement();
+    }
 
+    public override void OnLeaveState(EnemyStateManager enemyStateManager)
+    {
+        enemyStateManager.GetEnemyMovement().OnStateExited();
     }
 }

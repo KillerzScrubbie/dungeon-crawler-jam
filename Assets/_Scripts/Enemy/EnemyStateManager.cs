@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class EnemyStateManager : MonoBehaviour
 {
+    [SerializeField] private EnemyMovement enemyMovement;
+
     private EnemyBaseState currentState;
 
     private EnemyCombatState enemyCombatState = new();
@@ -16,7 +18,7 @@ public class EnemyStateManager : MonoBehaviour
 
     private void Start()
     {
-        currentState = GetPausedState();
+        currentState = GetPatrolState();
         currentState.EnterState(this);
     }
 
@@ -27,7 +29,10 @@ public class EnemyStateManager : MonoBehaviour
 
     public void SwitchState(EnemyBaseState state)
     {
+        currentState.OnLeaveState(this);
         currentState = state;
         state.EnterState(this);
     }
+
+    public EnemyMovement GetEnemyMovement() => enemyMovement;
 }

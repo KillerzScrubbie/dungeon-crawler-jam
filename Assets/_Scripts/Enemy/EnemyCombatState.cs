@@ -11,4 +11,9 @@ public class EnemyCombatState : EnemyBaseState
     {
 
     }
+
+    public override void OnLeaveState(EnemyStateManager enemyStateManager)
+    {
+
+    }
 }

@@ -155,8 +155,8 @@ GameObject:
   m_Component:
   - component: {fileID: 2791410468605971283}
   - component: {fileID: 2791410468605971287}
-  - component: {fileID: 2791410468605971284}
   - component: {fileID: 2141543312}
+  - component: {fileID: 5779187083276645490}
   m_Layer: 11
   m_Name: Enemy Pathfinding
   m_TagString: Untagged
@@ -207,20 +207,6 @@ MonoBehaviour:
   tagPenalties: 0000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000000
   graphMask:
     value: -1
---- !u!114 &2791410468605971284
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2791410468605971282}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: c9679e68a0f1144e79c664d9a11ca121, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  version: 1
-  target: {fileID: 0}
 --- !u!114 &2141543312
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -250,6 +236,22 @@ MonoBehaviour:
   targetCompatibility: {fileID: 0}
   repathRateCompatibility: NaN
   canSearchCompability: 0
+--- !u!114 &5779187083276645490
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2791410468605971282}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a062faa21085be41a1c0335ee882ee6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  targetPosition: {fileID: 0}
+  ai: {fileID: 2141543312}
+  speed: 0.2
+  nextWaypointDistance: 0.5
 --- !u!1 &7530211758333712788
 GameObject:
   m_ObjectHideFlags: 0

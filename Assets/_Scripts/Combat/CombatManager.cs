@@ -8,11 +8,12 @@ public class CombatManager : MonoBehaviour
     [SerializeField] private GameObject combatCanvas;
 
     [Space]
-    [Header("Slots List")]
+    [Header("UI Slots List")]
     [SerializeField] private List<Image> enemySlot;
+    [SerializeField] private List<EnemyHealthBar> healthBars;
     
     [Space]
-    [Header("Editing variables")]
+    [Header("Player Control Slots List")]
     [SerializeField] private List<Image> actionsSlot;
     [SerializeField] private List<GameObject> equippedSlot;
     [SerializeField] private List<GameObject> potionSlot;
@@ -22,6 +23,9 @@ public class CombatManager : MonoBehaviour
 
     private void Start()
     {
+        CombatEntered();
+        CombatFinished();
+
         PlayerMovement.OnCombatEntered += CombatEntered;
         EnemyCombatState.OnCombatEntered += SetupCombatScreen;
     }
@@ -55,6 +59,7 @@ public class CombatManager : MonoBehaviour
 
             currentEnemy.sprite = enemy.Image;
             currentEnemy.gameObject.SetActive(true);
+            healthBars[i].Setup(enemy.MaxHealth);
         }
     }
 

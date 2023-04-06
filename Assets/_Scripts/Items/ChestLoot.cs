@@ -18,6 +18,7 @@ public class ChestLoot : MonoBehaviour
     [SerializeField] private GameObject loot;
     [SerializeField] private Light pointLight;
     [SerializeField] private float chestOpenDuration = 1f;
+    [SerializeField] private float chestCloseDuration = 2f;
 
     private readonly Vector3 normalChestPos = new(270f, 0f, 0f);
     private readonly Vector3 openChestPos = new(200f, 0f, 0f);
@@ -56,7 +57,7 @@ public class ChestLoot : MonoBehaviour
         if (isEmpty) return;
 
         AudioManager.instance?.Play("chestClose");
-        chestTop.DOLocalRotate(normalChestPos, chestOpenDuration).SetEase(Ease.InCubic);
+        chestTop.DOLocalRotate(normalChestPos, chestCloseDuration).SetEase(Ease.InCubic);
     }
 
     public void RemoveItem(ObjItems item)

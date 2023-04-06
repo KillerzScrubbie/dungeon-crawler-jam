@@ -382,6 +382,7 @@ MonoBehaviour:
   loot: {fileID: 7863113107666804419}
   pointLight: {fileID: 5168590460414799270}
   chestOpenDuration: 0.5
+  chestCloseDuration: 0.75
 --- !u!114 &404623748936658775
 MonoBehaviour:
   m_ObjectHideFlags: 0

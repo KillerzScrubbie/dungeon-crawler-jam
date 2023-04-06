@@ -47,6 +47,7 @@ public class ChestLoot : MonoBehaviour
 
     public void OpenChest()
     {
+        AudioManager.instance?.Play("chestOpen");
         chestTop.DOLocalRotate(openChestPos, chestOpenDuration).SetEase(Ease.OutBounce);
     }
 
@@ -54,6 +55,7 @@ public class ChestLoot : MonoBehaviour
     {
         if (isEmpty) return;
 
+        AudioManager.instance?.Play("chestClose");
         chestTop.DOLocalRotate(normalChestPos, chestOpenDuration).SetEase(Ease.InCubic);
     }
 

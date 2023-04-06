@@ -64,6 +64,87 @@ MonoBehaviour:
     blend: 0
     loop: 1
     source: {fileID: 0}
+  - audioName: chestClose
+    clip: {fileID: 8300000, guid: ca3b56325a6cf7249adfd07ce666e595, type: 3}
+    mixerGroup: {fileID: 8219120640885313815, guid: e4133e5e7f34c4743be3fe0ab8e68812,
+      type: 2}
+    volume: 1
+    pitch: 1
+    blend: 0
+    loop: 0
+    source: {fileID: 0}
+  - audioName: chestOpen
+    clip: {fileID: 8300000, guid: 6917bc1a668b1a74c931f0803c98f9eb, type: 3}
+    mixerGroup: {fileID: 8219120640885313815, guid: e4133e5e7f34c4743be3fe0ab8e68812,
+      type: 2}
+    volume: 1
+    pitch: 1
+    blend: 0
+    loop: 0
+    source: {fileID: 0}
+  - audioName: fall
+    clip: {fileID: 8300000, guid: f0ac3392ea7276c4983ef67ad82a1be3, type: 3}
+    mixerGroup: {fileID: 8219120640885313815, guid: e4133e5e7f34c4743be3fe0ab8e68812,
+      type: 2}
+    volume: 1
+    pitch: 1
+    blend: 0
+    loop: 0
+    source: {fileID: 0}
+  - audioName: walk
+    clip: {fileID: 8300000, guid: af5e2e61eb438084792d5111e03d70f4, type: 3}
+    mixerGroup: {fileID: 8219120640885313815, guid: e4133e5e7f34c4743be3fe0ab8e68812,
+      type: 2}
+    volume: 1
+    pitch: 1
+    blend: 0
+    loop: 0
+    source: {fileID: 0}
+  - audioName: invenClose
+    clip: {fileID: 8300000, guid: cedcdcba37439284e80890f2051b1637, type: 3}
+    mixerGroup: {fileID: 8219120640885313815, guid: e4133e5e7f34c4743be3fe0ab8e68812,
+      type: 2}
+    volume: 1
+    pitch: 1
+    blend: 0
+    loop: 0
+    source: {fileID: 0}
+  - audioName: invenOpen
+    clip: {fileID: 8300000, guid: f9e43de8310048945af275f93b3844fb, type: 3}
+    mixerGroup: {fileID: 8219120640885313815, guid: e4133e5e7f34c4743be3fe0ab8e68812,
+      type: 2}
+    volume: 1
+    pitch: 1
+    blend: 0
+    loop: 0
+    source: {fileID: 0}
+  - audioName: potionDrink
+    clip: {fileID: 8300000, guid: a9f9cd6df38be2142a35440b499fa3a3, type: 3}
+    mixerGroup: {fileID: 8219120640885313815, guid: e4133e5e7f34c4743be3fe0ab8e68812,
+      type: 2}
+    volume: 1
+    pitch: 1
+    blend: 0
+    loop: 0
+    source: {fileID: 0}
+  - audioName: teleportFail
+    clip: {fileID: 8300000, guid: 9fe3a9f87928c3a478a72e12103c4af8, type: 3}
+    mixerGroup: {fileID: 8219120640885313815, guid: e4133e5e7f34c4743be3fe0ab8e68812,
+      type: 2}
+    volume: 1
+    pitch: 1
+    blend: 0
+    loop: 0
+    source: {fileID: 0}
+  - audioName: teleportSuccess
+    clip: {fileID: 8300000, guid: c490c7e3d4b8d764ead52a435cab0ae0, type: 3}
+    mixerGroup: {fileID: 8219120640885313815, guid: e4133e5e7f34c4743be3fe0ab8e68812,
+      type: 2}
+    volume: 1
+    pitch: 1
+    blend: 0
+    loop: 0
+    source: {fileID: 0}
 --- !u!114 &989881808566818251
 MonoBehaviour:
   m_ObjectHideFlags: 0

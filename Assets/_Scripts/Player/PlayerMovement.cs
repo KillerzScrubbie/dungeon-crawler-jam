@@ -88,6 +88,7 @@ public class PlayerMovement : MonoBehaviour
 
         EMovementTypes movementType = inputQueue.Dequeue();
         LockMovement(true);
+        AudioManager.instance?.PlayOneRandomPitch("walk", 0.85f, 1.2f);
 
         switch (movementType)
         {
@@ -222,6 +223,7 @@ public class PlayerMovement : MonoBehaviour
         {
             LockMovement(false);
             OnDimensionJumpBlocked?.Invoke();
+            AudioManager.instance?.Play("teleportFail");
             return;
         }
 
@@ -230,6 +232,8 @@ public class PlayerMovement : MonoBehaviour
         SetGridPos(targetGridDimensionPos);
 
         transform.DOMove(targetGridPos, 0f).OnComplete(() => TryFalling(duration));
+
+        AudioManager.instance?.Play("teleportSuccess");
     }
 
     private void LockMovement(bool state) => isMoving = state;

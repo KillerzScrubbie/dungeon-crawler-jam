@@ -12,6 +12,7 @@ public class PotionManager : MonoBehaviour
     {
         Dictionary<EEffectTypes, int> effectList = potion.EffectList;
 
+        AudioManager.instance?.Play("potionDrink");
         foreach (var effect in effectList)
         {
             ProcessPotionEffect(effect.Key, effect.Value);

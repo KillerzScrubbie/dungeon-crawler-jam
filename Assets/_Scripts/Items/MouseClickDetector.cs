@@ -8,6 +8,7 @@ public class MouseClickDetector : MonoBehaviour
 {
     [SerializeField] private float rayDistance = 1.5f;
     [SerializeField] private LayerMask lootMask;
+    [SerializeField] private LayerMask leverMask;
 
     private Camera mainCamera;
 
@@ -22,15 +23,15 @@ public class MouseClickDetector : MonoBehaviour
     {
         if (!Mouse.current.leftButton.wasPressedThisFrame) { return; }
 
-        ProcessMouseClick();
+        Ray ray = mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
+
+        ProcessMouseClickLoot(ray);
+        ProcessMouseClickLever(ray);
     }
 
-    private void ProcessMouseClick()
+    private void ProcessMouseClickLoot(Ray ray)
     {
-        Ray ray = mainCamera.ScreenPointToRay(Mouse.current.position.ReadValue());
-        RaycastHit hit;
-
-        if (!Physics.Raycast(ray, out hit, rayDistance, lootMask)) { return; }
+        if (!Physics.Raycast(ray, out RaycastHit hit, rayDistance, lootMask)) { return; }
 
         if (IsMouseOverUIObject()) { return; }
 
@@ -38,6 +39,17 @@ public class MouseClickDetector : MonoBehaviour
 
         loot.OpenChest();
         OnChestClicked?.Invoke(loot, loot.GetItems(), loot.GetPotions());
+    }
+
+    private void ProcessMouseClickLever(Ray ray)
+    {
+        if (!Physics.Raycast(ray, out RaycastHit hit, rayDistance, leverMask)) { return; }
+
+        if (IsMouseOverUIObject()) { return; }
+
+        if (!hit.transform.TryGetComponent(out LeverToggle lever)) { return; }
+
+        lever.Activate();
     }
 
     private bool IsMouseOverUIObject()

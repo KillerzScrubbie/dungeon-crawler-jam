@@ -48,3 +48,6 @@ MonoBehaviour:
   lootMask:
     serializedVersion: 2
     m_Bits: 4096
+  leverMask:
+    serializedVersion: 2
+    m_Bits: 8192

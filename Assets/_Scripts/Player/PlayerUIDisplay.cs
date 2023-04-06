@@ -27,18 +27,25 @@ public class PlayerUIDisplay : MonoBehaviour
     {
         PlayerHp.OnPlayerUpdateHp += UpdatePlayerHp;
         PlayerMana.OnPlayerUpdateMP += UpdatePlayerMp;
+        PlayerBlockUI.OnPlayerHpColorUpdate += ChangeHpColor;
     }
 
     void OnDisable()
     {
         PlayerHp.OnPlayerUpdateHp -= UpdatePlayerHp;
         PlayerMana.OnPlayerUpdateMP -= UpdatePlayerMp;
+        PlayerBlockUI.OnPlayerHpColorUpdate -= ChangeHpColor;
     }
 
     void Awake()
     {
         _startHPColor = _hpSlider.color;
         _startMPColor = _mpSlider.color;
+    }
+
+    public void ChangeHpColor(Color newColor)
+    {
+        _startHPColor = newColor;
     }
 
     void EnableMpPanel()

@@ -1,3 +1,4 @@
+using System;
 using UnityEngine;
 using UnityEngine.UI;
 using TMPro;
@@ -10,6 +11,8 @@ public class PlayerBlockUI : MonoBehaviour
     [SerializeField] GameObject _blockUiGameObj;
     [SerializeField] TMP_Text _textBlock;
 
+    public static Action<Color> OnPlayerHpColorUpdate;
+
     void OnEnable()
     {
         PlayerBlock.OnPlayerUpdateBlock += UpdateBlockUI;
@@ -19,7 +22,6 @@ public class PlayerBlockUI : MonoBehaviour
         PlayerBlock.OnPlayerUpdateBlock -= UpdateBlockUI;
     }
 
-
     private void UpdateBlockUI(int blockValue)
     {
         _textBlock.SetText(blockValue.ToString());
@@ -27,14 +29,19 @@ public class PlayerBlockUI : MonoBehaviour
         {
             _hpImg.color = _hpOriginalColor;
             _blockUiGameObj.SetActive(false);
+            OnPlayerHpColorUpdate?.Invoke(_hpOriginalColor);
             return;
         }
         else
         {
             _blockUiGameObj.SetActive(true);
             _hpImg.color = _hpHaveBlockColor;
+            OnPlayerHpColorUpdate?.Invoke(_hpHaveBlockColor);
         }
-
     }
+
+
+
+
 }
 

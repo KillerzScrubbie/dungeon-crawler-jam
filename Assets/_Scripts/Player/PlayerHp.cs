@@ -74,6 +74,8 @@ public class PlayerHp : MonoBehaviour, IDamageable
     }
 
     [Button]
+
+    [ContextMenu("Take dmg ")]
     public void TestTakeFourDamage()
     {
         TakeDamage(5);

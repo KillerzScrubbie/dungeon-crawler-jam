@@ -26,13 +26,16 @@ public class PlayerBlock : MonoBehaviour
     private void OnPlayerGetBlock(int blockPower)
     {
         _blockValue += blockPower;
+
         OnPlayerUpdateBlock?.Invoke(_blockValue);
     }
 
     public int GetDamageExceedBlock(int takeDmg)
     {
         int damageExceedBlock = takeDmg - _blockValue;
-        _blockValue -= takeDmg;
+
+        _blockValue = Math.Clamp(_blockValue - takeDmg, 0, 99);
+        Debug.Log(_blockValue);
 
         OnPlayerUpdateBlock?.Invoke(_blockValue);
 

@@ -7,6 +7,7 @@ public class PotionManager : MonoBehaviour
     public static event Action<int> OnHealPotionUsed;
     public static event Action<int> OnManaPotionUsed;
     public static event Action<int> OnBlockPotionUsed;
+    public static event Action<int> OnStrPotionUsed;
 
     public static void UsePotion(ObjPotions potion)
     {
@@ -33,7 +34,7 @@ public class PotionManager : MonoBehaviour
                 OnBlockPotionUsed?.Invoke(power);
                 break;
             case EEffectTypes.Strength:
-                // Give player more 20% damage
+                OnStrPotionUsed?.Invoke(power);
                 break;
             default:
                 break;

@@ -62,4 +62,5 @@ MonoBehaviour:
   potionIcon: {fileID: 21300000, guid: 96330f76dad6b594b92e2fc0325ccc9d, type: 3}
   itemType: 2
   potionName: Chaos Potion
+  combatOnly: 1
   potionDescription: Gain 1 Action this turn

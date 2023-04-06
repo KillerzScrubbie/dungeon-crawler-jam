@@ -62,4 +62,5 @@ MonoBehaviour:
   potionIcon: {fileID: 21300000, guid: ad1ac562962cb724191d2beb5698626e, type: 3}
   itemType: 2
   potionName: Tank Potion
+  combatOnly: 1
   potionDescription: Gain 20 Block

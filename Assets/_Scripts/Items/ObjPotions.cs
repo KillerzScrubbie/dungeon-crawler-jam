@@ -15,6 +15,9 @@ public class ObjPotions : SerializedScriptableObject
     [VerticalGroup("Split/Right"), LabelWidth(120)]
     [SerializeField] private string potionName;
 
+    [VerticalGroup("Split/Right")]
+    [SerializeField] private bool combatOnly;
+
     [VerticalGroup("Split/Right"), LabelWidth(120)]
     [TextArea(1, 2)]
     [SerializeField] private string potionDescription;
@@ -24,6 +27,7 @@ public class ObjPotions : SerializedScriptableObject
 
     public Sprite Icon { get { return potionIcon; } }
     public EItemTypes ItemTypes { get { return itemType; } }
+    public bool CombatOnly { get { return combatOnly; } }
     public string Name { get { return potionName; } }
     public string Description { get { return potionDescription; } }
     public Dictionary<EEffectTypes, int> EffectList { get {  return effectList; } }

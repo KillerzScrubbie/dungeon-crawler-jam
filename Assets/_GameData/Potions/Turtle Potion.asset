@@ -62,4 +62,5 @@ MonoBehaviour:
   potionIcon: {fileID: 21300000, guid: 1fab4114bf0c0774481df76dc176380e, type: 3}
   itemType: 2
   potionName: Turtle Potion
+  combatOnly: 1
   potionDescription: Gain 8 Block

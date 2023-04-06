@@ -1,9 +1,9 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
-using TMPro;
 
 public class CombatSlotData : MonoBehaviour, IPointerEnterHandler, IPointerClickHandler, IPointerExitHandler
 {
@@ -15,13 +15,10 @@ public class CombatSlotData : MonoBehaviour, IPointerEnterHandler, IPointerClick
 
     [Space]
     [SerializeField] private InventoryUI inventoryUI;
-    [SerializeField] private GameObject actionsPanel;
-    [SerializeField] private List<Button> actionButtons;
-    [SerializeField] private List<TextMeshProUGUI> actionTexts;
-    [SerializeField] private List<TextMeshProUGUI> actionDescription;
-    [SerializeField] private List<GameObject> energyCosts;
+    [SerializeField] private CombatActionTextUpdater combatActionTextUpdater;
     [SerializeField] private RectTransform anchor;
     [SerializeField] private RectTransform potionPromptPanel;
+    [SerializeField] private Button useButton;
     [SerializeField] private Color32 colorUsable;
     [SerializeField] private Color32 colorSelected;
     [SerializeField] private Color32 colorDisable;
@@ -31,11 +28,15 @@ public class CombatSlotData : MonoBehaviour, IPointerEnterHandler, IPointerClick
 
     private Inventory inventory;
 
+    public static event Action<ECombatSlot, int> OnSlotClicked;
+
     private void Start()
     {
         inventory = inventoryUI.Inventory;
         inventory.OnEquippedUpdated += HandleEquippedUpdated;
         inventory.OnPotionUpdated += HandlePotionUpdated;
+
+        OnSlotClicked += HandleSlotClicked;
 
         HandleEquippedUpdated();
         HandlePotionUpdated();
@@ -126,36 +127,42 @@ public class CombatSlotData : MonoBehaviour, IPointerEnterHandler, IPointerClick
 
     private void ProcessClick()
     {
-        for (int i = 0; i < energyCosts.Count; i++)
-        {
-            energyCosts[i].SetActive(false);
-        }
-
         switch (combatSlot)
         {
-            case ECombatSlot.Equipped:      
-                actionTexts[0].text = $"{item.Action1} ({item.ManaCost1} MP)";
-                actionDescription[0].text = $"{item.Description1}";
-                for (int i = 0; i < item.ActionCost1; i++)
-                {
-                    energyCosts[i].SetActive(true);
-                }
+            case ECombatSlot.Equipped:
+                if (item == null) { break; }
 
-                actionTexts[1].text = $"{item.Action2} ({item.ManaCost2} MP)";
-                actionDescription[1].text = $"{item.Description2}";
-                for (int i = 0; i < item.ActionCost2; i++)
-                {
-                    energyCosts[i + 3].SetActive(true);
-                }
-
+                OnSlotClicked?.Invoke(combatSlot, id);
                 outline.color = colorSelected;
-                actionsPanel.SetActive(true);
+                combatActionTextUpdater.UpdateText(item);
                 break;
+
             case ECombatSlot.Potions:
+                if (potion == null) { return; }
+
+                useButton.onClick.RemoveAllListeners();
+                OnSlotClicked?.Invoke(combatSlot, id);
+                outline.color = colorSelected;
                 potionPromptPanel.transform.position = anchor.position;
+                useButton.onClick.AddListener(() => UsePotion(potion));
                 potionPromptPanel.gameObject.SetActive(true);
                 break;
         }
+    }
+
+    private void HandleSlotClicked(ECombatSlot slot, int id)
+    {
+        if (combatSlot == slot && this.id == id) { return; }
+
+        outline.color = colorUsable;
+    }
+
+    private void UsePotion(ObjPotions potion)
+    {
+        PotionManager.UsePotion(potion);
+
+        inventory.RemovePotion(id);
+        outline.color = colorDisable;
     }
 
     private void ShowToolTip()
@@ -185,6 +192,7 @@ public class CombatSlotData : MonoBehaviour, IPointerEnterHandler, IPointerClick
     {
         inventory.OnEquippedUpdated -= HandleEquippedUpdated;
         inventory.OnPotionUpdated -= HandlePotionUpdated;
+        OnSlotClicked -= HandleSlotClicked;
     }
 }
 

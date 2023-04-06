@@ -154,7 +154,14 @@ public class CombatSlotData : MonoBehaviour, IPointerEnterHandler, IPointerClick
     {
         if (combatSlot == slot && this.id == id) { return; }
 
-        outline.color = colorUsable;
+        if (item == null && potion == null)
+        {
+            outline.color = colorDisable;
+        }
+        else
+        {
+            outline.color = colorUsable;
+        }
     }
 
     private void UsePotion(ObjPotions potion)

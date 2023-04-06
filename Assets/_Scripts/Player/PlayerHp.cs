@@ -5,6 +5,7 @@ using EasyButtons;
 public class PlayerHp : MonoBehaviour, IDamageable
 {
     [SerializeField] private int _maxHP = 100;
+    [SerializeField] PlayerBlock _playerBlockScpt;
     public int _currentHP { get; private set; }
 
     public static Action<int> OnPlayerTakeDamage;
@@ -34,10 +35,13 @@ public class PlayerHp : MonoBehaviour, IDamageable
     [Button]
     public void TakeDamage(int damage)
     {
+        int damageAfterBlock = _playerBlockScpt.GetDamageExceedBlock(damage);
+
+
         AudioManager.instance?.PlayOneRandomPitch("playerDmg1", .8f, 1.2f);
-        _currentHP = Math.Clamp(_currentHP - damage, 0, _maxHP);
+        _currentHP = Math.Clamp(_currentHP - damageAfterBlock, 0, _maxHP);
         OnPlayerUpdateHp?.Invoke(_currentHP, _maxHP);
-        OnPlayerTakeDamage?.Invoke(damage);
+        OnPlayerTakeDamage?.Invoke(damageAfterBlock);
 
         if (!IsPlayerDead()) return;
         Debug.Log("Dead");  // Game over here
@@ -63,6 +67,7 @@ public class PlayerHp : MonoBehaviour, IDamageable
     }
 
     [Button]
+    [ContextMenu("Take dmg big")]
     public void TestTakeTwoFiveDamage()
     {
         TakeDamage(25);

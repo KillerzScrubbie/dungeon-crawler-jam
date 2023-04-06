@@ -264,6 +264,7 @@ GameObject:
   - component: {fileID: 1081210264092051948}
   - component: {fileID: 1081210264092051951}
   - component: {fileID: 1081210264092051955}
+  - component: {fileID: 7525589400985819848}
   m_Layer: 5
   m_Name: PlayerUiDisplay
   m_TagString: Untagged
@@ -376,6 +377,23 @@ MonoBehaviour:
   _takeMPColor: {r: 1, g: 1, b: 1, a: 1}
   _animationDuration: 0.2
   _easeType: 9
+--- !u!114 &7525589400985819848
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1081210264092051950}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5a1bd43d32be13347b495155a9fd2057, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _hpImg: {fileID: 1081210264997028862}
+  _hpHaveBlockColor: {r: 0.5377358, g: 0.5377358, b: 0.5377358, a: 1}
+  _hpOriginalColor: {r: 0.6901961, g: 0.08235294, b: 0.1764706, a: 1}
+  _blockUiGameObj: {fileID: 6849827626288881507}
+  _textBlock: {fileID: 3852360870577339589}
 --- !u!1 &1081210264117257812
 GameObject:
   m_ObjectHideFlags: 0

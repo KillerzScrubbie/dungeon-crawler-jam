@@ -57,7 +57,7 @@ public class PlayerTeleportEffect : MonoBehaviour
 
         DOTween.To(() => _chromaVolume.intensity.value, x => _chromaVolume.intensity.value = x, 0, _duration * 3);
         DOTween.To(() => _vig.intensity.value, x => _vig.intensity.value = x, 0.18f, _duration * 0.5f);
-        DOTween.To(() => _grain.intensity.value, x => _grain.intensity.value = x, 0, _duration * 3);
+        DOTween.To(() => _grain.intensity.value, x => _grain.intensity.value = x, 0.2f, _duration * 3);
 
         var sequence = DOTween.Sequence();
         sequence.Append(DOTween.To(() => _dept.focusDistance.value, x => _dept.focusDistance.value = x, 3, _duration));

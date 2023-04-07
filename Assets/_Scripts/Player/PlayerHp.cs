@@ -14,9 +14,18 @@ public class PlayerHp : MonoBehaviour, IDamageable
 
     private void Start()
     {
-        PotionManager.OnHealPotionUsed += HealPercentage;
-
         ResetPlayerHP();
+    }
+
+    void OnEnable()
+    {
+        PotionManager.OnMaxHpPotionUsed += AddPlayerMaxHp;
+        PotionManager.OnHealPotionUsed += HealPercentage;
+    }
+    void OnDisable()
+    {
+        PotionManager.OnMaxHpPotionUsed -= AddPlayerMaxHp;
+        PotionManager.OnHealPotionUsed -= HealPercentage;
     }
 
     private void ResetPlayerHP()
@@ -25,10 +34,16 @@ public class PlayerHp : MonoBehaviour, IDamageable
         OnPlayerUpdateHp?.Invoke(_currentHP, _maxHP);
     }
 
+    void AddPlayerMaxHp(int addedVal)
+    {
+        _maxHP += addedVal;
+        _currentHP += addedVal;
+        OnPlayerUpdateHp?.Invoke(_currentHP, _maxHP);
+    }
+
     private void HealPercentage(int percentage)
     {
         int healValue = Mathf.CeilToInt(_maxHP * percentage / 100f);
-
         Heal(healValue);
     }
 
@@ -36,7 +51,6 @@ public class PlayerHp : MonoBehaviour, IDamageable
     public void TakeDamage(int damage)
     {
         int damageAfterBlock = _playerBlockScpt.GetDamageExceedBlock(damage);
-
 
         AudioManager.instance?.PlayOneRandomPitch("playerDmg1", .8f, 1.2f);
         _currentHP = Math.Clamp(_currentHP - damageAfterBlock, 0, _maxHP);
@@ -81,8 +95,4 @@ public class PlayerHp : MonoBehaviour, IDamageable
         TakeDamage(5);
     }
 
-    private void OnDestroy()
-    {
-        PotionManager.OnHealPotionUsed -= HealPercentage;
-    }
 }

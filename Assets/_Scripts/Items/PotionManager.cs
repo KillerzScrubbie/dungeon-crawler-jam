@@ -6,6 +6,7 @@ public class PotionManager : MonoBehaviour
 {
     public static event Action<int> OnHealPotionUsed;
     public static event Action<int> OnManaPotionUsed;
+    public static event Action<int> OnMaxHpPotionUsed;
     public static event Action<int> OnBlockPotionUsed;
     public static event Action<int> OnStrPotionUsed;
 
@@ -35,6 +36,9 @@ public class PotionManager : MonoBehaviour
                 break;
             case EEffectTypes.Strength:
                 OnStrPotionUsed?.Invoke(power);
+                break;
+            case EEffectTypes.MaxHP:
+                OnMaxHpPotionUsed?.Invoke(power);
                 break;
             default:
                 break;

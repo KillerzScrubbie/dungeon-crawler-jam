@@ -1,5 +1,4 @@
-using System.Collections;
-using System.Collections.Generic;
+using System;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -9,6 +8,8 @@ public class EnemyHealthBar : MonoBehaviour
     [SerializeField] private EnemyHealthSystem healthSystem;
     [SerializeField] private Image healthBar;
     [SerializeField] private TextMeshProUGUI healthText;
+
+    public static event Action OnEnemyDeath;
 
     private void Awake()
     {
@@ -29,7 +30,7 @@ public class EnemyHealthBar : MonoBehaviour
 
     private void HandleDeath()
     {
-
+        gameObject.SetActive(false);
     }
 
     private void OnDestroy()

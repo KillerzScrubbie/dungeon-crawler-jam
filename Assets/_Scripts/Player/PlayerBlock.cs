@@ -16,11 +16,13 @@ public class PlayerBlock : MonoBehaviour
     void OnEnable()
     {
         PotionManager.OnBlockPotionUsed += OnPlayerGetBlock;
+        EffectsProcessor.OnBlockGained += OnPlayerGetBlock;
     }
 
     void OnDisable()
     {
         PotionManager.OnBlockPotionUsed -= OnPlayerGetBlock;
+        EffectsProcessor.OnBlockGained -= OnPlayerGetBlock;
     }
 
     private void OnPlayerGetBlock(int blockPower)

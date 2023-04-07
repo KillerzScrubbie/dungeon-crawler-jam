@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class EffectsProcessor : MonoBehaviour
 {
+    // Player's actions
+
     [SerializeField] private List<EnemyHealthSystem> enemies;
 
     public static event Action<int> OnHealed;
@@ -28,6 +30,8 @@ public class EffectsProcessor : MonoBehaviour
                 case EEffectTypes.DamageAll:
                     foreach (var enemy in enemies)
                     {
+                        if (!enemy.isActiveAndEnabled) { continue; }
+
                         enemy.TakeDamage(effectList[EEffectTypes.DamageAll]);
                     }
                     break;

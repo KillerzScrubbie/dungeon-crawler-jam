@@ -10,18 +10,33 @@ public class CombatManager : MonoBehaviour
     [SerializeField] private GameObject combatCanvas;
     [SerializeField] private ObjEnergy energy;
     [SerializeField] private EffectsProcessor effectsProcessor;
+    [SerializeField] private ObjTarget targetCheck;
 
     [Space]
     [Header("UI Slots List")]
     [SerializeField] private List<Image> enemySlot;
     [SerializeField] private List<EnemyHealthBar> healthBars;
     [SerializeField] private List<Image> energyIcons;
+    [SerializeField] private List<GameObject> targetConfirms;
 
     public static event Action<int> OnActionUsed;
     public static event Action<int> OnManaUsed;
 
     private ObjEnemyGroup currentCombatGroup;
     private List<ObjEnemy> enemyList = new();
+
+    private EnemyHealthSystem enemyTarget;
+    private Action savedAction;
+
+    private int currentEnemiesInCombat = 0;
+    public enum CombatState
+    {
+        PlayerTurn,
+        EnemyTurn
+    }
+
+    private CombatState state;
+
 
     private void Start()
     {
@@ -30,12 +45,16 @@ public class CombatManager : MonoBehaviour
 
         PlayerMovement.OnCombatEntered += CombatEntered;
         EnemyCombatState.OnCombatEntered += SetupCombatScreen;
+        EnemyHealthSystem.OnEnemyDeath += RemoveEnemyFromCombat;
+        ObjTarget.OnTargetting += HandleTargettingUpdated;
+        TargetButton.OnTargetChosen += ChooseTarget;
         energy.OnEnergyUpdated += HandleEnergyUpdated;
     }
 
     private void CombatEntered()
     {
         energy.RefreshEnergy();
+        HandleTargettingUpdated(false);
         combatCanvas.SetActive(true);
     }
 
@@ -44,11 +63,75 @@ public class CombatManager : MonoBehaviour
         combatCanvas.SetActive(false);
     }
 
+    private void Update()
+    {
+
+    }
+
+    public void OnActionSelected(Dictionary<EEffectTypes, int> effectList, int slot, int manaCost, int energyCost)
+    {
+        if (effectList.ContainsKey(EEffectTypes.DamageSingle))
+        {
+            targetCheck.ChoosingTarget(true);
+            ChooseTarget(() => effectsProcessor.ProcessEffect(effectList, enemyTarget), manaCost, energyCost, slot);
+            return;
+        }
+
+        PerformAction(() => effectsProcessor.ProcessEffect(effectList), manaCost, energyCost, slot);
+    }
+
+    private void HandleTargettingUpdated(bool state)
+    {
+        foreach (var targetButton in targetConfirms)
+        {
+            targetButton.SetActive(state);
+        }
+    }
+
+    private void ChooseTarget(Action action, int manaCost, int energyCost, int slot)
+    {
+        PerformAction(action, manaCost, energyCost, slot);
+    }
+
+    private void ChooseTarget(EnemyHealthSystem enemy)
+    {
+
+    }
+
+    private void PerformAction(Action action, int manaCost, int energyCost, int slot)
+    {
+        energy.UpdateEnergy(energyCost);
+        OnManaUsed?.Invoke(manaCost);
+        OnActionUsed?.Invoke(slot);
+        action();
+    }
+
+    public void EndTurn()
+    {
+        state = CombatState.EnemyTurn;
+    }
+
+    public void StartPlayerTurn()
+    {
+        state = CombatState.PlayerTurn;
+    }
+
+    private void RemoveEnemyFromCombat()
+    {
+        currentEnemiesInCombat -= 1;
+
+        if (currentEnemiesInCombat > 0) { return; }
+
+        CombatFinished();
+        Debug.Log("YOU WIN THIS FIGHT");
+    }
+
     private void SetupCombatScreen(EnemyData enemyData)
     {
         currentCombatGroup = enemyData.EnemyGroup;
         enemyList.Clear();
         enemyList = currentCombatGroup.EnemyGroup;
+        currentEnemiesInCombat = enemyList.Count;
 
         foreach (Image enemyImage in enemySlot)
         {
@@ -56,7 +139,7 @@ public class CombatManager : MonoBehaviour
             enemyImage.gameObject.SetActive(false);
         }
 
-        for (int i = 0; i < enemyList.Count; i++)
+        for (int i = 0; i < currentEnemiesInCombat; i++)
         {
             ObjEnemy enemy = enemyList[i];
             Image currentEnemy = enemySlot[i];
@@ -100,57 +183,9 @@ public class CombatManager : MonoBehaviour
     {
         PlayerMovement.OnCombatEntered -= CombatEntered;
         EnemyCombatState.OnCombatEntered -= SetupCombatScreen;
+        EnemyHealthSystem.OnEnemyDeath -= RemoveEnemyFromCombat;
+        ObjTarget.OnTargetting -= HandleTargettingUpdated;
+        TargetButton.OnTargetChosen -= ChooseTarget;
         energy.OnEnergyUpdated -= HandleEnergyUpdated;
-    }
-    
-
-    public enum CombatState
-    {
-        PlayerTurn,
-        EnemyTurn
-    }
-
-    private CombatState state;
-
-    private void Update()
-    {
-
-    }
-
-    public void OnActionSelected(Dictionary<EEffectTypes, int> effectList, int slot, int manaCost, int energyCost)
-    {
-        if (effectList.ContainsKey(EEffectTypes.DamageSingle))
-        {
-            ChooseTarget(effectList);
-            return;
-        }
-
-        PerformAction(() => effectsProcessor.ProcessEffect(effectList), manaCost, energyCost);
-        OnActionUsed?.Invoke(slot);
-    }
-
-    private void ChooseTarget(Dictionary<EEffectTypes, int> effectList)
-    {
-        // If target is selected
-        //PerformAction(() => effectsProcessor.ProcessEffect(effectList));
-
-        // else deselect action
-    }
-
-    private void PerformAction(Action action, int manaCost, int energyCost)
-    {
-        energy.UpdateEnergy(energyCost);
-        OnManaUsed?.Invoke(manaCost);
-        action();
-    }
-
-    public void EndTurn()
-    {
-        state = CombatState.EnemyTurn;
-    }
-
-    public void StartPlayerTurn()
-    {
-        state = CombatState.PlayerTurn;
     }
 }

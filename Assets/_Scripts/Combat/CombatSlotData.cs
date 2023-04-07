@@ -15,6 +15,7 @@ public class CombatSlotData : MonoBehaviour, IPointerEnterHandler, IPointerDownH
 
     [Space]
     [SerializeField] private ObjEnergy energy;
+    [SerializeField] private ObjTarget target;
     [SerializeField] private InventoryUI inventoryUI;
     [SerializeField] private CombatActionTextUpdater combatActionTextUpdater;
     [SerializeField] private RectTransform anchor;
@@ -186,6 +187,9 @@ public class CombatSlotData : MonoBehaviour, IPointerEnterHandler, IPointerDownH
 
     private void HandleSlotClicked(ECombatSlot slot, int id)
     {
+        target.ChoosingTarget(false);
+        currentSelected = false;
+
         if (combatSlot == slot && this.id == id)
         {
             currentSelected = true;

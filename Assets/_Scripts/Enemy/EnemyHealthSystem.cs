@@ -5,6 +5,7 @@ public class EnemyHealthSystem :MonoBehaviour, IDamageable
 {
     public event Action<int, int> OnHealthUpdated;
     public event Action OnDeath;
+    public static event Action OnEnemyDeath;
 
     private int health = 0;
     private int maxHealth = 100;
@@ -29,8 +30,9 @@ public class EnemyHealthSystem :MonoBehaviour, IDamageable
 
     private void CheckDeath()
     {
-        if (health != 0) { return; }
+        if (health > 0) { return; }
 
+        OnEnemyDeath?.Invoke();
         OnDeath?.Invoke();
     }
 

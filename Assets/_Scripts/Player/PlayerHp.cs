@@ -21,11 +21,13 @@ public class PlayerHp : MonoBehaviour, IDamageable
     {
         PotionManager.OnMaxHpPotionUsed += AddPlayerMaxHp;
         PotionManager.OnHealPotionUsed += HealPercentage;
+        EffectsProcessor.OnHealed += Heal;
     }
     void OnDisable()
     {
         PotionManager.OnMaxHpPotionUsed -= AddPlayerMaxHp;
         PotionManager.OnHealPotionUsed -= HealPercentage;
+        EffectsProcessor.OnHealed -= Heal;
     }
 
     private void ResetPlayerHP()

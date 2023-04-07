@@ -16,12 +16,14 @@ public class PlayerMana : SerializedMonoBehaviour
     {
         PotionManager.OnManaPotionUsed += HealPercentage;
         CombatManager.OnManaUsed += ReduceMP;
+        EffectsProcessor.OnManaGained += AddMP;
 
     }
     void OnDisable()
     {
         PotionManager.OnManaPotionUsed -= HealPercentage;
         CombatManager.OnManaUsed -= ReduceMP;
+        EffectsProcessor.OnManaGained -= AddMP;
     }
 
     private void Start()

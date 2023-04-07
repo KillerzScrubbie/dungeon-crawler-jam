@@ -37,14 +37,23 @@ public class EffectsProcessor : MonoBehaviour
                     break;
 
                 case EEffectTypes.DamageRandom:
-
+                    HitEnemy(hitInstances, () => activeEnemies[UnityEngine.Random.Range(0, activeEnemies.Count)].TakeDamage(effectList[EEffectTypes.DamageRandom]));
+                    break;
 
                 case EEffectTypes.Block:
                     OnBlockGained?.Invoke(effectList[EEffectTypes.Block]);
                     break;
 
+                case EEffectTypes.Heal:
+                    OnHealed?.Invoke(effectList[EEffectTypes.Heal]);
+                    break;
+
+                case EEffectTypes.ManaThisTurn:
+                    OnManaGained?.Invoke(effectList[EEffectTypes.ManaThisTurn]);
+                    break;
+
                 default:
-                    Debug.Log("wait");
+                    Debug.Log("wait for next patch lmao");
                     break;
             }
         }

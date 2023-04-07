@@ -367,6 +367,9 @@ MonoBehaviour:
   - {fileID: 11400000, guid: e3dab0355d3bf354ba3b307614b168cb, type: 2}
   - {fileID: 11400000, guid: 2b501392b2574614eb044298a1307caa, type: 2}
   - {fileID: 11400000, guid: 20dc966f5d95b8b438a2ce8875d5b375, type: 2}
+  - {fileID: 11400000, guid: ff3ed9c24dff9da46aa0e485758bb394, type: 2}
+  - {fileID: 11400000, guid: 3c98a3d562a23904d8dfd158d892a218, type: 2}
+  - {fileID: 11400000, guid: d7492718b7cd9e3498b1465c2590f7a3, type: 2}
   potions:
   - {fileID: 11400000, guid: 2660ac62cfd00424b809eb380f2ed312, type: 2}
   - {fileID: 11400000, guid: 61abda4ef728b334f986d9077493c58f, type: 2}

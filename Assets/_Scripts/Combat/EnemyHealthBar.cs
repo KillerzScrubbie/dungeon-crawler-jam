@@ -9,8 +9,6 @@ public class EnemyHealthBar : MonoBehaviour
     [SerializeField] private Image healthBar;
     [SerializeField] private TextMeshProUGUI healthText;
 
-    public static event Action OnEnemyDeath;
-
     private void Awake()
     {
         healthSystem.OnHealthUpdated += HandleHealthUpdated;

@@ -4,12 +4,12 @@ using UnityEngine.EventSystems;
 
 public class TargetButton : MonoBehaviour, IPointerClickHandler
 {
-    [SerializeField] private EnemyHealthSystem healthSystem;
+    [SerializeField] private EnemyCombat enemy;
 
-    public static event Action<EnemyHealthSystem> OnTargetChosen;
+    public static event Action<EnemyCombat> OnTargetChosen;
 
     public void OnPointerClick(PointerEventData eventData)
     {
-        OnTargetChosen?.Invoke(healthSystem);
+        OnTargetChosen?.Invoke(enemy);
     }
 }

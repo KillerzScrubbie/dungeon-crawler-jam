@@ -30,6 +30,8 @@ public class CombatSlotData : MonoBehaviour, IPointerEnterHandler, IPointerDownH
 
     private Inventory inventory;
 
+    private CombatState state;
+
     private bool currentSelected = false;
     private bool actionUsed = false;
 
@@ -54,6 +56,7 @@ public class CombatSlotData : MonoBehaviour, IPointerEnterHandler, IPointerDownH
         InventoryPromptUI.OnPromptExit += Deselect;
 
         CombatManager.OnActionUsed += HandleActionUsed;
+        CombatManager.OnCombatStateChanged += HandleCombatStateChanged;
 
         HandleEquippedUpdated();
         HandlePotionUpdated();
@@ -142,12 +145,25 @@ public class CombatSlotData : MonoBehaviour, IPointerEnterHandler, IPointerDownH
         }
     }
 
+    private void HandleCombatStateChanged(CombatState state)
+    {
+        this.state = state;
+        currentSelected = false;
+
+        if (state == CombatState.PlayerTurn)
+        {
+            actionUsed = false;
+        }
+
+        HandleOutlineUpdated();
+    }
+
     private void HandleOutlineUpdated()
     {
         switch (combatSlot)
         {
             case ECombatSlot.Equipped:
-                if (item == null)
+                if (item == null || state != CombatState.PlayerTurn)
                 {
                     outline.color = colorDisable;
                     return;
@@ -167,7 +183,7 @@ public class CombatSlotData : MonoBehaviour, IPointerEnterHandler, IPointerDownH
 
                 break;
             case ECombatSlot.Potions:
-                if (potion == null) 
+                if (potion == null || state != CombatState.PlayerTurn) 
                 {
                     outline.color = colorDisable;
                     return; 
@@ -239,6 +255,8 @@ public class CombatSlotData : MonoBehaviour, IPointerEnterHandler, IPointerDownH
 
     private void ProcessClick()
     {
+        if (state != CombatState.PlayerTurn) { return; }
+
         switch (combatSlot)
         {
             case ECombatSlot.Equipped:
@@ -306,6 +324,7 @@ public class CombatSlotData : MonoBehaviour, IPointerEnterHandler, IPointerDownH
         InventoryPromptUI.OnPromptExit -= Deselect;
 
         CombatManager.OnActionUsed -= HandleActionUsed;
+        CombatManager.OnCombatStateChanged -= HandleCombatStateChanged;
     }
 }
 

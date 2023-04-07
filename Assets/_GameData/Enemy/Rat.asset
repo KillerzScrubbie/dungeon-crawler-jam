@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8a7cad9dd09b17542acda97030619596, type: 3}
-  m_Name: Slime
+  m_Name: Rat
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -49,7 +49,7 @@ MonoBehaviour:
       Data: 0
     - Name: $v
       Entry: 3
-      Data: 1
+      Data: 2
     - Name: 
       Entry: 8
       Data: 
@@ -74,10 +74,10 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 3
-      Data: 1
+      Data: 0
     - Name: $v
       Entry: 3
-      Data: 2
+      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -87,8 +87,8 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-  image: {fileID: 21300000, guid: 8b45c8873bd6be84f86218b734d19d7d, type: 3}
-  enemyName: Egg Slime
-  maxHealth: 12
+  image: {fileID: 21300000, guid: c500f190f3b8e6647ad81ba14b8b03f2, type: 3}
+  enemyName: Rattar
+  maxHealth: 15
   minSpeed: 0.1
   maxSpeed: 0.8

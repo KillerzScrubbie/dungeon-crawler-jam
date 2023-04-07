@@ -1,10 +1,13 @@
 using UnityEngine;
 using System;
 using Sirenix.OdinInspector;
+using UnityEngine.InputSystem;
 
 public class PlayerMana : SerializedMonoBehaviour
 {
     [SerializeField] private int _maxMP = 10;
+    [SerializeField] private int manaPerTurn = 3;
+
     public int _currentMP { get; private set; }
 
     public static Action<int> OnPlayerLoseMP;
@@ -16,6 +19,7 @@ public class PlayerMana : SerializedMonoBehaviour
     {
         PotionManager.OnManaPotionUsed += HealPercentage;
         CombatManager.OnManaUsed += ReduceMP;
+        CombatManager.OnStartNewTurn += GainManaOnNewTurn;
         EffectsProcessor.OnManaGained += AddMP;
 
     }
@@ -23,6 +27,7 @@ public class PlayerMana : SerializedMonoBehaviour
     {
         PotionManager.OnManaPotionUsed -= HealPercentage;
         CombatManager.OnManaUsed -= ReduceMP;
+        CombatManager.OnStartNewTurn -= GainManaOnNewTurn;
         EffectsProcessor.OnManaGained -= AddMP;
     }
 
@@ -41,6 +46,11 @@ public class PlayerMana : SerializedMonoBehaviour
     {
         int mpValue = Mathf.CeilToInt(_maxMP * percentage / 100f);
         AddMP(mpValue);
+    }
+
+    private void GainManaOnNewTurn()
+    {
+        AddMP(manaPerTurn);
     }
 
     [Button]

@@ -17,7 +17,7 @@ public class EnemyCombatState : EnemyBaseState
 
     public override void LeaveState(EnemyStateManager enemyStateManager)
     {
-
+        enemyStateManager.Kill();
     }
 
     public override void OnFinishedPath(EnemyStateManager enemyStateManager)

@@ -7,7 +7,6 @@ public class EnemyStateManager : MonoBehaviour
     [SerializeField] private EnemyChaseMovement enemyChaseMovement;
 
     private EnemyBaseState currentState;
-    private EnemyBaseState previousState;
 
     private EnemyCombatState enemyCombatState = new();
     private EnemyChaseState enemyChaseState = new();
@@ -30,6 +29,8 @@ public class EnemyStateManager : MonoBehaviour
         EnemyChaseMovement.OnCombatEntered += SwitchToCombatState;
         enemyChaseMovement.OnPatrolStarted += SwitchToPatrolState;
 
+        CombatManager.OnCombatStateChanged += HandleStateChanged;
+
         currentState = GetPatrolState();
         currentState.EnterState(this);
     }
@@ -37,6 +38,18 @@ public class EnemyStateManager : MonoBehaviour
     private void Update()
     {
         currentState.UpdateState(this);
+    }
+
+    private void HandleStateChanged(CombatState state)
+    {
+        switch (state)
+        {
+            case CombatState.NotInCombat:
+                SwitchToPatrolState();
+                break;
+            default:
+                break;
+        }
     }
 
     private void SwitchToCombatState(EnemyChaseMovement enemyChaseMovement)
@@ -65,16 +78,10 @@ public class EnemyStateManager : MonoBehaviour
         SwitchState(enemyPausedState);
     }
 
-    private void SwitchToPreviousState()
-    {
-        SwitchState(previousState);
-    }
-
     public void SwitchState(EnemyBaseState state)
     {
         if (currentState == state) return;
 
-        previousState = currentState;
         currentState.LeaveState(this);
         currentState = state;
         state.EnterState(this);
@@ -85,11 +92,18 @@ public class EnemyStateManager : MonoBehaviour
         currentState.OnFinishedPath(this);
     }
 
+    public void Kill()
+    {
+        Destroy(enemyData.gameObject);
+    }
+
     // Pool enemies? if yes change to ondisable
     private void OnDestroy()
     {
         enemyMovement.OnChase -= SwitchToChaseState;
         EnemyChaseMovement.OnCombatEntered -= SwitchToCombatState;
         enemyChaseMovement.OnPatrolStarted -= SwitchToPatrolState;
+
+        CombatManager.OnCombatStateChanged -= HandleStateChanged;
     }
 }

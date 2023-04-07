@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 2479103214510891718}
   - component: {fileID: 4921252776811687379}
   - component: {fileID: 6320310869594270095}
+  - component: {fileID: 7356944602757756420}
   m_Layer: 13
   m_Name: Lever
   m_TagString: Untagged
@@ -63,6 +64,26 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   doors: []
   leverAnimation: {fileID: 3671047038654109245}
+--- !u!114 &7356944602757756420
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 2479103214510891719}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 42ff5b97d68888848bbd8ac995da8463, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  timeBeforePopUp: 0.1
+  useTimeDelay: 1
+  header: <color="yellow">Flip lever
+  content: 
+  rayDistance: 1.5
+  lootMask:
+    serializedVersion: 2
+    m_Bits: 8192
 --- !u!1 &6424034172061442169
 GameObject:
   m_ObjectHideFlags: 0

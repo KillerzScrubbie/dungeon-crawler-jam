@@ -33,7 +33,7 @@ public class ChestLoot : MonoBehaviour
         if (!isRandomized) return;
 
         int randomLootDrop = Random.Range(1, maxPossibleLoot + 1);
-        int randomPotionDrop = Random.Range(1, maxPossibleLoot + 1);
+        int randomPotionDrop = Random.Range(0, maxPossibleLoot);
 
         for (int i = 0; i < randomLootDrop; i++)
         {

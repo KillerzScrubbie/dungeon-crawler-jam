@@ -1,5 +1,6 @@
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using UnityEngine;
 
 public class EffectsProcessor : MonoBehaviour
@@ -71,11 +72,12 @@ public class EffectsProcessor : MonoBehaviour
         }
     }
 
-    private void HitEnemy(int hitInstances, Action action)
+    private async void HitEnemy(int hitInstances, Action action)
     {
         for (int i = 0; i < hitInstances; i++)
         {
             action();
+            await Task.Delay(150);
         }
     }
 }

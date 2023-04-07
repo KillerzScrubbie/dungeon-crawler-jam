@@ -42,6 +42,9 @@ public class CombatManager : MonoBehaviour
 
     private int currentEnemiesInCombat = 0;
 
+    private int currentMana = 0;
+    private int currentEnergy = 0;
+
     private CombatState state = CombatState.NotInCombat;
 
     private void Start()
@@ -51,6 +54,7 @@ public class CombatManager : MonoBehaviour
 
         PotionManager.OnEnergyPotionUsed += UseEnergyPotion;
         PlayerMovement.OnCombatEntered += CombatEntered;
+        PlayerMana.OnPlayerUpdateMP += SetCurrentMana;
         EnemyCombatState.OnCombatEntered += SetupCombatScreen;
         EnemyHealthSystem.OnEnemyDeath += RemoveEnemyFromCombat;
         ObjTarget.OnTargetting += HandleTargettingUpdated;
@@ -126,6 +130,8 @@ public class CombatManager : MonoBehaviour
 
     public void OnActionSelected(Dictionary<EEffectTypes, int> effectList, int slot, int manaCost, int energyCost)
     {
+        if (currentMana < manaCost || currentEnergy < energyCost) { return; } // Play SFX if unusuable
+
         if (effectList.ContainsKey(EEffectTypes.DamageSingle))
         {
             targetCheck.ChoosingTarget(true);
@@ -233,6 +239,8 @@ public class CombatManager : MonoBehaviour
 
     private void HandleEnergyUpdated(int energy)
     {
+        currentEnergy = energy;
+
         for (int i = 0; i < energy; i++)
         {
             switch (i)
@@ -265,8 +273,14 @@ public class CombatManager : MonoBehaviour
         energy.GainEnergy(energyGain);
     }
 
+    private void SetCurrentMana(int currentMana, int maxMana)
+    {
+        this.currentMana = currentMana;
+    }
+
     private void OnDestroy()
     {
+        PlayerMana.OnPlayerUpdateMP -= SetCurrentMana;
         PotionManager.OnEnergyPotionUsed -= UseEnergyPotion;
         PlayerMovement.OnCombatEntered -= CombatEntered;
         EnemyCombatState.OnCombatEntered -= SetupCombatScreen;

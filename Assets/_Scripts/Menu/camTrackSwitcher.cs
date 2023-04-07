@@ -27,6 +27,7 @@ public class camTrackSwitcher : MonoBehaviour
         yield return new WaitForSeconds(Random.Range(3, 5));
         // cart.m_Position = Random.Range(0, 1);
         // cart.m_Speed = Random.Range(.1f, .3f);
+        if (cart.m_Position > 6) cart.m_Position = 0;
 
         cart.m_Path = _paths[getNotOldNum()];
         StartCoroutine(ChangeTrack());

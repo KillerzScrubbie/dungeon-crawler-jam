@@ -27,10 +27,13 @@ public class EffectsProcessor : MonoBehaviour
                     break;
 
                 case EEffectTypes.DamageSingle:
+                    AudioManager.instance?.PlayRandomPitch("playerAtkOne", .8f, 1.2f);
                     HitEnemy(hitInstances, () => target.TakeDamage(effectList[EEffectTypes.DamageSingle] + extraDamage));
                     break;
 
                 case EEffectTypes.DamageAll:
+
+                    AudioManager.instance?.PlayRandomPitch("playerAtkAll", .6f, 1.5f);
                     foreach (var enemy in activeEnemies)
                     {
                         enemy.TakeDamage(effectList[EEffectTypes.DamageAll] + extraDamage);
@@ -38,14 +41,21 @@ public class EffectsProcessor : MonoBehaviour
                     break;
 
                 case EEffectTypes.DamageRandom:
+
+                    AudioManager.instance?.PlayRandomPitch("playerAtkOne", .6f, 2.2f);
                     HitEnemy(hitInstances, () => activeEnemies[UnityEngine.Random.Range(0, activeEnemies.Count)].TakeDamage(effectList[EEffectTypes.DamageRandom] + extraDamage));
                     break;
 
                 case EEffectTypes.Block:
+
+                    AudioManager.instance?.PlayRandomPitch("playerGetBlock", .6f, 2.2f);
+
                     OnBlockGained?.Invoke(effectList[EEffectTypes.Block]);
                     break;
 
                 case EEffectTypes.Heal:
+
+                    AudioManager.instance?.PlayRandomPitch("playerGetHeal", .6f, 2.2f);
                     OnHealed?.Invoke(effectList[EEffectTypes.Heal]);
                     break;
 

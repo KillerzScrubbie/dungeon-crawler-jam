@@ -1865,9 +1865,26 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 7441253096733166765, guid: 843e1baac406f1a46babf05655d5845e,
         type: 3}
+      propertyPath: itemsInChest.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 7441253096733166765, guid: 843e1baac406f1a46babf05655d5845e,
+        type: 3}
       propertyPath: potionsInChest.Array.size
       value: 2
       objectReference: {fileID: 0}
+    - target: {fileID: 7441253096733166765, guid: 843e1baac406f1a46babf05655d5845e,
+        type: 3}
+      propertyPath: itemsInChest.Array.data[0]
+      value: 
+      objectReference: {fileID: 11400000, guid: 712b80b67aa2b9f4bae48d615d3f82bb,
+        type: 2}
+    - target: {fileID: 7441253096733166765, guid: 843e1baac406f1a46babf05655d5845e,
+        type: 3}
+      propertyPath: itemsInChest.Array.data[1]
+      value: 
+      objectReference: {fileID: 11400000, guid: 3c98a3d562a23904d8dfd158d892a218,
+        type: 2}
     - target: {fileID: 7441253096733166765, guid: 843e1baac406f1a46babf05655d5845e,
         type: 3}
       propertyPath: potionsInChest.Array.data[0]

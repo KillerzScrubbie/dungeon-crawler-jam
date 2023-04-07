@@ -60,6 +60,7 @@ public class EffectsProcessor : MonoBehaviour
                     break;
 
                 case EEffectTypes.ManaThisTurn:
+                    AudioManager.instance?.PlayRandomPitch("playerGetMana", .6f, 2.2f);
                     OnManaGained?.Invoke(effectList[EEffectTypes.ManaThisTurn]);
                     break;
 

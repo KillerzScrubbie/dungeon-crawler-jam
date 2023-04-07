@@ -253,6 +253,15 @@ MonoBehaviour:
     blend: 0
     loop: 0
     source: {fileID: 0}
+  - audioName: playerGetMana
+    clip: {fileID: 8300000, guid: d044d6dcf6239d94e9263b102ca73d5e, type: 3}
+    mixerGroup: {fileID: 8219120640885313815, guid: e4133e5e7f34c4743be3fe0ab8e68812,
+      type: 2}
+    volume: 0.7
+    pitch: 1
+    blend: 0
+    loop: 0
+    source: {fileID: 0}
 --- !u!114 &989881808566818251
 MonoBehaviour:
   m_ObjectHideFlags: 0

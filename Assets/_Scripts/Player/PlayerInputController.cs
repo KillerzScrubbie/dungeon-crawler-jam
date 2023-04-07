@@ -24,7 +24,7 @@ public class PlayerInputController : MonoBehaviour
         playerInputMap.Player.LookRight.performed += _ => Move(EMovementTypes.TurnRight);
         playerInputMap.Player.DimensionJump.performed += _ => Move(EMovementTypes.DimensionJump);
 
-        playerInputMap.Inventory.Inventory.performed += _ => OpenInventory();
+        playerInputMap.Player.Inventory.performed += _ => OpenInventory();
 
         playerInputMap.UI.Pause.performed += _ => Pause();
     }
@@ -55,18 +55,5 @@ public class PlayerInputController : MonoBehaviour
     private void OpenInventory()
     {
         OnInventoryOpened?.Invoke();
-    }
-
-    public void SetInventoryActive(bool state)
-    {
-        switch (state)
-        {
-            case false:
-                playerInputMap.Inventory.Inventory.Disable();
-                break;
-            case true:
-                playerInputMap.Inventory.Inventory.Enable();
-                break;
-        }
     }
 }

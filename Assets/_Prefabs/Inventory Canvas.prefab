@@ -2507,6 +2507,7 @@ MonoBehaviour:
   chestPanel: {fileID: 4751537896130112949}
   promptPanel: {fileID: 2059400841132523112}
   usageText: {fileID: 1477641839032261105}
+  inventoryButton: {fileID: 4500252555401869409}
   useButton: {fileID: 7477529828153159181}
   discardButton: {fileID: 131397293250329151}
   itemSlots:

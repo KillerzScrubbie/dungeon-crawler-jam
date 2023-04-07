@@ -52,9 +52,21 @@ public class PlayerMovement : MonoBehaviour
     private void Start()
     {
         PlayerInputController.OnQueue += QueueMovement;
+        PlayerCombatState.OnPlayerCombatState += DisableMovement;
+        PlayerExplorationState.OnPlayerExplorationState += EnableMovement;
 
         playerOffset = transform.position.y;
         SetGridPos(transform.position);
+    }
+
+    private void DisableMovement()
+    {
+        controller.DisableMovement();
+    }
+
+    private void EnableMovement()
+    {
+        controller.EnableMovement();
     }
 
     private void QueueMovement(EMovementTypes eMovementTypes)
@@ -77,8 +89,6 @@ public class PlayerMovement : MonoBehaviour
         Collider[] enemies = Physics.OverlapSphere(transform.position, 0.2f, enemyLayers);
 
         if (enemies.Length == 0) { return; }
-
-        controller.DisableMovement();
 
         enemies[0].GetComponent<EnemyCombatDetector>().EnterCombat();
         OnCombatEntered?.Invoke();
@@ -271,5 +281,7 @@ public class PlayerMovement : MonoBehaviour
     private void OnDestroy()
     {
         PlayerInputController.OnQueue -= QueueMovement;
+        PlayerCombatState.OnPlayerCombatState -= DisableMovement;
+        PlayerExplorationState.OnPlayerExplorationState -= EnableMovement;
     }
 }

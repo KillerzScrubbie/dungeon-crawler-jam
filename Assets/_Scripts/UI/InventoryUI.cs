@@ -11,6 +11,7 @@ public class InventoryUI : SerializedMonoBehaviour
     [SerializeField] private GameObject chestPanel;
     [SerializeField] private GameObject promptPanel;
     [SerializeField] private TextMeshProUGUI usageText;
+    [SerializeField] private GameObject inventoryButton;
     [SerializeField] private Button useButton;
     [SerializeField] private Button discardButton;
 
@@ -39,6 +40,8 @@ public class InventoryUI : SerializedMonoBehaviour
         ItemData.OnPotionLooted += HandlePotionLooted;
         ItemData.OnPromptClicked += HandlePromptClicked;
         ItemData.OnItemSuccessSwapped += HandleItemSwapped;
+
+        CombatManager.OnCombatStateChanged += HandleCombatUI;
     }
 
     public void OnClicked()
@@ -109,6 +112,26 @@ public class InventoryUI : SerializedMonoBehaviour
     {
         itemData.RemoveItem();
         promptPanel.SetActive(false);
+    }
+
+    private void HandleCombatUI(CombatState state)
+    {
+        switch (state)
+        {
+            case CombatState.NotInCombat:
+                inventoryButton.SetActive(true);
+                break;
+
+            case CombatState.PlayerTurn:
+            case CombatState.EnemyTurn:
+            case CombatState.Victory:
+            case CombatState.Dead:
+                inventoryButton.SetActive(false);
+                promptPanel.SetActive(false);
+                CloseChest();
+                chestPanel.SetActive(false);
+                break;
+        }
     }
 
     public void CloseChest(bool sameChest = false)
@@ -344,5 +367,7 @@ public class InventoryUI : SerializedMonoBehaviour
         ItemData.OnPotionLooted -= HandlePotionLooted;
         ItemData.OnPromptClicked -= HandlePromptClicked;
         ItemData.OnItemSuccessSwapped -= HandleItemSwapped;
+
+        CombatManager.OnCombatStateChanged -= HandleCombatUI;
     }
 }

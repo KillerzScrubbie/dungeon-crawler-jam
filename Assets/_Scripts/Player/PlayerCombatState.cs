@@ -1,13 +1,16 @@
+using System;
 using UnityEngine;
 
 public class PlayerCombatState : PlayerBaseState
 {
+    public static event Action OnPlayerCombatState;
+
     public override void EnterState(PlayerStateManager playerStateManager)
     {
         AudioManager.instance.StopAllSound();
         AudioManager.instance?.Play("bgBattle");
 
-        Debug.Log("Entered combat state");
+        OnPlayerCombatState?.Invoke();
     }
 
     public override void UpdateState(PlayerStateManager playerStateManager)

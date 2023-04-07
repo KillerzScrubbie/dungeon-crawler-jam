@@ -18,6 +18,7 @@ public class PlayerStateManager : MonoBehaviour
     private void Start()
     {
         PlayerMovement.OnCombatEntered += SwitchToCombatState;
+        CombatManager.OnCombatStateChanged += SwitchToExplorationState;
 
         currentState = playerExplorationState;
         currentState.EnterState(this);
@@ -33,6 +34,13 @@ public class PlayerStateManager : MonoBehaviour
         SwitchState(playerCombatState);
     }
 
+    private void SwitchToExplorationState(CombatState state)
+    {
+        if (state != CombatState.NotInCombat) { return; }
+
+        SwitchState(playerExplorationState);
+    }
+
     public void SwitchState(PlayerBaseState state)
     {
         if (state == currentState) { return; }
@@ -44,5 +52,6 @@ public class PlayerStateManager : MonoBehaviour
     private void OnDestroy()
     {
         PlayerMovement.OnCombatEntered -= SwitchToCombatState;
+        CombatManager.OnCombatStateChanged -= SwitchToExplorationState;
     }
 }

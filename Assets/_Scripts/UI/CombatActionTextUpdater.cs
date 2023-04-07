@@ -10,11 +10,11 @@ public class CombatActionTextUpdater : MonoBehaviour
     [SerializeField] private List<TextMeshProUGUI> actionDescription;
     [SerializeField] private List<GameObject> energyCosts;
 
-    private CombatHandler combatHandler;
+    private CombatManager combatManager;
 
     private void Start()
     {
-        combatHandler = FindObjectOfType<CombatHandler>();
+        combatManager = FindObjectOfType<CombatManager>();
     }
 
     public void UpdateText(ObjItems item, int slotId)
@@ -31,7 +31,7 @@ public class CombatActionTextUpdater : MonoBehaviour
 
         actionTexts[0].text = $"{item.Action1} ({item.ManaCost1} MP)";
         actionDescription[0].text = $"{item.Description1}";
-        actionButtons[0].onClick.AddListener(() => combatHandler.OnActionSelected(item.EffectList1, slotId, item.ManaCost1, item.ActionCost1));
+        actionButtons[0].onClick.AddListener(() => combatManager.OnActionSelected(item.EffectList1, slotId, item.ManaCost1, item.ActionCost1));
         for (int i = 0; i < item.ActionCost1; i++)
         {
             energyCosts[i].SetActive(true);
@@ -39,7 +39,7 @@ public class CombatActionTextUpdater : MonoBehaviour
 
         actionTexts[1].text = $"{item.Action2} ({item.ManaCost2} MP)";
         actionDescription[1].text = $"{item.Description2}";
-        actionButtons[1].onClick.AddListener(() => combatHandler.OnActionSelected(item.EffectList2, slotId, item.ManaCost2, item.ActionCost2));
+        actionButtons[1].onClick.AddListener(() => combatManager.OnActionSelected(item.EffectList2, slotId, item.ManaCost2, item.ActionCost2));
         for (int i = 0; i < item.ActionCost2; i++)
         {
             energyCosts[i + 3].SetActive(true);

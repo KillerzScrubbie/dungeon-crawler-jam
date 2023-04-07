@@ -197,7 +197,6 @@ GameObject:
   - component: {fileID: 8975119414569459193}
   - component: {fileID: 3756414035694633603}
   - component: {fileID: 3574748596908064938}
-  - component: {fileID: 2414889640181125283}
   m_Layer: 0
   m_Name: Combat Manager
   m_TagString: Untagged
@@ -235,6 +234,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   combatCanvas: {fileID: 7153919573095231015}
   energy: {fileID: 11400000, guid: 97f068d0d6d38f04886131e0a76f53cf, type: 2}
+  effectsProcessor: {fileID: 3574748596908064938}
   enemySlot:
   - {fileID: 7153919572679113905}
   - {fileID: 1326264225852415825}
@@ -268,20 +268,6 @@ MonoBehaviour:
   - {fileID: 8205461274602497062}
   - {fileID: 8766615290979368580}
   - {fileID: 6289856502355871900}
---- !u!114 &2414889640181125283
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3159818105292354025}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4535918cf8debce4597e781ef385e477, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  effectsProcessor: {fileID: 3574748596908064938}
-  energy: {fileID: 11400000, guid: 97f068d0d6d38f04886131e0a76f53cf, type: 2}
 --- !u!1 &5150975498292287159
 GameObject:
   m_ObjectHideFlags: 0

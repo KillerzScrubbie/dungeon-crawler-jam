@@ -52,7 +52,7 @@ public class CombatSlotData : MonoBehaviour, IPointerEnterHandler, IPointerDownH
         OnSlotClicked += HandleSlotClicked;
         InventoryPromptUI.OnPromptExit += Deselect;
 
-        CombatHandler.OnActionUsed += HandleActionUsed;
+        CombatManager.OnActionUsed += HandleActionUsed;
 
         HandleEquippedUpdated();
         HandlePotionUpdated();
@@ -301,7 +301,7 @@ public class CombatSlotData : MonoBehaviour, IPointerEnterHandler, IPointerDownH
 
         InventoryPromptUI.OnPromptExit -= Deselect;
 
-        CombatHandler.OnActionUsed -= HandleActionUsed;
+        CombatManager.OnActionUsed -= HandleActionUsed;
     }
 }
 

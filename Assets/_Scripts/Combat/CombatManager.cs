@@ -1,4 +1,5 @@
 using DG.Tweening;
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -8,12 +9,16 @@ public class CombatManager : MonoBehaviour
 {
     [SerializeField] private GameObject combatCanvas;
     [SerializeField] private ObjEnergy energy;
+    [SerializeField] private EffectsProcessor effectsProcessor;
 
     [Space]
     [Header("UI Slots List")]
     [SerializeField] private List<Image> enemySlot;
     [SerializeField] private List<EnemyHealthBar> healthBars;
     [SerializeField] private List<Image> energyIcons;
+
+    public static event Action<int> OnActionUsed;
+    public static event Action<int> OnManaUsed;
 
     private ObjEnemyGroup currentCombatGroup;
     private List<ObjEnemy> enemyList = new();
@@ -96,5 +101,56 @@ public class CombatManager : MonoBehaviour
         PlayerMovement.OnCombatEntered -= CombatEntered;
         EnemyCombatState.OnCombatEntered -= SetupCombatScreen;
         energy.OnEnergyUpdated -= HandleEnergyUpdated;
+    }
+    
+
+    public enum CombatState
+    {
+        PlayerTurn,
+        EnemyTurn
+    }
+
+    private CombatState state;
+
+    private void Update()
+    {
+
+    }
+
+    public void OnActionSelected(Dictionary<EEffectTypes, int> effectList, int slot, int manaCost, int energyCost)
+    {
+        if (effectList.ContainsKey(EEffectTypes.DamageSingle))
+        {
+            ChooseTarget(effectList);
+            return;
+        }
+
+        PerformAction(() => effectsProcessor.ProcessEffect(effectList), manaCost, energyCost);
+        OnActionUsed?.Invoke(slot);
+    }
+
+    private void ChooseTarget(Dictionary<EEffectTypes, int> effectList)
+    {
+        // If target is selected
+        //PerformAction(() => effectsProcessor.ProcessEffect(effectList));
+
+        // else deselect action
+    }
+
+    private void PerformAction(Action action, int manaCost, int energyCost)
+    {
+        energy.UpdateEnergy(energyCost);
+        OnManaUsed?.Invoke(manaCost);
+        action();
+    }
+
+    public void EndTurn()
+    {
+        state = CombatState.EnemyTurn;
+    }
+
+    public void StartPlayerTurn()
+    {
+        state = CombatState.PlayerTurn;
     }
 }

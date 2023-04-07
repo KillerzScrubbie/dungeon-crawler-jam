@@ -150,6 +150,10 @@ public class InventoryUI : SerializedMonoBehaviour
         OnSwapped?.Invoke(null, isSwapping);
         inventoryPanel.SetActive(!inventoryStatus);
 
+        if (inventoryPanel.activeSelf) AudioManager.instance?.PlayRandomPitch("invenOpen", .7f, 1.5f);
+        else AudioManager.instance?.PlayRandomPitch("invenClose", .7f, 1.5f);
+
+
         if (!inventoryStatus) { return; }
 
         chestPanel.SetActive(false);

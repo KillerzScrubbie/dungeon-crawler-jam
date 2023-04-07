@@ -192,6 +192,7 @@ MonoBehaviour:
   moveDuration: 0.15
   rotationDuration: 0.15
   dimensionOffset: 200
+  jumpCooldownTime: 3
   obstacleLayers:
     serializedVersion: 2
     m_Bits: 64
@@ -509,7 +510,7 @@ MonoBehaviour:
   m_PivotOffset: {x: 0, y: 0, z: 0}
   m_AmplitudeGain: 0
   m_FrequencyGain: 1
-  mNoiseOffsets: {x: 0, y: 0, z: 0}
+  mNoiseOffsets: {x: -299.7085, y: 600.3239, z: -586.33276}
 --- !u!1 &6725169284938642919
 GameObject:
   m_ObjectHideFlags: 0
@@ -724,7 +725,7 @@ PrefabInstance:
     - target: {fileID: 2942346241793083181, guid: 2e4a48b298022884d8c2d9f0f9d4cf7a,
         type: 3}
       propertyPath: m_Name
-      value: PlayerTakeDamageFX
+      value: PlayerTakeDamageWarpFX
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 2e4a48b298022884d8c2d9f0f9d4cf7a, type: 3}

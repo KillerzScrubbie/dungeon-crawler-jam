@@ -25,6 +25,7 @@ public class PlayerMovement : MonoBehaviour
 
     public static event Action OnCombatEntered;
     public static event Action OnDimensionJumpBlocked;
+    public static event Action OnDimensionJumpSuccess;
     public static event Action<float> OnTurned;
 
     private Queue<EMovementTypes> inputQueue = new();
@@ -241,6 +242,7 @@ public class PlayerMovement : MonoBehaviour
         SetGridPos(targetGridDimensionPos);
 
         transform.DOMove(targetGridPos, 0f).OnComplete(() => TryFalling(duration));
+        OnDimensionJumpSuccess?.Invoke();
         StartCoroutine(StartDimentionalJumpCooldown());
 
         AudioManager.instance?.Play("teleportSuccess");

@@ -68,7 +68,7 @@ MonoBehaviour:
       Data: 1
     - Name: 
       Entry: 12
-      Data: 2
+      Data: 1
     - Name: 
       Entry: 7
       Data: 
@@ -78,18 +78,6 @@ MonoBehaviour:
     - Name: $v
       Entry: 3
       Data: 3
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 3
-      Data: 15
-    - Name: $v
-      Entry: 3
-      Data: 1
     - Name: 
       Entry: 8
       Data: 
@@ -107,6 +95,6 @@ MonoBehaviour:
   manaCost1: 1
   actionCost1: 1
   actionName2: Purify
-  itemDescription2: Heal 3 HP\nRemove all debuffs
-  manaCost2: 6
+  itemDescription2: Heal 3 HP
+  manaCost2: 4
   actionCost2: 2

@@ -58,10 +58,10 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 3
-      Data: 7
+      Data: 10
     - Name: $v
       Entry: 3
-      Data: 2
+      Data: 6
     - Name: 
       Entry: 8
       Data: 
@@ -103,10 +103,10 @@ MonoBehaviour:
   itemName: Frost Staff
   itemIcon: {fileID: 21300000, guid: 649900e0feaf6bb4f805f758867796c0, type: 3}
   actionName1: Cold Embrace
-  itemDescription1: Deals 2 damage to all enemies\n Gain Block equal to damage dealt.
+  itemDescription1: Deals 2 damage to all enemies. Gain 6 Block.
   manaCost1: 3
   actionCost1: 1
   actionName2: Ice Ball
-  itemDescription2: Deals 8 damage
+  itemDescription2: Deals 8 damage.
   manaCost2: 2
   actionCost2: 1

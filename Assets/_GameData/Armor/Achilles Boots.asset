@@ -58,10 +58,10 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 3
-      Data: 12
+      Data: 1
     - Name: $v
       Entry: 3
-      Data: 1
+      Data: 2
     - Name: 
       Entry: 8
       Data: 
@@ -80,16 +80,28 @@ MonoBehaviour:
       Data: 1
     - Name: 
       Entry: 12
-      Data: 1
+      Data: 2
     - Name: 
       Entry: 7
       Data: 
     - Name: $k
       Entry: 3
-      Data: 13
+      Data: 10
     - Name: $v
       Entry: 3
-      Data: 1
+      Data: 5
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 11
+    - Name: $v
+      Entry: 3
+      Data: 2
     - Name: 
       Entry: 8
       Data: 
@@ -103,10 +115,10 @@ MonoBehaviour:
   itemName: Achilles' Boots
   itemIcon: {fileID: 21300000, guid: a66ccd1304b393148b9cea2e0ef6aefd, type: 3}
   actionName1: Dash
-  itemDescription1: Gain 3 Block\n Next Action is 25% more effective
+  itemDescription1: Gain 3 Block. Heal 2 HP
   manaCost1: 2
   actionCost1: 2
-  actionName2: Strafe
-  itemDescription2: 10% chance to negate damage for 1 turn
-  manaCost2: 5
-  actionCost2: 2
+  actionName2: After Image
+  itemDescription2: Gain 5 Block. Gain 2 MP.
+  manaCost2: 0
+  actionCost2: 3

@@ -68,7 +68,7 @@ MonoBehaviour:
       Data: 1
     - Name: 
       Entry: 12
-      Data: 2
+      Data: 1
     - Name: 
       Entry: 7
       Data: 
@@ -82,18 +82,6 @@ MonoBehaviour:
       Entry: 8
       Data: 
     - Name: 
-      Entry: 7
-      Data: 
-    - Name: $k
-      Entry: 3
-      Data: 8
-    - Name: $v
-      Entry: 3
-      Data: 2
-    - Name: 
-      Entry: 8
-      Data: 
-    - Name: 
       Entry: 13
       Data: 
     - Name: 
@@ -103,10 +91,10 @@ MonoBehaviour:
   itemName: Greatsword
   itemIcon: {fileID: 21300000, guid: 76716b5bd1980f5478366651ce05d31a, type: 3}
   actionName1: Elegant Strike
-  itemDescription1: Deals 9 damage
+  itemDescription1: Deals 9 damage.
   manaCost1: 2
   actionCost1: 1
   actionName2: Super Swing
-  itemDescription2: Deals 20 damage\n Gain 2 Weak
+  itemDescription2: Deals 20 damage.
   manaCost2: 4
   actionCost2: 1

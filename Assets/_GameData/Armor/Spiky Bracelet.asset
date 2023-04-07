@@ -46,10 +46,10 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 3
-      Data: 10
+      Data: 0
     - Name: $v
       Entry: 3
-      Data: 3
+      Data: 2
     - Name: 
       Entry: 8
       Data: 
@@ -58,7 +58,7 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 3
-      Data: 14
+      Data: 10
     - Name: $v
       Entry: 3
       Data: 2
@@ -80,16 +80,28 @@ MonoBehaviour:
       Data: 1
     - Name: 
       Entry: 12
-      Data: 1
+      Data: 2
     - Name: 
       Entry: 7
       Data: 
     - Name: $k
       Entry: 3
-      Data: 14
+      Data: 10
     - Name: $v
       Entry: 3
-      Data: 6
+      Data: 8
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 0
+    - Name: $v
+      Entry: 3
+      Data: 2
     - Name: 
       Entry: 8
       Data: 
@@ -103,10 +115,10 @@ MonoBehaviour:
   itemName: Spiky Bracelet
   itemIcon: {fileID: 21300000, guid: 1b05431f12095d74fbddf96fc2062500, type: 3}
   actionName1: Spike Defense
-  itemDescription1: Gain 3 Block\nGain 2 Spikes
-  manaCost1: 2
+  itemDescription1: Deals 2 damage. Gain 2 Block.
+  manaCost1: 1
   actionCost1: 1
   actionName2: De-offensive Maneuver
-  itemDescription2: Gain 6 Spikes
+  itemDescription2: Deals 2 damage. Gain 8 Block.
   manaCost2: 3
-  actionCost2: 1
+  actionCost2: 2

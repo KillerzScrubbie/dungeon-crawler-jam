@@ -86,10 +86,10 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 3
-      Data: 5
+      Data: 1
     - Name: $v
       Entry: 3
-      Data: 1
+      Data: 2
     - Name: 
       Entry: 8
       Data: 
@@ -98,10 +98,10 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 3
-      Data: 6
+      Data: 10
     - Name: $v
       Entry: 3
-      Data: 1
+      Data: 2
     - Name: 
       Entry: 8
       Data: 
@@ -119,6 +119,6 @@ MonoBehaviour:
   manaCost1: 4
   actionCost1: 1
   actionName2: Seismic Slam
-  itemDescription2: Deals 6 damage\n Apply 1 Weak and 1 Vulnerable
+  itemDescription2: Deals 6 damage. Gain 2 Block. Heal 2 HP.
   manaCost2: 4
   actionCost2: 1

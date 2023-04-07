@@ -40,7 +40,19 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 12
-      Data: 0
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 1
+    - Name: $v
+      Entry: 3
+      Data: 5
+    - Name: 
+      Entry: 8
+      Data: 
     - Name: 
       Entry: 13
       Data: 
@@ -56,21 +68,33 @@ MonoBehaviour:
       Data: 1
     - Name: 
       Entry: 12
-      Data: 0
+      Data: 1
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
+      Data: 11
+    - Name: $v
+      Entry: 3
+      Data: 1
+    - Name: 
+      Entry: 8
+      Data: 
     - Name: 
       Entry: 13
       Data: 
     - Name: 
       Entry: 8
       Data: 
-  itemType: 0
-  itemName: 
-  itemIcon: {fileID: 0}
-  actionName1: 
-  itemDescription1: 
-  manaCost1: 0
+  itemType: 1
+  itemName: Nature Essence
+  itemIcon: {fileID: 21300000, guid: ce4ddce72f0cd8e4fa53d755b4f3b315, type: 3}
+  actionName1: Cultivate
+  itemDescription1: Heal 5 HP.
+  manaCost1: 7
   actionCost1: 1
-  actionName2: 
-  itemDescription2: 
-  manaCost2: 0
-  actionCost2: 1
+  actionName2: Pray
+  itemDescription2: Gain 1 MP.
+  manaCost2: 1
+  actionCost2: 0

@@ -236,6 +236,8 @@ MonoBehaviour:
   energy: {fileID: 11400000, guid: 97f068d0d6d38f04886131e0a76f53cf, type: 2}
   effectsProcessor: {fileID: 3574748596908064938}
   targetCheck: {fileID: 11400000, guid: c3e43af1d66b94840bf70d19947b2191, type: 2}
+  endTurnButton: {fileID: 7233183984595069573}
+  endTurnText: {fileID: 1883897729215983564}
   enemySlot:
   - {fileID: 7153919572679113905}
   - {fileID: 1326264225852415825}
@@ -287,7 +289,7 @@ GameObject:
   - component: {fileID: 2741294429899175130}
   - component: {fileID: 1883897729215983564}
   m_Layer: 5
-  m_Name: Text (TMP)
+  m_Name: End Turn Text
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -351,8 +353,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4294046193
+  m_fontColor: {r: 0.9433962, g: 0.9433962, b: 0.9433962, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -514,7 +516,7 @@ MonoBehaviour:
     m_HighlightedColor: {r: 0.4339623, g: 0.4339623, b: 0.4339623, a: 1}
     m_PressedColor: {r: 0.24528301, g: 0.24528301, b: 0.24528301, a: 1}
     m_SelectedColor: {r: 0.35686275, g: 0.35686275, b: 0.35686275, a: 1}
-    m_DisabledColor: {r: 0.78431374, g: 0.78431374, b: 0.78431374, a: 0.5019608}
+    m_DisabledColor: {r: 0.20754719, g: 0.20754719, b: 0.20754719, a: 1}
     m_ColorMultiplier: 1
     m_FadeDuration: 0
   m_SpriteState:
@@ -532,7 +534,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 3699441381027270499}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 3756414035694633603}
+        m_TargetAssemblyTypeName: CombatManager, Assembly-CSharp
+        m_MethodName: EndTurn
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
 --- !u!1 &7153919572831730260
 GameObject:
   m_ObjectHideFlags: 0

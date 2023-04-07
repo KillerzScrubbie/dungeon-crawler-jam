@@ -1,6 +1,7 @@
 using DG.Tweening;
 using System;
 using System.Collections.Generic;
+using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,6 +11,8 @@ public class CombatManager : MonoBehaviour
     [SerializeField] private ObjEnergy energy;
     [SerializeField] private EffectsProcessor effectsProcessor;
     [SerializeField] private ObjTarget targetCheck;
+    [SerializeField] private Button endTurnButton;
+    [SerializeField] private TextMeshProUGUI endTurnText;
 
     [Space]
     [Header("UI Slots List")]
@@ -37,10 +40,13 @@ public class CombatManager : MonoBehaviour
     public enum CombatState
     {
         PlayerTurn,
-        EnemyTurn
+        EnemyTurn,
+        Victory,
+        Dead,
+        NotInCombat
     }
 
-    private CombatState state;
+    private CombatState state = CombatState.NotInCombat;
 
 
     private void Start()
@@ -61,6 +67,7 @@ public class CombatManager : MonoBehaviour
         energy.RefreshEnergy();
         HandleTargettingUpdated(false);
         combatCanvas.SetActive(true);
+        StartPlayerTurn();
     }
 
     private void CombatFinished()
@@ -123,11 +130,15 @@ public class CombatManager : MonoBehaviour
 
     public void EndTurn()
     {
+        endTurnButton.interactable = false;
+        endTurnText.color = new Color(0.55f, 0.3f, 0.3f, 1f);
         state = CombatState.EnemyTurn;
     }
 
     public void StartPlayerTurn()
     {
+        endTurnButton.interactable = true;
+        endTurnText.color = new Color(0.95f, 0.95f, 0.95f, 95f);
         state = CombatState.PlayerTurn;
     }
 

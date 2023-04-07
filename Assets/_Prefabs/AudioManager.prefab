@@ -146,7 +146,7 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   - audioName: teleportFail
-    clip: {fileID: 8300000, guid: 9fe3a9f87928c3a478a72e12103c4af8, type: 3}
+    clip: {fileID: 8300000, guid: 60a73319d8e82944cb0d00c85e64ce94, type: 3}
     mixerGroup: {fileID: 8219120640885313815, guid: e4133e5e7f34c4743be3fe0ab8e68812,
       type: 2}
     volume: 1
@@ -155,7 +155,7 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   - audioName: teleportSuccess
-    clip: {fileID: 8300000, guid: c490c7e3d4b8d764ead52a435cab0ae0, type: 3}
+    clip: {fileID: 8300000, guid: 3f17089601987634bb1eb57444f7895f, type: 3}
     mixerGroup: {fileID: 8219120640885313815, guid: e4133e5e7f34c4743be3fe0ab8e68812,
       type: 2}
     volume: 1

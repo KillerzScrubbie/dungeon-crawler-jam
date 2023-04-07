@@ -96,5 +96,5 @@ MonoBehaviour:
   actionCost1: 1
   actionName2: Super Swing
   itemDescription2: Deals 20 damage.
-  manaCost2: 4
-  actionCost2: 1
+  manaCost2: 6
+  actionCost2: 2

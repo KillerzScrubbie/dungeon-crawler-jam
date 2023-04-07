@@ -10,7 +10,7 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 8a7cad9dd09b17542acda97030619596, type: 3}
-  m_Name: Slime
+  m_Name: GolemBoss
   m_EditorClassIdentifier: 
   serializationData:
     SerializedFormat: 2
@@ -40,7 +40,7 @@ MonoBehaviour:
       Data: 
     - Name: 
       Entry: 12
-      Data: 1
+      Data: 2
     - Name: 
       Entry: 7
       Data: 
@@ -49,7 +49,19 @@ MonoBehaviour:
       Data: 0
     - Name: $v
       Entry: 3
+      Data: 3
+    - Name: 
+      Entry: 8
+      Data: 
+    - Name: 
+      Entry: 7
+      Data: 
+    - Name: $k
+      Entry: 3
       Data: 1
+    - Name: $v
+      Entry: 3
+      Data: 3
     - Name: 
       Entry: 8
       Data: 
@@ -74,10 +86,10 @@ MonoBehaviour:
       Data: 
     - Name: $k
       Entry: 3
-      Data: 1
+      Data: 0
     - Name: $v
       Entry: 3
-      Data: 2
+      Data: 10
     - Name: 
       Entry: 8
       Data: 
@@ -87,8 +99,8 @@ MonoBehaviour:
     - Name: 
       Entry: 8
       Data: 
-  image: {fileID: 21300000, guid: 8b45c8873bd6be84f86218b734d19d7d, type: 3}
-  enemyName: Egg Slime
-  maxHealth: 12
-  minSpeed: 0.1
-  maxSpeed: 0.8
+  image: {fileID: 21300000, guid: 1bb85e754a1454b4f999e5c3da9be0f2, type: 3}
+  enemyName: Infinity Golem
+  maxHealth: 250
+  minSpeed: 0
+  maxSpeed: 0

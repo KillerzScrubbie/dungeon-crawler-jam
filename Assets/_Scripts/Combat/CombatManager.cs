@@ -1,6 +1,7 @@
 using DG.Tweening;
 using System;
 using System.Collections.Generic;
+using System.Threading.Tasks;
 using TMPro;
 using UnityEngine;
 using UnityEngine.UI;
@@ -23,31 +24,24 @@ public class CombatManager : MonoBehaviour
 
     public static event Action<int> OnActionUsed;
     public static event Action<int> OnManaUsed;
+    public static event Action<CombatState> OnCombatStateChanged;
+    public static event Action OnStartNewTurn;
 
     private ObjEnemyGroup currentCombatGroup;
     private List<ObjEnemy> enemyList = new();
-    private List<EnemyHealthSystem> activeEnemies = new();
+    private List<EnemyCombat> activeEnemies = new();
 
-    public List<EnemyHealthSystem> ActiveEnemies { get { return activeEnemies; } }
+    public List<EnemyCombat> ActiveEnemies { get { return activeEnemies; } }
 
-    private EnemyHealthSystem enemyTarget;
+    private EnemyCombat enemyTarget;
     private Action savedAction;
     private int savedManaCost;
     private int savedEnergyCost;
     private int savedSlot;
 
     private int currentEnemiesInCombat = 0;
-    public enum CombatState
-    {
-        PlayerTurn,
-        EnemyTurn,
-        Victory,
-        Dead,
-        NotInCombat
-    }
 
     private CombatState state = CombatState.NotInCombat;
-
 
     private void Start()
     {
@@ -73,11 +67,43 @@ public class CombatManager : MonoBehaviour
     private void CombatFinished()
     {
         combatCanvas.SetActive(false);
+        UpdateGameState(CombatState.Victory);
     }
 
-    private void Update()
+    private void UpdateGameState(CombatState newState)
     {
+        state = newState;
 
+        switch (newState)
+        {
+            case CombatState.PlayerTurn:
+                break;
+            case CombatState.EnemyTurn:
+                HandleEnemyTurn();
+                break;
+            case CombatState.Dead:
+                break;
+            case CombatState.NotInCombat:
+                break; ;
+            case CombatState.Victory:
+                break;
+        }
+
+        OnCombatStateChanged?.Invoke(state);
+    }
+
+    private async void HandleEnemyTurn()
+    {
+        await Task.Delay(1000);
+
+        foreach (var enemy in activeEnemies)
+        {
+            enemy.PerformAction();
+            await Task.Delay(1500);
+        }
+
+        await Task.Delay(500);
+        StartPlayerTurn();
     }
 
     public void OnActionSelected(Dictionary<EEffectTypes, int> effectList, int slot, int manaCost, int energyCost)
@@ -103,7 +129,7 @@ public class CombatManager : MonoBehaviour
         }
     }
 
-    private void ChooseTarget(EnemyHealthSystem enemy)
+    private void ChooseTarget(EnemyCombat enemy)
     {
         enemyTarget = enemy;
 
@@ -132,17 +158,19 @@ public class CombatManager : MonoBehaviour
     {
         endTurnButton.interactable = false;
         endTurnText.color = new Color(0.55f, 0.3f, 0.3f, 1f);
-        state = CombatState.EnemyTurn;
+        UpdateGameState(CombatState.EnemyTurn);
     }
 
     public void StartPlayerTurn()
     {
         endTurnButton.interactable = true;
         endTurnText.color = new Color(0.95f, 0.95f, 0.95f, 95f);
-        state = CombatState.PlayerTurn;
+        UpdateGameState(CombatState.PlayerTurn);
+        energy.RefreshEnergy();
+        OnStartNewTurn?.Invoke();
     }
 
-    private void RemoveEnemyFromCombat(EnemyHealthSystem enemy)
+    private void RemoveEnemyFromCombat(EnemyCombat enemy)
     {
         activeEnemies.Remove(enemy);
 
@@ -176,7 +204,10 @@ public class CombatManager : MonoBehaviour
 
             EnemyHealthBar healthBar = healthBars[i];
             healthBar.Setup(enemy.MaxHealth);
-            activeEnemies.Add(healthBar.GetComponent<EnemyHealthSystem>());
+            EnemyCombat enemyCombat = healthBar.GetComponent<EnemyCombat>();
+            enemyCombat.SetupEnemy(enemy);
+
+            activeEnemies.Add(enemyCombat);
         }
     }
 
@@ -218,4 +249,13 @@ public class CombatManager : MonoBehaviour
         TargetButton.OnTargetChosen -= ChooseTarget;
         energy.OnEnergyUpdated -= HandleEnergyUpdated;
     }
+}
+
+public enum CombatState
+{
+    PlayerTurn,
+    EnemyTurn,
+    Victory,
+    Dead,
+    NotInCombat
 }

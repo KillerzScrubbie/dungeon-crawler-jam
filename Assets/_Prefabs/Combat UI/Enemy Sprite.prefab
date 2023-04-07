@@ -89,7 +89,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 609dfcd62858a2441a1464f6191b46c7, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  healthSystem: {fileID: 4096170731327805430}
+  enemy: {fileID: 8224903821727794671}
 --- !u!1 &6584531299354945238
 GameObject:
   m_ObjectHideFlags: 0
@@ -179,6 +179,7 @@ GameObject:
   - component: {fileID: 6584531299833179264}
   - component: {fileID: 6584531299833179265}
   - component: {fileID: 2019457462213367747}
+  - component: {fileID: 8224903821727794671}
   - component: {fileID: 4096170731327805430}
   - component: {fileID: 3366140220942554755}
   m_Layer: 5
@@ -264,6 +265,19 @@ MonoBehaviour:
   healthSystem: {fileID: 4096170731327805430}
   healthBar: {fileID: 6584531299354945236}
   healthText: {fileID: 6584531300764941920}
+--- !u!114 &8224903821727794671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6584531299833179267}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f20756df120814b4ea2652e339c9a6bb, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  nameText: {fileID: 6584531299914998248}
 --- !u!114 &4096170731327805430
 MonoBehaviour:
   m_ObjectHideFlags: 0

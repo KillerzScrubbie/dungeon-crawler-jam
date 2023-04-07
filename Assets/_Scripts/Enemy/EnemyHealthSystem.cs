@@ -5,10 +5,17 @@ public class EnemyHealthSystem :MonoBehaviour, IDamageable
 {
     public event Action<int, int> OnHealthUpdated;
     public event Action OnDeath;
-    public static event Action<EnemyHealthSystem> OnEnemyDeath;
+    public static event Action<EnemyCombat> OnEnemyDeath;
 
     private int health = 0;
     private int maxHealth = 100;
+
+    private EnemyCombat enemyCombat;
+
+    private void Start()
+    {
+        enemyCombat = GetComponent<EnemyCombat>();
+    }
 
     public void SetupEnemy(int maxHealth)
     {
@@ -32,7 +39,7 @@ public class EnemyHealthSystem :MonoBehaviour, IDamageable
     {
         if (health > 0) { return; }
 
-        OnEnemyDeath?.Invoke(this);
+        OnEnemyDeath?.Invoke(enemyCombat);
         OnDeath?.Invoke();
     }
 

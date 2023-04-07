@@ -74,7 +74,7 @@ MonoBehaviour:
     loop: 1
     source: {fileID: 0}
   - audioName: playerDmg1
-    clip: {fileID: 8300000, guid: 74169a5185e8581459270632830d86d9, type: 3}
+    clip: {fileID: 8300000, guid: 43f9476ddc6b787479c9fefcc368e3dd, type: 3}
     mixerGroup: {fileID: 8219120640885313815, guid: e4133e5e7f34c4743be3fe0ab8e68812,
       type: 2}
     volume: 0.508
@@ -159,6 +159,60 @@ MonoBehaviour:
     mixerGroup: {fileID: 8219120640885313815, guid: e4133e5e7f34c4743be3fe0ab8e68812,
       type: 2}
     volume: 1
+    pitch: 1
+    blend: 0
+    loop: 0
+    source: {fileID: 0}
+  - audioName: itemLoot
+    clip: {fileID: 8300000, guid: a482c64a555aa1343b98ebae7d30a45c, type: 3}
+    mixerGroup: {fileID: 8219120640885313815, guid: e4133e5e7f34c4743be3fe0ab8e68812,
+      type: 2}
+    volume: 1
+    pitch: 1
+    blend: 0
+    loop: 0
+    source: {fileID: 0}
+  - audioName: playerEquip
+    clip: {fileID: 8300000, guid: 7d931a7d6ceb3914b86b0642aac00f51, type: 3}
+    mixerGroup: {fileID: 8219120640885313815, guid: e4133e5e7f34c4743be3fe0ab8e68812,
+      type: 2}
+    volume: 1
+    pitch: 1
+    blend: 0
+    loop: 0
+    source: {fileID: 0}
+  - audioName: potionLoot
+    clip: {fileID: 8300000, guid: 1b99aa53b882f61459e248904f41d0e5, type: 3}
+    mixerGroup: {fileID: 8219120640885313815, guid: e4133e5e7f34c4743be3fe0ab8e68812,
+      type: 2}
+    volume: 1
+    pitch: 1
+    blend: 0
+    loop: 0
+    source: {fileID: 0}
+  - audioName: endTurn
+    clip: {fileID: 8300000, guid: f84a0ad3dfad18e45bedda6bc510f6ac, type: 3}
+    mixerGroup: {fileID: 8219120640885313815, guid: e4133e5e7f34c4743be3fe0ab8e68812,
+      type: 2}
+    volume: 1
+    pitch: 1
+    blend: 0
+    loop: 0
+    source: {fileID: 0}
+  - audioName: enemyHeal
+    clip: {fileID: 8300000, guid: b606c363d3e049f4eb85a44b0827a3b0, type: 3}
+    mixerGroup: {fileID: 8219120640885313815, guid: e4133e5e7f34c4743be3fe0ab8e68812,
+      type: 2}
+    volume: 1
+    pitch: 1
+    blend: 0
+    loop: 0
+    source: {fileID: 0}
+  - audioName: enemyAtk
+    clip: {fileID: 8300000, guid: abb5ed4504ebac943b5db53fa5143b60, type: 3}
+    mixerGroup: {fileID: 8219120640885313815, guid: e4133e5e7f34c4743be3fe0ab8e68812,
+      type: 2}
+    volume: 0.7
     pitch: 1
     blend: 0
     loop: 0

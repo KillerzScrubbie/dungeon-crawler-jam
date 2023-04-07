@@ -177,6 +177,9 @@ public class CombatManager : MonoBehaviour
         endTurnButton.interactable = false;
         endTurnText.color = new Color(0.55f, 0.3f, 0.3f, 1f);
         UpdateGameState(CombatState.EnemyTurn);
+
+        AudioManager.instance?.PlayRandomPitch("endTurn", .8f, 1.2f);
+
     }
 
     public void StartPlayerTurn()

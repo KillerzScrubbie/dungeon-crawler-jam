@@ -87,12 +87,14 @@ public class InventoryUI : SerializedMonoBehaviour
     {
         isSwapping = true;
         OnSwapped?.Invoke(itemData, isSwapping);
+
         promptPanel.SetActive(false);
     }
 
     private void HandleItemSwapped(EInventorySlot slot1, int id1, EInventorySlot slot2, int id2)
     {
         inventory.SwapItemPosition(slot1, id1, slot2, id2);
+        AudioManager.instance?.PlayRandomPitch("playerEquip", 0.75f, 1.5f);
         isSwapping = false;
         OnSwapped?.Invoke(null, isSwapping);
     }
@@ -114,7 +116,7 @@ public class InventoryUI : SerializedMonoBehaviour
         if (currentChest == null) { return; }
 
         if (sameChest) { return; }
-        
+
         currentChest.CloseChest();
     }
 
@@ -146,6 +148,8 @@ public class InventoryUI : SerializedMonoBehaviour
     {
         if (!inventory.AddItem(item)) { return; }
 
+        AudioManager.instance?.PlayRandomPitch("itemLoot", 0.75f, 1.5f);
+
         itemData.Loot();
         currentChest.RemoveItem(item);
         chestSlots[slot].enabled = false;
@@ -154,6 +158,7 @@ public class InventoryUI : SerializedMonoBehaviour
     private void HandlePotionLooted(ItemData itemData, ObjPotions potion, int slot)
     {
         if (!inventory.AddPotion(potion)) { return; }
+        AudioManager.instance?.PlayRandomPitch("potionLoot", 0.75f, 1.5f);
 
         itemData.Loot();
         currentChest.RemovePotion(potion);
@@ -259,7 +264,7 @@ public class InventoryUI : SerializedMonoBehaviour
                 continue;
             }
 
-            ObjPotions potion = potionItemList[i];   
+            ObjPotions potion = potionItemList[i];
 
             if (potionData.Potion == potion)
             {
@@ -317,7 +322,7 @@ public class InventoryUI : SerializedMonoBehaviour
             case EInventorySlot.Chest:
                 break;
         }
-        
+
     }
 
     private void HandleMovement(EMovementTypes movementType)

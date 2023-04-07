@@ -6,6 +6,7 @@ public class EffectsProcessor : MonoBehaviour
 {
     // Player's actions
 
+    [SerializeField] private CombatManager combatManager;
     [SerializeField] private List<EnemyHealthSystem> enemies;
 
     public static event Action<int> OnHealed;
@@ -15,6 +16,7 @@ public class EffectsProcessor : MonoBehaviour
     public void ProcessEffect(Dictionary<EEffectTypes, int> effectList, EnemyHealthSystem target = null)
     {
         int hitInstances = effectList.ContainsKey(EEffectTypes.DamageInstances) ? effectList[EEffectTypes.DamageInstances] : 1;
+        List<EnemyHealthSystem> activeEnemies = combatManager.ActiveEnemies;
 
         foreach (var effect in effectList)
         {
@@ -28,13 +30,14 @@ public class EffectsProcessor : MonoBehaviour
                     break;
 
                 case EEffectTypes.DamageAll:
-                    foreach (var enemy in enemies)
+                    foreach (var enemy in activeEnemies)
                     {
-                        if (!enemy.isActiveAndEnabled) { continue; }
-
                         enemy.TakeDamage(effectList[EEffectTypes.DamageAll]);
                     }
                     break;
+
+                case EEffectTypes.DamageRandom:
+
 
                 case EEffectTypes.Block:
                     OnBlockGained?.Invoke(effectList[EEffectTypes.Block]);

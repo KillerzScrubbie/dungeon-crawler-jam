@@ -269,6 +269,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e734044952ba1bf41884b58ec3ed5a7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  combatManager: {fileID: 3756414035694633603}
   enemies:
   - {fileID: 71954470121670598}
   - {fileID: 8205461274602497062}

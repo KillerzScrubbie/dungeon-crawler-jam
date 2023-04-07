@@ -1,8 +1,6 @@
 using DG.Tweening;
 using System;
-using System.Collections;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -25,6 +23,9 @@ public class CombatManager : MonoBehaviour
 
     private ObjEnemyGroup currentCombatGroup;
     private List<ObjEnemy> enemyList = new();
+    private List<EnemyHealthSystem> activeEnemies = new();
+
+    public List<EnemyHealthSystem> ActiveEnemies { get { return activeEnemies; } }
 
     private EnemyHealthSystem enemyTarget;
     private Action savedAction;
@@ -130,11 +131,11 @@ public class CombatManager : MonoBehaviour
         state = CombatState.PlayerTurn;
     }
 
-    private void RemoveEnemyFromCombat()
+    private void RemoveEnemyFromCombat(EnemyHealthSystem enemy)
     {
-        currentEnemiesInCombat -= 1;
+        activeEnemies.Remove(enemy);
 
-        if (currentEnemiesInCombat > 0) { return; }
+        if (activeEnemies.Count > 0) { return; }
 
         CombatFinished();
         Debug.Log("YOU WIN THIS FIGHT");
@@ -144,6 +145,7 @@ public class CombatManager : MonoBehaviour
     {
         currentCombatGroup = enemyData.EnemyGroup;
         enemyList.Clear();
+        activeEnemies.Clear();
         enemyList = currentCombatGroup.EnemyGroup;
         currentEnemiesInCombat = enemyList.Count;
 
@@ -160,7 +162,10 @@ public class CombatManager : MonoBehaviour
 
             currentEnemy.sprite = enemy.Image;
             currentEnemy.gameObject.SetActive(true);
-            healthBars[i].Setup(enemy.MaxHealth);
+
+            EnemyHealthBar healthBar = healthBars[i];
+            healthBar.Setup(enemy.MaxHealth);
+            activeEnemies.Add(healthBar.GetComponent<EnemyHealthSystem>());
         }
     }
 

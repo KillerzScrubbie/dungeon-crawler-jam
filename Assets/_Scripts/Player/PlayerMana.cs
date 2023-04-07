@@ -1,8 +1,8 @@
 using UnityEngine;
 using System;
-using EasyButtons;
+using Sirenix.OdinInspector;
 
-public class PlayerMana : MonoBehaviour
+public class PlayerMana : SerializedMonoBehaviour
 {
     [SerializeField] private int _maxMP = 10;
     public int _currentMP { get; private set; }
@@ -44,7 +44,7 @@ public class PlayerMana : MonoBehaviour
     {
         if (_currentMP - mpUsed < 0)
         {
-            Debug.Log("Player out of mana");  // Game over here
+            Debug.Log("Player out of mana");
             OnPlayerNotEnoughMP?.Invoke();
             return;
         }
@@ -70,21 +70,21 @@ public class PlayerMana : MonoBehaviour
 
 
     [Button]
-    public void TestFiveHeal()
+    public void Add5Mana()
     {
         AddMP(5);
     }
 
     [Button]
-    public void TestTakeTwoFiveDamage()
+    public void Use9Mana()
     {
-        ReduceMP(25);
+        ReduceMP(9);
     }
 
     [Button]
-    public void TestTakeFourDamage()
+    public void Use1Mana()
     {
-        ReduceMP(5);
+        ReduceMP(1);
     }
 
 }

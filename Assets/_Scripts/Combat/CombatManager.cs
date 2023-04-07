@@ -1,3 +1,4 @@
+using DG.Tweening;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -6,15 +7,13 @@ using UnityEngine.UI;
 public class CombatManager : MonoBehaviour
 {
     [SerializeField] private GameObject combatCanvas;
+    [SerializeField] private ObjEnergy energy;
 
     [Space]
     [Header("UI Slots List")]
     [SerializeField] private List<Image> enemySlot;
     [SerializeField] private List<EnemyHealthBar> healthBars;
-    
-    [Space]
-    [Header("Player Control Slots List")]
-    [SerializeField] private List<Image> actionsSlot;
+    [SerializeField] private List<Image> energyIcons;
 
     private ObjEnemyGroup currentCombatGroup;
     private List<ObjEnemy> enemyList = new();
@@ -26,10 +25,12 @@ public class CombatManager : MonoBehaviour
 
         PlayerMovement.OnCombatEntered += CombatEntered;
         EnemyCombatState.OnCombatEntered += SetupCombatScreen;
+        energy.OnEnergyUpdated += HandleEnergyUpdated;
     }
 
     private void CombatEntered()
     {
+        energy.RefreshEnergy();
         combatCanvas.SetActive(true);
     }
 
@@ -61,9 +62,39 @@ public class CombatManager : MonoBehaviour
         }
     }
 
+    private void HandleEnergyUpdated(int energy)
+    {
+        for (int i = 0; i < energy; i++)
+        {
+            switch (i)
+            {
+                case > 2:
+                    energyIcons[i].gameObject.SetActive(true);
+                    break;
+                default:
+                    energyIcons[i].DOFade(1f, 0f);
+                    break;
+            }
+        }
+
+        for (int i = energyIcons.Count - 1; i >= energy; i--)
+        {
+            switch (i)
+            {
+                case > 2:
+                    energyIcons[i].gameObject.SetActive(false);
+                    break;
+                default:
+                    energyIcons[i].DOFade(0.3f, 0f);
+                    break;
+            }
+        }
+    }
+
     private void OnDestroy()
     {
         PlayerMovement.OnCombatEntered -= CombatEntered;
         EnemyCombatState.OnCombatEntered -= SetupCombatScreen;
+        energy.OnEnergyUpdated -= HandleEnergyUpdated;
     }
 }

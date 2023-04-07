@@ -98,14 +98,12 @@ MonoBehaviour:
   icon: {fileID: 2538107561592385409}
   combatSlot: 0
   id: 0
+  energy: {fileID: 11400000, guid: 97f068d0d6d38f04886131e0a76f53cf, type: 2}
   inventoryUI: {fileID: 0}
-  actionsPanel: {fileID: 0}
-  actionButtons: []
-  actionTexts: []
-  actionDescription: []
-  energyCosts: []
+  combatActionTextUpdater: {fileID: 0}
   anchor: {fileID: 8159985429010656871}
   potionPromptPanel: {fileID: 0}
+  useButton: {fileID: 0}
   colorUsable:
     serializedVersion: 2
     rgba: 4289441103

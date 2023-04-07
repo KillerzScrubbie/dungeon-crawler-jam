@@ -3,8 +3,11 @@ using UnityEngine;
 
 public class PlayerStr : MonoBehaviour
 {
-    public static Action<int> OnPlayerUpdateStr;
-    int _playerStrValue;
+    [SerializeField] private ObjStrength strengthData;
+
+    // public static Action<int> OnPlayerUpdateStr;
+
+    private int _playerStrValue;
     public int PlayerStrValue => _playerStrValue;
 
     void Start()
@@ -23,13 +26,13 @@ public class PlayerStr : MonoBehaviour
 
     private void OnPlayerGetStr(int addedStrValue)
     {
-        _playerStrValue += addedStrValue;
-        OnPlayerUpdateStr?.Invoke(_playerStrValue);
+        strengthData.AddStrength(addedStrValue);
+        // OnPlayerUpdateStr?.Invoke(_playerStrValue);
     }
 
-    void ResetPlayerStr()
+    private void ResetPlayerStr()
     {
-        _playerStrValue = 0;
-        OnPlayerUpdateStr?.Invoke(_playerStrValue);
+        strengthData.ResetStrength();
+        // OnPlayerUpdateStr?.Invoke(_playerStrValue);
     }
 }

@@ -37,7 +37,6 @@ public class PlayerBlock : MonoBehaviour
         int damageExceedBlock = takeDmg - _blockValue;
 
         _blockValue = Math.Clamp(_blockValue - takeDmg, 0, 99);
-        Debug.Log(_blockValue);
 
         OnPlayerUpdateBlock?.Invoke(_blockValue);
 

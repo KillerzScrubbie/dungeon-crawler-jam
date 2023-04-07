@@ -48,6 +48,7 @@ public class CombatManager : MonoBehaviour
         CombatEntered();
         CombatFinished();
 
+        PotionManager.OnEnergyPotionUsed += UseEnergyPotion;
         PlayerMovement.OnCombatEntered += CombatEntered;
         EnemyCombatState.OnCombatEntered += SetupCombatScreen;
         EnemyHealthSystem.OnEnemyDeath += RemoveEnemyFromCombat;
@@ -138,7 +139,7 @@ public class CombatManager : MonoBehaviour
 
     private void PerformAction(Action action, int manaCost, int energyCost, int slot)
     {
-        energy.UpdateEnergy(energyCost);
+        energy.UseEnergy(energyCost);
         OnManaUsed?.Invoke(manaCost);
         OnActionUsed?.Invoke(slot);
         action();
@@ -177,7 +178,6 @@ public class CombatManager : MonoBehaviour
         if (activeEnemies.Count > 0) { return; }
 
         CombatFinished();
-        Debug.Log("YOU WIN THIS FIGHT");
     }
 
     private void SetupCombatScreen(EnemyData enemyData)
@@ -240,8 +240,14 @@ public class CombatManager : MonoBehaviour
         }
     }
 
+    private void UseEnergyPotion(int energyGain)
+    {
+        energy.GainEnergy(energyGain);
+    }
+
     private void OnDestroy()
     {
+        PotionManager.OnEnergyPotionUsed -= UseEnergyPotion;
         PlayerMovement.OnCombatEntered -= CombatEntered;
         EnemyCombatState.OnCombatEntered -= SetupCombatScreen;
         EnemyHealthSystem.OnEnemyDeath -= RemoveEnemyFromCombat;

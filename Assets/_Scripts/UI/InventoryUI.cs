@@ -56,6 +56,7 @@ public class InventoryUI : SerializedMonoBehaviour
 
         useButton.onClick.RemoveAllListeners();
         discardButton.onClick.RemoveAllListeners();
+        useButton.interactable = true;
 
         switch (slot)
         {
@@ -68,7 +69,9 @@ public class InventoryUI : SerializedMonoBehaviour
                 useButton.onClick.AddListener(() => EquipItem(itemData));
                 break;
             case EInventorySlot.Potions:
-                useButtonText = "Drink";
+                useButton.interactable = !itemData.Potion.CombatOnly;
+                useButtonText = !itemData.Potion.CombatOnly ? "Drink" : "Combat";
+
                 useButton.onClick.AddListener(() => UsePotion(itemData));
                 break;
             default:

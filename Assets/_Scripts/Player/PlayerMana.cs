@@ -50,7 +50,7 @@ public class PlayerMana : SerializedMonoBehaviour
 
     private void GainManaOnNewTurn()
     {
-        _currentMP = Math.Clamp(_currentMP + manaPerTurn, 0, _maxMP);
+        AddMP(manaPerTurn);
     }
 
     [Button]

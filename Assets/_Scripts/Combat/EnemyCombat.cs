@@ -1,6 +1,7 @@
 using UnityEngine;
 using TMPro;
 using System.Collections.Generic;
+using System;
 
 public class EnemyCombat : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public class EnemyCombat : MonoBehaviour
 
     private EnemyHealthSystem healthSystem;
     private ObjEnemy enemy;
+
+    public static event Action<int> OnPlayerTakeDamage;
 
     private void Start()
     {
@@ -34,7 +37,7 @@ public class EnemyCombat : MonoBehaviour
             switch (intent.Key)
             {
                 case EEffectTypes.DamageSingle:
-                    PlayerHp.OnPlayerTakeDamage(intent.Value);
+                    OnPlayerTakeDamage?.Invoke(intent.Value);
                     break;
                 case EEffectTypes.Heal:
                     healthSystem.Heal(intent.Value);

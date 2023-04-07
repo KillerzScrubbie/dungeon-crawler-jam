@@ -148,6 +148,12 @@ public class CombatSlotData : MonoBehaviour, IPointerEnterHandler, IPointerDownH
     private void HandleCombatStateChanged(CombatState state)
     {
         this.state = state;
+        currentSelected = false;
+
+        if (state == CombatState.PlayerTurn)
+        {
+            actionUsed = false;
+        }
 
         HandleOutlineUpdated();
     }

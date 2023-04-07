@@ -29,14 +29,14 @@ public class ObjEnergy : SerializedScriptableObject
     }
 
     [Button]
-    public void UseEnergy()
+    public void UseEnergy(int energy = 1)
     {
-        UpdateEnergy(1);
+        UpdateEnergy(energy);
     }
 
     [Button]
-    public void GainEnergy()
+    public void GainEnergy(int energy = 1)
     {
-        UpdateEnergy(-1);
+        UpdateEnergy(-energy);
     }
 }

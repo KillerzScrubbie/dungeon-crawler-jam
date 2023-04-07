@@ -9,6 +9,7 @@ public class PotionManager : MonoBehaviour
     public static event Action<int> OnMaxHpPotionUsed;
     public static event Action<int> OnBlockPotionUsed;
     public static event Action<int> OnStrPotionUsed;
+    public static event Action<int> OnEnergyPotionUsed;
 
     public static void UsePotion(ObjPotions potion)
     {
@@ -39,6 +40,9 @@ public class PotionManager : MonoBehaviour
                 break;
             case EEffectTypes.MaxHP:
                 OnMaxHpPotionUsed?.Invoke(power);
+                break;
+            case EEffectTypes.ActionGain:
+                OnEnergyPotionUsed?.Invoke(power);
                 break;
             default:
                 break;

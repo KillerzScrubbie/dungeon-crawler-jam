@@ -46,6 +46,7 @@ public class CombatSlotData : MonoBehaviour, IPointerEnterHandler, IPointerDownH
     private void Start()
     {
         inventory = inventoryUI.Inventory;
+
         inventory.OnEquippedUpdated += HandleEquippedUpdated;
         inventory.OnPotionUpdated += HandlePotionUpdated;
 

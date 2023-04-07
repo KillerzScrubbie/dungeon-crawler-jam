@@ -31,7 +31,7 @@ public class PlayerTeleportEffect : MonoBehaviour
     {
         _chromaVolume.intensity.value = 0;
         _vig.intensity.value = 0.18f;
-        _grain.active = false;
+        _grain.intensity.value = 0.2f;
         _dept.active = false;
     }
 

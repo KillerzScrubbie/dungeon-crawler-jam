@@ -8241,65 +8241,45 @@ PrefabInstance:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 1354768464, guid: 8dacdda2aaba6ac4cb33109becf317b5, type: 3}
+      propertyPath: _bg._text
+      value: 
+      objectReference: {fileID: 457282135}
+    - target: {fileID: 1354768464, guid: 8dacdda2aaba6ac4cb33109becf317b5, type: 3}
+      propertyPath: _fx._text
+      value: 
+      objectReference: {fileID: 2016595195}
+    - target: {fileID: 1354768464, guid: 8dacdda2aaba6ac4cb33109becf317b5, type: 3}
+      propertyPath: _bg._slider
+      value: 
+      objectReference: {fileID: 2048609487}
+    - target: {fileID: 1354768464, guid: 8dacdda2aaba6ac4cb33109becf317b5, type: 3}
+      propertyPath: _fx._slider
+      value: 
+      objectReference: {fileID: 898524208}
+    - target: {fileID: 1354768464, guid: 8dacdda2aaba6ac4cb33109becf317b5, type: 3}
+      propertyPath: _master._text
+      value: 
+      objectReference: {fileID: 969052611}
+    - target: {fileID: 1354768464, guid: 8dacdda2aaba6ac4cb33109becf317b5, type: 3}
+      propertyPath: _master._slider
+      value: 
+      objectReference: {fileID: 1000541713}
+    - target: {fileID: 1552048275668738523, guid: 8dacdda2aaba6ac4cb33109becf317b5,
+        type: 3}
+      propertyPath: serializationData.Prefab
+      value: 
+      objectReference: {fileID: 1552048275668738523, guid: 8dacdda2aaba6ac4cb33109becf317b5,
+        type: 3}
     - target: {fileID: 2354045199951414987, guid: 8dacdda2aaba6ac4cb33109becf317b5,
         type: 3}
       propertyPath: inventoryUI
       value: 
       objectReference: {fileID: 1693356079}
-    - target: {fileID: 2354045199951414987, guid: 8dacdda2aaba6ac4cb33109becf317b5,
-        type: 3}
-      propertyPath: itemsToAdd.Array.size
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2354045199951414987, guid: 8dacdda2aaba6ac4cb33109becf317b5,
-        type: 3}
-      propertyPath: itemsToAdd.Array.data[0]
-      value: 
-      objectReference: {fileID: 11400000, guid: 5ec3a3d39d566c942916e7f7f179d6bc,
-        type: 2}
-    - target: {fileID: 2354045199951414987, guid: 8dacdda2aaba6ac4cb33109becf317b5,
-        type: 3}
-      propertyPath: itemsToAdd.Array.data[1]
-      value: 
-      objectReference: {fileID: 11400000, guid: 4f8355c5899c402448ac199dbaaba4d1,
-        type: 2}
-    - target: {fileID: 2354045199951414987, guid: 8dacdda2aaba6ac4cb33109becf317b5,
-        type: 3}
-      propertyPath: itemsToAdd.Array.data[2]
-      value: 
-      objectReference: {fileID: 11400000, guid: 4f8355c5899c402448ac199dbaaba4d1,
-        type: 2}
-    - target: {fileID: 2354045199951414987, guid: 8dacdda2aaba6ac4cb33109becf317b5,
-        type: 3}
-      propertyPath: itemsToAdd.Array.data[3]
-      value: 
-      objectReference: {fileID: 11400000, guid: 4f8355c5899c402448ac199dbaaba4d1,
-        type: 2}
-    - target: {fileID: 2354045199951414987, guid: 8dacdda2aaba6ac4cb33109becf317b5,
-        type: 3}
-      propertyPath: itemsToAdd.Array.data[4]
-      value: 
-      objectReference: {fileID: 11400000, guid: 4f8355c5899c402448ac199dbaaba4d1,
-        type: 2}
-    - target: {fileID: 5136232233373494598, guid: 8dacdda2aaba6ac4cb33109becf317b5,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 5702796731125375698, guid: 8dacdda2aaba6ac4cb33109becf317b5,
         type: 3}
       propertyPath: m_Name
       value: Player
-      objectReference: {fileID: 0}
-    - target: {fileID: 5702796731125375698, guid: 8dacdda2aaba6ac4cb33109becf317b5,
-        type: 3}
-      propertyPath: m_IsActive
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 5702796731125375700, guid: 8dacdda2aaba6ac4cb33109becf317b5,
-        type: 3}
-      propertyPath: dimensionOffset
-      value: 200
       objectReference: {fileID: 0}
     - target: {fileID: 5702796731125375702, guid: 8dacdda2aaba6ac4cb33109becf317b5,
         type: 3}
@@ -8356,65 +8336,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5702796731125985272, guid: 8dacdda2aaba6ac4cb33109becf317b5,
-        type: 3}
-      propertyPath: m_LocalPosition.z
-      value: -0.4
-      objectReference: {fileID: 0}
-    - target: {fileID: 5702796731125985272, guid: 8dacdda2aaba6ac4cb33109becf317b5,
-        type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 0.9990483
-      objectReference: {fileID: 0}
-    - target: {fileID: 5702796731125985272, guid: 8dacdda2aaba6ac4cb33109becf317b5,
-        type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0.043619405
-      objectReference: {fileID: 0}
-    - target: {fileID: 5702796731125985272, guid: 8dacdda2aaba6ac4cb33109becf317b5,
-        type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 8559525803310351853, guid: 8dacdda2aaba6ac4cb33109becf317b5,
-        type: 3}
-      propertyPath: m_CullingMask.m_Bits
-      value: 4087
-      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 8dacdda2aaba6ac4cb33109becf317b5, type: 3}
---- !u!1 &1354768461 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 4689931221854283693, guid: 8dacdda2aaba6ac4cb33109becf317b5,
-    type: 3}
-  m_PrefabInstance: {fileID: 1285844011}
-  m_PrefabAsset: {fileID: 0}
---- !u!114 &1354768464
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1354768461}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 103d0492155506349a17c76d9946a498, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _mixer: {fileID: 24100000, guid: e4133e5e7f34c4743be3fe0ab8e68812, type: 2}
-  _master:
-    _slider: {fileID: 1000541713}
-    _text: {fileID: 969052611}
-    _mixerGroupName: SoundMaster
-  _fx:
-    _slider: {fileID: 898524208}
-    _text: {fileID: 2016595195}
-    _mixerGroupName: SoundFX
-  _bg:
-    _slider: {fileID: 2048609487}
-    _text: {fileID: 457282135}
-    _mixerGroupName: SoundBG
-  _isLoadFromSave: 1
 --- !u!43 &1361620223
 Mesh:
   m_ObjectHideFlags: 0

@@ -2,6 +2,7 @@ using DG.Tweening;
 using System;
 using System.Collections;
 using System.Collections.Generic;
+using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -27,6 +28,9 @@ public class CombatManager : MonoBehaviour
 
     private EnemyHealthSystem enemyTarget;
     private Action savedAction;
+    private int savedManaCost;
+    private int savedEnergyCost;
+    private int savedSlot;
 
     private int currentEnemiesInCombat = 0;
     public enum CombatState
@@ -73,7 +77,10 @@ public class CombatManager : MonoBehaviour
         if (effectList.ContainsKey(EEffectTypes.DamageSingle))
         {
             targetCheck.ChoosingTarget(true);
-            ChooseTarget(() => effectsProcessor.ProcessEffect(effectList, enemyTarget), manaCost, energyCost, slot);
+            savedAction = () => effectsProcessor.ProcessEffect(effectList, enemyTarget);
+            savedManaCost = manaCost;
+            savedEnergyCost = energyCost;
+            savedSlot = slot;
             return;
         }
 
@@ -88,14 +95,11 @@ public class CombatManager : MonoBehaviour
         }
     }
 
-    private void ChooseTarget(Action action, int manaCost, int energyCost, int slot)
-    {
-        PerformAction(action, manaCost, energyCost, slot);
-    }
-
     private void ChooseTarget(EnemyHealthSystem enemy)
     {
+        enemyTarget = enemy;
 
+        PerformAction(savedAction, savedManaCost, savedEnergyCost, savedSlot);
     }
 
     private void PerformAction(Action action, int manaCost, int energyCost, int slot)
@@ -104,6 +108,16 @@ public class CombatManager : MonoBehaviour
         OnManaUsed?.Invoke(manaCost);
         OnActionUsed?.Invoke(slot);
         action();
+        ClearAction();
+    }
+
+    private void ClearAction()
+    {
+        savedAction = null;
+        savedManaCost = 0;
+        savedEnergyCost = 0;
+        savedSlot = 0;
+        targetCheck.ChoosingTarget(false);
     }
 
     public void EndTurn()

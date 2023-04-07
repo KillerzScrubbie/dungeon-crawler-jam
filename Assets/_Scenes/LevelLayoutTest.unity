@@ -13749,6 +13749,12 @@ PrefabInstance:
       propertyPath: m_Enabled
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5385118624865573250, guid: 6ef45f3714be5984aac84c8bc23f595c,
+        type: 3}
+      propertyPath: enemyGroup
+      value: 
+      objectReference: {fileID: 11400000, guid: 75627b39526f1ed499b395629e7f9593,
+        type: 2}
     - target: {fileID: 5779187083276645490, guid: 6ef45f3714be5984aac84c8bc23f595c,
         type: 3}
       propertyPath: targetPosition

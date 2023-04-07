@@ -1,46 +1,34 @@
 using System.Collections;
 using UnityEngine;
-
-[System.Serializable]
-public class TargetAndPath
-{
-    public Cinemachine.CinemachineSmoothPath path;
-    public Transform targetPrefab;
-}
-
+using Cinemachine;
 
 public class camTrackSwitcher : MonoBehaviour
 {
-    [SerializeField] Cinemachine.CinemachineDollyCart cart;
-    [SerializeField] Cinemachine.CinemachineVirtualCamera virCam;
-    public Cinemachine.CinemachineSmoothPath startPath;
-    public TargetAndPath[] alterPath;
+    [SerializeField] CinemachineDollyCart cart;
+    [SerializeField] CinemachineSmoothPath _startPath;
+    [SerializeField] CinemachineSmoothPath[] _paths;
 
     int _previousNum;
 
     void Start()
     {
-        DoReset();
+        StartRandomTrack();
     }
 
-    void DoReset()
+    void StartRandomTrack()
     {
         StopAllCoroutines();
-        cart.m_Path = startPath;
+        cart.m_Path = _startPath;
         StartCoroutine(ChangeTrack());
     }
 
     IEnumerator ChangeTrack()
     {
         yield return new WaitForSeconds(Random.Range(3, 5));
-        cart.m_Position = Random.Range(0, 2);
-        cart.m_Speed = Random.Range(.2f, .6f);
+        // cart.m_Position = Random.Range(0, 1);
+        // cart.m_Speed = Random.Range(.1f, .3f);
 
-
-        var path = alterPath[getNotOldNum()];
-
-        cart.m_Path = path.path;
-        virCam.LookAt = path.targetPrefab;
+        cart.m_Path = _paths[getNotOldNum()];
         StartCoroutine(ChangeTrack());
 
     }
@@ -48,11 +36,11 @@ public class camTrackSwitcher : MonoBehaviour
     int getNotOldNum()
     {
 
-        int newIndex = Random.Range(0, alterPath.Length);
+        int newIndex = Random.Range(0, _paths.Length);
 
         while (newIndex == _previousNum)
         {
-            newIndex = Random.Range(0, alterPath.Length);
+            newIndex = Random.Range(0, _paths.Length);
         }
 
         _previousNum = newIndex;

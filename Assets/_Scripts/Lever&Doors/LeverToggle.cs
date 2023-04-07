@@ -5,12 +5,13 @@ public class LeverToggle : MonoBehaviour
 {
     [SerializeField] private List<Doors> doors;
     [SerializeField] private LeverAnimation leverAnimation;
-    
+
     private bool isToggled = false;
 
     public void Activate()
     {
         if (isToggled) { return; }
+        AudioManager.instance?.PlayRandomPitch("lever", .7f, 1.5f);
 
         isToggled = true;
         leverAnimation.FlipLever();

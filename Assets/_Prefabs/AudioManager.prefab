@@ -280,6 +280,15 @@ MonoBehaviour:
     blend: 0
     loop: 0
     source: {fileID: 0}
+  - audioName: lever
+    clip: {fileID: 8300000, guid: 8af651dee66d56a43b58289a9434a471, type: 3}
+    mixerGroup: {fileID: 8219120640885313815, guid: e4133e5e7f34c4743be3fe0ab8e68812,
+      type: 2}
+    volume: 1
+    pitch: 1
+    blend: 0
+    loop: 0
+    source: {fileID: 0}
 --- !u!114 &989881808566818251
 MonoBehaviour:
   m_ObjectHideFlags: 0

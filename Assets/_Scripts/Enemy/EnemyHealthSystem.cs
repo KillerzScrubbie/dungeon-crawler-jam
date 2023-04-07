@@ -1,19 +1,13 @@
 using System;
 using UnityEngine;
 
-public class EnemyHealthSystem : IDamageable
+public class EnemyHealthSystem :MonoBehaviour, IDamageable
 {
     public event Action<int, int> OnHealthUpdated;
     public event Action OnDeath;
 
-    private int health;
-    private int maxHealth;
-
-    public EnemyHealthSystem(int health, int maxHealth)
-    {
-        this.health = health;
-        this.maxHealth = maxHealth;
-    }
+    private int health = 0;
+    private int maxHealth = 100;
 
     public void SetupEnemy(int maxHealth)
     {

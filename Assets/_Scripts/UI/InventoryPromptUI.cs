@@ -1,9 +1,12 @@
+using System;
 using UnityEngine;
 using UnityEngine.EventSystems;
 
 public class InventoryPromptUI : MonoBehaviour, IPointerEnterHandler, IPointerExitHandler, IDeselectHandler
 {
     private bool mouseIsOver = false;
+
+    public static event Action OnPromptExit;
 
     private void OnEnable()
     {
@@ -14,6 +17,7 @@ public class InventoryPromptUI : MonoBehaviour, IPointerEnterHandler, IPointerEx
     {
         if (mouseIsOver) return;
 
+        OnPromptExit?.Invoke();
         gameObject.SetActive(false);
     }
 

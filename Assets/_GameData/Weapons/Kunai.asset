@@ -103,7 +103,7 @@ MonoBehaviour:
   itemName: Kunai
   itemIcon: {fileID: 21300000, guid: e717b6e8cb03d84419e5b567619280e2, type: 3}
   actionName1: Swift Stab
-  itemDescription1: Deals 2 danage\n Cost 0 Action
+  itemDescription1: Deals 2 damage
   manaCost1: 1
   actionCost1: 0
   actionName2: Precision Throw

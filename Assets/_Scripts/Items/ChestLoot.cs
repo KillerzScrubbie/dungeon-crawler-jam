@@ -63,7 +63,7 @@ public class ChestLoot : MonoBehaviour
 
         if (_isChestOpen) AudioManager.instance?.Play("chestClose");
         _isChestOpen = false;
-        chestTop.DOLocalRotate(normalChestPos, chestCloseDuration).SetEase(Ease.InCubic);
+        chestTop.DOLocalRotate(normalChestPos, chestCloseDuration).SetEase(Ease.InExpo);
     }
 
     public void RemoveItem(ObjItems item)

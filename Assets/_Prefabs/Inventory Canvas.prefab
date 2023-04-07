@@ -3323,6 +3323,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d012e86c51821ee49a280945d6b0d9a0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  combatHandler: {fileID: 0}
   actionButtons:
   - {fileID: 6341590104520835553}
   - {fileID: 5704516924371895462}

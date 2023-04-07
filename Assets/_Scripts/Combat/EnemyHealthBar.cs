@@ -6,15 +6,14 @@ using UnityEngine.UI;
 
 public class EnemyHealthBar : MonoBehaviour
 {
+    [SerializeField] private EnemyHealthSystem healthSystem;
     [SerializeField] private Image healthBar;
     [SerializeField] private TextMeshProUGUI healthText;
 
-    private EnemyHealthSystem healthSystem;
-
     private void Awake()
     {
-        healthSystem = new EnemyHealthSystem(0, 100);
         healthSystem.OnHealthUpdated += HandleHealthUpdated;
+        healthSystem.OnDeath += HandleDeath;
     }
 
     public void Setup(int maxHealth)
@@ -28,8 +27,14 @@ public class EnemyHealthBar : MonoBehaviour
         healthText.text = $"{currentHealth} / {maxHealth}";
     }
 
+    private void HandleDeath()
+    {
+
+    }
+
     private void OnDestroy()
     {
         healthSystem.OnHealthUpdated -= HandleHealthUpdated;
+        healthSystem.OnDeath -= HandleDeath;
     }
 }

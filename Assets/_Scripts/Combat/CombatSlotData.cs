@@ -5,7 +5,7 @@ using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.UI;
 
-public class CombatSlotData : MonoBehaviour, IPointerEnterHandler, IPointerClickHandler, IPointerExitHandler
+public class CombatSlotData : MonoBehaviour, IPointerEnterHandler, IPointerDownHandler, IPointerExitHandler
 {
     [SerializeField] private ObjItems defaultWeapon;
     [SerializeField] private Image outline;
@@ -29,8 +29,8 @@ public class CombatSlotData : MonoBehaviour, IPointerEnterHandler, IPointerClick
 
     private Inventory inventory;
 
-    private ECombatSlot currentSlot;
-    private int currentSlotId;
+    private bool currentSelected = false;
+    private bool actionUsed = false;
 
     private int currentEnergy;
     private int currentMana;
@@ -50,6 +50,9 @@ public class CombatSlotData : MonoBehaviour, IPointerEnterHandler, IPointerClick
         PlayerMana.OnPlayerUpdateMP += HandleManaUpdated;
 
         OnSlotClicked += HandleSlotClicked;
+        InventoryPromptUI.OnPromptExit += Deselect;
+
+        CombatHandler.OnActionUsed += HandleActionUsed;
 
         HandleEquippedUpdated();
         HandlePotionUpdated();
@@ -121,22 +124,80 @@ public class CombatSlotData : MonoBehaviour, IPointerEnterHandler, IPointerClick
         HandleOutlineUpdated();
     }
 
+    private void HandleActionUsed(int slotId)
+    {
+        combatActionTextUpdater.HideText();
+
+        switch (combatSlot)
+        {
+            case ECombatSlot.Equipped:
+                if (slotId != id) { return; }
+
+                actionUsed = true;
+                HandleOutlineUpdated();
+                return;
+            case ECombatSlot.Potions:
+                return;
+        }
+    }
+
     private void HandleOutlineUpdated()
     {
         switch (combatSlot)
         {
             case ECombatSlot.Equipped:
-                if (currentEnergy < minEnergy || currentMana < minMana) 
+                if (item == null)
                 {
                     outline.color = colorDisable;
-                    break; 
+                    return;
                 }
 
-                outline.color = colorUsable;
+                if (actionUsed)
+                {
+                    outline.color = colorDisable;
+                    return;
+                }
+
+                if (currentEnergy < minEnergy || currentMana < minMana || item == null) 
+                {
+                    outline.color = colorDisable;
+                    return; 
+                }
+
                 break;
-            case ECombatSlot.Potions: 
+            case ECombatSlot.Potions:
+                if (potion == null) 
+                {
+                    outline.color = colorDisable;
+                    return; 
+                }
+
                 break;
         }
+
+        if (!currentSelected)
+        {
+            outline.color = colorUsable;
+            return;
+        }
+
+        outline.color = colorSelected;
+    }
+
+    private void HandleSlotClicked(ECombatSlot slot, int id)
+    {
+        if (combatSlot == slot && this.id == id)
+        {
+            currentSelected = true;
+        }
+
+        HandleOutlineUpdated();
+    }
+
+    public void Deselect()
+    {
+        currentSelected = false;
+        HandleOutlineUpdated();
     }
 
     private void SetPotion(ObjPotions potion)
@@ -155,8 +216,10 @@ public class CombatSlotData : MonoBehaviour, IPointerEnterHandler, IPointerClick
         icon.sprite = potion.Icon;
     }
 
-    public void OnPointerClick(PointerEventData eventData)
+    public void OnPointerDown(PointerEventData eventData)
     {
+        if (actionUsed) { return; }
+
         ProcessClick();
     }
 
@@ -179,7 +242,7 @@ public class CombatSlotData : MonoBehaviour, IPointerEnterHandler, IPointerClick
 
                 OnSlotClicked?.Invoke(combatSlot, id);
                 outline.color = colorSelected;
-                combatActionTextUpdater.UpdateText(item);
+                combatActionTextUpdater.UpdateText(item, id);
                 break;
 
             case ECombatSlot.Potions:
@@ -195,25 +258,12 @@ public class CombatSlotData : MonoBehaviour, IPointerEnterHandler, IPointerClick
         }
     }
 
-    private void HandleSlotClicked(ECombatSlot slot, int id)
-    {
-        if (combatSlot != slot || this.id != id) { return; }
-
-        /*if (item == null && potion == null)
-        {
-            outline.color = colorDisable;
-        }
-        else
-        {
-            outline.color = colorUsable;
-        }*/
-    }
-
     private void UsePotion(ObjPotions potion)
     {
         PotionManager.UsePotion(potion);
 
         inventory.RemovePotion(id);
+        potionPromptPanel.gameObject.SetActive(false);
         outline.color = colorDisable;
     }
 
@@ -248,6 +298,10 @@ public class CombatSlotData : MonoBehaviour, IPointerEnterHandler, IPointerClick
 
         energy.OnEnergyUpdated -= HandleEnergyUpdated;
         PlayerMana.OnPlayerUpdateMP -= HandleManaUpdated;
+
+        InventoryPromptUI.OnPromptExit -= Deselect;
+
+        CombatHandler.OnActionUsed -= HandleActionUsed;
     }
 }
 

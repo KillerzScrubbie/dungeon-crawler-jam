@@ -10,8 +10,20 @@ public class CombatActionTextUpdater : MonoBehaviour
     [SerializeField] private List<TextMeshProUGUI> actionDescription;
     [SerializeField] private List<GameObject> energyCosts;
 
-    public void UpdateText(ObjItems item)
+    private CombatHandler combatHandler;
+
+    private void Start()
     {
+        combatHandler = FindObjectOfType<CombatHandler>();
+    }
+
+    public void UpdateText(ObjItems item, int slotId)
+    {
+        for (int i = 0; i < actionButtons.Count; i++)
+        {
+            actionButtons[i].onClick.RemoveAllListeners();
+        }
+
         for (int i = 0; i < energyCosts.Count; i++)
         {
             energyCosts[i].SetActive(false);
@@ -19,6 +31,7 @@ public class CombatActionTextUpdater : MonoBehaviour
 
         actionTexts[0].text = $"{item.Action1} ({item.ManaCost1} MP)";
         actionDescription[0].text = $"{item.Description1}";
+        actionButtons[0].onClick.AddListener(() => combatHandler.OnActionSelected(item.EffectList1, slotId, item.ManaCost1, item.ActionCost1));
         for (int i = 0; i < item.ActionCost1; i++)
         {
             energyCosts[i].SetActive(true);
@@ -26,11 +39,17 @@ public class CombatActionTextUpdater : MonoBehaviour
 
         actionTexts[1].text = $"{item.Action2} ({item.ManaCost2} MP)";
         actionDescription[1].text = $"{item.Description2}";
+        actionButtons[1].onClick.AddListener(() => combatHandler.OnActionSelected(item.EffectList2, slotId, item.ManaCost2, item.ActionCost2));
         for (int i = 0; i < item.ActionCost2; i++)
         {
             energyCosts[i + 3].SetActive(true);
         }
 
         gameObject.SetActive(true);
+    }
+
+    public void HideText()
+    {
+        gameObject.SetActive(false);
     }
 }

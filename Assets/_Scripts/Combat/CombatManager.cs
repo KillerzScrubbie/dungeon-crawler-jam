@@ -197,8 +197,10 @@ public class CombatManager : MonoBehaviour
         OnStartNewTurn?.Invoke();
     }
 
-    private void RemoveEnemyFromCombat(EnemyCombat enemy)
+    private async void RemoveEnemyFromCombat(EnemyCombat enemy)
     {
+        await Task.Delay(5);
+
         activeEnemies.Remove(enemy);
 
         if (activeEnemies.Count > 0) { return; }

@@ -46,3 +46,5 @@ public class PlayerStateManager : MonoBehaviour
         PlayerMovement.OnCombatEntered -= SwitchToCombatState;
     }
 }
+
+git rm -r --cached EditorUserSettings.asset

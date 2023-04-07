@@ -14,6 +14,7 @@ public class CombatManager : MonoBehaviour
     [SerializeField] private ObjTarget targetCheck;
     [SerializeField] private Button endTurnButton;
     [SerializeField] private TextMeshProUGUI endTurnText;
+    [SerializeField] private VictoryCombatScreen victoryCanvas;
 
     [Space]
     [Header("UI Slots List")]
@@ -45,8 +46,8 @@ public class CombatManager : MonoBehaviour
 
     private void Start()
     {
-        CombatEntered();
-        CombatFinished();
+        Initialize();
+        HideCombatCanvas();
 
         PotionManager.OnEnergyPotionUsed += UseEnergyPotion;
         PlayerMovement.OnCombatEntered += CombatEntered;
@@ -57,21 +58,25 @@ public class CombatManager : MonoBehaviour
         energy.OnEnergyUpdated += HandleEnergyUpdated;
     }
 
+    private void Initialize()
+    {
+        HandleTargettingUpdated(false);
+        combatCanvas.SetActive(true);
+    }
+
     private void CombatEntered()
     {
         energy.RefreshEnergy();
-        HandleTargettingUpdated(false);
-        combatCanvas.SetActive(true);
+        Initialize();
         StartPlayerTurn();
     }
 
     private void CombatFinished()
     {
-        combatCanvas.SetActive(false);
         UpdateGameState(CombatState.Victory);
     }
 
-    private void UpdateGameState(CombatState newState)
+    public void UpdateGameState(CombatState newState)
     {
         state = newState;
 
@@ -85,12 +90,24 @@ public class CombatManager : MonoBehaviour
             case CombatState.Dead:
                 break;
             case CombatState.NotInCombat:
+                HideCombatCanvas();
                 break; ;
             case CombatState.Victory:
+                ShowVictoryScreen();
                 break;
         }
 
         OnCombatStateChanged?.Invoke(state);
+    }
+
+    private void HideCombatCanvas()
+    {
+        combatCanvas.SetActive(false);
+    }
+
+    private void ShowVictoryScreen()
+    {
+        victoryCanvas.StartTransition();
     }
 
     private async void HandleEnemyTurn()

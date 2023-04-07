@@ -6,6 +6,7 @@ public class EffectsProcessor : MonoBehaviour
 {
     // Player's actions
 
+    [SerializeField] private ObjStrength strength;
     [SerializeField] private CombatManager combatManager;
 
     public static event Action<int> OnHealed;
@@ -16,6 +17,7 @@ public class EffectsProcessor : MonoBehaviour
     {
         int hitInstances = effectList.ContainsKey(EEffectTypes.DamageInstances) ? effectList[EEffectTypes.DamageInstances] : 1;
         List<EnemyCombat> activeEnemies = combatManager.ActiveEnemies;
+        int extraDamage = strength.Strength;
 
         foreach (var effect in effectList)
         {
@@ -25,18 +27,18 @@ public class EffectsProcessor : MonoBehaviour
                     break;
 
                 case EEffectTypes.DamageSingle:
-                    HitEnemy(hitInstances, () => target.TakeDamage(effectList[EEffectTypes.DamageSingle]));
+                    HitEnemy(hitInstances, () => target.TakeDamage(effectList[EEffectTypes.DamageSingle] + extraDamage));
                     break;
 
                 case EEffectTypes.DamageAll:
                     foreach (var enemy in activeEnemies)
                     {
-                        enemy.TakeDamage(effectList[EEffectTypes.DamageAll]);
+                        enemy.TakeDamage(effectList[EEffectTypes.DamageAll] + extraDamage);
                     }
                     break;
 
                 case EEffectTypes.DamageRandom:
-                    HitEnemy(hitInstances, () => activeEnemies[UnityEngine.Random.Range(0, activeEnemies.Count)].TakeDamage(effectList[EEffectTypes.DamageRandom]));
+                    HitEnemy(hitInstances, () => activeEnemies[UnityEngine.Random.Range(0, activeEnemies.Count)].TakeDamage(effectList[EEffectTypes.DamageRandom] + extraDamage));
                     break;
 
                 case EEffectTypes.Block:

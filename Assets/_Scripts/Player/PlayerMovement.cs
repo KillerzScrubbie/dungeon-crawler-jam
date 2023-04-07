@@ -1,6 +1,7 @@
 using UnityEngine;
 using DG.Tweening;
 using System.Collections.Generic;
+using System.Collections;
 using System;
 
 [RequireComponent(typeof(PlayerInputController))]
@@ -11,6 +12,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private float moveDuration = 0.15f;
     [SerializeField] private float rotationDuration = 0.15f;
     [SerializeField] private int dimensionOffset = 200;
+    [SerializeField] private float jumpCooldownTime = 2;
 
     [Space]
     [Header("Player Physics")]
@@ -39,6 +41,7 @@ public class PlayerMovement : MonoBehaviour
     private readonly float gridSize = 1f;
 
     private float playerOffset = 0f;
+    private bool canDimentionJump = true;
 
     private void Awake()
     {
@@ -215,6 +218,12 @@ public class PlayerMovement : MonoBehaviour
 
     private void DimensionJump()
     {
+        if (!canDimentionJump)
+        {
+            LockMovement(false);
+            return;
+        }
+
         Vector3 targetGridDimensionPos = isMainDimension ?
             transform.position + Vector3.left * dimensionOffset :
             transform.position + Vector3.right * dimensionOffset;
@@ -232,8 +241,17 @@ public class PlayerMovement : MonoBehaviour
         SetGridPos(targetGridDimensionPos);
 
         transform.DOMove(targetGridPos, 0f).OnComplete(() => TryFalling(duration));
+        StartCoroutine(StartDimentionalJumpCooldown());
 
         AudioManager.instance?.Play("teleportSuccess");
+
+    }
+
+    IEnumerator StartDimentionalJumpCooldown()
+    {
+        canDimentionJump = false;
+        yield return new WaitForSeconds(jumpCooldownTime);
+        canDimentionJump = true;
     }
 
     private void LockMovement(bool state) => isMoving = state;

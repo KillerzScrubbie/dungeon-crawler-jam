@@ -16521,6 +16521,11 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 8114958257320785007, guid: 92f7cab7ea5fe6546ae1e385b3e03564,
+        type: 3}
+      propertyPath: data.dataString
+      value: UEsDBBQAAAgIAAA4IeyOL7zqygIAAPgFAAALACQAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFtVNtu2zAM/ZVAz2tg57Jme9uSXjasbVBv6MPSB8aibSGyZEhyk7TIv4+S3dhJBwSxcHgRzyGpNyZhj2aua+XY18H404CVaHJMKlCPoHIkMBpOCU4LMJA6NLco8sIFfEa4ULbC1GlzYwS/09xHMH9mfeMt7iDXKhGv+O7zJLgrvBMEn0dwQhMe+zCrS3RGpN9ULkMJBNZKZNqUVzzHubbOEpyBtEgmo52PVgS9DdiuDdi331f/HRw8B1REoPOKo4ab97yIhtG09R4Pp8G/VqmEskLu6+7CxpfHKH8MropYtV7RcBQE01IK21bF3L4KrJOqQIOeNhdAJEM5TRVFJ+xJ/EOWWexwA/uFMKRYk5p9142MJdhNU+MLyBoDvdksFNdkvvvgcBlNgj0zujy2lUQhyBUi3TzCPgXrekr34UVHIA5ibUFuYC3xqUB1r28MDRUnozO1D60tjha9VEd+8wLTTefXFHsG1tXH3sZdbw+B/24uRbkOQk0aIJE6yP7Fx6ChHv2ggsOs2DYDob6IPxZ/Q94fqtZwLYx1ZGrdla9urWvjXdk1Hbz2ae3m2igMaFtyhQqk2y8pizvp4kdb79YzyzX47Wnvbm3vS3EWEuDOP4rOTEu97Xpl8WddVkstlEsQTFr08tlCb+/QFg+1k0Jhx8gb7knDuVaqmT/7n7CkNhmkvTCHO1cbXICDsApUEw0J74eSjCFC1VL6eQwsfPK/xML/npsXiO6VAWb3WoUtOvk++znIa8FPx5zF8Tia4eTzZArxLE7hYjzF0WX2GdejCQIfTVlYA6FIc5DLRrS2VTRAquOiaOR9xl/+1UQ+8A8d/UEVVpAb2N6I11L3xkCoTCepQVQPTaYjaTR0GT0Z/IoLopugc0KFEWRvKyZ1ukG+OiZaBYGvds7AqsuyYpV40c4jKzYPz9uKefi4XUuDLwK3/vL3ZAd2+AdQSwMEFAAACAgAADgh7GUVSLpyAAAAfQAAAAkAJABtZXRhLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQGrVipLLSrOzM9TslIw0TPSM7TQUVBKL0osyCgGihiCOKWZKSB2tJKhobGBRaqJmYlpoqGFYXKirrFpqpF5mllqkpFJamKKkalSLFB9SWVBql9ibipET0BiSUZaZl5KZl66nk9iZWqRe1FmijvIfKXYWgBQSwECLQAUAAAICAAAOCHsji+86soCAAD4BQAACwAkAAAAAAAAAAAAAAAAAAAAZ3JhcGgwLmpzb24KACAAAAAAAAEAGAAAgD7V3rGdAQCAPtXesZ0BAIA+1d6xnQFQSwECLQAUAAAICAAAOCHsZRVIunIAAAB9AAAACQAkAAAAAAAAAAAAAAAXAwAAbWV0YS5qc29uCgAgAAAAAAABABgAAIA+1d6xnQEAgD7V3rGdAQCAPtXesZ0BUEsFBgAAAAACAAIAuAAAANQDAAAAAA==
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 92f7cab7ea5fe6546ae1e385b3e03564, type: 3}
 --- !u!1001 &8488941300340048250
@@ -16728,6 +16733,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_Name
       value: Message Canvas
+      objectReference: {fileID: 0}
+    - target: {fileID: 8869936882683195263, guid: eefcabcd12dd53942a746bc72373eb1d,
+        type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: eefcabcd12dd53942a746bc72373eb1d, type: 3}

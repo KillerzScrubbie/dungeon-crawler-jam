@@ -28,7 +28,7 @@ public class EffectsProcessor : MonoBehaviour
                     break;
 
                 case EEffectTypes.DamageSingle:
-                    AudioManager.instance?.PlayRandomPitch("playerAtkOne", .8f, 1.2f);
+                    
                     HitEnemy(hitInstances, () => target.TakeDamage(effectList[EEffectTypes.DamageSingle] + extraDamage));
                     break;
 
@@ -43,7 +43,6 @@ public class EffectsProcessor : MonoBehaviour
 
                 case EEffectTypes.DamageRandom:
 
-                    AudioManager.instance?.PlayRandomPitch("playerAtkOne", .6f, 2.2f);
                     HitEnemy(hitInstances, () => activeEnemies[UnityEngine.Random.Range(0, activeEnemies.Count)].TakeDamage(effectList[EEffectTypes.DamageRandom] + extraDamage));
                     break;
 
@@ -77,6 +76,7 @@ public class EffectsProcessor : MonoBehaviour
         for (int i = 0; i < hitInstances; i++)
         {
             action();
+            AudioManager.instance?.PlayRandomPitch("playerAtkOne", .8f, 1.6f);
             await Task.Delay(150);
         }
     }

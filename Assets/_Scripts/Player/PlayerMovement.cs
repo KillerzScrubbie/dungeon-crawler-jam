@@ -42,7 +42,7 @@ public class PlayerMovement : MonoBehaviour
     private readonly float gridSize = 1f;
 
     private float playerOffset = 0f;
-    private bool canDimentionJump = true;
+    private bool canDimensionJump = true;
 
     private void Awake()
     {
@@ -229,15 +229,15 @@ public class PlayerMovement : MonoBehaviour
 
     private void DimensionJump()
     {
-        if (!canDimentionJump)
+        if (!canDimensionJump)
         {
             LockMovement(false);
             return;
         }
 
         Vector3 targetGridDimensionPos = isMainDimension ?
-            transform.position + Vector3.left * dimensionOffset :
-            transform.position + Vector3.right * dimensionOffset;
+            transform.position + Vector3.down * dimensionOffset :
+            transform.position + Vector3.up * dimensionOffset;
 
         if (CheckForCollisionInDimension(targetGridDimensionPos))
         {
@@ -261,9 +261,9 @@ public class PlayerMovement : MonoBehaviour
 
     IEnumerator StartDimentionalJumpCooldown()
     {
-        canDimentionJump = false;
+        canDimensionJump = false;
         yield return new WaitForSeconds(jumpCooldownTime);
-        canDimentionJump = true;
+        canDimensionJump = true;
     }
 
     private void LockMovement(bool state) => isMoving = state;

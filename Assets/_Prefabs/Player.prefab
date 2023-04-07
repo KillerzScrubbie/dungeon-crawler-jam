@@ -191,7 +191,7 @@ MonoBehaviour:
   smoothTransition: 1
   moveDuration: 0.15
   rotationDuration: 0.15
-  dimensionOffset: 200
+  dimensionOffset: 10
   jumpCooldownTime: 3
   obstacleLayers:
     serializedVersion: 2
@@ -245,6 +245,7 @@ MonoBehaviour:
     PrefabModifications: []
     SerializationNodes: []
   _maxMP: 10
+  manaPerTurn: 3
 --- !u!114 &5375004304718751218
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -295,8 +296,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 7b67aa701f5b4ce4597fa2a00ab5a658, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  itemsToAdd:
-  - {fileID: 11400000, guid: 5ec3a3d39d566c942916e7f7f179d6bc, type: 2}
   inventoryUI: {fileID: 0}
 --- !u!54 &278468642089684577
 Rigidbody:

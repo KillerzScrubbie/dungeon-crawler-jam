@@ -126,6 +126,7 @@ public class InventoryUI : SerializedMonoBehaviour
             case CombatState.EnemyTurn:
             case CombatState.Victory:
             case CombatState.Dead:
+                inventoryPanel.SetActive(false);
                 inventoryButton.SetActive(false);
                 promptPanel.SetActive(false);
                 CloseChest();

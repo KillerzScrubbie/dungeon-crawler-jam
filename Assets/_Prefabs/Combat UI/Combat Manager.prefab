@@ -486,6 +486,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e734044952ba1bf41884b58ec3ed5a7e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  strength: {fileID: 11400000, guid: b894b2fcd5b6a564d978e12bf7cb1315, type: 2}
   combatManager: {fileID: 3756414035694633603}
 --- !u!1 &5150975498292287159
 GameObject:

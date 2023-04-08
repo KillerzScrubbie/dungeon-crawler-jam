@@ -6,5 +6,17 @@ public class ObjEnemyGroup : ScriptableObject
 {
     [SerializeField] private List<ObjEnemy> enemyGroup;
 
-    public List<ObjEnemy> EnemyGroup { get { return enemyGroup; } }
+    private List<ObjEnemy> SetEnemyGroup()
+    {
+        List<ObjEnemy> currentEnemyGroup = new();
+
+        foreach (var enemy in enemyGroup)
+        {
+            currentEnemyGroup.Add(enemy);
+        }
+
+        return currentEnemyGroup;
+    }
+
+    public List<ObjEnemy> EnemyGroup { get { return SetEnemyGroup(); } }
 }

@@ -191,7 +191,7 @@ MonoBehaviour:
   smoothTransition: 1
   moveDuration: 0.15
   rotationDuration: 0.15
-  dimensionOffset: 10
+  dimensionOffset: 20
   jumpCooldownTime: 3
   obstacleLayers:
     serializedVersion: 2
@@ -556,7 +556,7 @@ Light:
   m_Shape: 0
   m_Color: {r: 0.7735849, g: 0.698669, b: 0.5728907, a: 1}
   m_Intensity: 1.5
-  m_Range: 30
+  m_Range: 50
   m_SpotAngle: 30
   m_InnerSpotAngle: 21.80208
   m_CookieSize: 10

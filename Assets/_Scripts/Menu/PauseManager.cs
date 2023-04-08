@@ -33,6 +33,7 @@ public class PauseManager : MonoBehaviour
     private void Pause()
     {
         pauseCanvas.SetActive(true);
+        Time.timeScale = 0f;
         controller.DisableMovement();
 
         isPaused = !isPaused;
@@ -41,6 +42,7 @@ public class PauseManager : MonoBehaviour
     public void Resume()
     {
         pauseCanvas.SetActive(false);
+        Time.timeScale = 1f;
         controller.EnableMovement();
 
         isPaused = !isPaused;

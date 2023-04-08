@@ -83,11 +83,13 @@ public class ChestLoot : MonoBehaviour
 
     private void CheckEmpty()
     {
-        if (itemsInChest.Count + potionsInChest.Count != 0) { return; }
+        if (itemsInChest.Count + potionsInChest.Count > 0) { return; }
 
         HideLoot();
         isEmpty = true;
     }
+
+    public bool IsEmpty() { return isEmpty; }
 
     private void HideLoot()
     {

@@ -37,6 +37,8 @@ public class MouseClickDetector : MonoBehaviour
 
         if (!hit.transform.TryGetComponent(out ChestLoot loot)) { return; }
 
+        if (loot.IsEmpty()) { return; }
+
         loot.OpenChest();
         OnChestClicked?.Invoke(loot, loot.GetItems(), loot.GetPotions());
     }

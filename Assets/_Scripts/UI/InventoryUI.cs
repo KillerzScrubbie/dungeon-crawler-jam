@@ -142,6 +142,7 @@ public class InventoryUI : SerializedMonoBehaviour
         if (sameChest) { return; }
 
         currentChest.CloseChest();
+        currentChest = null;
     }
 
     private void HandleInventoryPopup()

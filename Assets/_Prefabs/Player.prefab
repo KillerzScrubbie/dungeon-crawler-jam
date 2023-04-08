@@ -207,7 +207,10 @@ MonoBehaviour:
     m_Bits: 256
   enemyLayers:
     serializedVersion: 2
-    m_Bits: 1024
+    m_Bits: 17408
+  bossLayers:
+    serializedVersion: 2
+    m_Bits: 16384
   groundCheckCollider: {fileID: 348882745}
 --- !u!114 &7618169540540022691
 MonoBehaviour:
@@ -221,6 +224,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4ec70a20f429c9b4d90214c076b6b55a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  serializationData:
+    SerializedFormat: 2
+    SerializedBytes: 
+    ReferencedUnityObjects: []
+    SerializedBytesString: 
+    Prefab: {fileID: 0}
+    PrefabModificationsReferencedUnityObjects: []
+    PrefabModifications: []
+    SerializationNodes: []
   _maxHP: 30
   _playerBlockScpt: {fileID: 5375004304718751218}
 --- !u!114 &1552048275668738523

@@ -15,6 +15,7 @@ public class CombatManager : MonoBehaviour
     [SerializeField] private Button endTurnButton;
     [SerializeField] private TextMeshProUGUI endTurnText;
     [SerializeField] private VictoryCombatScreen victoryCanvas;
+    [SerializeField] private GameObject gameOverScreen;
 
     [Space]
     [Header("UI Slots List")]
@@ -60,6 +61,14 @@ public class CombatManager : MonoBehaviour
         ObjTarget.OnTargetting += HandleTargettingUpdated;
         TargetButton.OnTargetChosen += ChooseTarget;
         energy.OnEnergyUpdated += HandleEnergyUpdated;
+
+        PlayerHp.OnPlayerDeath += HandleGameOver;
+    }
+
+    private void HandleGameOver()
+    {
+        UpdateGameState(CombatState.Dead);
+        gameOverScreen.SetActive(true);
     }
 
     private void Initialize()
@@ -290,6 +299,8 @@ public class CombatManager : MonoBehaviour
         ObjTarget.OnTargetting -= HandleTargettingUpdated;
         TargetButton.OnTargetChosen -= ChooseTarget;
         energy.OnEnergyUpdated -= HandleEnergyUpdated;
+
+        PlayerHp.OnPlayerDeath -= HandleGameOver;
     }
 }
 

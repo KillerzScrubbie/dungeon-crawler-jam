@@ -1,8 +1,8 @@
 using UnityEngine;
 using System;
-using EasyButtons;
+using Sirenix.OdinInspector;
 
-public class PlayerHp : MonoBehaviour, IDamageable
+public class PlayerHp : SerializedMonoBehaviour, IDamageable
 {
     [SerializeField] private int _maxHP = 100;
     [SerializeField] PlayerBlock _playerBlockScpt;
@@ -11,6 +11,8 @@ public class PlayerHp : MonoBehaviour, IDamageable
     public static Action<int> OnPlayerTakeDamage;
     public static Action<int> OnPlayerHeal;
     public static Action<int, int> OnPlayerUpdateHp;
+
+    public static Action OnPlayerDeath;
 
     private void Start()
     {
@@ -62,7 +64,7 @@ public class PlayerHp : MonoBehaviour, IDamageable
         OnPlayerTakeDamage?.Invoke(damageAfterBlock);
 
         if (!IsPlayerDead()) return;
-        Debug.Log("Dead");  // Game over here
+        OnPlayerDeath?.Invoke();
     }
 
     [Button]

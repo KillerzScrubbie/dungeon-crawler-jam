@@ -16,6 +16,8 @@ public class PlayerInputController : MonoBehaviour
 
     private void Start()
     {
+        CombatManager.OnCombatStateChanged += HandleGameOver;
+
         playerInputMap.Player.MoveForward.performed += _ => Move(EMovementTypes.Forward);
         playerInputMap.Player.MoveBackwards.performed += _ => Move(EMovementTypes.Backward);
         playerInputMap.Player.MoveLeft.performed += _ => Move(EMovementTypes.Left);
@@ -55,5 +57,22 @@ public class PlayerInputController : MonoBehaviour
     private void OpenInventory()
     {
         OnInventoryOpened?.Invoke();
+    }
+
+    private void HandleGameOver(CombatState state)
+    {
+        switch (state)
+        {
+            case CombatState.Dead:
+                playerInputMap.Disable();
+                break;
+            default:
+                break;
+        }
+    }
+
+    private void OnDestroy()
+    {
+        CombatManager.OnCombatStateChanged -= HandleGameOver;
     }
 }

@@ -192,7 +192,7 @@ MonoBehaviour:
   moveDuration: 0.15
   rotationDuration: 0.15
   dimensionOffset: 20
-  jumpCooldownTime: 2
+  jumpCooldownTime: 1
   obstacleLayers:
     serializedVersion: 2
     m_Bits: 64

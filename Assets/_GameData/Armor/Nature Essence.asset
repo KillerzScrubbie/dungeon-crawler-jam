@@ -92,9 +92,9 @@ MonoBehaviour:
   itemIcon: {fileID: 21300000, guid: ce4ddce72f0cd8e4fa53d755b4f3b315, type: 3}
   actionName1: Cultivate
   itemDescription1: Heal 5 HP.
-  manaCost1: 7
+  manaCost1: 6
   actionCost1: 1
   actionName2: Pray
   itemDescription2: Gain 1 MP.
-  manaCost2: 1
-  actionCost2: 0
+  manaCost2: 0
+  actionCost2: 1

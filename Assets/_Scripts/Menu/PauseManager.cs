@@ -18,6 +18,13 @@ public class PauseManager : MonoBehaviour
         PlayerInputController.OnPause += HandlePause;
     }
 
+    private void OnApplicationFocus(bool focus)
+    {
+        if (focus) { return; }
+
+        Pause();
+    }
+
     private void HandlePause()
     {
         if (isPaused)

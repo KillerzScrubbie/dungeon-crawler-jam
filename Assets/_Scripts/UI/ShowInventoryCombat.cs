@@ -5,7 +5,23 @@ public class ShowInventoryCombat : MonoBehaviour
     private void Start()
     {
         PlayerMovement.OnCombatEntered += ShowUI;
+        CombatManager.OnCombatStateChanged += HandleStateChanged;
         HideUI();
+    }
+
+    private void HandleStateChanged(CombatState state)
+    {
+        switch (state)
+        {
+            case CombatState.NotInCombat:
+            case CombatState.Dead:
+                HideUI();
+                break;
+            case CombatState.Victory:
+            case CombatState.PlayerTurn:
+            case CombatState.EnemyTurn:
+                break;
+        }
     }
 
     private void ShowUI()
@@ -21,5 +37,6 @@ public class ShowInventoryCombat : MonoBehaviour
     private void OnDestroy()
     {
         PlayerMovement.OnCombatEntered -= ShowUI;
+        CombatManager.OnCombatStateChanged -= HandleStateChanged;
     }
 }

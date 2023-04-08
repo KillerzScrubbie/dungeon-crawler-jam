@@ -8,6 +8,7 @@ public class EnemyCombatState : EnemyBaseState
     public override void EnterState(EnemyStateManager enemyStateManager)
     {
         OnCombatEntered?.Invoke(enemyStateManager.EnemyData);
+        enemyStateManager.Kill();
     }
 
     public override void UpdateState(EnemyStateManager enemyStateManager)
@@ -17,7 +18,7 @@ public class EnemyCombatState : EnemyBaseState
 
     public override void LeaveState(EnemyStateManager enemyStateManager)
     {
-        enemyStateManager.Kill();
+        
     }
 
     public override void OnFinishedPath(EnemyStateManager enemyStateManager)

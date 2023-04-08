@@ -10,6 +10,8 @@ public class PlayerBlock : MonoBehaviour
 
     void Start()
     {
+        CombatManager.OnCombatStateChanged += HandleNewTurn;
+
         ResetBlockValue();
     }
 
@@ -49,5 +51,21 @@ public class PlayerBlock : MonoBehaviour
         OnPlayerUpdateBlock?.Invoke(_blockValue);
     }
 
+    private void HandleNewTurn(CombatState state)
+    {
+        switch (state)
+        {
+            case CombatState.PlayerTurn:
+                ResetBlockValue();
+                break;
+            default:
+                break;
+        }
+    }
+
+    private void OnDestroy()
+    {
+        CombatManager.OnCombatStateChanged -= HandleNewTurn;
+    }
 }
 

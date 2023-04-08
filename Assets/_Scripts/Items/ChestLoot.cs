@@ -9,6 +9,7 @@ public class ChestLoot : MonoBehaviour
     [SerializeField] private List<ObjItems> itemsInChest;
     [SerializeField] private List<ObjPotions> potionsInChest;
     [SerializeField] private int maxPossibleLoot = 2;
+    [SerializeField] private int maxPossiblePotions = 2;
 
     [SerializeField] private List<ObjItems> items;
     [SerializeField] private List<ObjPotions> potions;
@@ -33,7 +34,7 @@ public class ChestLoot : MonoBehaviour
         if (!isRandomized) return;
 
         int randomLootDrop = Random.Range(1, maxPossibleLoot + 1);
-        int randomPotionDrop = Random.Range(0, maxPossibleLoot);
+        int randomPotionDrop = Random.Range(0, maxPossiblePotions + 1);
 
         for (int i = 0; i < randomLootDrop; i++)
         {

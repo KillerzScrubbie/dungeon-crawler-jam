@@ -9,6 +9,6 @@ public class LeverAnimation : MonoBehaviour
 
     public void FlipLever()
     {
-        transform.DORotate(endLeverPosition, leverFlipTime).SetEase(Ease.OutExpo);
+        transform.DOLocalRotate(endLeverPosition, leverFlipTime).SetEase(Ease.OutExpo);
     }
 }

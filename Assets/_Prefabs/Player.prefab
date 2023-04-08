@@ -208,9 +208,6 @@ MonoBehaviour:
   enemyLayers:
     serializedVersion: 2
     m_Bits: 17408
-  bossLayers:
-    serializedVersion: 2
-    m_Bits: 16384
   groundCheckCollider: {fileID: 348882745}
 --- !u!114 &7618169540540022691
 MonoBehaviour:
@@ -281,7 +278,7 @@ BoxCollider:
   m_IsTrigger: 1
   m_Enabled: 1
   serializedVersion: 2
-  m_Size: {x: 0.8, y: 0.4, z: 0.8}
+  m_Size: {x: 0.6, y: 0.4, z: 0.6}
   m_Center: {x: 0, y: 0, z: 0}
 --- !u!114 &1211158138
 MonoBehaviour:

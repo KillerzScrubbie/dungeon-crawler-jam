@@ -191,7 +191,7 @@ public class PlayerMovement : MonoBehaviour
     {
         bool findGroundInRange;
 
-        if (Physics.BoxCast(targetGridPosition, groundCheckCollider.bounds.extents / 2, Vector3.down, out ground, Quaternion.identity, 0.3f))
+        if (Physics.BoxCast(targetGridPosition, groundCheckCollider.bounds.extents / 2, Vector3.down, out ground, Quaternion.identity, 0.5f, groundLayers))
         {
             findGroundInRange = true;
         }

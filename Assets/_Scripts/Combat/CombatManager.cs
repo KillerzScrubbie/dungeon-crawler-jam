@@ -199,6 +199,8 @@ public class CombatManager : MonoBehaviour
 
     public void StartPlayerTurn()
     {
+        if (endTurnButton == null) { return; } // Error when quitting on enemy turn
+
         endTurnButton.interactable = true;
         endTurnText.color = new Color(0.95f, 0.95f, 0.95f, 95f);
         UpdateGameState(CombatState.PlayerTurn);

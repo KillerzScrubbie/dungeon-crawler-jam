@@ -52,7 +52,7 @@ public class GameSetting : MonoBehaviour
         float saved_Fov;
         bool saved_is_smooth;
 
-        saved_Fov = GetCreateSetting(_fovSlider._valueName, 90);
+        saved_Fov = GetCreateSetting(_fovSlider._valueName, 75);
         _fovSlider.UpdateSliderText(saved_Fov);
 
         saved_is_smooth = GetCreateBoolSetting(TOGGLE_SMOOTH_SETTING_SAVE_NAME);

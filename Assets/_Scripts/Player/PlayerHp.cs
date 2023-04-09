@@ -9,7 +9,7 @@ public class PlayerHp : SerializedMonoBehaviour, IDamageable
     public int _currentHP { get; private set; }
 
     private int _lastTakeDamage;
-    public int LastTakeDamage => _lastTakeDamage;
+    public int GetLastTakeDamage => _lastTakeDamage;
 
     public static Action<int> OnPlayerTakeDamage;
     public static Action<int> OnPlayerHeal;

@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-public class EnemyHealthSystem :MonoBehaviour, IDamageable
+public class EnemyHealthSystem : MonoBehaviour, IDamageable
 {
     public event Action<int, int> OnHealthUpdated;
     public event Action OnDeath;
@@ -9,6 +9,9 @@ public class EnemyHealthSystem :MonoBehaviour, IDamageable
 
     private int health = 0;
     private int maxHealth = 100;
+
+    private int _lastTakeDamage;
+    public int GetLastTakeDamage => _lastTakeDamage;
 
     private EnemyCombat enemyCombat;
 
@@ -29,11 +32,12 @@ public class EnemyHealthSystem :MonoBehaviour, IDamageable
     {
         health = Math.Clamp(health - damage, 0, maxHealth);
         // Play Dmg effect
-
+        _lastTakeDamage = damage;
         OnHealthUpdated?.Invoke(health, maxHealth);
 
         CheckDeath();
     }
+
 
     private void CheckDeath()
     {

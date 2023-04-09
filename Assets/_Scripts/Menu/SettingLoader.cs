@@ -35,7 +35,7 @@ public class SettingLoader : MonoBehaviour
         float saved_Fov;
         bool saved_is_smooth;
 
-        saved_Fov = PlayerPrefs.HasKey(FOV_SETTING_NAME) ? PlayerPrefs.GetFloat(FOV_SETTING_NAME) : 90;
+        saved_Fov = PlayerPrefs.HasKey(FOV_SETTING_NAME) ? PlayerPrefs.GetFloat(FOV_SETTING_NAME) : 75;
         saved_is_smooth = GetCreateBoolSetting(TOGGLE_SMOOTH_SETTING_SAVE_NAME);
 
         SaveSetting(saved_Fov, saved_is_smooth);

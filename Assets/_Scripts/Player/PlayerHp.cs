@@ -8,15 +8,19 @@ public class PlayerHp : SerializedMonoBehaviour, IDamageable
     [SerializeField] PlayerBlock _playerBlockScpt;
     public int _currentHP { get; private set; }
 
+    private int _lastTakeDamage;
+    public int LastTakeDamage => _lastTakeDamage;
+
     public static Action<int> OnPlayerTakeDamage;
     public static Action<int> OnPlayerHeal;
     public static Action<int, int> OnPlayerUpdateHp;
 
     public static Action OnPlayerDeath;
 
+
     private void Start()
     {
-        ResetPlayerHP();  
+        ResetPlayerHP();
     }
 
     void OnEnable()
@@ -61,10 +65,26 @@ public class PlayerHp : SerializedMonoBehaviour, IDamageable
         AudioManager.instance?.PlayOneRandomPitch("playerDmg1", .8f, 1.2f);
         _currentHP = Math.Clamp(_currentHP - damageAfterBlock, 0, _maxHP);
         OnPlayerUpdateHp?.Invoke(_currentHP, _maxHP);
+
         OnPlayerTakeDamage?.Invoke(damageAfterBlock);
+
+        _lastTakeDamage = damageAfterBlock;  // get dmg after block
 
         if (!IsPlayerDead()) return;
         OnPlayerDeath?.Invoke();
+    }
+
+    void GetLastPlayerDamage()
+    {
+        if (_lastTakeDamage > 0)
+        {
+            // damage is not block
+        }
+        else
+        {
+            // damage is block           
+        }
+
     }
 
     [Button]

@@ -44,7 +44,9 @@ public class DamagePopupManager : MonoBehaviour
 
     private void DoPopupPlayerGetMP(int getMpValue)
     {
+
         TMP_Text dmgPopupTrans = Instantiate(_dmgPlayerPrefab, _mainCombatCanvas);
+        dmgPopupTrans.transform.localPosition = new Vector3(-600, 0, 0);
         dmgPopupTrans.GetComponent<DamagePopup>().SetupTextColor(_manaColor);
         dmgPopupTrans.SetText(getMpValue.ToString());
     }
@@ -65,6 +67,7 @@ public class DamagePopupManager : MonoBehaviour
 
     private void DoPlayerDamagePopup(int damage)
     {
+        if (damage <= 0) return;
         TMP_Text dmgPopupTrans = Instantiate(_dmgPlayerPrefab, _mainCombatCanvas);
         dmgPopupTrans.SetText(damage.ToString());
     }

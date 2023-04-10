@@ -448,6 +448,10 @@ MonoBehaviour:
   _dmgPlayerPrefab: {fileID: 3646399858009977500, guid: b1a104241cbb273469948cc0686c8662,
     type: 3}
   _mainCombatCanvas: {fileID: 7153919573095231035}
+  _healPlayerColor: {r: 0.18039216, g: 0.8, b: 0.44313726, a: 1}
+  _blockColor: {r: 0.8584906, g: 0.8584906, b: 0.8584906, a: 1}
+  _manaColor: {r: 0.20392157, g: 0.59607846, b: 0.85882354, a: 1}
+  _healEnemyColor: {r: 0.15294118, g: 0.68235296, b: 0.3764706, a: 1}
 --- !u!1 &3159818105292354025
 GameObject:
   m_ObjectHideFlags: 0

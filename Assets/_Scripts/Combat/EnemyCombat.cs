@@ -13,6 +13,7 @@ public class EnemyCombat : MonoBehaviour
     public static event Action<int> OnPlayerTakeDamage;
 
     public static event Action<int, Transform> OnEnemyTakeDamage;
+    public static event Action<int, Transform> OnEnemyHeal;
 
     private void Start()
     {
@@ -46,6 +47,8 @@ public class EnemyCombat : MonoBehaviour
                 case EEffectTypes.Heal:
                     AudioManager.instance?.PlayRandomPitch("enemyHeal", .8f, 1.2f);
                     healthSystem.Heal(intent.Value);
+
+                    OnEnemyHeal?.Invoke(intent.Value, transform);
                     break;
                 default:
                     break;

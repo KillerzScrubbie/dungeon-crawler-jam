@@ -7,6 +7,7 @@ public class PlayerBlock : MonoBehaviour
     public int BlockValue => _blockValue;
 
     public static Action<int> OnPlayerUpdateBlock;
+    public static Action<int> OnUseBlockValue;
 
     void Start()
     {
@@ -37,6 +38,8 @@ public class PlayerBlock : MonoBehaviour
     public int GetDamageExceedBlock(int takeDmg)
     {
         int damageExceedBlock = takeDmg - _blockValue;
+
+        OnUseBlockValue?.Invoke(Math.Clamp(takeDmg, 0, _blockValue));
 
         _blockValue = Math.Clamp(_blockValue - takeDmg, 0, 99);
 

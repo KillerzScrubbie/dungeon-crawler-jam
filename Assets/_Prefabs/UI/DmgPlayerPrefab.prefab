@@ -150,11 +150,10 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _maxLifeDuration: 1
-  _disappearSpeed: 2
   _txtScpt: {fileID: 3646399858009977500}
   _txtCol: {r: 0.8980393, g: 0.21568629, b: 0.21568629, a: 1}
   _popupScale: 1.4
   _popupScaleAfter: 0.7
-  _yBefore: 200
-  _yAfter: -100
+  _yBefore: 800
+  _yAfter: -700
   _easeType: 9

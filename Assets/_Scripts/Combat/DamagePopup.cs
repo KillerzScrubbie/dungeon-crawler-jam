@@ -5,9 +5,7 @@ using DG.Tweening;
 public class DamagePopup : MonoBehaviour
 {
     [SerializeField] float _maxLifeDuration = 1;
-
     [SerializeField] TMP_Text _txtScpt;
-    [SerializeField] Color _txtCol;
 
     [SerializeField] float _popupScale = 1.1f;
     [SerializeField] float _popupScaleAfter = 0.95f;
@@ -17,11 +15,15 @@ public class DamagePopup : MonoBehaviour
 
     [SerializeField] Ease _easeType;
 
+    public void SetupTextColor(Color newCol)
+    {
+        _txtScpt.color = newCol;
+    }
+
     void Start()
     {
-
         var sequence = DOTween.Sequence();
-        transform.DOShakePosition(_maxLifeDuration * .4f, 20);
+        transform.DOShakePosition(_maxLifeDuration * .4f, 10);
         transform.DOScale(_popupScale, _maxLifeDuration * .2f);
         sequence.Append(transform.DOLocalMoveY(_yBefore, _maxLifeDuration * .3f)).SetEase(_easeType);
         sequence.Append(transform.DOLocalMoveY(_yAfter, _maxLifeDuration * .3f)).SetEase(_easeType);

@@ -76,8 +76,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294045932
-  m_fontColor: {r: 0.9254902, g: 0.9411765, b: 0.94509804, a: 1}
+    rgba: 4291281853
+  m_fontColor: {r: 0.7411765, g: 0.7647059, b: 0.78039217, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -149,7 +149,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _moveUpSpeed: {x: 0, y: 20, z: 0}
-  _lifeDuration: 1
+  _maxLifeDuration: 0.6
   _disappearSpeed: 2
   _txtScpt: {fileID: 3646399858009977500}
-  _txtCol: {r: 1, g: 1, b: 1, a: 1}
+  _txtCol: {r: 0.7411765, g: 0.7647059, b: 0.78039217, a: 1}
+  _increaseScaleAmount: 1
+  _decreaseScaleAmount: 1

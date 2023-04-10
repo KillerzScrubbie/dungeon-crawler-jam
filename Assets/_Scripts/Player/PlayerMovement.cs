@@ -14,6 +14,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private int dimensionOffset = 200;
     [SerializeField] private float jumpCooldownTime = 2;
 
+
     [Space]
     [Header("Player Physics")]
     [SerializeField] private LayerMask obstacleLayers;
@@ -45,6 +46,9 @@ public class PlayerMovement : MonoBehaviour
     private float playerOffset = 0f;
     private bool canDimensionJump = true;
 
+    private float moveCooldown;
+
+
     private void Awake()
     {
         controller = GetComponent<PlayerInputController>();
@@ -58,6 +62,7 @@ public class PlayerMovement : MonoBehaviour
 
         playerOffset = transform.position.y;
         SetGridPos(transform.position);
+        moveCooldown = moveDuration;
     }
 
     private void DisableMovement()
@@ -157,22 +162,10 @@ public class PlayerMovement : MonoBehaviour
         {
             TryFalling(duration);
             AudioManager.instance?.PlayOneRandomPitch("walk", 0.85f, 1.2f);
-            if (!smoothTransition)  // not smooth prevent hold move super fast
-            {
-                StartCoroutine(CooldownMove());
-            }
-            else
-            {
-                OnFinishMove?.Invoke();
-            }
+
+            if (smoothTransition) OnFinishMove?.Invoke();
         }
         );
-    }
-
-    IEnumerator CooldownMove()
-    {
-        yield return new WaitForSeconds(0.2f);
-        OnFinishMove?.Invoke();
     }
 
     private void TryFalling(float duration)
@@ -246,15 +239,21 @@ public class PlayerMovement : MonoBehaviour
         transform.DORotate(new Vector3(currentRotation.x, yRotation, currentRotation.z), duration).OnComplete(() =>
         {
             LockMovement(false);
-            if (!smoothTransition)  // not smooth prevent hold move super fast
-            {
-                StartCoroutine(CooldownMove());
-            }
-            else
-            {
-                OnFinishMove?.Invoke();
-            }
+            if (smoothTransition) OnFinishMove?.Invoke();
         });
+    }
+
+    void LateUpdate()
+    {
+        if (smoothTransition) return;
+
+        moveCooldown -= Time.deltaTime;
+
+        if (moveCooldown < 0)
+        {
+            OnFinishMove?.Invoke();
+            moveCooldown = moveDuration;
+        }
     }
 
     private void DimensionJump()

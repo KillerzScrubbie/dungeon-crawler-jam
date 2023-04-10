@@ -48,7 +48,7 @@ public class DamagePopupManager : MonoBehaviour
         TMP_Text dmgPopupTrans = Instantiate(_dmgPlayerPrefab, _mainCombatCanvas);
         dmgPopupTrans.transform.localPosition = new Vector3(-600, 0, 0);
         dmgPopupTrans.GetComponent<DamagePopup>().SetupTextColor(_manaColor);
-        dmgPopupTrans.SetText(getMpValue.ToString());
+        dmgPopupTrans.SetText($"+{getMpValue.ToString()}");
     }
 
     private void DoEnemyHealPopup(int heal, Transform trans)

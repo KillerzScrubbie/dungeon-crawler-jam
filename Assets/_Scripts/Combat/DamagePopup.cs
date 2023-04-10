@@ -1,40 +1,37 @@
 using UnityEngine;
 using TMPro;
+using DG.Tweening;
 
 public class DamagePopup : MonoBehaviour
 {
-    [SerializeField] Vector3 _moveUpSpeed = new Vector3(0, 20f, 0);
     [SerializeField] float _maxLifeDuration = 1;
-    float _lifeDuration;
-    [SerializeField] float _disappearSpeed = .5f;
+
     [SerializeField] TMP_Text _txtScpt;
     [SerializeField] Color _txtCol;
-    [SerializeField] float _increaseScaleAmount = 1.12f;
-    [SerializeField] float _decreaseScaleAmount = .92f;
+
+    [SerializeField] float _popupScale = 1.1f;
+    [SerializeField] float _popupScaleAfter = 0.95f;
+
+    [SerializeField] float _yBefore = 1.1f;
+    [SerializeField] float _yAfter = -1.1f;
+
+    [SerializeField] Ease _easeType;
 
     void Start()
     {
-        _lifeDuration = _maxLifeDuration;
-    }
 
-    void Update()
-    {
-        transform.position += _moveUpSpeed * Time.deltaTime;
-        _lifeDuration -= Time.deltaTime;
+        var sequence = DOTween.Sequence();
+        transform.DOShakePosition(_maxLifeDuration * .4f, 20);
+        transform.DOScale(_popupScale, _maxLifeDuration * .2f);
+        sequence.Append(transform.DOLocalMoveY(_yBefore, _maxLifeDuration * .3f)).SetEase(_easeType);
+        sequence.Append(transform.DOLocalMoveY(_yAfter, _maxLifeDuration * .3f)).SetEase(_easeType);
+        sequence.Append(transform.DOScale(_popupScaleAfter, _maxLifeDuration * .2f)).SetEase(_easeType);
 
-        if (_lifeDuration > _maxLifeDuration * .5f) transform.localScale += Vector3.one * _increaseScaleAmount * Time.deltaTime;
-        else transform.localScale -= Vector3.one * _decreaseScaleAmount * Time.deltaTime;
-
-
-        if (_lifeDuration <= 0)
+        sequence.OnComplete(() =>
         {
-            _txtCol.a -= _disappearSpeed * Time.deltaTime;
-            _txtScpt.color = _txtCol;
-            if (_txtCol.a < 0)
-            {
-                Destroy(gameObject);
-            }
-        }
+            Destroy(gameObject);
+        });
     }
+
 
 }

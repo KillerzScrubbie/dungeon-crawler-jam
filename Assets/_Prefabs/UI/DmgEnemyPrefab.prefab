@@ -148,10 +148,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d8a64675970c56049b1cce7fe9cbe1c3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _moveUpSpeed: {x: 0, y: 0.05, z: 0}
-  _maxLifeDuration: 0.6
+  _maxLifeDuration: 1
   _disappearSpeed: 2
   _txtScpt: {fileID: 3646399858009977500}
   _txtCol: {r: 0.7411765, g: 0.7647059, b: 0.78039217, a: 1}
-  _increaseScaleAmount: 1
-  _decreaseScaleAmount: 1
+  _popupScale: 1.4
+  _popupScaleAfter: 0.7
+  _yBefore: 200
+  _yAfter: -100
+  _easeType: 9

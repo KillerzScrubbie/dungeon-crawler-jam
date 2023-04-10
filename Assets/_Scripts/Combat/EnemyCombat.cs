@@ -12,6 +12,8 @@ public class EnemyCombat : MonoBehaviour
 
     public static event Action<int> OnPlayerTakeDamage;
 
+    public static event Action<int, Transform> OnEnemyTakeDamage;
+
     private void Start()
     {
         healthSystem = GetComponent<EnemyHealthSystem>();
@@ -26,6 +28,7 @@ public class EnemyCombat : MonoBehaviour
     public void TakeDamage(int damage)
     {
         healthSystem.TakeDamage(damage);
+        OnEnemyTakeDamage?.Invoke(damage, transform);
     }
 
     public void PerformAction()

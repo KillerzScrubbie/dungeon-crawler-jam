@@ -399,6 +399,56 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!1 &1923914567082785493
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 7097504299056783145}
+  - component: {fileID: 5429049630653332978}
+  m_Layer: 0
+  m_Name: DamagePopupManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &7097504299056783145
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1923914567082785493}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 1
+  m_Children: []
+  m_Father: {fileID: 8975119414569459193}
+  m_RootOrder: 2
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &5429049630653332978
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1923914567082785493}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 76fe64edd1d8f644490a5c7578f73d40, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _dmgEnemyPrefab: {fileID: 3646399858009977500, guid: 7178ebd53cadb1e438b8e34cce6a43d7,
+    type: 3}
+  _dmgPlayerPrefab: {fileID: 3646399858009977500, guid: b1a104241cbb273469948cc0686c8662,
+    type: 3}
+  _offSet: {x: 0, y: 0, z: 10}
+  _mainCombatCanvas: {fileID: 7153919573095231035}
 --- !u!1 &3159818105292354025
 GameObject:
   m_ObjectHideFlags: 0
@@ -431,6 +481,7 @@ Transform:
   m_Children:
   - {fileID: 7153919573095231035}
   - {fileID: 2467435164579028707}
+  - {fileID: 7097504299056783145}
   m_Father: {fileID: 0}
   m_RootOrder: 0
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -453,6 +504,7 @@ MonoBehaviour:
   endTurnButton: {fileID: 7233183984595069573}
   endTurnText: {fileID: 1883897729215983564}
   victoryCanvas: {fileID: 1601598135021713640}
+  gameOverScreen: {fileID: 0}
   enemySlot:
   - {fileID: 7153919572679113905}
   - {fileID: 1326264225852415825}

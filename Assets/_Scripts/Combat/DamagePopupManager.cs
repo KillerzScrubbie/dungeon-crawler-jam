@@ -21,12 +21,14 @@ public class DamagePopupManager : MonoBehaviour
     private void DoPlayerDamagePopup(int damage)
     {
         TMP_Text dmgPopupTrans = Instantiate(_dmgPlayerPrefab, _mainCombatCanvas);
+        // dmgPopupTrans.transform.localPosition = Vector3.zero;
         dmgPopupTrans.SetText(damage.ToString());
     }
 
     public void DoEnemyDamagePopup(int damage, Transform trans)
     {
         TMP_Text dmgPopupTrans = Instantiate(_dmgEnemyPrefab, trans);
+        // dmgPopupTrans.transform.localPosition = Vector3.zero;
         dmgPopupTrans.SetText(damage.ToString());
     }
 

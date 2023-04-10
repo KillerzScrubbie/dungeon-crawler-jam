@@ -62,7 +62,7 @@ public class PlayerMovement : MonoBehaviour
 
         playerOffset = transform.position.y;
         SetGridPos(transform.position);
-        moveCooldown = moveDuration;
+        ResetMovementCooldown();
     }
 
     private void DisableMovement()
@@ -163,9 +163,15 @@ public class PlayerMovement : MonoBehaviour
             TryFalling(duration);
             AudioManager.instance?.PlayOneRandomPitch("walk", 0.85f, 1.2f);
 
+            ResetMovementCooldown();
             if (smoothTransition) OnFinishMove?.Invoke();
         }
         );
+    }
+
+    void ResetMovementCooldown()
+    {
+        moveCooldown = moveDuration;
     }
 
     private void TryFalling(float duration)
@@ -238,6 +244,7 @@ public class PlayerMovement : MonoBehaviour
         OnTurned?.Invoke(-yRotation);
         transform.DORotate(new Vector3(currentRotation.x, yRotation, currentRotation.z), duration).OnComplete(() =>
         {
+            ResetMovementCooldown();
             LockMovement(false);
             if (smoothTransition) OnFinishMove?.Invoke();
         });
@@ -252,7 +259,7 @@ public class PlayerMovement : MonoBehaviour
         if (moveCooldown < 0)
         {
             OnFinishMove?.Invoke();
-            moveCooldown = moveDuration;
+            ResetMovementCooldown();
         }
     }
 

@@ -447,7 +447,6 @@ MonoBehaviour:
     type: 3}
   _dmgPlayerPrefab: {fileID: 3646399858009977500, guid: b1a104241cbb273469948cc0686c8662,
     type: 3}
-  _offSet: {x: 0, y: 0, z: 10}
   _mainCombatCanvas: {fileID: 7153919573095231035}
 --- !u!1 &3159818105292354025
 GameObject:
@@ -1057,7 +1056,7 @@ Canvas:
   m_GameObject: {fileID: 7153919573095231015}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
+  m_RenderMode: 1
   m_Camera: {fileID: 0}
   m_PlaneDistance: 100
   m_PixelPerfect: 0

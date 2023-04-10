@@ -7,7 +7,7 @@ public class PlayerTakeDamageEffect : MonoBehaviour
 {
     [SerializeField] VolumeProfile _volumeProfile;
     [SerializeField] float _duration = .15f;
-    [SerializeField] float _damageDurationFactor = .1f;
+    [SerializeField] float _damageDurationFactor = 2f;
 
     ChromaticAberration _chromaVolume;
     ChannelMixer _colorMixerVolume;

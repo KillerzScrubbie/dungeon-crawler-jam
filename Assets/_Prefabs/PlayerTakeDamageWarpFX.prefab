@@ -48,7 +48,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _volumeProfile: {fileID: 11400000, guid: a6560a915ef98420e9faacc1c7438823, type: 2}
   _duration: 0.25
-  _damageDurationFactor: 0.1
+  _damageDurationFactor: 2
 --- !u!114 &2360401223449870196
 MonoBehaviour:
   m_ObjectHideFlags: 0

@@ -118,7 +118,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _camera: {fileID: 5702796731125985272}
-  _intensity: 0.5
+  _intensity: 2
   _duration: 0.15
 --- !u!1 &5702796731125375698
 GameObject:
@@ -729,6 +729,11 @@ PrefabInstance:
         type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2942346241793083180, guid: 2e4a48b298022884d8c2d9f0f9d4cf7a,
+        type: 3}
+      propertyPath: _damageDurationFactor
+      value: 2
       objectReference: {fileID: 0}
     - target: {fileID: 2942346241793083181, guid: 2e4a48b298022884d8c2d9f0f9d4cf7a,
         type: 3}

@@ -8,7 +8,6 @@ public class PlayerInputController : MonoBehaviour
     public static event Action OnInventoryOpened;
 
     private PlayerInput playerInputMap;
-    [SerializeField] float holdForwardInteval = 0.1f;
 
     void OnEnable()
     {

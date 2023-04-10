@@ -157,10 +157,22 @@ public class PlayerMovement : MonoBehaviour
         {
             TryFalling(duration);
             AudioManager.instance?.PlayOneRandomPitch("walk", 0.85f, 1.2f);
-            OnFinishMove?.Invoke();
+            if (!smoothTransition)  // not smooth prevent hold move super fast
+            {
+                StartCoroutine(CooldownMove());
+            }
+            else
+            {
+                OnFinishMove?.Invoke();
+            }
         }
-            );
+        );
+    }
 
+    IEnumerator CooldownMove()
+    {
+        yield return new WaitForSeconds(0.2f);
+        OnFinishMove?.Invoke();
     }
 
     private void TryFalling(float duration)
@@ -231,7 +243,18 @@ public class PlayerMovement : MonoBehaviour
         float yRotation = currentRotation.y + turnValue;
 
         OnTurned?.Invoke(-yRotation);
-        transform.DORotate(new Vector3(currentRotation.x, yRotation, currentRotation.z), duration).OnComplete(() => LockMovement(false));
+        transform.DORotate(new Vector3(currentRotation.x, yRotation, currentRotation.z), duration).OnComplete(() =>
+        {
+            LockMovement(false);
+            if (!smoothTransition)  // not smooth prevent hold move super fast
+            {
+                StartCoroutine(CooldownMove());
+            }
+            else
+            {
+                OnFinishMove?.Invoke();
+            }
+        });
     }
 
     private void DimensionJump()

@@ -22,7 +22,6 @@ public class PlayerInputController : MonoBehaviour
 
     private void CheckIfHoldForward()
     {
-        Debug.Log($"meangpuLog");
         if (playerInputMap.Player.MoveForward.IsPressed()) Move(EMovementTypes.Forward);
         if (playerInputMap.Player.MoveBackwards.IsPressed()) Move(EMovementTypes.Backward);
         if (playerInputMap.Player.MoveLeft.IsPressed()) Move(EMovementTypes.Left);

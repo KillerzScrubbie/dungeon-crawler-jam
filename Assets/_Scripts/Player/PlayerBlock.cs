@@ -59,6 +59,7 @@ public class PlayerBlock : MonoBehaviour
         switch (state)
         {
             case CombatState.PlayerTurn:
+            case CombatState.Victory:
                 ResetBlockValue();
                 break;
             default:

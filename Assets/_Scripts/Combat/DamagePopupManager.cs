@@ -4,6 +4,10 @@ using System;
 
 public class DamagePopupManager : MonoBehaviour
 {
+    [Header("Popup Positions")]
+    [SerializeField] private RectTransform healPopupPosition;
+
+    [Space]
     [SerializeField] TMP_Text _dmgEnemyPrefab;
     [SerializeField] TMP_Text _dmgPlayerPrefab;
     [SerializeField] Transform _mainCombatCanvas;
@@ -39,16 +43,16 @@ public class DamagePopupManager : MonoBehaviour
         TMP_Text dmgPopupTrans = Instantiate(_dmgPlayerPrefab, _mainCombatCanvas);
         dmgPopupTrans.GetComponent<DamagePopup>().SetupTextColor(_blockColor);
         dmgPopupTrans.transform.localPosition = new Vector3(-200, 0, 0);
-        dmgPopupTrans.SetText($"({blockUsed.ToString()})");
+        dmgPopupTrans.SetText($"({blockUsed})");
     }
 
     private void DoPopupPlayerGetMP(int getMpValue)
     {
 
         TMP_Text dmgPopupTrans = Instantiate(_dmgPlayerPrefab, _mainCombatCanvas);
-        dmgPopupTrans.transform.localPosition = new Vector3(-600, 0, 0);
+        dmgPopupTrans.transform.localPosition = healPopupPosition.anchoredPosition;
         dmgPopupTrans.GetComponent<DamagePopup>().SetupTextColor(_manaColor);
-        dmgPopupTrans.SetText($"+{getMpValue.ToString()}");
+        dmgPopupTrans.SetText($"+{getMpValue}");
     }
 
     private void DoEnemyHealPopup(int heal, Transform trans)
@@ -61,6 +65,7 @@ public class DamagePopupManager : MonoBehaviour
     private void DoPopupPlayerHeal(int healVal)
     {
         TMP_Text dmgPopupTrans = Instantiate(_dmgPlayerPrefab, _mainCombatCanvas);
+        dmgPopupTrans.transform.position = healPopupPosition.anchoredPosition;
         dmgPopupTrans.GetComponent<DamagePopup>().SetupTextColor(_healPlayerColor);
         dmgPopupTrans.SetText(healVal.ToString());
     }
@@ -78,6 +83,4 @@ public class DamagePopupManager : MonoBehaviour
         TMP_Text dmgPopupTrans = Instantiate(_dmgEnemyPrefab, trans);
         dmgPopupTrans.SetText(damage.ToString());
     }
-
-
 }

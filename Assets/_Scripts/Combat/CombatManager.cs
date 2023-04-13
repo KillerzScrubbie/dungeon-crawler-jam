@@ -130,10 +130,10 @@ public class CombatManager : MonoBehaviour
         foreach (var enemy in activeEnemies)
         {
             enemy.PerformAction();
-            await Task.Delay(1500);
+            await Task.Delay(750);
         }
 
-        await Task.Delay(500);
+        await Task.Delay(250);
         StartPlayerTurn();
     }
 

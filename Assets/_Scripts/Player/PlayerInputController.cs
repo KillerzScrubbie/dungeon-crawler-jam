@@ -9,9 +9,12 @@ public class PlayerInputController : MonoBehaviour
 
     private PlayerInput playerInputMap;
 
-    private bool holdingForward = false;
-    private float holdTimer = 0;
-    private float holdTimeInterval = 0.2f;
+    private float holdForwardTimer = -1;
+    private float holdBackwardTimer = -1;
+    private float holdLeftTimer = -1;
+    private float holdRightTimer = -1;
+
+    private float holdTimeInterval = 0.25f;
 
     void OnEnable()
     {
@@ -39,8 +42,17 @@ public class PlayerInputController : MonoBehaviour
         playerInputMap.Player.LookRight.performed += _ => Move(EMovementTypes.TurnRight);
         playerInputMap.Player.DimensionJump.performed += _ => Move(EMovementTypes.DimensionJump);
 
-        playerInputMap.Player.HoldForward.performed += _ => holdingForward = true;
-        playerInputMap.Player.HoldForward.canceled += _ => holdingForward = false;
+        playerInputMap.Player.HoldForward.performed += _ => holdForwardTimer = 0;
+        playerInputMap.Player.HoldForward.canceled += _ => holdForwardTimer = -1;
+
+        playerInputMap.Player.HoldBackward.performed += _ => holdBackwardTimer = 0;
+        playerInputMap.Player.HoldBackward.canceled += _ => holdBackwardTimer = -1;
+
+        playerInputMap.Player.HoldLeft.performed += _ => holdLeftTimer = 0;
+        playerInputMap.Player.HoldLeft.canceled += _ => holdLeftTimer = -1;
+
+        playerInputMap.Player.HoldRight.performed += _ => holdRightTimer = 0;
+        playerInputMap.Player.HoldRight.canceled += _ => holdRightTimer = -1;
 
         playerInputMap.Player.Inventory.performed += _ => OpenInventory();
 
@@ -49,14 +61,60 @@ public class PlayerInputController : MonoBehaviour
 
     private void Update()
     {
-        if (!holdingForward) { return; }
+        float deltaTime = Time.deltaTime;
 
-        holdTimer -= Time.deltaTime;
+        CheckHoldForward(deltaTime);
+        CheckHoldBackward(deltaTime);
+        CheckHoldLeft(deltaTime);
+        CheckHoldRight(deltaTime);
+    }
 
-        if (holdTimer > 0) { return; }
+    private void CheckHoldForward(float timeElapsed)
+    {
+        if (holdForwardTimer < 0) { return; }
 
-        holdTimer = holdTimeInterval;
+        holdForwardTimer += timeElapsed;
+
+        if (holdForwardTimer < holdTimeInterval) { return; }
+
+        holdForwardTimer = 0f;
         Move(EMovementTypes.Forward);
+    }
+
+    private void CheckHoldBackward(float timeElapsed)
+    {
+        if (holdBackwardTimer < 0) { return; }
+
+        holdBackwardTimer += timeElapsed;
+
+        if (holdBackwardTimer < holdTimeInterval) { return; }
+
+        holdBackwardTimer = 0f;
+        Move(EMovementTypes.Backward);
+    }
+
+    private void CheckHoldLeft(float timeElapsed)
+    {
+        if (holdLeftTimer < 0) { return; }
+
+        holdLeftTimer += timeElapsed;
+
+        if (holdLeftTimer < holdTimeInterval) { return; }
+
+        holdLeftTimer = 0f;
+        Move(EMovementTypes.Left);
+    }
+
+    private void CheckHoldRight(float timeElapsed)
+    {
+        if (holdRightTimer < 0) { return; }
+
+        holdRightTimer += timeElapsed;
+
+        if (holdRightTimer < holdTimeInterval) { return; }
+
+        holdRightTimer = 0f;
+        Move(EMovementTypes.Right);
     }
 
     public void DisableMovement()

@@ -85,6 +85,33 @@
                     "processors": "",
                     "interactions": "Hold",
                     "initialStateCheck": false
+                },
+                {
+                    "name": "HoldBackward",
+                    "type": "Button",
+                    "id": "72793225-4d10-4246-81ce-6dce8cd1c4d9",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Hold",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "HoldLeft",
+                    "type": "Button",
+                    "id": "33aef914-2e87-472c-a3aa-3a65aa935b14",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Hold",
+                    "initialStateCheck": false
+                },
+                {
+                    "name": "HoldRight",
+                    "type": "Button",
+                    "id": "89a8ebd5-b0ba-4756-aa65-eb00e746906f",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": "Hold",
+                    "initialStateCheck": false
                 }
             ],
             "bindings": [
@@ -255,6 +282,17 @@
                 },
                 {
                     "name": "",
+                    "id": "9ea348da-bdf1-4a15-9cd0-a7aa3a24022c",
+                    "path": "<Keyboard>/numpadPlus",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Inventory",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "c1d04b0a-b384-4e6d-82c4-01e33005b662",
                     "path": "<Keyboard>/w",
                     "interactions": "",
@@ -272,6 +310,72 @@
                     "processors": "",
                     "groups": "",
                     "action": "HoldForward",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "cdcc7b31-130f-4df1-bcfe-345a10b89cfd",
+                    "path": "<Keyboard>/s",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "HoldBackward",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "ee8bf37f-9359-4a2c-b72a-c238f6d0bf41",
+                    "path": "<Keyboard>/numpad5",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "HoldBackward",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "afd1d579-408c-44fc-a421-059a1866987c",
+                    "path": "<Keyboard>/a",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "HoldLeft",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "d1364156-942f-4e0e-b1d8-595a402d3fe7",
+                    "path": "<Keyboard>/numpad4",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "HoldLeft",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "e8bb2da1-d540-4dbb-b749-06005fbfdc19",
+                    "path": "<Keyboard>/d",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "HoldRight",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "bd31576a-77e5-4a43-a736-22ebfb83d59d",
+                    "path": "<Keyboard>/numpad6",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "HoldRight",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

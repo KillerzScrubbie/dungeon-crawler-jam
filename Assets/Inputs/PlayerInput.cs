@@ -107,6 +107,33 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": ""Hold"",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""HoldBackward"",
+                    ""type"": ""Button"",
+                    ""id"": ""72793225-4d10-4246-81ce-6dce8cd1c4d9"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Hold"",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""HoldLeft"",
+                    ""type"": ""Button"",
+                    ""id"": ""33aef914-2e87-472c-a3aa-3a65aa935b14"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Hold"",
+                    ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""HoldRight"",
+                    ""type"": ""Button"",
+                    ""id"": ""89a8ebd5-b0ba-4756-aa65-eb00e746906f"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Hold"",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -277,6 +304,17 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                 },
                 {
                     ""name"": """",
+                    ""id"": ""9ea348da-bdf1-4a15-9cd0-a7aa3a24022c"",
+                    ""path"": ""<Keyboard>/numpadPlus"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""Inventory"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
                     ""id"": ""c1d04b0a-b384-4e6d-82c4-01e33005b662"",
                     ""path"": ""<Keyboard>/w"",
                     ""interactions"": """",
@@ -294,6 +332,72 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""groups"": """",
                     ""action"": ""HoldForward"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""cdcc7b31-130f-4df1-bcfe-345a10b89cfd"",
+                    ""path"": ""<Keyboard>/s"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""HoldBackward"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""ee8bf37f-9359-4a2c-b72a-c238f6d0bf41"",
+                    ""path"": ""<Keyboard>/numpad5"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""HoldBackward"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""afd1d579-408c-44fc-a421-059a1866987c"",
+                    ""path"": ""<Keyboard>/a"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""HoldLeft"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""d1364156-942f-4e0e-b1d8-595a402d3fe7"",
+                    ""path"": ""<Keyboard>/numpad4"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""HoldLeft"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""e8bb2da1-d540-4dbb-b749-06005fbfdc19"",
+                    ""path"": ""<Keyboard>/d"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""HoldRight"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""bd31576a-77e5-4a43-a736-22ebfb83d59d"",
+                    ""path"": ""<Keyboard>/numpad6"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""HoldRight"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -358,6 +462,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         m_Player_DimensionJump = m_Player.FindAction("DimensionJump", throwIfNotFound: true);
         m_Player_Inventory = m_Player.FindAction("Inventory", throwIfNotFound: true);
         m_Player_HoldForward = m_Player.FindAction("HoldForward", throwIfNotFound: true);
+        m_Player_HoldBackward = m_Player.FindAction("HoldBackward", throwIfNotFound: true);
+        m_Player_HoldLeft = m_Player.FindAction("HoldLeft", throwIfNotFound: true);
+        m_Player_HoldRight = m_Player.FindAction("HoldRight", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Pause = m_UI.FindAction("Pause", throwIfNotFound: true);
@@ -431,6 +538,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_DimensionJump;
     private readonly InputAction m_Player_Inventory;
     private readonly InputAction m_Player_HoldForward;
+    private readonly InputAction m_Player_HoldBackward;
+    private readonly InputAction m_Player_HoldLeft;
+    private readonly InputAction m_Player_HoldRight;
     public struct PlayerActions
     {
         private @PlayerInput m_Wrapper;
@@ -444,6 +554,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         public InputAction @DimensionJump => m_Wrapper.m_Player_DimensionJump;
         public InputAction @Inventory => m_Wrapper.m_Player_Inventory;
         public InputAction @HoldForward => m_Wrapper.m_Player_HoldForward;
+        public InputAction @HoldBackward => m_Wrapper.m_Player_HoldBackward;
+        public InputAction @HoldLeft => m_Wrapper.m_Player_HoldLeft;
+        public InputAction @HoldRight => m_Wrapper.m_Player_HoldRight;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -480,6 +593,15 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @HoldForward.started += instance.OnHoldForward;
             @HoldForward.performed += instance.OnHoldForward;
             @HoldForward.canceled += instance.OnHoldForward;
+            @HoldBackward.started += instance.OnHoldBackward;
+            @HoldBackward.performed += instance.OnHoldBackward;
+            @HoldBackward.canceled += instance.OnHoldBackward;
+            @HoldLeft.started += instance.OnHoldLeft;
+            @HoldLeft.performed += instance.OnHoldLeft;
+            @HoldLeft.canceled += instance.OnHoldLeft;
+            @HoldRight.started += instance.OnHoldRight;
+            @HoldRight.performed += instance.OnHoldRight;
+            @HoldRight.canceled += instance.OnHoldRight;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -511,6 +633,15 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @HoldForward.started -= instance.OnHoldForward;
             @HoldForward.performed -= instance.OnHoldForward;
             @HoldForward.canceled -= instance.OnHoldForward;
+            @HoldBackward.started -= instance.OnHoldBackward;
+            @HoldBackward.performed -= instance.OnHoldBackward;
+            @HoldBackward.canceled -= instance.OnHoldBackward;
+            @HoldLeft.started -= instance.OnHoldLeft;
+            @HoldLeft.performed -= instance.OnHoldLeft;
+            @HoldLeft.canceled -= instance.OnHoldLeft;
+            @HoldRight.started -= instance.OnHoldRight;
+            @HoldRight.performed -= instance.OnHoldRight;
+            @HoldRight.canceled -= instance.OnHoldRight;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -594,6 +725,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         void OnDimensionJump(InputAction.CallbackContext context);
         void OnInventory(InputAction.CallbackContext context);
         void OnHoldForward(InputAction.CallbackContext context);
+        void OnHoldBackward(InputAction.CallbackContext context);
+        void OnHoldLeft(InputAction.CallbackContext context);
+        void OnHoldRight(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

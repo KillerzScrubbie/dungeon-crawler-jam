@@ -81,7 +81,7 @@ public class CombatManager : MonoBehaviour
     {
         energy.RefreshEnergy();
         Initialize();
-        StartPlayerTurn();
+        UpdateGameState(CombatState.StartCombat);
     }
 
     private void CombatFinished()
@@ -96,6 +96,8 @@ public class CombatManager : MonoBehaviour
         switch (newState)
         {
             case CombatState.StartCombat:
+                HandleStartCombat();
+                break;
             case CombatState.PlayerTurn:
                 break;
             case CombatState.EnemyTurn:
@@ -112,6 +114,11 @@ public class CombatManager : MonoBehaviour
         }
 
         OnCombatStateChanged?.Invoke(state);
+    }
+
+    private void HandleStartCombat()
+    {
+        //StartPlayerTurn();
     }
 
     private void HideCombatCanvas()
@@ -192,6 +199,7 @@ public class CombatManager : MonoBehaviour
     {
         endTurnButton.interactable = false;
         endTurnText.color = new Color(0.55f, 0.3f, 0.3f, 1f);
+        ClearAction();
         UpdateGameState(CombatState.EnemyTurn);
 
         AudioManager.instance?.PlayRandomPitch("endTurn", .8f, 1.2f);

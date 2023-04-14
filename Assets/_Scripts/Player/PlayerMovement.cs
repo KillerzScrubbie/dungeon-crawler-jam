@@ -37,6 +37,7 @@ public class PlayerMovement : MonoBehaviour
 
     private bool isMoving = false;
     private bool isMainDimension = true;
+    private bool isTeleporting = false;
 
     private readonly float gridSize = 1f;
 
@@ -87,6 +88,8 @@ public class PlayerMovement : MonoBehaviour
     private void CheckForEnemy()
     {
         if (isMoving) { return; }
+
+        if (isTeleporting) { return; }
 
         Collider[] enemies = Physics.OverlapSphere(transform.position, 0.2f, enemyLayers);
 
@@ -256,16 +259,22 @@ public class PlayerMovement : MonoBehaviour
             return;
         }
 
+        isTeleporting = true;
         float duration = smoothTransition ? moveDuration : 0f;
         isMainDimension = !isMainDimension;
         SetGridPos(targetGridDimensionPos);
 
-        transform.DOMove(targetGridPos, 0f).OnComplete(() => TryFalling(duration));
+        transform.DOMove(targetGridPos, 0f).OnComplete(() => OnSuccessfulTeleport(duration));
         OnDimensionJumpSuccess?.Invoke();
         StartCoroutine(StartDimentionalJumpCooldown());
 
         AudioManager.instance?.Play("teleportSuccess");
+    }
 
+    private void OnSuccessfulTeleport(float duration)
+    {
+        TryFalling(duration);
+        isTeleporting = false;
     }
 
     IEnumerator StartDimentionalJumpCooldown()

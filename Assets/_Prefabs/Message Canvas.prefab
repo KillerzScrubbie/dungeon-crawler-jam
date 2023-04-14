@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 8721783389731270169}
   - component: {fileID: 2481951411432541646}
   - component: {fileID: 1366298500568891422}
+  - component: {fileID: 3647737575921304185}
   m_Layer: 5
   m_Name: Compass
   m_TagString: Untagged
@@ -79,6 +80,18 @@ MonoBehaviour:
   m_FillOrigin: 0
   m_UseSpriteMesh: 0
   m_PixelsPerUnitMultiplier: 1
+--- !u!114 &3647737575921304185
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1479678579850899608}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 97479137da161e545bd68d2135c6eb8b, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &3639862979958614532
 GameObject:
   m_ObjectHideFlags: 0

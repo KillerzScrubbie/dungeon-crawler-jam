@@ -778,6 +778,13 @@ MonoBehaviour:
   _blockColor: {r: 0.8584906, g: 0.8584906, b: 0.8584906, a: 1}
   _manaColor: {r: 0.20392157, g: 0.59607846, b: 0.85882354, a: 1}
   _healEnemyColor: {r: 0.15294118, g: 0.68235296, b: 0.3764706, a: 1}
+  _soPlayerGetMana: {fileID: 11400000, guid: a5bf273256f4b734788d6d49ba0954af, type: 2}
+  _soPlayerGetBlockDamage: {fileID: 11400000, guid: 83234558a6abb9945a9c12ad8be5004c,
+    type: 2}
+  _soPlayerGetDamage: {fileID: 11400000, guid: c0dbb9b7c3fd6284ebaea9d9e2519a79, type: 2}
+  _soPlayerGetHeal: {fileID: 11400000, guid: 6308edbb3f67cd14faa8831cf2049dcb, type: 2}
+  _soEnemyGetDamage: {fileID: 11400000, guid: c73fc306847401f40a4c0dcf45f8fdbd, type: 2}
+  _soEnemyGetHeal: {fileID: 11400000, guid: d3f61e9fc615270408fbc384c8bf4bae, type: 2}
 --- !u!1 &5150975498292287159
 GameObject:
   m_ObjectHideFlags: 0

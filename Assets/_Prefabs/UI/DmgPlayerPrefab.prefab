@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 3646399858009977501}
   - component: {fileID: 3646399858009977499}
   - component: {fileID: 3646399858009977500}
-  - component: {fileID: 1780535263329088037}
+  - component: {fileID: 1454544644285915745}
   m_Layer: 5
   m_Name: DmgPlayerPrefab
   m_TagString: Untagged
@@ -137,7 +137,7 @@ MonoBehaviour:
   m_hasFontAssetChanged: 0
   m_baseMaterial: {fileID: 0}
   m_maskOffset: {x: 0, y: 0, z: 0, w: 0}
---- !u!114 &1780535263329088037
+--- !u!114 &1454544644285915745
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -146,13 +146,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 3646399858009977502}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d8a64675970c56049b1cce7fe9cbe1c3, type: 3}
+  m_Script: {fileID: 11500000, guid: 106ad0b92a5f8ca4982de5de4ea7e1b0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   _maxLifeDuration: 1
   _txtScpt: {fileID: 3646399858009977500}
-  _popupScale: 1.4
-  _popupScaleAfter: 0.9
-  _yBefore: 800
-  _yAfter: -700
-  _easeType: 9
+  _popupScale: 1.1
+  _popupScaleAfter: 0.95
+  _yBefore: 1.1
+  _yAfter: -1.1
+  _easeType: 0

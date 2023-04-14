@@ -4,31 +4,31 @@ using DG.Tweening;
 
 public class DamagePopup : MonoBehaviour
 {
-    [SerializeField] protected RectTransform _rect;
-    [SerializeField] protected TMP_Text _txtScpt;
+    [SerializeField] RectTransform _rect;
+    [SerializeField] TMP_Text _txtScpt;
 
     [Header("move data")]
-    [SerializeField] protected float _maxLifeDuration = 1;
-    [SerializeField] protected float _popupScale = 1.1f;
-    [SerializeField] protected float _popupScaleAfter = 0.95f;
-    [SerializeField] protected float _yAfter = -1.1f;
-    [SerializeField] protected Ease _easeType;
+    [SerializeField] float _maxLifeDuration = 1;
+    [SerializeField] float _popupScale = 1.1f;
+    [SerializeField] float _popupScaleAfter = 0.95f;
+    [SerializeField] Vector3 _finishPosition;
+    [SerializeField] Ease _easeType;
 
 
     void Start()
     {
-        _rect = GetComponent<RectTransform>();
         DoPopAnimation();
     }
 
     public void SetupSO(SOnumberPopup soData)
     {
+        _rect = GetComponent<RectTransform>();
         _rect.localPosition = soData.startPosition;
         _txtScpt.color = soData.textColor;
         _maxLifeDuration = soData.maxLifeDuration;
         _popupScale = soData.popupScale;
         _popupScaleAfter = soData.popupScaleAfter;
-        _yAfter = soData.yAfterMove;
+        _finishPosition = soData.finishPosition;
         _easeType = soData.easeType;
     }
 
@@ -39,7 +39,7 @@ public class DamagePopup : MonoBehaviour
 
         var sequence = DOTween.Sequence();
         sequence.Append(_rect.DOShakePosition(_maxLifeDuration * .2f, 10)).SetEase(_easeType);
-        sequence.Append(_rect.DOLocalMoveY(_yAfter, _maxLifeDuration * .6f)).SetEase(_easeType);
+        sequence.Append(_rect.DOLocalMove(_finishPosition, _maxLifeDuration * .6f)).SetEase(_easeType);
         sequence.Append(_rect.DOScale(_popupScaleAfter, _maxLifeDuration * .2f)).SetEase(_easeType);
         sequence.Append(_txtScpt.DOFade(0, _maxLifeDuration * .3f)).SetEase(_easeType);
 

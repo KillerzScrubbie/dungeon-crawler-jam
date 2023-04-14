@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: EnemyGetHeal
   m_EditorClassIdentifier: 
   startPosition: {x: 0, y: 0, z: 0}
-  yAfterMove: 100
+  finishPosition: {x: 0, y: 100, z: 0}
   popupScale: 1.1
   popupScaleAfter: 0.95
   maxLifeDuration: 1

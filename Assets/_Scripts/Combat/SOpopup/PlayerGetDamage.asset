@@ -12,8 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 6d98617b678ed5648bd2a0d14583798c, type: 3}
   m_Name: PlayerGetDamage
   m_EditorClassIdentifier: 
-  startPosition: {x: 0, y: 0, z: 0}
-  yAfterMove: -100
+  startPosition: {x: 50, y: 0, z: 0}
+  finishPosition: {x: 10, y: 100, z: 0}
   popupScale: 1.1
   popupScaleAfter: 0.95
   maxLifeDuration: 1

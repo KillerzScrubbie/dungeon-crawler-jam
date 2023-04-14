@@ -13,7 +13,7 @@ MonoBehaviour:
   m_Name: PlayerGetBlockDamage
   m_EditorClassIdentifier: 
   startPosition: {x: -200, y: 0, z: 0}
-  yAfterMove: -100
+  finishPosition: {x: -10, y: 100, z: 0}
   popupScale: 1.1
   popupScaleAfter: 0.95
   maxLifeDuration: 1

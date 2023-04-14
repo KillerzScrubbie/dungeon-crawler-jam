@@ -233,6 +233,17 @@
                 },
                 {
                     "name": "",
+                    "id": "a03ca7b0-ef8a-4653-8860-dbb51e8bbd84",
+                    "path": "<Keyboard>/numpad0",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "DimensionJump",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "50aa2117-130e-4953-b382-129d2a06f064",
                     "path": "<Keyboard>/i",
                     "interactions": "",
@@ -246,6 +257,17 @@
                     "name": "",
                     "id": "c1d04b0a-b384-4e6d-82c4-01e33005b662",
                     "path": "<Keyboard>/w",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "HoldForward",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
+                    "id": "7cea1aba-311a-4b97-854c-465452196568",
+                    "path": "<Keyboard>/numpad8",
                     "interactions": "",
                     "processors": "",
                     "groups": "",

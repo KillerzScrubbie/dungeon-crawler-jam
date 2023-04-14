@@ -15,24 +15,12 @@ public class PlayerInputController : MonoBehaviour
 
     void OnEnable()
     {
-        //PlayerMovement.OnFinishMove += CheckIfHoldForward;
         playerInputMap.Enable();
     }
     void OnDisable()
     {
-        //PlayerMovement.OnFinishMove -= CheckIfHoldForward;
         playerInputMap.Disable();
     }
-
-    /*private void CheckIfHoldForward()
-    {
-        if (playerInputMap.Player.MoveForward.IsPressed()) Move(EMovementTypes.Forward);
-        if (playerInputMap.Player.MoveBackwards.IsPressed()) Move(EMovementTypes.Backward);
-        if (playerInputMap.Player.MoveLeft.IsPressed()) Move(EMovementTypes.Left);
-        if (playerInputMap.Player.MoveRight.IsPressed()) Move(EMovementTypes.Right);
-        if (playerInputMap.Player.LookLeft.IsPressed()) Move(EMovementTypes.TurnLeft);
-        if (playerInputMap.Player.LookRight.IsPressed()) Move(EMovementTypes.TurnRight);
-    }*/
 
     private void Awake()
     {

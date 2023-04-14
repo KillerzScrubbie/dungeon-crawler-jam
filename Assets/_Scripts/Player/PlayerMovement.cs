@@ -14,7 +14,6 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private int dimensionOffset = 200;
     [SerializeField] private float jumpCooldownTime = 2;
 
-
     [Space]
     [Header("Player Physics")]
     [SerializeField] private LayerMask obstacleLayers;
@@ -28,14 +27,12 @@ public class PlayerMovement : MonoBehaviour
     public static event Action OnDimensionJumpBlocked;
     public static event Action OnDimensionJumpSuccess;
     public static event Action<float> OnTurned;
-    //public static event Action OnFinishMove;
 
     private Queue<EMovementTypes> inputQueue = new();
 
     private PlayerInputController controller;
 
     private Vector3 targetGridPos;
-    private Vector3 prevTargetGridPos; // Failsafe if player somehow glitches out or fall off the map.
     private RaycastHit hit;
 
     private bool isMoving = false;
@@ -62,7 +59,6 @@ public class PlayerMovement : MonoBehaviour
 
         playerOffset = transform.position.y;
         SetGridPos(transform.position);
-        // ResetMovementCooldown();
     }
 
     private void DisableMovement()
@@ -162,17 +158,9 @@ public class PlayerMovement : MonoBehaviour
         {
             TryFalling(duration);
             AudioManager.instance?.PlayOneRandomPitch("walk", 0.85f, 1.2f);
-
-            /*ResetMovementCooldown();
-            if (smoothTransition) OnFinishMove?.Invoke();*/
         }
         );
     }
-
-    /*void ResetMovementCooldown()
-    {
-        moveCooldown = moveDuration;
-    }*/
 
     private void TryFalling(float duration)
     {
@@ -244,24 +232,9 @@ public class PlayerMovement : MonoBehaviour
         OnTurned?.Invoke(-yRotation);
         transform.DORotate(new Vector3(currentRotation.x, yRotation, currentRotation.z), duration).OnComplete(() =>
         {
-            //ResetMovementCooldown();
             LockMovement(false);
-            //if (smoothTransition) OnFinishMove?.Invoke();
         });
     }
-
-    /*void LateUpdate()
-    {
-        if (smoothTransition) return;
-
-        moveCooldown -= Time.deltaTime;
-
-        if (moveCooldown < 0)
-        {
-            OnFinishMove?.Invoke();
-            ResetMovementCooldown();
-        }
-    }*/
 
     private void DimensionJump()
     {

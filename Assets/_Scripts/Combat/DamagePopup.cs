@@ -15,16 +15,20 @@ public class DamagePopup : MonoBehaviour
     [SerializeField] protected float _yAfter = -1.1f;
 
     [SerializeField] protected Ease _easeType;
+    [SerializeField] protected RectTransform _rect;
+
+
+    void Start()
+    {
+        _rect = GetComponent<RectTransform>();
+        DoPopAnimation();
+    }
 
     public void SetupTextColor(Color newCol)
     {
         _txtScpt.color = newCol;
     }
 
-    void Start()
-    {
-        DoPopAnimation();
-    }
 
     public virtual void DoPopAnimation()
     {

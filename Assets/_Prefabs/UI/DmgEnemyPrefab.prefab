@@ -155,3 +155,4 @@ MonoBehaviour:
   _yBefore: 200
   _yAfter: -100
   _easeType: 9
+  _rect: {fileID: 3646399858009977501}

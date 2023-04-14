@@ -15,8 +15,6 @@ public class TurnMessagePopup : MonoBehaviour
 
     private void Start()
     {
-        
-
         CombatManager.OnCombatStateChanged += HandleStateChanged;
     }
 

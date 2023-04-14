@@ -9,18 +9,22 @@ public class PlayerInputController : MonoBehaviour
 
     private PlayerInput playerInputMap;
 
+    private bool holdingForward = false;
+    private float holdTimer = 0;
+    private float holdTimeInterval = 0.2f;
+
     void OnEnable()
     {
-        PlayerMovement.OnFinishMove += CheckIfHoldForward;
+        //PlayerMovement.OnFinishMove += CheckIfHoldForward;
         playerInputMap.Enable();
     }
     void OnDisable()
     {
-        PlayerMovement.OnFinishMove -= CheckIfHoldForward;
+        //PlayerMovement.OnFinishMove -= CheckIfHoldForward;
         playerInputMap.Disable();
     }
 
-    private void CheckIfHoldForward()
+    /*private void CheckIfHoldForward()
     {
         if (playerInputMap.Player.MoveForward.IsPressed()) Move(EMovementTypes.Forward);
         if (playerInputMap.Player.MoveBackwards.IsPressed()) Move(EMovementTypes.Backward);
@@ -28,7 +32,7 @@ public class PlayerInputController : MonoBehaviour
         if (playerInputMap.Player.MoveRight.IsPressed()) Move(EMovementTypes.Right);
         if (playerInputMap.Player.LookLeft.IsPressed()) Move(EMovementTypes.TurnLeft);
         if (playerInputMap.Player.LookRight.IsPressed()) Move(EMovementTypes.TurnRight);
-    }
+    }*/
 
     private void Awake()
     {
@@ -47,9 +51,24 @@ public class PlayerInputController : MonoBehaviour
         playerInputMap.Player.LookRight.performed += _ => Move(EMovementTypes.TurnRight);
         playerInputMap.Player.DimensionJump.performed += _ => Move(EMovementTypes.DimensionJump);
 
+        playerInputMap.Player.HoldForward.performed += _ => holdingForward = true;
+        playerInputMap.Player.HoldForward.canceled += _ => holdingForward = false;
+
         playerInputMap.Player.Inventory.performed += _ => OpenInventory();
 
         playerInputMap.UI.Pause.performed += _ => Pause();
+    }
+
+    private void Update()
+    {
+        if (!holdingForward) { return; }
+
+        holdTimer -= Time.deltaTime;
+
+        if (holdTimer > 0) { return; }
+
+        holdTimer = holdTimeInterval;
+        Move(EMovementTypes.Forward);
     }
 
     public void DisableMovement()
@@ -61,7 +80,6 @@ public class PlayerInputController : MonoBehaviour
     {
         playerInputMap.Player.Enable();
     }
-
 
     private void Move(EMovementTypes type)
     {

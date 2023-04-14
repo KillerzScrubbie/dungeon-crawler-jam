@@ -28,7 +28,7 @@ public class PlayerMovement : MonoBehaviour
     public static event Action OnDimensionJumpBlocked;
     public static event Action OnDimensionJumpSuccess;
     public static event Action<float> OnTurned;
-    public static event Action OnFinishMove;
+    //public static event Action OnFinishMove;
 
     private Queue<EMovementTypes> inputQueue = new();
 
@@ -62,7 +62,7 @@ public class PlayerMovement : MonoBehaviour
 
         playerOffset = transform.position.y;
         SetGridPos(transform.position);
-        ResetMovementCooldown();
+        // ResetMovementCooldown();
     }
 
     private void DisableMovement()
@@ -163,16 +163,16 @@ public class PlayerMovement : MonoBehaviour
             TryFalling(duration);
             AudioManager.instance?.PlayOneRandomPitch("walk", 0.85f, 1.2f);
 
-            ResetMovementCooldown();
-            if (smoothTransition) OnFinishMove?.Invoke();
+            /*ResetMovementCooldown();
+            if (smoothTransition) OnFinishMove?.Invoke();*/
         }
         );
     }
 
-    void ResetMovementCooldown()
+    /*void ResetMovementCooldown()
     {
         moveCooldown = moveDuration;
-    }
+    }*/
 
     private void TryFalling(float duration)
     {
@@ -244,13 +244,13 @@ public class PlayerMovement : MonoBehaviour
         OnTurned?.Invoke(-yRotation);
         transform.DORotate(new Vector3(currentRotation.x, yRotation, currentRotation.z), duration).OnComplete(() =>
         {
-            ResetMovementCooldown();
+            //ResetMovementCooldown();
             LockMovement(false);
-            if (smoothTransition) OnFinishMove?.Invoke();
+            //if (smoothTransition) OnFinishMove?.Invoke();
         });
     }
 
-    void LateUpdate()
+    /*void LateUpdate()
     {
         if (smoothTransition) return;
 
@@ -261,7 +261,7 @@ public class PlayerMovement : MonoBehaviour
             OnFinishMove?.Invoke();
             ResetMovementCooldown();
         }
-    }
+    }*/
 
     private void DimensionJump()
     {

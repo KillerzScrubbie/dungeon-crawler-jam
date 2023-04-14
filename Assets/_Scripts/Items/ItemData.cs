@@ -28,7 +28,7 @@ public class ItemData : MonoBehaviour, IPointerEnterHandler, IPointerClickHandle
     public bool useTimeDelay = true;
     public static LTDescr delay;
 
-    void Start()
+    private void Start()
     {
         LeanTween.reset();
 
@@ -54,9 +54,7 @@ public class ItemData : MonoBehaviour, IPointerEnterHandler, IPointerClickHandle
     {
         switch (slot)
         {
-            case EInventorySlot.Inventory:
-            case EInventorySlot.Equipped:
-            case EInventorySlot.Potions:
+            default:
                 Prompt();
                 break;
             case EInventorySlot.Chest:
@@ -125,9 +123,6 @@ public class ItemData : MonoBehaviour, IPointerEnterHandler, IPointerClickHandle
         switch (slot)
         {
             case EInventorySlot.Inventory:
-                if (item == null) break;
-                ShowItemTooltip(item);
-                break;
             case EInventorySlot.Equipped:
                 if (item == null) break;
                 ShowItemTooltip(item);

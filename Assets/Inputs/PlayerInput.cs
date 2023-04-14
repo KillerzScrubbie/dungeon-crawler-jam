@@ -98,6 +98,15 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""processors"": """",
                     ""interactions"": """",
                     ""initialStateCheck"": false
+                },
+                {
+                    ""name"": ""HoldForward"",
+                    ""type"": ""Button"",
+                    ""id"": ""c26ee366-6176-4453-9443-376e28798fa5"",
+                    ""expectedControlType"": ""Button"",
+                    ""processors"": """",
+                    ""interactions"": ""Hold"",
+                    ""initialStateCheck"": false
                 }
             ],
             ""bindings"": [
@@ -254,6 +263,17 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
                     ""action"": ""Inventory"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
+                },
+                {
+                    ""name"": """",
+                    ""id"": ""c1d04b0a-b384-4e6d-82c4-01e33005b662"",
+                    ""path"": ""<Keyboard>/w"",
+                    ""interactions"": """",
+                    ""processors"": """",
+                    ""groups"": """",
+                    ""action"": ""HoldForward"",
+                    ""isComposite"": false,
+                    ""isPartOfComposite"": false
                 }
             ]
         },
@@ -315,6 +335,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         m_Player_MoveRight = m_Player.FindAction("MoveRight", throwIfNotFound: true);
         m_Player_DimensionJump = m_Player.FindAction("DimensionJump", throwIfNotFound: true);
         m_Player_Inventory = m_Player.FindAction("Inventory", throwIfNotFound: true);
+        m_Player_HoldForward = m_Player.FindAction("HoldForward", throwIfNotFound: true);
         // UI
         m_UI = asset.FindActionMap("UI", throwIfNotFound: true);
         m_UI_Pause = m_UI.FindAction("Pause", throwIfNotFound: true);
@@ -387,6 +408,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
     private readonly InputAction m_Player_MoveRight;
     private readonly InputAction m_Player_DimensionJump;
     private readonly InputAction m_Player_Inventory;
+    private readonly InputAction m_Player_HoldForward;
     public struct PlayerActions
     {
         private @PlayerInput m_Wrapper;
@@ -399,6 +421,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         public InputAction @MoveRight => m_Wrapper.m_Player_MoveRight;
         public InputAction @DimensionJump => m_Wrapper.m_Player_DimensionJump;
         public InputAction @Inventory => m_Wrapper.m_Player_Inventory;
+        public InputAction @HoldForward => m_Wrapper.m_Player_HoldForward;
         public InputActionMap Get() { return m_Wrapper.m_Player; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -432,6 +455,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Inventory.started += instance.OnInventory;
             @Inventory.performed += instance.OnInventory;
             @Inventory.canceled += instance.OnInventory;
+            @HoldForward.started += instance.OnHoldForward;
+            @HoldForward.performed += instance.OnHoldForward;
+            @HoldForward.canceled += instance.OnHoldForward;
         }
 
         private void UnregisterCallbacks(IPlayerActions instance)
@@ -460,6 +486,9 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
             @Inventory.started -= instance.OnInventory;
             @Inventory.performed -= instance.OnInventory;
             @Inventory.canceled -= instance.OnInventory;
+            @HoldForward.started -= instance.OnHoldForward;
+            @HoldForward.performed -= instance.OnHoldForward;
+            @HoldForward.canceled -= instance.OnHoldForward;
         }
 
         public void RemoveCallbacks(IPlayerActions instance)
@@ -542,6 +571,7 @@ public partial class @PlayerInput: IInputActionCollection2, IDisposable
         void OnMoveRight(InputAction.CallbackContext context);
         void OnDimensionJump(InputAction.CallbackContext context);
         void OnInventory(InputAction.CallbackContext context);
+        void OnHoldForward(InputAction.CallbackContext context);
     }
     public interface IUIActions
     {

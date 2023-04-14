@@ -95,6 +95,7 @@ public class CombatManager : MonoBehaviour
 
         switch (newState)
         {
+            case CombatState.StartCombat:
             case CombatState.PlayerTurn:
                 break;
             case CombatState.EnemyTurn:
@@ -312,5 +313,6 @@ public enum CombatState
     EnemyTurn,
     Victory,
     Dead,
-    NotInCombat
+    NotInCombat,
+    StartCombat,
 }

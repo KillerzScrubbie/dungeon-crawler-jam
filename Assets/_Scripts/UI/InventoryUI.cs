@@ -122,10 +122,12 @@ public class InventoryUI : SerializedMonoBehaviour
                 inventoryButton.SetActive(true);
                 break;
 
-            case CombatState.PlayerTurn:
-            case CombatState.EnemyTurn:
-            case CombatState.Victory:
-            case CombatState.Dead:
+            /*case CombatState.StartCombat:
+                CancelSwapOperation();
+                break;*/
+
+            default: // Maybe move all to startcombat?
+                CancelSwapOperation();
                 inventoryPanel.SetActive(false);
                 inventoryButton.SetActive(false);
                 promptPanel.SetActive(false);
@@ -148,8 +150,7 @@ public class InventoryUI : SerializedMonoBehaviour
     private void HandleInventoryPopup()
     {
         bool inventoryStatus = inventoryPanel.activeSelf;
-        isSwapping = false;
-        OnSwapped?.Invoke(null, isSwapping);
+        CancelSwapOperation();
         inventoryPanel.SetActive(!inventoryStatus);
 
         if (inventoryPanel.activeSelf) AudioManager.instance?.PlayRandomPitch("invenOpen", .7f, 1.5f);
@@ -160,6 +161,12 @@ public class InventoryUI : SerializedMonoBehaviour
 
         chestPanel.SetActive(false);
         CloseChest(false);
+    }
+
+    private void CancelSwapOperation()
+    {
+        isSwapping = false;
+        OnSwapped?.Invoke(null, isSwapping);
     }
 
     private void HandleChestOpened(ChestLoot chest, List<ObjItems> items, List<ObjPotions> potions)

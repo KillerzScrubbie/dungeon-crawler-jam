@@ -17,9 +17,7 @@ public class ShowInventoryCombat : MonoBehaviour
             case CombatState.Dead:
                 HideUI();
                 break;
-            case CombatState.Victory:
-            case CombatState.PlayerTurn:
-            case CombatState.EnemyTurn:
+            default:
                 break;
         }
     }

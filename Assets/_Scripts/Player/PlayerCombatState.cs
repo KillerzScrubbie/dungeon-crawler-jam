@@ -16,10 +16,4 @@ public class PlayerCombatState : PlayerBaseState
     {
 
     }
-
-    public void BossTheme()
-    {
-        AudioManager.instance.StopAllSound();
-        AudioManager.instance?.Play("bgBattle");
-    }
 }

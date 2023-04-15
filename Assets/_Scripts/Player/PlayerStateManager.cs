@@ -18,6 +18,7 @@ public class PlayerStateManager : MonoBehaviour
     private void Start()
     {
         PlayerMovement.OnCombatEntered += SwitchToCombatState;
+        PlayerMovement.OnBossEntered += PlayBossMusic;
         CombatManager.OnCombatStateChanged += SwitchToExplorationState;
 
         currentState = playerExplorationState;
@@ -49,9 +50,16 @@ public class PlayerStateManager : MonoBehaviour
         state.EnterState(this);
     }
 
+    private void PlayBossMusic()
+    {
+        AudioManager.instance.StopAllSound();
+        AudioManager.instance?.Play("bgBoss");
+    }
+
     private void OnDestroy()
     {
         PlayerMovement.OnCombatEntered -= SwitchToCombatState;
+        PlayerMovement.OnBossEntered -= PlayBossMusic;
         CombatManager.OnCombatStateChanged -= SwitchToExplorationState;
     }
 }

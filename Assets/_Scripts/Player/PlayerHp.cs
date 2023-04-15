@@ -2,7 +2,7 @@ using UnityEngine;
 using System;
 using Sirenix.OdinInspector;
 
-public class PlayerHp : SerializedMonoBehaviour, IDamageable
+public class PlayerHp : SerializedMonoBehaviour
 {
     [SerializeField] private int _maxHP = 100;
     [SerializeField] PlayerBlock _playerBlockScpt;

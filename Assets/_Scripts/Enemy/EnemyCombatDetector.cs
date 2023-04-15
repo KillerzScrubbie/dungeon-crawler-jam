@@ -3,10 +3,20 @@ using UnityEngine;
 
 public class EnemyCombatDetector : MonoBehaviour
 {
+    [SerializeField] private EnemyData enemyData;
+   
     public event Action OnCombatDetected;
 
-    public void EnterCombat()
+    private bool isBoss = false;
+
+    private void Start()
+    {
+        isBoss = enemyData.EnemyGroup.IsBoss;
+    }
+
+    public bool EnterCombat()
     {
         OnCombatDetected?.Invoke();
+        return isBoss;
     }
 }

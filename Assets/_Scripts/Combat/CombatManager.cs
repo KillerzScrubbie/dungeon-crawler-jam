@@ -27,7 +27,7 @@ public class CombatManager : MonoBehaviour
     public static event Action<int> OnActionUsed;
     public static event Action<int> OnManaUsed;
     public static event Action<CombatState> OnCombatStateChanged;
-    public static event Action OnStartNewTurn;
+    public static event Action<int> OnStartNewTurn;
 
     private ObjEnemyGroup currentCombatGroup;
     private List<ObjEnemy> enemyList = new();
@@ -45,6 +45,8 @@ public class CombatManager : MonoBehaviour
 
     private int currentMana = 0;
     private int currentEnergy = 0;
+
+    private int turnCount = 1;
 
     private CombatState state = CombatState.NotInCombat;
 
@@ -81,12 +83,23 @@ public class CombatManager : MonoBehaviour
     {
         energy.RefreshEnergy();
         Initialize();
+        ResetTurnCount();
         UpdateGameState(CombatState.StartCombat);
     }
 
     private void CombatFinished()
     {
         UpdateGameState(CombatState.Victory);
+    }
+
+    private void IncrementTurn()
+    {
+        turnCount++;
+    }
+
+    private void ResetTurnCount()
+    {
+        turnCount = 0;
     }
 
     public void UpdateGameState(CombatState newState)
@@ -98,7 +111,7 @@ public class CombatManager : MonoBehaviour
             case CombatState.StartCombat:
                 HandleStartCombat();
                 break;
-            case CombatState.PlayerTurn:
+            case CombatState.PlayerTurn:      
                 break;
             case CombatState.EnemyTurn:
                 HandleEnemyTurn();
@@ -203,7 +216,6 @@ public class CombatManager : MonoBehaviour
         UpdateGameState(CombatState.EnemyTurn);
 
         AudioManager.instance?.PlayRandomPitch("endTurn", .8f, 1.2f);
-
     }
 
     public void StartPlayerTurn()
@@ -212,9 +224,10 @@ public class CombatManager : MonoBehaviour
 
         endTurnButton.interactable = true;
         endTurnText.color = new Color(0.95f, 0.95f, 0.95f, 95f);
-        UpdateGameState(CombatState.PlayerTurn);
         energy.RefreshEnergy();
-        OnStartNewTurn?.Invoke();
+        IncrementTurn();
+        OnStartNewTurn?.Invoke(turnCount);
+        UpdateGameState(CombatState.PlayerTurn);
     }
 
     private async void RemoveEnemyFromCombat(EnemyCombat enemy)

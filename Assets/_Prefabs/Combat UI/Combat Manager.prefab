@@ -543,7 +543,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 0, g: 0, b: 0, a: 0.9019608}
-  m_RaycastTarget: 1
+  m_RaycastTarget: 0
   m_RaycastPadding: {x: 0, y: 0, z: 0, w: 0}
   m_Maskable: 1
   m_OnCullStateChanged:
@@ -677,12 +677,12 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e1327b9837caa3b48ba882a14106190b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  fadeTime: 0.2
-  sequenceDelay: 0.5
+  fadeTime: 0.15
+  sequenceDelay: 0.7
   combatManager: {fileID: 3756414035694633603}
   blackBar: {fileID: 4516684467690729158}
   messageText: {fileID: 7836636562044782793}
-  turnCount: {fileID: 5900220113923032986}
+  turnCountText: {fileID: 5900220113923032986}
 --- !u!1 &5148889921229118802
 GameObject:
   m_ObjectHideFlags: 0

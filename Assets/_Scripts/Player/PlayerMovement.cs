@@ -24,6 +24,7 @@ public class PlayerMovement : MonoBehaviour
     [SerializeField] private BoxCollider groundCheckCollider;
 
     public static event Action OnCombatEntered;
+    public static event Action OnBossEntered;
     public static event Action OnDimensionJumpBlocked;
     public static event Action OnDimensionJumpSuccess;
     public static event Action<float> OnTurned;
@@ -43,9 +44,6 @@ public class PlayerMovement : MonoBehaviour
 
     private float playerOffset = 0f;
     private bool canDimensionJump = true;
-
-    private float moveCooldown;
-
 
     private void Awake()
     {
@@ -95,8 +93,11 @@ public class PlayerMovement : MonoBehaviour
 
         if (enemies.Length == 0) { return; }
 
-        enemies[0].GetComponent<EnemyCombatDetector>().EnterCombat();
+        bool isBoss = enemies[0].GetComponent<EnemyCombatDetector>().EnterCombat();
         OnCombatEntered?.Invoke();
+
+        if (!isBoss) { return; }
+        OnBossEntered?.Invoke();
     }
 
     private void ProcessMovement()
@@ -298,6 +299,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void OnDestroy()
     {
+        DOTween.Kill(gameObject);
         PlayerInputController.OnQueue -= QueueMovement;
         PlayerCombatState.OnPlayerCombatState -= DisableMovement;
         PlayerExplorationState.OnPlayerExplorationState -= EnableMovement;

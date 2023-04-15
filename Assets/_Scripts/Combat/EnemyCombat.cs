@@ -26,10 +26,12 @@ public class EnemyCombat : MonoBehaviour
         nameText.text = enemy.EnemyName;
     }
 
-    public void TakeDamage(int damage)
+    public int TakeDamage(int damage)
     {
-        healthSystem.TakeDamage(damage);
+        int damageTaken = healthSystem.TakeDamage(damage);
         OnEnemyTakeDamage?.Invoke(damage, transform);
+
+        return damageTaken;
     }
 
     public void PerformAction()

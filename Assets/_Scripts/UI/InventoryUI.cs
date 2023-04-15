@@ -122,17 +122,16 @@ public class InventoryUI : SerializedMonoBehaviour
                 inventoryButton.SetActive(true);
                 break;
 
-            /*case CombatState.StartCombat:
-                CancelSwapOperation();
-                break;*/
-
-            default: // Maybe move all to startcombat?
+            case CombatState.StartCombat:
                 CancelSwapOperation();
                 inventoryPanel.SetActive(false);
                 inventoryButton.SetActive(false);
                 promptPanel.SetActive(false);
                 CloseChest();
                 chestPanel.SetActive(false);
+                break;
+
+            default:  
                 break;
         }
     }

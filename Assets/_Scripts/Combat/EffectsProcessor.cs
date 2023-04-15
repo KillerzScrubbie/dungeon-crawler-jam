@@ -17,6 +17,7 @@ public class EffectsProcessor : MonoBehaviour
     public void ProcessEffect(Dictionary<EEffectTypes, int> effectList, EnemyCombat target = null)
     {
         int hitInstances = effectList.ContainsKey(EEffectTypes.DamageInstances) ? effectList[EEffectTypes.DamageInstances] : 1;
+        int damageDone = 0;
         List<EnemyCombat> activeEnemies = combatManager.ActiveEnemies;
         int extraDamage = strength.Strength;
 
@@ -25,11 +26,12 @@ public class EffectsProcessor : MonoBehaviour
             switch (effect.Key)
             {
                 case EEffectTypes.DamageInstances:
+                case EEffectTypes.DamageToBlock:
                     break;
 
                 case EEffectTypes.DamageSingle:
                     
-                    HitEnemy(hitInstances, () => target.TakeDamage(effectList[EEffectTypes.DamageSingle] + extraDamage));
+                    HitEnemy(hitInstances, () => damageDone += target.TakeDamage(effectList[EEffectTypes.DamageSingle] + extraDamage));
                     break;
 
                 case EEffectTypes.DamageAll:
@@ -37,13 +39,13 @@ public class EffectsProcessor : MonoBehaviour
                     AudioManager.instance?.PlayRandomPitch("playerAtkAll", .6f, 1.5f);
                     foreach (var enemy in activeEnemies)
                     {
-                        enemy.TakeDamage(effectList[EEffectTypes.DamageAll] + extraDamage);
+                        damageDone += enemy.TakeDamage(effectList[EEffectTypes.DamageAll] + extraDamage);
                     }
                     break;
 
                 case EEffectTypes.DamageRandom:
 
-                    HitEnemy(hitInstances, () => activeEnemies[UnityEngine.Random.Range(0, activeEnemies.Count)].TakeDamage(effectList[EEffectTypes.DamageRandom] + extraDamage));
+                    HitEnemy(hitInstances, () => damageDone += activeEnemies[UnityEngine.Random.Range(0, activeEnemies.Count)].TakeDamage(effectList[EEffectTypes.DamageRandom] + extraDamage));
                     break;
 
                 case EEffectTypes.Block:
@@ -69,6 +71,12 @@ public class EffectsProcessor : MonoBehaviour
                     break;
             }
         }
+
+        Debug.Log(damageDone);
+        if (!effectList.ContainsKey(EEffectTypes.DamageToBlock)) { return; } // Give block after calculating dmg dealt.
+
+        AudioManager.instance?.PlayRandomPitch("playerGetBlock", .6f, 2.2f);
+        OnBlockGained?.Invoke(damageDone);
     }
 
     private async void HitEnemy(int hitInstances, Action action)

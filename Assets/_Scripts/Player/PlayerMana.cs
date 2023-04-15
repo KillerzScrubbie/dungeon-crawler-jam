@@ -48,7 +48,7 @@ public class PlayerMana : SerializedMonoBehaviour
         AddMP(mpValue);
     }
 
-    private void GainManaOnNewTurn()
+    private void GainManaOnNewTurn(int turnCount)
     {
         AddMP(manaPerTurn);
     }

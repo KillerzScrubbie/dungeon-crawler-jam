@@ -5,6 +5,7 @@ using UnityEngine;
 public class ObjEnemyGroup : ScriptableObject
 {
     [SerializeField] private List<ObjEnemy> enemyGroup;
+    [SerializeField] private bool boss;
 
     private List<ObjEnemy> SetEnemyGroup()
     {
@@ -19,4 +20,5 @@ public class ObjEnemyGroup : ScriptableObject
     }
 
     public List<ObjEnemy> EnemyGroup { get { return SetEnemyGroup(); } }
+    public bool IsBoss { get { return boss; } }
 }

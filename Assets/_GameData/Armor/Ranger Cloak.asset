@@ -89,7 +89,7 @@ MonoBehaviour:
       Data: 1
     - Name: $v
       Entry: 3
-      Data: 1
+      Data: 2
     - Name: 
       Entry: 8
       Data: 
@@ -107,6 +107,6 @@ MonoBehaviour:
   manaCost1: 2
   actionCost1: 0
   actionName2: Uncloak
-  itemDescription2: Deals 2 damage. Heal 1 HP.
+  itemDescription2: Deals 2 damage. Heal 2 HP.
   manaCost2: 3
   actionCost2: 1

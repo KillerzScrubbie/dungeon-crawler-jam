@@ -49,7 +49,7 @@ MonoBehaviour:
       Data: 10
     - Name: $v
       Entry: 3
-      Data: 15
+      Data: 10
     - Name: 
       Entry: 8
       Data: 
@@ -91,9 +91,9 @@ MonoBehaviour:
   itemName: Dark Chestplate
   itemIcon: {fileID: 21300000, guid: 584d087b48bb46a49aa862e942ebdcb3, type: 3}
   actionName1: Resilience
-  itemDescription1: Gain 15 Block
-  manaCost1: 4
-  actionCost1: 1
+  itemDescription1: Gain 10 Block
+  manaCost1: 5
+  actionCost1: 2
   actionName2: Air Siphon
   itemDescription2: Gain 3 MP
   manaCost2: 0

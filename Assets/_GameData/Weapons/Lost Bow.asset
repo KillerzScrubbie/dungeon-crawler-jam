@@ -116,9 +116,9 @@ MonoBehaviour:
   itemIcon: {fileID: 21300000, guid: d10923aefa5288a46b62e115745451c4, type: 3}
   actionName1: Shoot and Retreat
   itemDescription1: Deals 6 damage. Gain 2 Mana.
-  manaCost1: 1
+  manaCost1: 0
   actionCost1: 3
-  actionName2: Arrow Barrage
+  actionName2: Arrows Barrage
   itemDescription2: Deals 1 damage to random enemies 5 times.
-  manaCost2: 2
-  actionCost2: 1
+  manaCost2: 3
+  actionCost2: 2

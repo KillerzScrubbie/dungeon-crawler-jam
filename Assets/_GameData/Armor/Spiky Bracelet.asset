@@ -89,7 +89,7 @@ MonoBehaviour:
       Data: 10
     - Name: $v
       Entry: 3
-      Data: 8
+      Data: 5
     - Name: 
       Entry: 8
       Data: 
@@ -116,9 +116,9 @@ MonoBehaviour:
   itemIcon: {fileID: 21300000, guid: 1b05431f12095d74fbddf96fc2062500, type: 3}
   actionName1: Spike Defense
   itemDescription1: Deals 2 damage. Gain 2 Block.
-  manaCost1: 1
+  manaCost1: 2
   actionCost1: 1
   actionName2: De-offensive Maneuver
-  itemDescription2: Deals 2 damage. Gain 8 Block.
+  itemDescription2: Deals 2 damage. Gain 5 Block.
   manaCost2: 3
   actionCost2: 2

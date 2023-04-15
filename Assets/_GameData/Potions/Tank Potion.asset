@@ -49,7 +49,7 @@ MonoBehaviour:
       Data: 10
     - Name: $v
       Entry: 3
-      Data: 20
+      Data: 10
     - Name: 
       Entry: 8
       Data: 
@@ -63,4 +63,4 @@ MonoBehaviour:
   itemType: 2
   potionName: Tank Potion
   combatOnly: 1
-  potionDescription: Gain 20 Block
+  potionDescription: Gain 10 Block

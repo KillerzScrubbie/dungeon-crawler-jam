@@ -117,8 +117,8 @@ MonoBehaviour:
   actionName1: Bonk
   itemDescription1: Deals 15 damage
   manaCost1: 4
-  actionCost1: 1
+  actionCost1: 2
   actionName2: Seismic Slam
   itemDescription2: Deals 6 damage. Gain 2 Block. Heal 2 HP.
-  manaCost2: 4
-  actionCost2: 1
+  manaCost2: 3
+  actionCost2: 2

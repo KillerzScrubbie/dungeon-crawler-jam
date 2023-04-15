@@ -104,9 +104,9 @@ MonoBehaviour:
   itemIcon: {fileID: 21300000, guid: b59360f98877b9a40ace8824851bc2da, type: 3}
   actionName1: Double Tap
   itemDescription1: Deals 5 damage twice.
-  manaCost1: 4
+  manaCost1: 3
   actionCost1: 1
   actionName2: Spray and Pray
   itemDescription2: Deals 4 damage to all enemies.
-  manaCost2: 1
+  manaCost2: 2
   actionCost2: 1

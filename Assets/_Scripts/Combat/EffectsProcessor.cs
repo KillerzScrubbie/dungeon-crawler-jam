@@ -72,7 +72,6 @@ public class EffectsProcessor : MonoBehaviour
             }
         }
 
-        Debug.Log(damageDone);
         if (!effectList.ContainsKey(EEffectTypes.DamageToBlock)) { return; } // Give block after calculating dmg dealt.
 
         AudioManager.instance?.PlayRandomPitch("playerGetBlock", .6f, 2.2f);

@@ -152,14 +152,25 @@ public class InventoryUI : SerializedMonoBehaviour
         CancelSwapOperation();
         inventoryPanel.SetActive(!inventoryStatus);
 
-        if (inventoryPanel.activeSelf) AudioManager.instance?.PlayRandomPitch("invenOpen", .7f, 1.5f);
-        else AudioManager.instance?.PlayRandomPitch("invenClose", .7f, 1.5f);
+        if (!inventoryStatus)
+        {
+            AudioManager.instance?.PlayRandomPitch("invenOpen", .7f, 1.5f);
+        }
+        else
+        {
+            AudioManager.instance?.PlayRandomPitch("invenClose", .7f, 1.5f);
+            chestPanel.SetActive(false);
+            CloseChest(false);
+            HideToolTip();
+        }     
+    }
 
-
-        if (!inventoryStatus) { return; }
-
-        chestPanel.SetActive(false);
-        CloseChest(false);
+    private void HideToolTip()
+    {
+        if (ToolTipSystem.current != null)
+        {
+            ToolTipSystem.Hide();
+        }
     }
 
     private void CancelSwapOperation()

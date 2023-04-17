@@ -3,6 +3,7 @@ using UnityEngine;
 public class PauseManager : MonoBehaviour
 {
     [SerializeField] private GameObject pauseCanvas;
+    [SerializeField] private GameObject optionsPanel;
 
     private bool isPaused = false;
 
@@ -48,7 +49,9 @@ public class PauseManager : MonoBehaviour
 
     public void Resume()
     {
+        optionsPanel.SetActive(false);
         pauseCanvas.SetActive(false);
+
         Time.timeScale = 1f;
         controller.EnableMovement();
 

@@ -161,7 +161,7 @@ public class PlayerMovement : MonoBehaviour
         transform.DOMove(targetGridPos, duration).OnComplete(() =>
         {
             TryFalling(duration);
-            AudioManager.instance?.PlayOneRandomPitch("walk", 0.85f, 1.2f);
+            AudioManager.instance?.PlayOneRandomPitch("walk", 0.85f, 5f);
         }
         );
     }

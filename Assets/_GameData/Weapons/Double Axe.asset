@@ -89,7 +89,7 @@ MonoBehaviour:
       Data: 10
     - Name: $v
       Entry: 3
-      Data: 3
+      Data: 2
     - Name: 
       Entry: 8
       Data: 
@@ -115,7 +115,7 @@ MonoBehaviour:
   itemName: Double Axe
   itemIcon: {fileID: 21300000, guid: 83f747d9576cf3c4ea3fea4611c736d2, type: 3}
   actionName1: Twin Chop
-  itemDescription1: Deals 4 damage random enemies twice.
+  itemDescription1: Deals 4 damage to random enemies twice.
   manaCost1: 2
   actionCost1: 1
   actionName2: Flying Axe

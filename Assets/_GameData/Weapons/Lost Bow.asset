@@ -120,5 +120,5 @@ MonoBehaviour:
   actionCost1: 3
   actionName2: Arrows Barrage
   itemDescription2: Deals 1 damage to random enemies 5 times.
-  manaCost2: 3
+  manaCost2: 4
   actionCost2: 2

@@ -1004,8 +1004,8 @@ MonoBehaviour:
   combatManager: {fileID: 3756414035694633603}
   victoryText: {fileID: 8699088193879513089}
   victoryBackground: {fileID: 1639799538535766240}
-  fadeInTime: 1.5
-  timeBeforeChange: 2
+  fadeInTime: 1
+  timeBeforeChange: 1.5
 --- !u!1 &6808912628164472866
 GameObject:
   m_ObjectHideFlags: 0

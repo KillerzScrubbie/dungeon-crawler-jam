@@ -46,6 +46,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseCanvas: {fileID: 2821437054731346193}
+  optionsPanel: {fileID: 1455184202682556624}
 --- !u!1001 &5043277375996200292
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -226,17 +227,17 @@ PrefabInstance:
     - target: {fileID: 5751470144620441660, guid: 7b28031c047efc8499f79fa35096a41d,
         type: 3}
       propertyPath: m_LocalPosition.x
-      value: -1037.922
+      value: -995.3731
       objectReference: {fileID: 0}
     - target: {fileID: 5751470144620441660, guid: 7b28031c047efc8499f79fa35096a41d,
         type: 3}
       propertyPath: m_LocalPosition.y
-      value: -537.89606
+      value: -539.03284
       objectReference: {fileID: 0}
     - target: {fileID: 5751470144620441660, guid: 7b28031c047efc8499f79fa35096a41d,
         type: 3}
       propertyPath: m_LocalPosition.z
-      value: -253.87012
+      value: -116.704475
       objectReference: {fileID: 0}
     - target: {fileID: 5751470144620441660, guid: 7b28031c047efc8499f79fa35096a41d,
         type: 3}
@@ -970,6 +971,12 @@ PrefabInstance:
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 7b28031c047efc8499f79fa35096a41d, type: 3}
+--- !u!1 &1455184202682556624 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 5894235954455242164, guid: 7b28031c047efc8499f79fa35096a41d,
+    type: 3}
+  m_PrefabInstance: {fileID: 5043277375996200292}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1 &2821437054731346193 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 7123164094330725493, guid: 7b28031c047efc8499f79fa35096a41d,

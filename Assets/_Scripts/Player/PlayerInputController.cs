@@ -124,6 +124,7 @@ public class PlayerInputController : MonoBehaviour
 
     public void EnableMovement()
     {
+        playerInputMap.Enable();
         playerInputMap.Player.Enable();
     }
 
@@ -147,6 +148,7 @@ public class PlayerInputController : MonoBehaviour
         switch (state)
         {
             case CombatState.Dead:
+            case CombatState.Victory:
                 playerInputMap.Disable();
                 break;
             default:

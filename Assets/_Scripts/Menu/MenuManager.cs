@@ -5,16 +5,20 @@ public enum EMenu
 {
     Normal = 0,
     Option = 1,
-    Credit = 2
+    Credit = 2,
+    HowToPlay = 3,
+    Updates = 4,
 }
 
 public class MenuManager : MonoBehaviour
 {
-    [SerializeField] GameObject _mainMenu;
-    [SerializeField] GameObject _option;
-    [SerializeField] GameObject _credit;
+    [SerializeField] private GameObject _mainMenu;
+    [SerializeField] private GameObject _option;
+    [SerializeField] private GameObject _credit;
+    [SerializeField] private GameObject _howToPlay;
+    [SerializeField] private GameObject _updates;
 
-    void Start()
+    private void Start()
     {
         OpenMenu(0);
     }
@@ -34,14 +38,22 @@ public class MenuManager : MonoBehaviour
             case EMenu.Credit:
                 _credit.SetActive(true);
                 break;
+            case EMenu.HowToPlay:
+                _howToPlay.SetActive(true);
+                break;
+            case EMenu.Updates:
+                _updates.SetActive(true);
+                break;
         }
     }
 
-    void DisableAllMenu()
+    private void DisableAllMenu()
     {
         _option.SetActive(false);
         _credit.SetActive(false);
         _mainMenu.SetActive(false);
+        _howToPlay.SetActive(false);
+        _updates.SetActive(false);
     }
 
 }

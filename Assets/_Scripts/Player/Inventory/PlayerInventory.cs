@@ -6,6 +6,8 @@ public class PlayerInventory : MonoBehaviour
     [SerializeField] private InventoryUI inventoryUI;
 
     private Inventory inventory;
+    public Inventory GetInventory() => inventory;
+    public InventoryUI GetUI() => inventoryUI;
 
     private void Awake()
     {
@@ -15,7 +17,7 @@ public class PlayerInventory : MonoBehaviour
         {
             inventory.AddItem(item);
         }*/
-        
+
         inventoryUI.SetInventory(inventory);
     }
 }

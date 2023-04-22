@@ -46,6 +46,8 @@ public class DamagePopupManager : MonoBehaviour
         PlayerBlock.OnUseBlockValue -= DoPlayerTakeBlockDamage;
     }
 
+
+
     private void DoPopupPlayerHeal(int healVal)
     {
         TMP_Text dmgPopupTrans = Instantiate(_dmgPlayerPrefab, _PlayerHpTrans);

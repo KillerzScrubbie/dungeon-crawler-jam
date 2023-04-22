@@ -13,11 +13,37 @@ public class DamagePopup : MonoBehaviour
     [SerializeField] float _popupScaleAfter = 0.95f;
     [SerializeField] Vector3 _finishPosition;
     [SerializeField] Ease _easeType;
+    Sequence _tweenSequence;
 
 
-    void Start()
+    void OnEnable()
     {
-        DoPopAnimation();
+        CombatManager.OnCombatStateChanged += FixVictoryScene;
+    }
+    void OnDisable()
+    {
+        CombatManager.OnCombatStateChanged -= FixVictoryScene;
+    }
+
+    private void FixVictoryScene(CombatState state)
+    {
+        switch (state)
+        {
+            case CombatState.StartCombat:
+                break;
+            case CombatState.PlayerTurn:
+                break;
+            case CombatState.EnemyTurn:
+                break;
+            case CombatState.Dead:
+                break;
+            case CombatState.NotInCombat:
+                break; ;
+            case CombatState.Victory:
+                _tweenSequence.Kill();
+                Destroy(gameObject);
+                break;
+        }
     }
 
     public void SetupSO(SOnumberPopup soData)
@@ -30,6 +56,9 @@ public class DamagePopup : MonoBehaviour
         _popupScaleAfter = soData.popupScaleAfter;
         _finishPosition = soData.finishPosition;
         _easeType = soData.easeType;
+
+        _tweenSequence = DOTween.Sequence();
+        DoPopAnimation();
     }
 
     public virtual void DoPopAnimation()
@@ -37,13 +66,12 @@ public class DamagePopup : MonoBehaviour
         _rect.localPosition = Vector3.zero;
         _rect.DOScale(_popupScale, _maxLifeDuration * .2f);
 
-        var sequence = DOTween.Sequence();
-        sequence.Append(_rect.DOShakePosition(_maxLifeDuration * .2f, 10)).SetEase(_easeType);
-        sequence.Append(_rect.DOLocalMove(_finishPosition, _maxLifeDuration * .6f)).SetEase(_easeType);
-        sequence.Append(_rect.DOScale(_popupScaleAfter, _maxLifeDuration * .2f)).SetEase(_easeType);
-        sequence.Append(_txtScpt.DOFade(0, _maxLifeDuration * .3f)).SetEase(_easeType);
+        _tweenSequence.Append(_rect.DOShakePosition(_maxLifeDuration * .2f, 10)).SetEase(_easeType);
+        _tweenSequence.Append(_rect.DOLocalMove(_finishPosition, _maxLifeDuration * .6f)).SetEase(_easeType);
+        _tweenSequence.Append(_rect.DOScale(_popupScaleAfter, _maxLifeDuration * .2f)).SetEase(_easeType);
+        _tweenSequence.Append(_txtScpt.DOFade(0, _maxLifeDuration * .3f)).SetEase(_easeType);
 
-        sequence.OnComplete(() =>
+        _tweenSequence.OnComplete(() =>
         {
             Destroy(gameObject);
         });

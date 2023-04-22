@@ -12,9 +12,14 @@ public class Inventory
     public event Action OnPotionUpdated;
     public event Action OnEquippedUpdated;
 
+    public static event Action<string> OnInventoryFull;
+
     private readonly int maxItemSlots = 4;
     private readonly int maxPotionSlots = 2;
     private readonly int maxEquippedSlots = 4;
+
+    private readonly string inventoryFullMessage = "Inventory Full!";
+    private readonly string potionsFullMessage = "Potions Full!";
 
     public Inventory()
     {
@@ -37,7 +42,7 @@ public class Inventory
 
         if (itemSlot > maxItemSlots - 1)
         {
-            Debug.Log("Inventory Full");
+            OnInventoryFull?.Invoke(inventoryFullMessage);
             return false;
         }
 
@@ -192,7 +197,7 @@ public class Inventory
 
         if (potionSlot > maxPotionSlots - 1)
         {
-            Debug.Log("Potions Full");
+            OnInventoryFull?.Invoke(potionsFullMessage);
             return false;
         }
 

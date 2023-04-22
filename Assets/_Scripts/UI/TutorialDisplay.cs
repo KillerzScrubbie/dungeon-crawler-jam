@@ -15,16 +15,17 @@ public class TutorialDisplay : MonoBehaviour
     private void Start()
     {
         TutorialTrigger.OnTutorialStarted += DisplayTutorial;
+        HideTutorial.OnTutorialCompleted += HideTutorialDisplay;
     }
 
     private void DisplayTutorial(ObjTutorial tutorial)
     {
         SetupTutorial(tutorial);
-        tutorialBackground.DOFade(1f, fadeInDuartion).SetEase(Ease.Linear);
     }
 
     private void SetupTutorial(ObjTutorial tutorial)
     {
+        KillTweens();
         string[] texts = tutorial.GetTexts();
         Sprite[] keybindImages = tutorial.GetKeybinds();
 
@@ -42,21 +43,34 @@ public class TutorialDisplay : MonoBehaviour
 
             currentImage.sprite = keybindImages[i];
             currentImage.gameObject.SetActive(true);
-            currentImage.DOFade(1f, fadeInDuartion);
+            currentImage.DOFade(1f, fadeInDuartion).SetEase(Ease.OutCubic);
 
         TextDisplay:
             if (texts[i] == "") { continue; }
 
             currentText.text = texts[i];
             currentText.gameObject.SetActive(true);
-            currentText.DOFade(1f, fadeInDuartion);
+            currentText.DOFade(1f, fadeInDuartion).SetEase(Ease.OutCubic);
         }
 
         tutorialBackground.DOFade(0f, 0f);
         tutorialBackground.gameObject.SetActive(true);
+
+        tutorialBackground.DOFade(0.5f, fadeInDuartion).SetEase(Ease.OutCubic);
     }
 
-    private void OnDestroy()
+    private void HideTutorialDisplay()
+    {
+        for (int i = 0; i < keybinds.Count; i++)
+        {
+            keybinds[i].DOFade(0f, fadeOutDuration);
+            tutorialTexts[i].DOFade(0f, fadeOutDuration);
+        }
+
+        tutorialBackground.DOFade(0f, fadeOutDuration).OnComplete(() => tutorialBackground.gameObject.SetActive(false));
+    }
+
+    private void KillTweens()
     {
         foreach (var item in keybinds)
         {
@@ -69,6 +83,12 @@ public class TutorialDisplay : MonoBehaviour
         }
 
         DOTween.Kill(tutorialBackground);
+    }
+
+    private void OnDestroy()
+    {
+        KillTweens();
         TutorialTrigger.OnTutorialStarted -= DisplayTutorial;
+        HideTutorial.OnTutorialCompleted -= HideTutorialDisplay;
     }
 }

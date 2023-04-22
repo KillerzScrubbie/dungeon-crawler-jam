@@ -15,4 +15,4 @@ MonoBehaviour:
   textBeforeKeybind: 
   keybind1: {fileID: 21300000, guid: 9ff5acc6426f9274589fbfad67149016, type: 3}
   keybind2: {fileID: 21300000, guid: 9cbf64c68b62a9b4b83313c70ba770d8, type: 3}
-  textAfterKeybind: Turn left / right
+  textAfterKeybind: ' Turn left / right'

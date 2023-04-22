@@ -15,4 +15,4 @@ MonoBehaviour:
   textBeforeKeybind: 
   keybind1: {fileID: 21300000, guid: df8eec8a6f0dd40499bf2ca23d3c548e, type: 3}
   keybind2: {fileID: 0}
-  textAfterKeybind: Time Leap
+  textAfterKeybind: ' Time Leap'

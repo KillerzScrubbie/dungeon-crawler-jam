@@ -5,8 +5,11 @@ using UnityEngine.UI;
 
 public class FadeOnEnabled : MonoBehaviour
 {
+    [SerializeField] private string blockedMessage;
+    [SerializeField] private string onCooldownMessage;
     [SerializeField] private TextMeshProUGUI warningText;
     [SerializeField] private Image warningBackground;
+    [SerializeField] private ContentSizeFitter contentSizeFitter;
     [SerializeField] private float popupDuration = 5f;
     [SerializeField] private float fadeDuration = 2f;
 
@@ -16,6 +19,7 @@ public class FadeOnEnabled : MonoBehaviour
     private void Start()
     {
         PlayerMovement.OnDimensionJumpBlocked += HandleDimensionBlocked;
+        PlayerMovement.OnDimensionJumpOnCooldown += HandleOnCooldown;
         Setup();
     }
 
@@ -25,6 +29,23 @@ public class FadeOnEnabled : MonoBehaviour
     }
 
     private void HandleDimensionBlocked()
+    {
+        SetText(blockedMessage);
+        DisplayMessage();
+    }
+
+    private void HandleOnCooldown()
+    {
+        SetText(onCooldownMessage);
+        DisplayMessage();
+    }
+
+    private void SetText(string text)
+    {
+        warningText.text = text;
+    }
+
+    private void DisplayMessage()
     {
         SetWarningActive(true);
         KillTweens();
@@ -54,6 +75,7 @@ public class FadeOnEnabled : MonoBehaviour
     private void OnDestroy()
     {
         KillTweens();
+        PlayerMovement.OnDimensionJumpOnCooldown -= HandleOnCooldown;
         PlayerMovement.OnDimensionJumpBlocked -= HandleDimensionBlocked;
     }
 }

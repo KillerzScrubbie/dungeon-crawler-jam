@@ -3,6 +3,7 @@ using DG.Tweening;
 using System.Collections.Generic;
 using System.Collections;
 using System;
+using UnityEngine.UIElements;
 
 [RequireComponent(typeof(PlayerInputController))]
 public class PlayerMovement : MonoBehaviour
@@ -26,14 +27,17 @@ public class PlayerMovement : MonoBehaviour
     public static event Action OnCombatEntered;
     public static event Action OnBossEntered;
     public static event Action OnDimensionJumpBlocked;
-    public static event Action OnDimensionJumpSuccess;
+    public static event Action OnDimensionJumpOnCooldown;
+    public static event Action<float> OnDimensionJumpSuccess;
     public static event Action<float> OnTurned;
+    public static event Action<bool> OnDimensionJumpChecked;
 
     private Queue<EMovementTypes> inputQueue = new();
 
     private PlayerInputController controller;
 
     private Vector3 targetGridPos;
+    private Vector3 targetGridDimensionPos;
     private RaycastHit hit;
 
     private bool isMoving = false;
@@ -44,6 +48,7 @@ public class PlayerMovement : MonoBehaviour
 
     private float playerOffset = 0f;
     private bool canDimensionJump = true;
+    private bool isDimensionTargetBlocked = true;
 
     private void Awake()
     {
@@ -58,6 +63,8 @@ public class PlayerMovement : MonoBehaviour
 
         playerOffset = transform.position.y;
         SetGridPos(transform.position);
+
+        CheckForCollisionInDimension();
     }
 
     private void DisableMovement()
@@ -174,10 +181,17 @@ public class PlayerMovement : MonoBehaviour
             float fallDuration = Mathf.RoundToInt(targetGridPos.y - groundHeight) * duration * 0.5f;
 
             targetGridPos.y = Mathf.RoundToInt(hit.point.y) + playerOffset;
-            transform.DOMove(targetGridPos, fallDuration).SetEase(Ease.InQuad).OnComplete(() => LockMovement(false));
+            transform.DOMove(targetGridPos, fallDuration).SetEase(Ease.InQuad).OnComplete(() =>
+            {
+                CheckForCollisionInDimension();
+                LockMovement(false);
+                AudioManager.instance?.PlayOneRandomPitch("fall");
+            }
+            );
         }
         else
         {
+            CheckForCollisionInDimension();
             LockMovement(false);
         }
     }
@@ -187,9 +201,21 @@ public class PlayerMovement : MonoBehaviour
         return Physics.Raycast(transform.position, direction, gridSize, obstacleLayers);
     }
 
-    private bool CheckForCollisionInDimension(Vector3 position)
+    private bool CheckForCollisionInDimension()
     {
-        return Physics.OverlapSphere(position, 0f, groundLayers).Length != 0;
+        targetGridDimensionPos = isMainDimension ?
+            transform.position + Vector3.down * dimensionOffset :
+            transform.position + Vector3.up * dimensionOffset;
+
+        isDimensionTargetBlocked = Physics.OverlapSphere(targetGridDimensionPos, 0f, groundLayers).Length != 0;
+        OnDimensionJumpChecked(isDimensionTargetBlocked);
+
+        if (isDimensionTargetBlocked)
+        {
+            return false;
+        }
+
+        return true;
     }
 
     private bool CheckForStairs(Vector3 direction, LayerMask layers)
@@ -245,6 +271,8 @@ public class PlayerMovement : MonoBehaviour
         if (!canDimensionJump)
         {
             LockMovement(false);
+            OnDimensionJumpOnCooldown?.Invoke();
+            AudioManager.instance?.Play("teleportFail");
             return;
         }
 
@@ -252,7 +280,7 @@ public class PlayerMovement : MonoBehaviour
             transform.position + Vector3.down * dimensionOffset :
             transform.position + Vector3.up * dimensionOffset;
 
-        if (CheckForCollisionInDimension(targetGridDimensionPos))
+        if (isDimensionTargetBlocked)
         {
             LockMovement(false);
             OnDimensionJumpBlocked?.Invoke();
@@ -266,8 +294,8 @@ public class PlayerMovement : MonoBehaviour
         SetGridPos(targetGridDimensionPos);
 
         transform.DOMove(targetGridPos, 0f).OnComplete(() => OnSuccessfulTeleport(duration));
-        OnDimensionJumpSuccess?.Invoke();
-        StartCoroutine(StartDimentionalJumpCooldown());
+        OnDimensionJumpSuccess?.Invoke(jumpCooldownTime);
+        StartCoroutine(StartDimensionalJumpCooldown());
 
         AudioManager.instance?.Play("teleportSuccess");
     }
@@ -278,7 +306,7 @@ public class PlayerMovement : MonoBehaviour
         isTeleporting = false;
     }
 
-    IEnumerator StartDimentionalJumpCooldown()
+    IEnumerator StartDimensionalJumpCooldown()
     {
         canDimensionJump = false;
         yield return new WaitForSeconds(jumpCooldownTime);

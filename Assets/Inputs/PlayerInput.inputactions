@@ -293,6 +293,17 @@
                 },
                 {
                     "name": "",
+                    "id": "9e0bb77a-21b0-4513-9d98-024c0fefecb5",
+                    "path": "<Keyboard>/tab",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Inventory",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                },
+                {
+                    "name": "",
                     "id": "c1d04b0a-b384-4e6d-82c4-01e33005b662",
                     "path": "<Keyboard>/w",
                     "interactions": "",

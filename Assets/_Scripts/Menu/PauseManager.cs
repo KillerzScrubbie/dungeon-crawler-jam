@@ -6,6 +6,7 @@ public class PauseManager : MonoBehaviour
     [SerializeField] private GameObject optionsPanel;
 
     private bool isPaused = false;
+    private bool isInCombat = false;
 
     private PlayerInputController controller;
 
@@ -17,6 +18,7 @@ public class PauseManager : MonoBehaviour
     private void Start()
     {
         PlayerInputController.OnPause += HandlePause;
+        CombatManager.OnCombatStateChanged += HandleCombatState;
     }
 
     private void OnApplicationFocus(bool focus)
@@ -38,28 +40,45 @@ public class PauseManager : MonoBehaviour
         }
     }
 
+    private void HandleCombatState(CombatState state)
+    {
+        switch (state)
+        {
+            case CombatState.StartCombat:
+                isInCombat = true;
+                break;
+            case CombatState.NotInCombat:
+                isInCombat = false; 
+                break;
+        }
+    }
+
     private void Pause()
     {
         pauseCanvas.SetActive(true);
-        Time.timeScale = 0f;
-        controller.DisableMovement();
-
         isPaused = !isPaused;
+
+        if (isInCombat) { return; }
+
+        Time.timeScale = 0f;
+        controller.DisableMovement();  
     }
 
     public void Resume()
     {
         optionsPanel.SetActive(false);
         pauseCanvas.SetActive(false);
+        isPaused = !isPaused;
+
+        if (isInCombat) { return; }
 
         Time.timeScale = 1f;
-        controller.EnableMovement();
-
-        isPaused = !isPaused;
+        controller.EnableMovement(); 
     }
 
     private void OnDestroy()
     {
         PlayerInputController.OnPause -= HandlePause;
+        CombatManager.OnCombatStateChanged -= HandleCombatState;
     }
 }

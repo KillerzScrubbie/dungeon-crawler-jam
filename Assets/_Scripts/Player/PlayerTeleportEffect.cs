@@ -45,7 +45,7 @@ public class PlayerTeleportEffect : MonoBehaviour
         PlayerMovement.OnDimensionJumpSuccess -= PlayPlayerDimentionJumpEffect;
     }
 
-    private void PlayPlayerDimentionJumpEffect()
+    private void PlayPlayerDimentionJumpEffect(float cooldownDuration)
     {
         _dept.active = true;
         _grain.active = true;

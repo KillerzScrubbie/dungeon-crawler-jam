@@ -230,7 +230,7 @@ MonoBehaviour:
     PrefabModificationsReferencedUnityObjects: []
     PrefabModifications: []
     SerializationNodes: []
-  _maxHP: 30
+  _maxHP: 25
   _playerBlockScpt: {fileID: 5375004304718751218}
 --- !u!114 &1552048275668738523
 MonoBehaviour:

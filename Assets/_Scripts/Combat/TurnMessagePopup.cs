@@ -90,9 +90,9 @@ public class TurnMessagePopup : MonoBehaviour
     {
         var sequence = DOTween.Sequence();
 
-        sequence.Append(blackBar.DOFade(0.9f, fadeTime).SetEase(Ease.Linear));
+        sequence.Append(blackBar.DOFade(0.9f, fadeTime).SetEase(Ease.OutCirc));
         sequence.AppendInterval(sequenceDelay);
-        sequence.Append(blackBar.DOFade(0f, fadeTime).SetEase(Ease.Linear));
+        sequence.Append(blackBar.DOFade(0f, fadeTime).SetEase(Ease.OutCirc));
         sequence.AppendCallback(() => action());
     }
 
@@ -100,9 +100,9 @@ public class TurnMessagePopup : MonoBehaviour
     {
         var sequence = DOTween.Sequence();
 
-        sequence.Append(text.DOFade(1f, fadeTime).SetEase(Ease.Linear));
+        sequence.Append(text.DOFade(1f, fadeTime).SetEase(Ease.OutCirc));
         sequence.AppendInterval(sequenceDelay);
-        sequence.Append(text.DOFade(0f, fadeTime).SetEase(Ease.Linear));
+        sequence.Append(text.DOFade(0f, fadeTime).SetEase(Ease.OutCirc));
     }
 
     private void OnDestroy()

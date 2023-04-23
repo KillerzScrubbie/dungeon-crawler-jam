@@ -88,7 +88,7 @@ MonoBehaviour:
       Entry: 8
       Data: 
   image: {fileID: 21300000, guid: c500f190f3b8e6647ad81ba14b8b03f2, type: 3}
-  enemyName: Rattar
+  enemyName: Corrupt Rat
   maxHealth: 15
   minSpeed: 0.3
   maxSpeed: 0.8

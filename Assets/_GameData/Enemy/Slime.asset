@@ -49,7 +49,7 @@ MonoBehaviour:
       Data: 0
     - Name: $v
       Entry: 3
-      Data: 2
+      Data: 4
     - Name: 
       Entry: 8
       Data: 
@@ -101,6 +101,6 @@ MonoBehaviour:
       Data: 
   image: {fileID: 21300000, guid: 8b45c8873bd6be84f86218b734d19d7d, type: 3}
   enemyName: Egg Slime
-  maxHealth: 12
+  maxHealth: 14
   minSpeed: 0.1
   maxSpeed: 0.4

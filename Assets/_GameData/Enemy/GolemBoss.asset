@@ -49,7 +49,7 @@ MonoBehaviour:
       Data: 0
     - Name: $v
       Entry: 3
-      Data: 5
+      Data: 6
     - Name: 
       Entry: 8
       Data: 
@@ -89,7 +89,7 @@ MonoBehaviour:
       Data: 0
     - Name: $v
       Entry: 3
-      Data: 8
+      Data: 10
     - Name: 
       Entry: 8
       Data: 
@@ -101,6 +101,6 @@ MonoBehaviour:
       Data: 
   image: {fileID: 21300000, guid: 1bb85e754a1454b4f999e5c3da9be0f2, type: 3}
   enemyName: Infinity Golem
-  maxHealth: 250
+  maxHealth: 200
   minSpeed: 0
   maxSpeed: 0

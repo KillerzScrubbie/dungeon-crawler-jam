@@ -16184,7 +16184,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: v1.0.1 (22-4-2023)
+  m_text: v1.0.1 (23-4-2023)
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 317455a7561059a48a1e636d66c6804f, type: 2}
   m_sharedMaterial: {fileID: -4027727187867435191, guid: 317455a7561059a48a1e636d66c6804f,
@@ -20225,38 +20225,30 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: 'Fixed this bug
-
-    Fixed that bug
-
-    Fixed other bug
-
-    Fixed something
-    that is quite long ahahahhahahahahahhhh hhhhhhhhhh hhh hhh hhh hh
-
-    content
-
-    content
-
-    content
-
-    content
-
-    content
-
-    a
-
-    content
-
-    content
-
-    content
-
-    content
-
-    content
-
-    b'
+  m_text: "<b>QOL Update\r</b>\n- Added Tutorials.\n- Shorten combat length and wait
+    time.\r\n- Players can hold their movement keys to continuously walk.\r\n- Added
+    Combat Transitions to show whose turn it is.\r\n- Added Time Leap Indicator to
+    display on the screen when players can Time Leap.\r\n- Added Controls tab to
+    the menu when players need a revision on how to play.\r\n- Added Confirmation
+    menu when the player is trying to leave to the main menu from in-game.\r\n- Added
+    Torches to show some Time Leap locations.\r\n- Added damage popup in combats.\r\n\r\n<b>Gameplay
+    Changes\r</b>\n- The end is now reachable by the intended path.\r\n- Many weapons
+    and enemies balancing changes. The game should be substantially harder.\r\n-
+    Reduced player starting max HP from 30 to 25.\r\n- Added 1 more shiv to the starter
+    chest.\r\n- Added red filter when taking damage.\r\n- Changed Frost Staff from
+    \"2 Damage All and 6 Block\" -> \"2 Damage All, Gain Block equal to the damage
+    dealt\".\r\n\r\n<b>Bug Fixes\r</b>\n- Players can Time Leap out of bounds.\r\n-
+    The finish is unreachable.\r\n- Nature Essence's Pray Action cost was the other
+    way around.\r\n- Block carries over combats.\r\n- Players can sometimes walk
+    on one block gap.\r\n- Players can get stuck in a combat loop and fight the same
+    encounter.\r\n- FOV value shows 90 when first opening the Options panel.\r\n-
+    Starting combat while swapping items does not clear the swap operation.\r\n-
+    Closing inventory with a hotkey does not hide the tooltip.\r\n- Players can pause
+    on the victory screen.\r\n- Items that were not used are still selectable even
+    though mana and action costs are not enough to use any actions.\r\n- Gaining
+    Block and HP at the same time does not change the health bar color.\r\n- Players
+    can get into combat when Time Leaping into another dimension if an enemy is in
+    the path of teleportation."
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 317455a7561059a48a1e636d66c6804f, type: 2}
   m_sharedMaterial: {fileID: -4027727187867435191, guid: 317455a7561059a48a1e636d66c6804f,

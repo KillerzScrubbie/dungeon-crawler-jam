@@ -15,5 +15,4 @@ MonoBehaviour:
   enemyGroup:
   - {fileID: 11400000, guid: 9e74aac5df881c7448341bfdb90b1e6c, type: 2}
   - {fileID: 11400000, guid: 9e74aac5df881c7448341bfdb90b1e6c, type: 2}
-  - {fileID: 11400000, guid: 9e74aac5df881c7448341bfdb90b1e6c, type: 2}
   boss: 0

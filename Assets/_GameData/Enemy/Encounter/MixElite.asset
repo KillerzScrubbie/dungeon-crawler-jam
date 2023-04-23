@@ -14,6 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   enemyGroup:
   - {fileID: 11400000, guid: 190f0a9cbdceb5c4d8e4aed2a0bfa6dd, type: 2}
-  - {fileID: 11400000, guid: 190f0a9cbdceb5c4d8e4aed2a0bfa6dd, type: 2}
-  - {fileID: 11400000, guid: 7b356750d8bb983488bd11690a09055b, type: 2}
-  - {fileID: 11400000, guid: 6a9df9dbf29ee494d80ed083be1dd218, type: 2}
+  - {fileID: 11400000, guid: 9e74aac5df881c7448341bfdb90b1e6c, type: 2}
+  - {fileID: 11400000, guid: 3777ef66200f2764384794601030b529, type: 2}
+  boss: 0

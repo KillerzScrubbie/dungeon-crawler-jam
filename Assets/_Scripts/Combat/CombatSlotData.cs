@@ -241,6 +241,8 @@ public class CombatSlotData : MonoBehaviour, IPointerEnterHandler, IPointerDownH
     {
         if (actionUsed) { return; }
 
+        if (currentEnergy < minEnergy || currentMana < minMana) { return; }
+
         ProcessClick();
     }
 

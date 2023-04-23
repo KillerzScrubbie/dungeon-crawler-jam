@@ -208,7 +208,7 @@ public class PlayerMovement : MonoBehaviour
             transform.position + Vector3.up * dimensionOffset;
 
         isDimensionTargetBlocked = Physics.OverlapSphere(targetGridDimensionPos, 0f, groundLayers).Length != 0;
-        OnDimensionJumpChecked(isDimensionTargetBlocked);
+        OnDimensionJumpChecked?.Invoke(isDimensionTargetBlocked);
 
         if (isDimensionTargetBlocked)
         {

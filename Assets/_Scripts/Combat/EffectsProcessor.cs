@@ -27,6 +27,7 @@ public class EffectsProcessor : MonoBehaviour
             {
                 case EEffectTypes.DamageInstances:
                 case EEffectTypes.DamageToBlock:
+                case EEffectTypes.Heal:
                     break;
 
                 case EEffectTypes.DamageSingle:
@@ -53,13 +54,7 @@ public class EffectsProcessor : MonoBehaviour
                     AudioManager.instance?.PlayRandomPitch("playerGetBlock", .6f, 2.2f);
 
                     OnBlockGained?.Invoke(effectList[EEffectTypes.Block]);
-                    break;
-
-                case EEffectTypes.Heal:
-
-                    AudioManager.instance?.PlayRandomPitch("playerGetHeal", .6f, 2.2f);
-                    OnHealed?.Invoke(effectList[EEffectTypes.Heal]);
-                    break;
+                    break;  
 
                 case EEffectTypes.ManaThisTurn:
                     AudioManager.instance?.PlayRandomPitch("playerGetMana", .6f, 2.2f);
@@ -72,6 +67,20 @@ public class EffectsProcessor : MonoBehaviour
             }
         }
 
+        ProcessDamageToBlock(effectList, damageDone);
+        ProcessHealing(effectList);
+    }
+
+    private void ProcessHealing(Dictionary<EEffectTypes, int> effectList)
+    {
+        if (!effectList.ContainsKey(EEffectTypes.Heal)) { return; }
+
+        AudioManager.instance?.PlayRandomPitch("playerGetHeal", .6f, 2.2f);
+        OnHealed?.Invoke(effectList[EEffectTypes.Heal]);
+    }
+
+    private void ProcessDamageToBlock(Dictionary<EEffectTypes, int> effectList, int damageDone)
+    {
         if (!effectList.ContainsKey(EEffectTypes.DamageToBlock)) { return; } // Give block after calculating dmg dealt.
 
         AudioManager.instance?.PlayRandomPitch("playerGetBlock", .6f, 2.2f);

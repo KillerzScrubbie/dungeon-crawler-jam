@@ -4,6 +4,7 @@ public class PauseManager : MonoBehaviour
 {
     [SerializeField] private GameObject pauseCanvas;
     [SerializeField] private GameObject optionsPanel;
+    [SerializeField] private GameObject confirmQuitPanel;
 
     private bool isPaused = false;
     private bool isInCombat = false;
@@ -68,6 +69,7 @@ public class PauseManager : MonoBehaviour
     {
         optionsPanel.SetActive(false);
         pauseCanvas.SetActive(false);
+        confirmQuitPanel.SetActive(false);
         isPaused = !isPaused;
 
         if (isInCombat) { return; }

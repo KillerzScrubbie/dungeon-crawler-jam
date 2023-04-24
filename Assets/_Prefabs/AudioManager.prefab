@@ -55,11 +55,20 @@ MonoBehaviour:
     blend: 0
     loop: 1
     source: {fileID: 0}
+  - audioName: bg2
+    clip: {fileID: 8300000, guid: d026e4f586a806c4e9cf97e1da7110e9, type: 3}
+    mixerGroup: {fileID: 8426698837903981537, guid: e4133e5e7f34c4743be3fe0ab8e68812,
+      type: 2}
+    volume: 0.5
+    pitch: 1
+    blend: 0
+    loop: 1
+    source: {fileID: 0}
   - audioName: bgBattle
     clip: {fileID: 8300000, guid: fbf6b10e4aa99304d87cd7e8e48d533a, type: 3}
     mixerGroup: {fileID: 8426698837903981537, guid: e4133e5e7f34c4743be3fe0ab8e68812,
       type: 2}
-    volume: 0.75
+    volume: 0.5
     pitch: 1
     blend: 0
     loop: 1
@@ -68,7 +77,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: ca70935aa788d7040b0047d8911abba0, type: 3}
     mixerGroup: {fileID: 8426698837903981537, guid: e4133e5e7f34c4743be3fe0ab8e68812,
       type: 2}
-    volume: 0.75
+    volume: 0.5
     pitch: 1
     blend: 0
     loop: 1
@@ -262,24 +271,6 @@ MonoBehaviour:
     blend: 0
     loop: 0
     source: {fileID: 0}
-  - audioName: invenOpen
-    clip: {fileID: 8300000, guid: c4f552f9e4573634a9442ee0c95d0882, type: 3}
-    mixerGroup: {fileID: 8219120640885313815, guid: e4133e5e7f34c4743be3fe0ab8e68812,
-      type: 2}
-    volume: 1
-    pitch: 1
-    blend: 0
-    loop: 0
-    source: {fileID: 0}
-  - audioName: invenClose
-    clip: {fileID: 8300000, guid: 42a25ec21f27e1241ad2c21625de063b, type: 3}
-    mixerGroup: {fileID: 8219120640885313815, guid: e4133e5e7f34c4743be3fe0ab8e68812,
-      type: 2}
-    volume: 1
-    pitch: 1
-    blend: 0
-    loop: 0
-    source: {fileID: 0}
   - audioName: lever
     clip: {fileID: 8300000, guid: 8af651dee66d56a43b58289a9434a471, type: 3}
     mixerGroup: {fileID: 8219120640885313815, guid: e4133e5e7f34c4743be3fe0ab8e68812,
@@ -302,4 +293,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playName: bg1
+  playName2: bg2
   StopOtherMusic: 1

@@ -9,6 +9,7 @@ public class PlayerExplorationState : PlayerBaseState
     {
         AudioManager.instance.StopAllSound();
         AudioManager.instance?.Play("bg1");
+        AudioManager.instance?.Play("bg2");
 
         OnPlayerExplorationState?.Invoke();
     }

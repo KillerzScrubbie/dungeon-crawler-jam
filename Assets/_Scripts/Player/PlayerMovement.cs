@@ -31,6 +31,7 @@ public class PlayerMovement : MonoBehaviour
     public static event Action<float> OnDimensionJumpSuccess;
     public static event Action<float> OnTurned;
     public static event Action<bool> OnDimensionJumpChecked;
+    public static event Action<bool> OnDimensionJumpIsMainDimension;
 
     private Queue<EMovementTypes> inputQueue = new();
 
@@ -291,6 +292,7 @@ public class PlayerMovement : MonoBehaviour
         isTeleporting = true;
         float duration = smoothTransition ? moveDuration : 0f;
         isMainDimension = !isMainDimension;
+        OnDimensionJumpIsMainDimension?.Invoke(isMainDimension);
         SetGridPos(targetGridDimensionPos);
 
         transform.DOMove(targetGridPos, 0f).OnComplete(() => OnSuccessfulTeleport(duration));

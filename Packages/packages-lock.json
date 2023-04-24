@@ -12,9 +12,10 @@
       "depth": 0,
       "source": "git",
       "dependencies": {
-        "com.unity.textmeshpro": "3.0.6"
+        "com.unity.textmeshpro": "3.0.6",
+        "com.unity.editorcoroutines": "1.0.0"
       },
-      "hash": "441172207d4a97e06265ee5bf093685b31280ce6"
+      "hash": "d8dd96ed2586868f8866b7abdbd6c783b4e421f1"
     },
     "com.unity.2d.sprite": {
       "version": "1.0.0",

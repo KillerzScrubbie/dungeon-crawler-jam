@@ -211,12 +211,7 @@ public class PlayerMovement : MonoBehaviour
         isDimensionTargetBlocked = Physics.OverlapSphere(targetGridDimensionPos, 0f, groundLayers).Length != 0;
         OnDimensionJumpChecked?.Invoke(isDimensionTargetBlocked);
 
-        if (isDimensionTargetBlocked)
-        {
-            return false;
-        }
-
-        return true;
+        return !isDimensionTargetBlocked;
     }
 
     private bool CheckForStairs(Vector3 direction, LayerMask layers)
@@ -277,9 +272,9 @@ public class PlayerMovement : MonoBehaviour
             return;
         }
 
-        Vector3 targetGridDimensionPos = isMainDimension ?
+        /*targetGridDimensionPos = isMainDimension ?
             transform.position + Vector3.down * dimensionOffset :
-            transform.position + Vector3.up * dimensionOffset;
+            transform.position + Vector3.up * dimensionOffset;*/
 
         if (isDimensionTargetBlocked)
         {
@@ -319,7 +314,7 @@ public class PlayerMovement : MonoBehaviour
 
     private void SetGridPos(Vector3 position)
     {
-        targetGridPos = new Vector3(Mathf.RoundToInt(position.x), position.y, Mathf.RoundToInt(position.z));
+        targetGridPos = new Vector3(Mathf.RoundToInt(position.x), Mathf.FloorToInt(position.y) + playerOffset, Mathf.RoundToInt(position.z));
     }
 
     public void SetSmoothMovement(bool newMovementType)

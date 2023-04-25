@@ -50,7 +50,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 462c1cbccccf0c3409f7656e9490173b, type: 3}
     mixerGroup: {fileID: 8426698837903981537, guid: e4133e5e7f34c4743be3fe0ab8e68812,
       type: 2}
-    volume: 0.5
+    volume: 0.6
     pitch: 1
     blend: 0
     loop: 1
@@ -59,7 +59,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: d026e4f586a806c4e9cf97e1da7110e9, type: 3}
     mixerGroup: {fileID: 8426698837903981537, guid: e4133e5e7f34c4743be3fe0ab8e68812,
       type: 2}
-    volume: 0.5
+    volume: 0.6
     pitch: 1
     blend: 0
     loop: 1
@@ -293,5 +293,4 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   playName: bg1
-  playName2: bg2
   StopOtherMusic: 1

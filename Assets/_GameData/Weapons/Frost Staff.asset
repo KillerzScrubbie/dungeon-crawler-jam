@@ -104,7 +104,7 @@ MonoBehaviour:
   itemIcon: {fileID: 21300000, guid: 649900e0feaf6bb4f805f758867796c0, type: 3}
   actionName1: Cold Embrace
   itemDescription1: Deals 2 damage to all enemies. Gain Block equal to damage dealt.
-  manaCost1: 3
+  manaCost1: 5
   actionCost1: 2
   actionName2: Ice Ball
   itemDescription2: Deals 8 damage.

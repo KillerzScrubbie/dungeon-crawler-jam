@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 3749891274881555704}
   - component: {fileID: 3749891274881555705}
-  - component: {fileID: 989881808566818251}
   m_Layer: 0
   m_Name: AudioManager
   m_TagString: Untagged
@@ -64,6 +63,15 @@ MonoBehaviour:
     blend: 0
     loop: 1
     source: {fileID: 0}
+  - audioName: bgMenu
+    clip: {fileID: 8300000, guid: 5bfb5f1f18f65e24d804ce60dee1e514, type: 3}
+    mixerGroup: {fileID: 8426698837903981537, guid: e4133e5e7f34c4743be3fe0ab8e68812,
+      type: 2}
+    volume: 0.6
+    pitch: 1
+    blend: 0
+    loop: 1
+    source: {fileID: 0}
   - audioName: bgBattle
     clip: {fileID: 8300000, guid: fbf6b10e4aa99304d87cd7e8e48d533a, type: 3}
     mixerGroup: {fileID: 8426698837903981537, guid: e4133e5e7f34c4743be3fe0ab8e68812,
@@ -75,6 +83,15 @@ MonoBehaviour:
     source: {fileID: 0}
   - audioName: bgBoss
     clip: {fileID: 8300000, guid: ca70935aa788d7040b0047d8911abba0, type: 3}
+    mixerGroup: {fileID: 8426698837903981537, guid: e4133e5e7f34c4743be3fe0ab8e68812,
+      type: 2}
+    volume: 0.5
+    pitch: 1
+    blend: 0
+    loop: 1
+    source: {fileID: 0}
+  - audioName: bgAmb
+    clip: {fileID: 8300000, guid: 9a3e8e175241bb84eacace2597c2f1ca, type: 3}
     mixerGroup: {fileID: 8426698837903981537, guid: e4133e5e7f34c4743be3fe0ab8e68812,
       type: 2}
     volume: 0.5
@@ -280,17 +297,3 @@ MonoBehaviour:
     blend: 0
     loop: 0
     source: {fileID: 0}
---- !u!114 &989881808566818251
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3749891274881555710}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 77a8721dfa9e7d94d9e661f4be744ae4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  playName: bg1
-  StopOtherMusic: 1

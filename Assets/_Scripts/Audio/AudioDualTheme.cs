@@ -37,6 +37,7 @@ public class AudioDualTheme : MonoBehaviour
         AudioManager.instance.StopAllSound();
         AudioManager.instance?.Play("bg1");
         AudioManager.instance?.Play("bg2");
+        AudioManager.instance?.Play("bgAmb");
         SetThemePlayNowDimension(_lastDimensionIsMain);
     }
 

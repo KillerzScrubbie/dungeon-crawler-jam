@@ -22,12 +22,18 @@ public class AudioDualTheme : MonoBehaviour
         if (isMainDimension)
         {
             AudioManager.instance.ResetVolumeByName("bg1");
+            AudioManager.instance.ResetVolumeByName("bgAmbPast");
             AudioManager.instance.SetSourceVolumeByName("bg2", 0);
+            AudioManager.instance.SetSourceVolumeByName("bgAmbFuture", 0);
         }
         else
         {
-            AudioManager.instance.SetSourceVolumeByName("bg1", 0);
+
             AudioManager.instance.ResetVolumeByName("bg2");
+            AudioManager.instance.ResetVolumeByName("bgAmbFuture");
+            AudioManager.instance.SetSourceVolumeByName("bg1", 0);
+            AudioManager.instance.SetSourceVolumeByName("bgAmbPast", 0);
+
         }
 
     }

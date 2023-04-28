@@ -90,6 +90,7 @@ public class CombatManager : MonoBehaviour
     private void CombatFinished()
     {
         UpdateGameState(CombatState.Victory);
+        AudioManager.instance.StopAllSound();
         AudioManager.instance?.Play("winFight");
     }
 

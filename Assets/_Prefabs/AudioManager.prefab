@@ -90,8 +90,17 @@ MonoBehaviour:
     blend: 0
     loop: 1
     source: {fileID: 0}
-  - audioName: bgAmb
+  - audioName: bgAmbPast
     clip: {fileID: 8300000, guid: 9a3e8e175241bb84eacace2597c2f1ca, type: 3}
+    mixerGroup: {fileID: 8426698837903981537, guid: e4133e5e7f34c4743be3fe0ab8e68812,
+      type: 2}
+    volume: 0.5
+    pitch: 1
+    blend: 0
+    loop: 1
+    source: {fileID: 0}
+  - audioName: bgAmbFuture
+    clip: {fileID: 8300000, guid: 85e1252bd25d3904a87f3fca0694d350, type: 3}
     mixerGroup: {fileID: 8426698837903981537, guid: e4133e5e7f34c4743be3fe0ab8e68812,
       type: 2}
     volume: 0.5
@@ -290,6 +299,15 @@ MonoBehaviour:
     source: {fileID: 0}
   - audioName: lever
     clip: {fileID: 8300000, guid: 8af651dee66d56a43b58289a9434a471, type: 3}
+    mixerGroup: {fileID: 8219120640885313815, guid: e4133e5e7f34c4743be3fe0ab8e68812,
+      type: 2}
+    volume: 1
+    pitch: 1
+    blend: 0
+    loop: 0
+    source: {fileID: 0}
+  - audioName: winFight
+    clip: {fileID: 8300000, guid: da738e42170f88542add92881d18aac0, type: 3}
     mixerGroup: {fileID: 8219120640885313815, guid: e4133e5e7f34c4743be3fe0ab8e68812,
       type: 2}
     volume: 1

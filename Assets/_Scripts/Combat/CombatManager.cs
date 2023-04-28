@@ -90,6 +90,7 @@ public class CombatManager : MonoBehaviour
     private void CombatFinished()
     {
         UpdateGameState(CombatState.Victory);
+        AudioManager.instance?.Play("winFight");
     }
 
     private void IncrementTurn()
@@ -111,7 +112,7 @@ public class CombatManager : MonoBehaviour
             case CombatState.StartCombat:
                 HandleStartCombat();
                 break;
-            case CombatState.PlayerTurn:      
+            case CombatState.PlayerTurn:
                 break;
             case CombatState.EnemyTurn:
                 HandleEnemyTurn();

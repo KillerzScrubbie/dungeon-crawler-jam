@@ -172,7 +172,7 @@ MonoBehaviour:
     loop: 0
     source: {fileID: 0}
   - audioName: potionDrink
-    clip: {fileID: 8300000, guid: a9f9cd6df38be2142a35440b499fa3a3, type: 3}
+    clip: {fileID: 8300000, guid: 64153b0019fe7ae459527dcf9dff846c, type: 3}
     mixerGroup: {fileID: 8219120640885313815, guid: e4133e5e7f34c4743be3fe0ab8e68812,
       type: 2}
     volume: 1

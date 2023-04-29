@@ -315,3 +315,12 @@ MonoBehaviour:
     blend: 0
     loop: 0
     source: {fileID: 0}
+  - audioName: loseFight
+    clip: {fileID: 8300000, guid: ae2611a0c5d3d854ea1ceca7891fd150, type: 3}
+    mixerGroup: {fileID: 8219120640885313815, guid: e4133e5e7f34c4743be3fe0ab8e68812,
+      type: 2}
+    volume: 1
+    pitch: 1
+    blend: 0
+    loop: 0
+    source: {fileID: 0}

@@ -71,6 +71,8 @@ public class CombatManager : MonoBehaviour
     {
         UpdateGameState(CombatState.Dead);
         gameOverScreen.SetActive(true);
+
+        AudioManager.instance?.Play("loseFight");
     }
 
     private void Initialize()

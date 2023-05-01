@@ -23,6 +23,7 @@ public class InventoryUI : SerializedMonoBehaviour
 
     private Inventory inventory;
     private ChestLoot currentChest;
+    private EInventorySlot currentHoverSlot; // To check what the player is hovering on. Mainly for disabling chest tooltip
 
     public static event Action<ItemData, bool> OnSwapped;
 
@@ -40,6 +41,7 @@ public class InventoryUI : SerializedMonoBehaviour
         ItemData.OnPotionLooted += HandlePotionLooted;
         ItemData.OnPromptClicked += HandlePromptClicked;
         ItemData.OnItemSuccessSwapped += HandleItemSwapped;
+        ItemData.OnItemSlotHovered += HandleSlotHovered;
 
         CombatManager.OnCombatStateChanged += HandleCombatUI;
     }
@@ -100,6 +102,7 @@ public class InventoryUI : SerializedMonoBehaviour
         AudioManager.instance?.PlayRandomPitch("playerEquip", 0.75f, 1.5f);
         isSwapping = false;
         OnSwapped?.Invoke(null, isSwapping);
+        ShowItemTooltip(inventory.GetItemData(slot2, id2));
     }
 
     private void UsePotion(ItemData itemData)
@@ -144,6 +147,9 @@ public class InventoryUI : SerializedMonoBehaviour
 
         currentChest.CloseChest();
         currentChest = null;
+
+        if (currentHoverSlot != EInventorySlot.Chest) { return; }
+        HideToolTip();
     }
 
     private void HandleInventoryPopup()
@@ -163,6 +169,11 @@ public class InventoryUI : SerializedMonoBehaviour
             CloseChest(false);
             HideToolTip();
         }     
+    }
+
+    private void ShowItemTooltip(ObjItems item)
+    {
+        ToolTipSystem.Show(item.GetActionDescription(), item.Name);
     }
 
     private void HideToolTip()
@@ -377,6 +388,11 @@ public class InventoryUI : SerializedMonoBehaviour
         chestPanel.SetActive(false);
     }
 
+    private void HandleSlotHovered(EInventorySlot slotType)
+    {
+        currentHoverSlot = slotType;
+    }
+
     private void OnDestroy()
     {
         inventory.OnInventoryUpdated -= RefreshInventoryItems;
@@ -390,6 +406,7 @@ public class InventoryUI : SerializedMonoBehaviour
         ItemData.OnPotionLooted -= HandlePotionLooted;
         ItemData.OnPromptClicked -= HandlePromptClicked;
         ItemData.OnItemSuccessSwapped -= HandleItemSwapped;
+        ItemData.OnItemSlotHovered -= HandleSlotHovered;
 
         CombatManager.OnCombatStateChanged -= HandleCombatUI;
     }

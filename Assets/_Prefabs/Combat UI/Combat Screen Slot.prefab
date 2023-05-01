@@ -114,6 +114,9 @@ MonoBehaviour:
   colorDisable:
     serializedVersion: 2
     rgba: 4282663742
+  colorUnusable:
+    serializedVersion: 2
+    rgba: 4278519182
 --- !u!1 &2538107561044566528
 GameObject:
   m_ObjectHideFlags: 0

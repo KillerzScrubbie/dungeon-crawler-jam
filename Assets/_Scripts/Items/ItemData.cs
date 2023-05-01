@@ -19,6 +19,7 @@ public class ItemData : MonoBehaviour, IPointerEnterHandler, IPointerClickHandle
     public static event Action<ItemData, ObjPotions, int> OnPotionLooted;
     public static event Action<ItemData, EInventorySlot, RectTransform> OnPromptClicked;
     public static event Action<EInventorySlot, int, EInventorySlot, int> OnItemSuccessSwapped;
+    public static event Action<EInventorySlot> OnItemSlotHovered;
 
     public ObjItems Item { get { return item; } set { item = value; } }
     public ObjPotions Potion { get { return potion; } set { potion = value; } }
@@ -42,6 +43,7 @@ public class ItemData : MonoBehaviour, IPointerEnterHandler, IPointerClickHandle
 
     public void OnPointerEnter(PointerEventData eventData)
     {
+        OnItemSlotHovered?.Invoke(slot);
         ShowToolTip();
     }
 

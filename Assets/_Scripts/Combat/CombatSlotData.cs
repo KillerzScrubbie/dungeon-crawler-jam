@@ -24,6 +24,7 @@ public class CombatSlotData : MonoBehaviour, IPointerEnterHandler, IPointerDownH
     [SerializeField] private Color32 colorUsable;
     [SerializeField] private Color32 colorSelected;
     [SerializeField] private Color32 colorDisable;
+    [SerializeField] private Color32 colorUnusable;
 
     private ObjItems item;
     private ObjPotions potion;
@@ -178,7 +179,7 @@ public class CombatSlotData : MonoBehaviour, IPointerEnterHandler, IPointerDownH
 
                 if (currentEnergy < minEnergy || currentMana < minMana || item == null) 
                 {
-                    outline.color = colorDisable;
+                    outline.color = colorUnusable;
                     return; 
                 }
 

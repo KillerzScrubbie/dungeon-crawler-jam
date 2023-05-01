@@ -15,6 +15,8 @@ public class CombatActionTextUpdater : MonoBehaviour
     private void Start()
     {
         combatManager = FindObjectOfType<CombatManager>();
+
+        CombatManager.OnCombatStateChanged += HandleCombatStateChanged;
     }
 
     public void UpdateText(ObjItems item, int slotId)
@@ -48,8 +50,25 @@ public class CombatActionTextUpdater : MonoBehaviour
         gameObject.SetActive(true);
     }
 
+    private void HandleCombatStateChanged(CombatState state)
+    {
+        switch (state)
+        {
+            case CombatState.EnemyTurn:
+            case CombatState.Victory:
+            case CombatState.Dead:
+                HideText();
+                break;
+        }
+    }
+
     public void HideText()
     {
         gameObject.SetActive(false);
+    }
+
+    private void OnDestroy()
+    {
+        CombatManager.OnCombatStateChanged -= HandleCombatStateChanged;
     }
 }

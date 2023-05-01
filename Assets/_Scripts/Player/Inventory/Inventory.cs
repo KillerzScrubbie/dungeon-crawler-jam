@@ -221,6 +221,19 @@ public class Inventory
         OnPotionUpdated?.Invoke();
     }
 
+    public ObjItems GetItemData(EInventorySlot slot, int id)
+    {
+        switch (slot)
+        {
+            case EInventorySlot.Equipped:
+                return equippedList[id];
+            case EInventorySlot.Inventory:
+                return itemList[id];
+            default:
+                return null;
+        }
+    }
+
     public Dictionary<int, ObjItems> GetItemList()
     {
         return itemList;

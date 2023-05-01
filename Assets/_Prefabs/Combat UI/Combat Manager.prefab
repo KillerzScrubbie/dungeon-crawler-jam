@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 8325703630061802228}
   - component: {fileID: 6342416552340809148}
   - component: {fileID: 1639799538535766240}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -166,7 +166,7 @@ GameObject:
   - component: {fileID: 6870145284245263099}
   - component: {fileID: 5285996558174450773}
   - component: {fileID: 2241861450586041422}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text (TMP) (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -316,7 +316,7 @@ GameObject:
   - component: {fileID: 2902534256901966363}
   - component: {fileID: 8188176341453250349}
   - component: {fileID: 8699088193879513089}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -800,7 +800,7 @@ GameObject:
   - component: {fileID: 7413662019939113407}
   - component: {fileID: 6901981694661312480}
   - component: {fileID: 498535223046950183}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: DamagePopupCanvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -881,7 +881,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 7143734248749664367}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Skip Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -922,7 +922,7 @@ GameObject:
   - component: {fileID: 271840690419988705}
   - component: {fileID: 4003581844361005847}
   - component: {fileID: 1410226890812423809}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1089,7 +1089,7 @@ GameObject:
   - component: {fileID: 8418313639838065977}
   - component: {fileID: 7361943821722858179}
   - component: {fileID: 6975992869339063979}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Tutorial 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1169,7 +1169,7 @@ GameObject:
   - component: {fileID: 7725557465144022518}
   - component: {fileID: 8091285703948760554}
   - component: {fileID: 3380893145373167913}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1322,7 +1322,7 @@ GameObject:
   - component: {fileID: 525153058210952711}
   - component: {fileID: 3946915903668932285}
   - component: {fileID: 2128246199616552935}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Combat Manager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1464,7 +1464,7 @@ GameObject:
   - component: {fileID: 1693216018821167619}
   - component: {fileID: 3003339021866057791}
   - component: {fileID: 8783779549777259499}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Tutorial Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1567,7 +1567,7 @@ GameObject:
   - component: {fileID: 3098576193421350438}
   - component: {fileID: 3995730444628230704}
   - component: {fileID: 7150322626696862572}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1643,7 +1643,7 @@ GameObject:
   - component: {fileID: 4983028177376737689}
   - component: {fileID: 7142284237042521967}
   - component: {fileID: 7944088481552613261}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Tutorial 2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -1857,7 +1857,7 @@ GameObject:
   m_Component:
   - component: {fileID: 3839230331879667346}
   - component: {fileID: 3318791445436361835}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: DamagePopupManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2063,7 +2063,7 @@ GameObject:
   - component: {fileID: 7812622230476016727}
   - component: {fileID: 7658704661931205574}
   - component: {fileID: 8250021344427452895}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2214,7 +2214,7 @@ GameObject:
   - component: {fileID: 8550633057710107580}
   - component: {fileID: 7391250410571952122}
   - component: {fileID: 4112506420587154009}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text (TMP) (1)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2366,7 +2366,7 @@ GameObject:
   - component: {fileID: 4042699133620724183}
   - component: {fileID: 86834708572921097}
   - component: {fileID: 1601598135021713640}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Victory Canvas
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2484,7 +2484,7 @@ GameObject:
   - component: {fileID: 5854643722856026848}
   - component: {fileID: 2164626319658853291}
   - component: {fileID: 4944395198473740049}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2574,7 +2574,7 @@ GameObject:
   - component: {fileID: 2516629921639640823}
   - component: {fileID: 2218448304916344017}
   - component: {fileID: 7117654936786978441}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3135,7 +3135,7 @@ GameObject:
   - component: {fileID: 7124918774820984523}
   - component: {fileID: 1358356318882391564}
   - component: {fileID: 7908060410888458617}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Image
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3212,7 +3212,7 @@ GameObject:
   - component: {fileID: 7318032124391516546}
   - component: {fileID: 9176578472934811266}
   - component: {fileID: 8367879764024563923}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Text (TMP)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3563,7 +3563,7 @@ GameObject:
   - component: {fileID: 2980366566712715314}
   - component: {fileID: 3616068061521574024}
   - component: {fileID: 588287053752383482}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Tutorial 3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -3642,7 +3642,7 @@ GameObject:
   - component: {fileID: 3108844197853626458}
   - component: {fileID: 7538006120535448043}
   - component: {fileID: 7259670463376511055}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Panel
   m_TagString: Untagged
   m_Icon: {fileID: 0}

@@ -89,7 +89,7 @@ MonoBehaviour:
       Data: 10
     - Name: $v
       Entry: 3
-      Data: 6
+      Data: 3
     - Name: 
       Entry: 8
       Data: 
@@ -119,6 +119,6 @@ MonoBehaviour:
   manaCost1: 2
   actionCost1: 2
   actionName2: After Image
-  itemDescription2: Gain 6 Block. Gain 2 MP.
+  itemDescription2: Gain 3 Block. Gain 2 MP.
   manaCost2: 0
   actionCost2: 3

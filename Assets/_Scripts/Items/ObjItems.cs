@@ -48,7 +48,4 @@ public class ObjItems : SerializedScriptableObject
         return $"<b>[{actionName1}]</b>: <color=#D2D2D2>{itemDescription1.Replace("\\n", "\n")} | (MP: {manaCost1}), (Actions: {actionCost1})</color>\n" +
             $"<b>[{actionName2}]</b>: <color=#D2D2D2>{itemDescription2.Replace("\\n", "\n")} | (MP: {manaCost2}), (Actions: {actionCost2})</color>";
     }
-
-    public int MinManaCost { get { return Mathf.Min(manaCost1, manaCost2);} }
-    public int MinActionCost { get { return Mathf.Min(actionCost1, actionCost2); } }
 }

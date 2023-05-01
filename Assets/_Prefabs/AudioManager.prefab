@@ -49,7 +49,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 462c1cbccccf0c3409f7656e9490173b, type: 3}
     mixerGroup: {fileID: 8426698837903981537, guid: e4133e5e7f34c4743be3fe0ab8e68812,
       type: 2}
-    volume: 0.6
+    volume: 1
     pitch: 1
     blend: 0
     loop: 1
@@ -58,7 +58,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: d026e4f586a806c4e9cf97e1da7110e9, type: 3}
     mixerGroup: {fileID: 8426698837903981537, guid: e4133e5e7f34c4743be3fe0ab8e68812,
       type: 2}
-    volume: 0.6
+    volume: 1
     pitch: 1
     blend: 0
     loop: 1
@@ -67,7 +67,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 5bfb5f1f18f65e24d804ce60dee1e514, type: 3}
     mixerGroup: {fileID: 8426698837903981537, guid: e4133e5e7f34c4743be3fe0ab8e68812,
       type: 2}
-    volume: 0.6
+    volume: 1
     pitch: 1
     blend: 0
     loop: 1
@@ -76,7 +76,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: fbf6b10e4aa99304d87cd7e8e48d533a, type: 3}
     mixerGroup: {fileID: 8426698837903981537, guid: e4133e5e7f34c4743be3fe0ab8e68812,
       type: 2}
-    volume: 0.5
+    volume: 1
     pitch: 1
     blend: 0
     loop: 1
@@ -85,7 +85,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: ca70935aa788d7040b0047d8911abba0, type: 3}
     mixerGroup: {fileID: 8426698837903981537, guid: e4133e5e7f34c4743be3fe0ab8e68812,
       type: 2}
-    volume: 0.5
+    volume: 1
     pitch: 1
     blend: 0
     loop: 1
@@ -94,7 +94,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 9a3e8e175241bb84eacace2597c2f1ca, type: 3}
     mixerGroup: {fileID: 8426698837903981537, guid: e4133e5e7f34c4743be3fe0ab8e68812,
       type: 2}
-    volume: 0.5
+    volume: 1
     pitch: 1
     blend: 0
     loop: 1
@@ -103,7 +103,7 @@ MonoBehaviour:
     clip: {fileID: 8300000, guid: 85e1252bd25d3904a87f3fca0694d350, type: 3}
     mixerGroup: {fileID: 8426698837903981537, guid: e4133e5e7f34c4743be3fe0ab8e68812,
       type: 2}
-    volume: 0.5
+    volume: 1
     pitch: 1
     blend: 0
     loop: 1

@@ -1,7 +1,6 @@
 using UnityEngine;
 using System;
 using Sirenix.OdinInspector;
-using UnityEngine.InputSystem;
 
 public class PlayerMana : SerializedMonoBehaviour
 {

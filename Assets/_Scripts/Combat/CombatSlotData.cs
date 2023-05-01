@@ -39,8 +39,10 @@ public class CombatSlotData : MonoBehaviour, IPointerEnterHandler, IPointerDownH
     private int currentEnergy;
     private int currentMana;
 
-    private int minEnergy = 0;
-    private int minMana = 0;
+    private int energyCost1 = 0;
+    private int energyCost2 = 0;
+    private int manaCost1 = 0;
+    private int manaCost2 = 0;
 
     public static event Action<ECombatSlot, int> OnSlotClicked;
 
@@ -99,8 +101,10 @@ public class CombatSlotData : MonoBehaviour, IPointerEnterHandler, IPointerDownH
         outline.color = colorUsable;
         icon.enabled = true;
         icon.sprite = item.Icon;
-        minEnergy = item.MinActionCost;
-        minMana = item.MinManaCost;
+        energyCost1 = item.ActionCost1;
+        energyCost2 = item.ActionCost2;
+        manaCost1 = item.ManaCost1;
+        manaCost2 = item.ManaCost2;
     }
 
     private void HandlePotionUpdated()
@@ -165,7 +169,13 @@ public class CombatSlotData : MonoBehaviour, IPointerEnterHandler, IPointerDownH
         switch (combatSlot)
         {
             case ECombatSlot.Equipped:
-                if (item == null || state != CombatState.PlayerTurn)
+                if (item == null)
+                {
+                    outline.color = colorDisable;
+                    return;
+                }
+
+                if (state != CombatState.PlayerTurn)
                 {
                     outline.color = colorDisable;
                     return;
@@ -177,7 +187,7 @@ public class CombatSlotData : MonoBehaviour, IPointerEnterHandler, IPointerDownH
                     return;
                 }
 
-                if (currentEnergy < minEnergy || currentMana < minMana || item == null) 
+                if (CheckItemUnusable()) 
                 {
                     outline.color = colorUnusable;
                     return; 
@@ -201,6 +211,11 @@ public class CombatSlotData : MonoBehaviour, IPointerEnterHandler, IPointerDownH
         }
 
         outline.color = colorSelected;
+    }
+
+    private bool CheckItemUnusable()
+    {
+        return (currentEnergy < energyCost1 || currentMana < manaCost1) && (currentEnergy < energyCost2 || currentMana < manaCost2);
     }
 
     private void HandleSlotClicked(ECombatSlot slot, int id)
@@ -242,7 +257,7 @@ public class CombatSlotData : MonoBehaviour, IPointerEnterHandler, IPointerDownH
     {
         if (actionUsed) { return; }
 
-        if (currentEnergy < minEnergy || currentMana < minMana) { return; }
+        if (CheckItemUnusable()) { return; }
 
         ProcessClick();
     }

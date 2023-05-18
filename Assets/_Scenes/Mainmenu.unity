@@ -24627,7 +24627,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sound: {fileID: 11400000, guid: f54689e53f9a8b741b9aa4e9028e9fbe, type: 2}
-  stopAllSound: 0
+  stopAllSound: 1
   playOnStart: 1
 --- !u!43 &1944405176
 Mesh:

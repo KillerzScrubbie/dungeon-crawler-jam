@@ -2183,8 +2183,8 @@ MonoBehaviour:
     StartPosition: {x: 0, y: 0}
     Active: 1
   - Rect: {fileID: 7153919573528987436}
-    Speed: 3
-    Amplitude: 30
+    Speed: 1
+    Amplitude: 15
     StartPosition: {x: 0, y: 0}
     Active: 1
 --- !u!1 &6421234677224474563

@@ -31,13 +31,13 @@ public class EffectsProcessor : MonoBehaviour
                     break;
 
                 case EEffectTypes.DamageSingle:
-                    
+
                     HitEnemy(hitInstances, () => damageDone += target.TakeDamage(effectList[EEffectTypes.DamageSingle] + extraDamage));
                     break;
 
                 case EEffectTypes.DamageAll:
 
-                    AudioManager.instance?.PlayRandomPitch("playerAtkAll", .6f, 1.5f);
+                    AudioManager.instance?.Play("playerAtkAll");
                     foreach (var enemy in activeEnemies)
                     {
                         damageDone += enemy.TakeDamage(effectList[EEffectTypes.DamageAll] + extraDamage);
@@ -51,13 +51,13 @@ public class EffectsProcessor : MonoBehaviour
 
                 case EEffectTypes.Block:
 
-                    AudioManager.instance?.PlayRandomPitch("playerGetBlock", .6f, 2.2f);
+                    AudioManager.instance?.Play("playerGetBlock");
 
                     OnBlockGained?.Invoke(effectList[EEffectTypes.Block]);
-                    break;  
+                    break;
 
                 case EEffectTypes.ManaThisTurn:
-                    AudioManager.instance?.PlayRandomPitch("playerGetMana", .6f, 2.2f);
+                    AudioManager.instance?.Play("playerGetMana");
                     OnManaGained?.Invoke(effectList[EEffectTypes.ManaThisTurn]);
                     break;
 
@@ -75,7 +75,7 @@ public class EffectsProcessor : MonoBehaviour
     {
         if (!effectList.ContainsKey(EEffectTypes.Heal)) { return; }
 
-        AudioManager.instance?.PlayRandomPitch("playerGetHeal", .6f, 2.2f);
+        AudioManager.instance?.Play("playerGetHeal");
         OnHealed?.Invoke(effectList[EEffectTypes.Heal]);
     }
 
@@ -83,7 +83,7 @@ public class EffectsProcessor : MonoBehaviour
     {
         if (!effectList.ContainsKey(EEffectTypes.DamageToBlock)) { return; } // Give block after calculating dmg dealt.
 
-        AudioManager.instance?.PlayRandomPitch("playerGetBlock", .6f, 2.2f);
+        AudioManager.instance?.Play("playerGetBlock");
         OnBlockGained?.Invoke(damageDone);
     }
 
@@ -92,7 +92,7 @@ public class EffectsProcessor : MonoBehaviour
         for (int i = 0; i < hitInstances; i++)
         {
             action();
-            AudioManager.instance?.PlayRandomPitch("playerAtkOne", .8f, 1.6f);
+            AudioManager.instance?.Play("playerAtkOne");
             await Task.Delay(150);
         }
     }

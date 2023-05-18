@@ -2,6 +2,7 @@
   "dependencies": {
     "com.madsbangh.easybuttons": "https://github.com/madsbangh/EasyButtons.git#upm",
     "com.meangpu.tools": "https://github.com/meangpu/U.MeangpuTools.git",
+    "com.meangpu.audio": "https://github.com/meangpu/U.MeAudio.git",
     "com.unity.2d.sprite": "1.0.0",
     "com.unity.cinemachine": "2.8.9",
     "com.unity.collab-proxy": "2.0.1",

@@ -62,7 +62,7 @@ public class PlayerHp : SerializedMonoBehaviour
     {
         int damageAfterBlock = _playerBlockScpt.GetDamageExceedBlock(damage);
 
-        AudioManager.instance?.PlayOneRandomPitch("playerDmg1", .8f, 1.2f);
+        AudioManager.instance?.PlayOneShot("playerDmg1");
         _currentHP = Math.Clamp(_currentHP - damageAfterBlock, 0, _maxHP);
         OnPlayerUpdateHp?.Invoke(_currentHP, _maxHP);
 
@@ -91,7 +91,7 @@ public class PlayerHp : SerializedMonoBehaviour
     public void Heal(int healValue)
     {
         if (IsPlayerDead()) return;
-        AudioManager.instance?.PlayOneRandomPitch("playerDmg1", .8f, 1.2f);
+        AudioManager.instance?.PlayOneShot("playerDmg1");
         _currentHP = Math.Clamp(_currentHP + healValue, 0, _maxHP);
         OnPlayerUpdateHp?.Invoke(_currentHP, _maxHP);
         OnPlayerHeal?.Invoke(healValue);

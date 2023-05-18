@@ -219,7 +219,7 @@ public class CombatManager : MonoBehaviour
         ClearAction();
         UpdateGameState(CombatState.EnemyTurn);
 
-        AudioManager.instance?.PlayRandomPitch("endTurn", .8f, 1.2f);
+        AudioManager.instance?.Play("endTurn");
     }
 
     public void StartPlayerTurn()

@@ -99,7 +99,7 @@ public class InventoryUI : SerializedMonoBehaviour
     private void HandleItemSwapped(EInventorySlot slot1, int id1, EInventorySlot slot2, int id2)
     {
         inventory.SwapItemPosition(slot1, id1, slot2, id2);
-        AudioManager.instance?.PlayRandomPitch("playerEquip", 0.75f, 1.5f);
+        AudioManager.instance?.Play("playerEquip");
         isSwapping = false;
         OnSwapped?.Invoke(null, isSwapping);
         ShowItemTooltip(inventory.GetItemData(slot2, id2));
@@ -134,7 +134,7 @@ public class InventoryUI : SerializedMonoBehaviour
                 chestPanel.SetActive(false);
                 break;
 
-            default:  
+            default:
                 break;
         }
     }
@@ -160,15 +160,15 @@ public class InventoryUI : SerializedMonoBehaviour
 
         if (!inventoryStatus)
         {
-            AudioManager.instance?.PlayRandomPitch("invenOpen", .7f, 1.5f);
+            AudioManager.instance?.Play("invenOpen");
         }
         else
         {
-            AudioManager.instance?.PlayRandomPitch("invenClose", .7f, 1.5f);
+            AudioManager.instance?.Play("invenClose");
             chestPanel.SetActive(false);
             CloseChest(false);
             HideToolTip();
-        }     
+        }
     }
 
     private void ShowItemTooltip(ObjItems item)
@@ -205,7 +205,7 @@ public class InventoryUI : SerializedMonoBehaviour
     {
         if (!inventory.AddItem(item)) { return; }
 
-        AudioManager.instance?.PlayRandomPitch("itemLoot", 0.75f, 1.5f);
+        AudioManager.instance?.Play("itemLoot");
 
         itemData.Loot();
         currentChest.RemoveItem(item);
@@ -215,7 +215,7 @@ public class InventoryUI : SerializedMonoBehaviour
     private void HandlePotionLooted(ItemData itemData, ObjPotions potion, int slot)
     {
         if (!inventory.AddPotion(potion)) { return; }
-        AudioManager.instance?.PlayRandomPitch("potionLoot", 0.75f, 1.5f);
+        AudioManager.instance?.Play("potionLoot");
 
         itemData.Loot();
         currentChest.RemovePotion(potion);

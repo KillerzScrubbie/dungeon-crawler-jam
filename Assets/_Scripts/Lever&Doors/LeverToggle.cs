@@ -11,7 +11,7 @@ public class LeverToggle : MonoBehaviour
     public void Activate()
     {
         if (isToggled) { return; }
-        AudioManager.instance?.PlayRandomPitch("lever", .7f, 1.5f);
+        AudioManager.instance?.Play("lever");
 
         isToggled = true;
         leverAnimation.FlipLever();

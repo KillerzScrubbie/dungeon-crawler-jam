@@ -54,7 +54,7 @@ public class ChestLoot : MonoBehaviour
     {
         if (isEmpty) return;
 
-        if (!_isChestOpen) AudioManager.instance?.PlayRandomPitch("chestOpen", 0.8f, 1.2f); // play only on first open
+        if (!_isChestOpen) AudioManager.instance?.Play("chestOpen"); // play only on first open
 
         _isChestOpen = true;
         chestTop.DOLocalRotate(openChestPos, chestOpenDuration).SetEase(Ease.OutBounce);
@@ -64,7 +64,7 @@ public class ChestLoot : MonoBehaviour
     {
         if (isEmpty) return;
 
-        if (_isChestOpen) AudioManager.instance?.PlayRandomPitch("chestClose", 0.8f, 1.2f);
+        if (_isChestOpen) AudioManager.instance?.Play("chestClose");
         _isChestOpen = false;
         chestTop.DOLocalRotate(normalChestPos, chestCloseDuration).SetEase(Ease.InExpo);
     }

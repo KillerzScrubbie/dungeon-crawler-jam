@@ -43,11 +43,11 @@ public class EnemyCombat : MonoBehaviour
             switch (intent.Key)
             {
                 case EEffectTypes.DamageSingle:
-                    AudioManager.instance?.PlayRandomPitch("enemyAtk", .8f, 1.2f);
+                    AudioManager.instance?.Play("enemyAtk", .8f, 1.2f);
                     OnPlayerTakeDamage?.Invoke(intent.Value);
                     break;
                 case EEffectTypes.Heal:
-                    AudioManager.instance?.PlayRandomPitch("enemyHeal", .8f, 1.2f);
+                    AudioManager.instance?.Play("enemyHeal", .8f, 1.2f);
                     healthSystem.Heal(intent.Value);
 
                     OnEnemyHeal?.Invoke(intent.Value, transform);

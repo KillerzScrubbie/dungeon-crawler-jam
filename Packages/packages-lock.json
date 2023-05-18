@@ -7,6 +7,15 @@
       "dependencies": {},
       "hash": "39da70419a2dc9ce0059b40dd64abcdfcef58ea1"
     },
+    "com.meangpu.audio": {
+      "version": "https://github.com/meangpu/U.MeAudio.git",
+      "depth": 0,
+      "source": "git",
+      "dependencies": {
+        "com.unity.textmeshpro": "3.0.6"
+      },
+      "hash": "f180223965ae40b5cf9e628344b30f647f587ec4"
+    },
     "com.meangpu.tools": {
       "version": "https://github.com/meangpu/U.MeangpuTools.git",
       "depth": 0,
@@ -15,7 +24,7 @@
         "com.unity.textmeshpro": "3.0.6",
         "com.unity.editorcoroutines": "1.0.0"
       },
-      "hash": "d8dd96ed2586868f8866b7abdbd6c783b4e421f1"
+      "hash": "d9f472ef6bb8b36e58fd9c1632adb9014346f26a"
     },
     "com.unity.2d.sprite": {
       "version": "1.0.0",

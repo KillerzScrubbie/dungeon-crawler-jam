@@ -45,282 +45,35 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _sounds:
-  - audioName: bg1
-    clip: {fileID: 8300000, guid: 462c1cbccccf0c3409f7656e9490173b, type: 3}
-    mixerGroup: {fileID: 8426698837903981537, guid: e4133e5e7f34c4743be3fe0ab8e68812,
-      type: 2}
-    volume: 1
-    pitch: 1
-    blend: 0
-    loop: 1
-    source: {fileID: 0}
-  - audioName: bg2
-    clip: {fileID: 8300000, guid: d026e4f586a806c4e9cf97e1da7110e9, type: 3}
-    mixerGroup: {fileID: 8426698837903981537, guid: e4133e5e7f34c4743be3fe0ab8e68812,
-      type: 2}
-    volume: 1
-    pitch: 1
-    blend: 0
-    loop: 1
-    source: {fileID: 0}
-  - audioName: bgMenu
-    clip: {fileID: 8300000, guid: 5bfb5f1f18f65e24d804ce60dee1e514, type: 3}
-    mixerGroup: {fileID: 8426698837903981537, guid: e4133e5e7f34c4743be3fe0ab8e68812,
-      type: 2}
-    volume: 1
-    pitch: 1
-    blend: 0
-    loop: 1
-    source: {fileID: 0}
-  - audioName: bgBattle
-    clip: {fileID: 8300000, guid: fbf6b10e4aa99304d87cd7e8e48d533a, type: 3}
-    mixerGroup: {fileID: 8426698837903981537, guid: e4133e5e7f34c4743be3fe0ab8e68812,
-      type: 2}
-    volume: 1
-    pitch: 1
-    blend: 0
-    loop: 1
-    source: {fileID: 0}
-  - audioName: bgBoss
-    clip: {fileID: 8300000, guid: ca70935aa788d7040b0047d8911abba0, type: 3}
-    mixerGroup: {fileID: 8426698837903981537, guid: e4133e5e7f34c4743be3fe0ab8e68812,
-      type: 2}
-    volume: 1
-    pitch: 1
-    blend: 0
-    loop: 1
-    source: {fileID: 0}
-  - audioName: bgAmbPast
-    clip: {fileID: 8300000, guid: 9a3e8e175241bb84eacace2597c2f1ca, type: 3}
-    mixerGroup: {fileID: 8426698837903981537, guid: e4133e5e7f34c4743be3fe0ab8e68812,
-      type: 2}
-    volume: 1
-    pitch: 1
-    blend: 0
-    loop: 1
-    source: {fileID: 0}
-  - audioName: bgAmbFuture
-    clip: {fileID: 8300000, guid: 85e1252bd25d3904a87f3fca0694d350, type: 3}
-    mixerGroup: {fileID: 8426698837903981537, guid: e4133e5e7f34c4743be3fe0ab8e68812,
-      type: 2}
-    volume: 1
-    pitch: 1
-    blend: 0
-    loop: 1
-    source: {fileID: 0}
-  - audioName: playerDmg1
-    clip: {fileID: 8300000, guid: 43f9476ddc6b787479c9fefcc368e3dd, type: 3}
-    mixerGroup: {fileID: 8219120640885313815, guid: e4133e5e7f34c4743be3fe0ab8e68812,
-      type: 2}
-    volume: 0.7
-    pitch: 1
-    blend: 0
-    loop: 0
-    source: {fileID: 0}
-  - audioName: chestClose
-    clip: {fileID: 8300000, guid: ca3b56325a6cf7249adfd07ce666e595, type: 3}
-    mixerGroup: {fileID: 8219120640885313815, guid: e4133e5e7f34c4743be3fe0ab8e68812,
-      type: 2}
-    volume: 1
-    pitch: 1
-    blend: 0
-    loop: 0
-    source: {fileID: 0}
-  - audioName: chestOpen
-    clip: {fileID: 8300000, guid: 6917bc1a668b1a74c931f0803c98f9eb, type: 3}
-    mixerGroup: {fileID: 8219120640885313815, guid: e4133e5e7f34c4743be3fe0ab8e68812,
-      type: 2}
-    volume: 1
-    pitch: 1
-    blend: 0
-    loop: 0
-    source: {fileID: 0}
-  - audioName: fall
-    clip: {fileID: 8300000, guid: f0ac3392ea7276c4983ef67ad82a1be3, type: 3}
-    mixerGroup: {fileID: 8219120640885313815, guid: e4133e5e7f34c4743be3fe0ab8e68812,
-      type: 2}
-    volume: 0.3
-    pitch: 0.75
-    blend: 0.16
-    loop: 0
-    source: {fileID: 0}
-  - audioName: walk
-    clip: {fileID: 8300000, guid: af5e2e61eb438084792d5111e03d70f4, type: 3}
-    mixerGroup: {fileID: 8219120640885313815, guid: e4133e5e7f34c4743be3fe0ab8e68812,
-      type: 2}
-    volume: 1
-    pitch: 1
-    blend: 0
-    loop: 0
-    source: {fileID: 0}
-  - audioName: invenClose
-    clip: {fileID: 8300000, guid: cedcdcba37439284e80890f2051b1637, type: 3}
-    mixerGroup: {fileID: 8219120640885313815, guid: e4133e5e7f34c4743be3fe0ab8e68812,
-      type: 2}
-    volume: 0.7
-    pitch: 1
-    blend: 0
-    loop: 0
-    source: {fileID: 0}
-  - audioName: invenOpen
-    clip: {fileID: 8300000, guid: f9e43de8310048945af275f93b3844fb, type: 3}
-    mixerGroup: {fileID: 8219120640885313815, guid: e4133e5e7f34c4743be3fe0ab8e68812,
-      type: 2}
-    volume: 0.7
-    pitch: 1
-    blend: 0
-    loop: 0
-    source: {fileID: 0}
-  - audioName: potionDrink
-    clip: {fileID: 8300000, guid: 64153b0019fe7ae459527dcf9dff846c, type: 3}
-    mixerGroup: {fileID: 8219120640885313815, guid: e4133e5e7f34c4743be3fe0ab8e68812,
-      type: 2}
-    volume: 1
-    pitch: 1
-    blend: 0
-    loop: 0
-    source: {fileID: 0}
-  - audioName: teleportFail
-    clip: {fileID: 8300000, guid: 60a73319d8e82944cb0d00c85e64ce94, type: 3}
-    mixerGroup: {fileID: 8219120640885313815, guid: e4133e5e7f34c4743be3fe0ab8e68812,
-      type: 2}
-    volume: 1
-    pitch: 1
-    blend: 0
-    loop: 0
-    source: {fileID: 0}
-  - audioName: teleportSuccess
-    clip: {fileID: 8300000, guid: 3f17089601987634bb1eb57444f7895f, type: 3}
-    mixerGroup: {fileID: 8219120640885313815, guid: e4133e5e7f34c4743be3fe0ab8e68812,
-      type: 2}
-    volume: 1
-    pitch: 1
-    blend: 0
-    loop: 0
-    source: {fileID: 0}
-  - audioName: itemLoot
-    clip: {fileID: 8300000, guid: a482c64a555aa1343b98ebae7d30a45c, type: 3}
-    mixerGroup: {fileID: 8219120640885313815, guid: e4133e5e7f34c4743be3fe0ab8e68812,
-      type: 2}
-    volume: 1
-    pitch: 1
-    blend: 0
-    loop: 0
-    source: {fileID: 0}
-  - audioName: playerEquip
-    clip: {fileID: 8300000, guid: 7d931a7d6ceb3914b86b0642aac00f51, type: 3}
-    mixerGroup: {fileID: 8219120640885313815, guid: e4133e5e7f34c4743be3fe0ab8e68812,
-      type: 2}
-    volume: 1
-    pitch: 1
-    blend: 0
-    loop: 0
-    source: {fileID: 0}
-  - audioName: potionLoot
-    clip: {fileID: 8300000, guid: 1b99aa53b882f61459e248904f41d0e5, type: 3}
-    mixerGroup: {fileID: 8219120640885313815, guid: e4133e5e7f34c4743be3fe0ab8e68812,
-      type: 2}
-    volume: 1
-    pitch: 1
-    blend: 0
-    loop: 0
-    source: {fileID: 0}
-  - audioName: endTurn
-    clip: {fileID: 8300000, guid: f84a0ad3dfad18e45bedda6bc510f6ac, type: 3}
-    mixerGroup: {fileID: 8219120640885313815, guid: e4133e5e7f34c4743be3fe0ab8e68812,
-      type: 2}
-    volume: 1
-    pitch: 1
-    blend: 0
-    loop: 0
-    source: {fileID: 0}
-  - audioName: enemyHeal
-    clip: {fileID: 8300000, guid: b606c363d3e049f4eb85a44b0827a3b0, type: 3}
-    mixerGroup: {fileID: 8219120640885313815, guid: e4133e5e7f34c4743be3fe0ab8e68812,
-      type: 2}
-    volume: 1
-    pitch: 1
-    blend: 0
-    loop: 0
-    source: {fileID: 0}
-  - audioName: enemyAtk
-    clip: {fileID: 8300000, guid: abb5ed4504ebac943b5db53fa5143b60, type: 3}
-    mixerGroup: {fileID: 8219120640885313815, guid: e4133e5e7f34c4743be3fe0ab8e68812,
-      type: 2}
-    volume: 1
-    pitch: 1
-    blend: 0
-    loop: 0
-    source: {fileID: 0}
-  - audioName: playerAtkOne
-    clip: {fileID: 8300000, guid: 054ccc7dc8f698c48a5f3bb75390c9e4, type: 3}
-    mixerGroup: {fileID: 8219120640885313815, guid: e4133e5e7f34c4743be3fe0ab8e68812,
-      type: 2}
-    volume: 1
-    pitch: 1
-    blend: 0
-    loop: 0
-    source: {fileID: 0}
-  - audioName: playerAtkAll
-    clip: {fileID: 8300000, guid: 528730badd38ea345af07c6c6999a1da, type: 3}
-    mixerGroup: {fileID: 8219120640885313815, guid: e4133e5e7f34c4743be3fe0ab8e68812,
-      type: 2}
-    volume: 1
-    pitch: 1
-    blend: 0
-    loop: 0
-    source: {fileID: 0}
-  - audioName: playerGetBlock
-    clip: {fileID: 8300000, guid: 1710baa9520dab04eb1d164269a27dbe, type: 3}
-    mixerGroup: {fileID: 8219120640885313815, guid: e4133e5e7f34c4743be3fe0ab8e68812,
-      type: 2}
-    volume: 1
-    pitch: 1
-    blend: 0
-    loop: 0
-    source: {fileID: 0}
-  - audioName: playerGetHeal
-    clip: {fileID: 8300000, guid: 183b89efe8d8a514384ddcc63ef05ecc, type: 3}
-    mixerGroup: {fileID: 8219120640885313815, guid: e4133e5e7f34c4743be3fe0ab8e68812,
-      type: 2}
-    volume: 1
-    pitch: 1
-    blend: 0
-    loop: 0
-    source: {fileID: 0}
-  - audioName: playerGetMana
-    clip: {fileID: 8300000, guid: d044d6dcf6239d94e9263b102ca73d5e, type: 3}
-    mixerGroup: {fileID: 8219120640885313815, guid: e4133e5e7f34c4743be3fe0ab8e68812,
-      type: 2}
-    volume: 1
-    pitch: 1
-    blend: 0
-    loop: 0
-    source: {fileID: 0}
-  - audioName: lever
-    clip: {fileID: 8300000, guid: 8af651dee66d56a43b58289a9434a471, type: 3}
-    mixerGroup: {fileID: 8219120640885313815, guid: e4133e5e7f34c4743be3fe0ab8e68812,
-      type: 2}
-    volume: 1
-    pitch: 1
-    blend: 0
-    loop: 0
-    source: {fileID: 0}
-  - audioName: winFight
-    clip: {fileID: 8300000, guid: da738e42170f88542add92881d18aac0, type: 3}
-    mixerGroup: {fileID: 8219120640885313815, guid: e4133e5e7f34c4743be3fe0ab8e68812,
-      type: 2}
-    volume: 1
-    pitch: 1
-    blend: 0
-    loop: 0
-    source: {fileID: 0}
-  - audioName: loseFight
-    clip: {fileID: 8300000, guid: ae2611a0c5d3d854ea1ceca7891fd150, type: 3}
-    mixerGroup: {fileID: 8219120640885313815, guid: e4133e5e7f34c4743be3fe0ab8e68812,
-      type: 2}
-    volume: 1
-    pitch: 1
-    blend: 0
-    loop: 0
-    source: {fileID: 0}
+  - {fileID: 11400000, guid: 767a1df1dd28a694ba5350185304859e, type: 2}
+  - {fileID: 11400000, guid: 1e0eb019690cdcf41bafe19287aeeaaf, type: 2}
+  - {fileID: 11400000, guid: d3c9b9a4ff5c3c442a1c319a266d38d0, type: 2}
+  - {fileID: 11400000, guid: b4aa164ec3d370b4795aa3f9f8e4dcfd, type: 2}
+  - {fileID: 11400000, guid: 74f08033d912ac54f8ecd80a222c96ef, type: 2}
+  - {fileID: 11400000, guid: 9b85d5481113938439b1663d1ee11205, type: 2}
+  - {fileID: 11400000, guid: f54689e53f9a8b741b9aa4e9028e9fbe, type: 2}
+  - {fileID: 11400000, guid: 3e39bdcf6e65c9547ba798dfc254a517, type: 2}
+  - {fileID: 11400000, guid: e8ffd4a748040bb4b898b7a256e86525, type: 2}
+  - {fileID: 11400000, guid: 054311016a2f43a4e83b920bead08f28, type: 2}
+  - {fileID: 11400000, guid: fd0eefedfce430249bc6fb457106b2a5, type: 2}
+  - {fileID: 11400000, guid: 8079e4fc08d35d645988d00e07b9f762, type: 2}
+  - {fileID: 11400000, guid: b387ab7990bdb394db64983d9cf3e299, type: 2}
+  - {fileID: 11400000, guid: 9f37477e00603004ca30764285c078ce, type: 2}
+  - {fileID: 11400000, guid: f9bfc415f6666c4489355a4f55ea8639, type: 2}
+  - {fileID: 11400000, guid: 1dbc6271bb5bfd6429d44e5292e1053a, type: 2}
+  - {fileID: 11400000, guid: bc6506d53af21fe49b02d44ea9aa7de6, type: 2}
+  - {fileID: 11400000, guid: d5b8dc0086d50b6469d0c8fd441aa18a, type: 2}
+  - {fileID: 11400000, guid: 301b0be17a0537d4ba696c1d6c744a23, type: 2}
+  - {fileID: 11400000, guid: aeeb15110777cb1439105fda13b0fc4f, type: 2}
+  - {fileID: 11400000, guid: acf89c319f0f93d4cb4f85d8eb7544ad, type: 2}
+  - {fileID: 11400000, guid: 4f518c883b2f68542996153a5dbd63d7, type: 2}
+  - {fileID: 11400000, guid: c78a0ff2cf54e1545b213037f657b361, type: 2}
+  - {fileID: 11400000, guid: 501b0999f1621b24991a943d6440ca1a, type: 2}
+  - {fileID: 11400000, guid: 8eb20bab212007242a67a477d2ccc0b2, type: 2}
+  - {fileID: 11400000, guid: 6ca5c78a8a825094ab933be68f771675, type: 2}
+  - {fileID: 11400000, guid: dcdae76941bf2314e8fb8f86089bcda0, type: 2}
+  - {fileID: 11400000, guid: d64823ac58ec24841b23f4b6aa17d244, type: 2}
+  - {fileID: 11400000, guid: 46e3f8a0070301f4da5961b6ae05e5ed, type: 2}
+  - {fileID: 11400000, guid: ed4bc2c61fa73984887b3611b62fd6c4, type: 2}
+  - {fileID: 11400000, guid: 541369e1b6c5fd640895a73583f3d0bc, type: 2}
+  _freeSource: {fileID: 0}

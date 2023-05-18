@@ -1,0 +1,1055 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!181963792 &2655988077585873504
+Preset:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_Name: AudioManager
+  m_TargetType:
+    m_NativeTypeID: 114
+    m_ManagedTypePPtr: {fileID: 11500000, guid: 76d1b46b200eb5e408bbee7d9b025291,
+      type: 3}
+    m_ManagedTypeFallback: 
+  m_Properties:
+  - target: {fileID: 0}
+    propertyPath: m_Enabled
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_EditorHideFlags
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: m_EditorClassIdentifier
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.size
+    value: 31
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[0].audioName
+    value: bg1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[0].clip
+    value: 
+    objectReference: {fileID: 8300000, guid: 462c1cbccccf0c3409f7656e9490173b, type: 3}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[0].mixerGroup
+    value: 
+    objectReference: {fileID: 8426698837903981537, guid: e4133e5e7f34c4743be3fe0ab8e68812,
+      type: 2}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[0].volume
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[0].pitch
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[0].blend
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[0].loop
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[0].source
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[1].audioName
+    value: bg2
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[1].clip
+    value: 
+    objectReference: {fileID: 8300000, guid: d026e4f586a806c4e9cf97e1da7110e9, type: 3}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[1].mixerGroup
+    value: 
+    objectReference: {fileID: 8426698837903981537, guid: e4133e5e7f34c4743be3fe0ab8e68812,
+      type: 2}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[1].volume
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[1].pitch
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[1].blend
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[1].loop
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[1].source
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[2].audioName
+    value: bgMenu
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[2].clip
+    value: 
+    objectReference: {fileID: 8300000, guid: 5bfb5f1f18f65e24d804ce60dee1e514, type: 3}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[2].mixerGroup
+    value: 
+    objectReference: {fileID: 8426698837903981537, guid: e4133e5e7f34c4743be3fe0ab8e68812,
+      type: 2}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[2].volume
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[2].pitch
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[2].blend
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[2].loop
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[2].source
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[3].audioName
+    value: bgBattle
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[3].clip
+    value: 
+    objectReference: {fileID: 8300000, guid: fbf6b10e4aa99304d87cd7e8e48d533a, type: 3}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[3].mixerGroup
+    value: 
+    objectReference: {fileID: 8426698837903981537, guid: e4133e5e7f34c4743be3fe0ab8e68812,
+      type: 2}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[3].volume
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[3].pitch
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[3].blend
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[3].loop
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[3].source
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[4].audioName
+    value: bgBoss
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[4].clip
+    value: 
+    objectReference: {fileID: 8300000, guid: ca70935aa788d7040b0047d8911abba0, type: 3}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[4].mixerGroup
+    value: 
+    objectReference: {fileID: 8426698837903981537, guid: e4133e5e7f34c4743be3fe0ab8e68812,
+      type: 2}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[4].volume
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[4].pitch
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[4].blend
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[4].loop
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[4].source
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[5].audioName
+    value: bgAmbPast
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[5].clip
+    value: 
+    objectReference: {fileID: 8300000, guid: 9a3e8e175241bb84eacace2597c2f1ca, type: 3}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[5].mixerGroup
+    value: 
+    objectReference: {fileID: 8426698837903981537, guid: e4133e5e7f34c4743be3fe0ab8e68812,
+      type: 2}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[5].volume
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[5].pitch
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[5].blend
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[5].loop
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[5].source
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[6].audioName
+    value: bgAmbFuture
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[6].clip
+    value: 
+    objectReference: {fileID: 8300000, guid: 85e1252bd25d3904a87f3fca0694d350, type: 3}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[6].mixerGroup
+    value: 
+    objectReference: {fileID: 8426698837903981537, guid: e4133e5e7f34c4743be3fe0ab8e68812,
+      type: 2}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[6].volume
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[6].pitch
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[6].blend
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[6].loop
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[6].source
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[7].audioName
+    value: playerDmg1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[7].clip
+    value: 
+    objectReference: {fileID: 8300000, guid: 43f9476ddc6b787479c9fefcc368e3dd, type: 3}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[7].mixerGroup
+    value: 
+    objectReference: {fileID: 8219120640885313815, guid: e4133e5e7f34c4743be3fe0ab8e68812,
+      type: 2}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[7].volume
+    value: 0.7
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[7].pitch
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[7].blend
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[7].loop
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[7].source
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[8].audioName
+    value: chestClose
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[8].clip
+    value: 
+    objectReference: {fileID: 8300000, guid: ca3b56325a6cf7249adfd07ce666e595, type: 3}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[8].mixerGroup
+    value: 
+    objectReference: {fileID: 8219120640885313815, guid: e4133e5e7f34c4743be3fe0ab8e68812,
+      type: 2}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[8].volume
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[8].pitch
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[8].blend
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[8].loop
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[8].source
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[9].audioName
+    value: chestOpen
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[9].clip
+    value: 
+    objectReference: {fileID: 8300000, guid: 6917bc1a668b1a74c931f0803c98f9eb, type: 3}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[9].mixerGroup
+    value: 
+    objectReference: {fileID: 8219120640885313815, guid: e4133e5e7f34c4743be3fe0ab8e68812,
+      type: 2}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[9].volume
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[9].pitch
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[9].blend
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[9].loop
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[9].source
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[10].audioName
+    value: fall
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[10].clip
+    value: 
+    objectReference: {fileID: 8300000, guid: f0ac3392ea7276c4983ef67ad82a1be3, type: 3}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[10].mixerGroup
+    value: 
+    objectReference: {fileID: 8219120640885313815, guid: e4133e5e7f34c4743be3fe0ab8e68812,
+      type: 2}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[10].volume
+    value: 0.3
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[10].pitch
+    value: 0.75
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[10].blend
+    value: 0.16
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[10].loop
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[10].source
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[11].audioName
+    value: walk
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[11].clip
+    value: 
+    objectReference: {fileID: 8300000, guid: af5e2e61eb438084792d5111e03d70f4, type: 3}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[11].mixerGroup
+    value: 
+    objectReference: {fileID: 8219120640885313815, guid: e4133e5e7f34c4743be3fe0ab8e68812,
+      type: 2}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[11].volume
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[11].pitch
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[11].blend
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[11].loop
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[11].source
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[12].audioName
+    value: invenClose
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[12].clip
+    value: 
+    objectReference: {fileID: 8300000, guid: cedcdcba37439284e80890f2051b1637, type: 3}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[12].mixerGroup
+    value: 
+    objectReference: {fileID: 8219120640885313815, guid: e4133e5e7f34c4743be3fe0ab8e68812,
+      type: 2}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[12].volume
+    value: 0.7
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[12].pitch
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[12].blend
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[12].loop
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[12].source
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[13].audioName
+    value: invenOpen
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[13].clip
+    value: 
+    objectReference: {fileID: 8300000, guid: f9e43de8310048945af275f93b3844fb, type: 3}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[13].mixerGroup
+    value: 
+    objectReference: {fileID: 8219120640885313815, guid: e4133e5e7f34c4743be3fe0ab8e68812,
+      type: 2}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[13].volume
+    value: 0.7
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[13].pitch
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[13].blend
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[13].loop
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[13].source
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[14].audioName
+    value: potionDrink
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[14].clip
+    value: 
+    objectReference: {fileID: 8300000, guid: 64153b0019fe7ae459527dcf9dff846c, type: 3}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[14].mixerGroup
+    value: 
+    objectReference: {fileID: 8219120640885313815, guid: e4133e5e7f34c4743be3fe0ab8e68812,
+      type: 2}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[14].volume
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[14].pitch
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[14].blend
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[14].loop
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[14].source
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[15].audioName
+    value: teleportFail
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[15].clip
+    value: 
+    objectReference: {fileID: 8300000, guid: 60a73319d8e82944cb0d00c85e64ce94, type: 3}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[15].mixerGroup
+    value: 
+    objectReference: {fileID: 8219120640885313815, guid: e4133e5e7f34c4743be3fe0ab8e68812,
+      type: 2}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[15].volume
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[15].pitch
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[15].blend
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[15].loop
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[15].source
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[16].audioName
+    value: teleportSuccess
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[16].clip
+    value: 
+    objectReference: {fileID: 8300000, guid: 3f17089601987634bb1eb57444f7895f, type: 3}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[16].mixerGroup
+    value: 
+    objectReference: {fileID: 8219120640885313815, guid: e4133e5e7f34c4743be3fe0ab8e68812,
+      type: 2}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[16].volume
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[16].pitch
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[16].blend
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[16].loop
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[16].source
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[17].audioName
+    value: itemLoot
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[17].clip
+    value: 
+    objectReference: {fileID: 8300000, guid: a482c64a555aa1343b98ebae7d30a45c, type: 3}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[17].mixerGroup
+    value: 
+    objectReference: {fileID: 8219120640885313815, guid: e4133e5e7f34c4743be3fe0ab8e68812,
+      type: 2}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[17].volume
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[17].pitch
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[17].blend
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[17].loop
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[17].source
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[18].audioName
+    value: playerEquip
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[18].clip
+    value: 
+    objectReference: {fileID: 8300000, guid: 7d931a7d6ceb3914b86b0642aac00f51, type: 3}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[18].mixerGroup
+    value: 
+    objectReference: {fileID: 8219120640885313815, guid: e4133e5e7f34c4743be3fe0ab8e68812,
+      type: 2}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[18].volume
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[18].pitch
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[18].blend
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[18].loop
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[18].source
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[19].audioName
+    value: potionLoot
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[19].clip
+    value: 
+    objectReference: {fileID: 8300000, guid: 1b99aa53b882f61459e248904f41d0e5, type: 3}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[19].mixerGroup
+    value: 
+    objectReference: {fileID: 8219120640885313815, guid: e4133e5e7f34c4743be3fe0ab8e68812,
+      type: 2}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[19].volume
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[19].pitch
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[19].blend
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[19].loop
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[19].source
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[20].audioName
+    value: endTurn
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[20].clip
+    value: 
+    objectReference: {fileID: 8300000, guid: f84a0ad3dfad18e45bedda6bc510f6ac, type: 3}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[20].mixerGroup
+    value: 
+    objectReference: {fileID: 8219120640885313815, guid: e4133e5e7f34c4743be3fe0ab8e68812,
+      type: 2}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[20].volume
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[20].pitch
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[20].blend
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[20].loop
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[20].source
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[21].audioName
+    value: enemyHeal
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[21].clip
+    value: 
+    objectReference: {fileID: 8300000, guid: b606c363d3e049f4eb85a44b0827a3b0, type: 3}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[21].mixerGroup
+    value: 
+    objectReference: {fileID: 8219120640885313815, guid: e4133e5e7f34c4743be3fe0ab8e68812,
+      type: 2}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[21].volume
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[21].pitch
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[21].blend
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[21].loop
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[21].source
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[22].audioName
+    value: enemyAtk
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[22].clip
+    value: 
+    objectReference: {fileID: 8300000, guid: abb5ed4504ebac943b5db53fa5143b60, type: 3}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[22].mixerGroup
+    value: 
+    objectReference: {fileID: 8219120640885313815, guid: e4133e5e7f34c4743be3fe0ab8e68812,
+      type: 2}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[22].volume
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[22].pitch
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[22].blend
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[22].loop
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[22].source
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[23].audioName
+    value: playerAtkOne
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[23].clip
+    value: 
+    objectReference: {fileID: 8300000, guid: 054ccc7dc8f698c48a5f3bb75390c9e4, type: 3}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[23].mixerGroup
+    value: 
+    objectReference: {fileID: 8219120640885313815, guid: e4133e5e7f34c4743be3fe0ab8e68812,
+      type: 2}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[23].volume
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[23].pitch
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[23].blend
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[23].loop
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[23].source
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[24].audioName
+    value: playerAtkAll
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[24].clip
+    value: 
+    objectReference: {fileID: 8300000, guid: 528730badd38ea345af07c6c6999a1da, type: 3}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[24].mixerGroup
+    value: 
+    objectReference: {fileID: 8219120640885313815, guid: e4133e5e7f34c4743be3fe0ab8e68812,
+      type: 2}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[24].volume
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[24].pitch
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[24].blend
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[24].loop
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[24].source
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[25].audioName
+    value: playerGetBlock
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[25].clip
+    value: 
+    objectReference: {fileID: 8300000, guid: 1710baa9520dab04eb1d164269a27dbe, type: 3}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[25].mixerGroup
+    value: 
+    objectReference: {fileID: 8219120640885313815, guid: e4133e5e7f34c4743be3fe0ab8e68812,
+      type: 2}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[25].volume
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[25].pitch
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[25].blend
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[25].loop
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[25].source
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[26].audioName
+    value: playerGetHeal
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[26].clip
+    value: 
+    objectReference: {fileID: 8300000, guid: 183b89efe8d8a514384ddcc63ef05ecc, type: 3}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[26].mixerGroup
+    value: 
+    objectReference: {fileID: 8219120640885313815, guid: e4133e5e7f34c4743be3fe0ab8e68812,
+      type: 2}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[26].volume
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[26].pitch
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[26].blend
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[26].loop
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[26].source
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[27].audioName
+    value: playerGetMana
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[27].clip
+    value: 
+    objectReference: {fileID: 8300000, guid: d044d6dcf6239d94e9263b102ca73d5e, type: 3}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[27].mixerGroup
+    value: 
+    objectReference: {fileID: 8219120640885313815, guid: e4133e5e7f34c4743be3fe0ab8e68812,
+      type: 2}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[27].volume
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[27].pitch
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[27].blend
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[27].loop
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[27].source
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[28].audioName
+    value: lever
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[28].clip
+    value: 
+    objectReference: {fileID: 8300000, guid: 8af651dee66d56a43b58289a9434a471, type: 3}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[28].mixerGroup
+    value: 
+    objectReference: {fileID: 8219120640885313815, guid: e4133e5e7f34c4743be3fe0ab8e68812,
+      type: 2}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[28].volume
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[28].pitch
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[28].blend
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[28].loop
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[28].source
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[29].audioName
+    value: winFight
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[29].clip
+    value: 
+    objectReference: {fileID: 8300000, guid: da738e42170f88542add92881d18aac0, type: 3}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[29].mixerGroup
+    value: 
+    objectReference: {fileID: 8219120640885313815, guid: e4133e5e7f34c4743be3fe0ab8e68812,
+      type: 2}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[29].volume
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[29].pitch
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[29].blend
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[29].loop
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[29].source
+    value: 
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[30].audioName
+    value: loseFight
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[30].clip
+    value: 
+    objectReference: {fileID: 8300000, guid: ae2611a0c5d3d854ea1ceca7891fd150, type: 3}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[30].mixerGroup
+    value: 
+    objectReference: {fileID: 8219120640885313815, guid: e4133e5e7f34c4743be3fe0ab8e68812,
+      type: 2}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[30].volume
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[30].pitch
+    value: 1
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[30].blend
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[30].loop
+    value: 0
+    objectReference: {fileID: 0}
+  - target: {fileID: 0}
+    propertyPath: _sounds.Array.data[30].source
+    value: 
+    objectReference: {fileID: 0}
+  m_ExcludedProperties: []

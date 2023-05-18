@@ -68,8 +68,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 1
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: a2dd927002d687045967512541ec5c71, type: 2}
-  m_sharedMaterial: {fileID: -4200798139453797082, guid: a2dd927002d687045967512541ec5c71,
+  m_fontAsset: {fileID: 11400000, guid: c5de66736d0cb614295e435733c7fc05, type: 2}
+  m_sharedMaterial: {fileID: 7484093624351023152, guid: c5de66736d0cb614295e435733c7fc05,
     type: 2}
   m_fontSharedMaterials:
   - {fileID: -4200798139453797082, guid: a2dd927002d687045967512541ec5c71, type: 2}
@@ -77,8 +77,8 @@ MonoBehaviour:
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4292581428
+  m_fontColor: {r: 0.20392157, g: 0.59607846, b: 0.85882354, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -340,15 +340,15 @@ MonoBehaviour:
   shakeOffsetFadeIn: {x: 0, y: 1.5}
   shakeFrequencyFadeIn: 4
   durationFadeOut: 0.2
-  enableOffsetFadeOut: 1
+  enableOffsetFadeOut: 0
   offsetFadeOut: {x: 0.5, y: 0}
-  enableScaleFadeOut: 0
-  scaleFadeOut: {x: 2, y: 2}
+  enableScaleFadeOut: 1
+  scaleFadeOut: {x: 0.5, y: 2}
   enableCrossScaleFadeOut: 0
   crossScaleFadeOut: {x: 1, y: 1.5}
-  enableShakeFadeOut: 0
+  enableShakeFadeOut: 1
   shakeOffsetFadeOut: {x: 0, y: 1.5}
-  shakeFrequencyFadeOut: 4
+  shakeFrequencyFadeOut: 2
   enableLerp: 1
   lerpSettings:
     speed: 5
@@ -596,8 +596,8 @@ MonoBehaviour:
     desiredDirection: {x: 0, y: 0, z: 0}
   enablePush: 0
   pushSettings:
-    radius: 4
-    pushOffset: 0.8
+    radius: 3
+    pushOffset: 1
   updateDelay: 0.0125
   enablePooling: 0
   poolSize: 50
@@ -670,17 +670,17 @@ MonoBehaviour:
       m_Calls: []
   m_text: 1
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: a2dd927002d687045967512541ec5c71, type: 2}
-  m_sharedMaterial: {fileID: -4200798139453797082, guid: a2dd927002d687045967512541ec5c71,
+  m_fontAsset: {fileID: 11400000, guid: c5de66736d0cb614295e435733c7fc05, type: 2}
+  m_sharedMaterial: {fileID: 7484093624351023152, guid: c5de66736d0cb614295e435733c7fc05,
     type: 2}
   m_fontSharedMaterials:
-  - {fileID: -1389305967821746214, guid: 02479d586e688df45842f13ac3faf2db, type: 2}
+  - {fileID: 7484093624351023152, guid: c5de66736d0cb614295e435733c7fc05, type: 2}
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4292581428
+  m_fontColor: {r: 0.20392157, g: 0.59607846, b: 0.85882354, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:

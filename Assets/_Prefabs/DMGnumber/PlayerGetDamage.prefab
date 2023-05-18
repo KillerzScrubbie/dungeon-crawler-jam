@@ -68,16 +68,16 @@ MonoBehaviour:
       m_Calls: []
   m_text: 1
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d157804495fc75446b892bb8ddaf2a3d, type: 2}
-  m_sharedMaterial: {fileID: 6351561881551016941, guid: d157804495fc75446b892bb8ddaf2a3d,
+  m_fontAsset: {fileID: 11400000, guid: c5de66736d0cb614295e435733c7fc05, type: 2}
+  m_sharedMaterial: {fileID: 7484093624351023152, guid: c5de66736d0cb614295e435733c7fc05,
     type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4286631167
+  m_fontColor: {r: 1, g: 0.8, b: 0.5, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:
@@ -295,7 +295,7 @@ MonoBehaviour:
     vertical: 0
     characterSpacing: 0
     size: 0
-  enableColorByNumber: 0
+  enableColorByNumber: 1
   colorByNumberSettings:
     colorGradient:
       serializedVersion: 2
@@ -326,15 +326,15 @@ MonoBehaviour:
       m_Mode: 0
       m_NumColorKeys: 2
       m_NumAlphaKeys: 2
-    fromNumber: 10
-    toNumber: 100
+    fromNumber: 1
+    toNumber: 5
   durationFadeIn: 0.2
-  enableOffsetFadeIn: 1
+  enableOffsetFadeIn: 0
   offsetFadeIn: {x: 0.5, y: 0}
-  enableScaleFadeIn: 1
+  enableScaleFadeIn: 0
   scaleFadeIn: {x: 2, y: 2}
-  enableCrossScaleFadeIn: 0
-  crossScaleFadeIn: {x: 1, y: 1.5}
+  enableCrossScaleFadeIn: 1
+  crossScaleFadeIn: {x: 3, y: 3}
   enableShakeFadeIn: 0
   shakeOffsetFadeIn: {x: 0, y: 1.5}
   shakeFrequencyFadeIn: 4
@@ -669,16 +669,17 @@ MonoBehaviour:
       m_Calls: []
   m_text: 1
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: d157804495fc75446b892bb8ddaf2a3d, type: 2}
-  m_sharedMaterial: {fileID: 6351561881551016941, guid: d157804495fc75446b892bb8ddaf2a3d,
+  m_fontAsset: {fileID: 11400000, guid: c5de66736d0cb614295e435733c7fc05, type: 2}
+  m_sharedMaterial: {fileID: 7484093624351023152, guid: c5de66736d0cb614295e435733c7fc05,
     type: 2}
-  m_fontSharedMaterials: []
+  m_fontSharedMaterials:
+  - {fileID: 7484093624351023152, guid: c5de66736d0cb614295e435733c7fc05, type: 2}
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:
     serializedVersion: 2
-    rgba: 4294967295
-  m_fontColor: {r: 1, g: 1, b: 1, a: 1}
+    rgba: 4286631167
+  m_fontColor: {r: 1, g: 0.8, b: 0.5, a: 1}
   m_enableVertexGradient: 0
   m_colorMode: 3
   m_fontColorGradient:

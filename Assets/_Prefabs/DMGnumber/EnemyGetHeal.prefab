@@ -328,21 +328,21 @@ MonoBehaviour:
       m_NumAlphaKeys: 2
     fromNumber: 10
     toNumber: 100
-  durationFadeIn: 0.2
+  durationFadeIn: 0.25
   enableOffsetFadeIn: 1
-  offsetFadeIn: {x: 0.5, y: 0}
+  offsetFadeIn: {x: 0, y: 0.5}
   enableScaleFadeIn: 1
-  scaleFadeIn: {x: 2, y: 2}
-  enableCrossScaleFadeIn: 0
+  scaleFadeIn: {x: 0.5, y: 2}
+  enableCrossScaleFadeIn: 1
   crossScaleFadeIn: {x: 1, y: 1.5}
-  enableShakeFadeIn: 0
-  shakeOffsetFadeIn: {x: 0, y: 1.5}
+  enableShakeFadeIn: 1
+  shakeOffsetFadeIn: {x: 0, y: 2.5}
   shakeFrequencyFadeIn: 4
   durationFadeOut: 0.2
-  enableOffsetFadeOut: 1
+  enableOffsetFadeOut: 0
   offsetFadeOut: {x: 0.5, y: 0}
-  enableScaleFadeOut: 0
-  scaleFadeOut: {x: 2, y: 2}
+  enableScaleFadeOut: 1
+  scaleFadeOut: {x: -0.3, y: 1}
   enableCrossScaleFadeOut: 0
   crossScaleFadeOut: {x: 1, y: 1.5}
   enableShakeFadeOut: 0
@@ -672,7 +672,8 @@ MonoBehaviour:
   m_fontAsset: {fileID: 11400000, guid: 6d070d3aaf6160f42b5e8124261b645e, type: 2}
   m_sharedMaterial: {fileID: -3016009729354918782, guid: 6d070d3aaf6160f42b5e8124261b645e,
     type: 2}
-  m_fontSharedMaterials: []
+  m_fontSharedMaterials:
+  - {fileID: -3016009729354918782, guid: 6d070d3aaf6160f42b5e8124261b645e, type: 2}
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
   m_fontColor32:

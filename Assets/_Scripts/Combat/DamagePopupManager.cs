@@ -1,31 +1,26 @@
 using UnityEngine;
 using TMPro;
 using System;
+using DamageNumbersPro;
 
 public class DamagePopupManager : MonoBehaviour
 {
     [SerializeField] TMP_Text _dmgEnemyPrefab;
     [SerializeField] TMP_Text _dmgPlayerPrefab;
     [SerializeField] Transform _mainCombatCanvas;
+    
 
-    [SerializeField] Color _healPlayerColor;
-    [SerializeField] Color _blockColor;
-    [SerializeField] Color _manaColor;
+    [SerializeField] DamageNumber _PlayerGetMana;
+    [SerializeField] DamageNumber _PlayerGetBlockDamage;
+    [SerializeField] DamageNumber _PlayerGetDamage;
+    [SerializeField] DamageNumber _PlayerGetHeal;
 
-    [SerializeField] Color _healEnemyColor;
-
-    [SerializeField] SOnumberPopup _soPlayerGetMana;
-    [SerializeField] SOnumberPopup _soPlayerGetBlockDamage;
-    [SerializeField] SOnumberPopup _soPlayerGetDamage;
-    [SerializeField] SOnumberPopup _soPlayerGetHeal;
-
-    [SerializeField] SOnumberPopup _soEnemyGetDamage;
-    [SerializeField] SOnumberPopup _soEnemyGetHeal;
+    [SerializeField] DamageNumber _EnemyGetDamage;
+    [SerializeField] DamageNumber _EnemyGetHeal;
 
     [SerializeField] Transform _PlayerHpTrans;
     [SerializeField] Transform _PlayerBlockTrans;
     [SerializeField] Transform _PlayerMpTrans;
-
 
     void OnEnable()
     {
@@ -50,47 +45,45 @@ public class DamagePopupManager : MonoBehaviour
 
     private void DoPopupPlayerHeal(int healVal)
     {
-        TMP_Text dmgPopupTrans = Instantiate(_dmgPlayerPrefab, _PlayerHpTrans);
-        dmgPopupTrans.GetComponent<DamagePopup>().SetupSO(_soPlayerGetHeal);
-        dmgPopupTrans.SetText(healVal.ToString());
+        DamageNumber healText = _PlayerGetHeal.Spawn(Vector3.zero, healVal);
+        healText.SetAnchoredPosition(_PlayerHpTrans, new Vector2(0, 0));
     }
 
     private void DoPlayerDamagePopup(int damage)
     {
         if (damage <= 0) return;
-        TMP_Text dmgPopupTrans = Instantiate(_dmgPlayerPrefab, _PlayerHpTrans);
-        dmgPopupTrans.GetComponent<DamagePopup>().SetupSO(_soPlayerGetDamage);
-        dmgPopupTrans.SetText(damage.ToString());
+        
+        DamageNumber playerDmgTxt = _PlayerGetDamage.Spawn(Vector3.zero, damage);
+        playerDmgTxt.SetAnchoredPosition(_PlayerHpTrans, new Vector2(0, 0));
+        
     }
 
     private void DoPlayerTakeBlockDamage(int blockUsed)
     {
         if (blockUsed <= 0) return;
-        TMP_Text dmgPopupTrans = Instantiate(_dmgPlayerPrefab, _PlayerBlockTrans);
-        dmgPopupTrans.GetComponent<DamagePopup>().SetupSO(_soPlayerGetBlockDamage);
-        dmgPopupTrans.SetText($"({blockUsed})");
+        
+        DamageNumber playerBlockTxt = _PlayerGetBlockDamage.Spawn(Vector3.zero, blockUsed);
+        playerBlockTxt.SetAnchoredPosition(_PlayerHpTrans, new Vector2(0, 0));
     }
 
     private void DoPopupPlayerGetMP(int getMpValue)
     {
-        TMP_Text dmgPopupTrans = Instantiate(_dmgPlayerPrefab, _PlayerMpTrans);
-        dmgPopupTrans.GetComponent<DamagePopup>().SetupSO(_soPlayerGetMana);
-        dmgPopupTrans.SetText($"+{getMpValue}");
+        DamageNumber playerMP = _PlayerGetMana.Spawn(Vector3.zero, getMpValue);
+        playerMP.SetAnchoredPosition(_PlayerHpTrans, new Vector2(0, 0));
     }
 
     public void DoEnemyDamagePopup(int damage, Transform trans)
     {
-        TMP_Text dmgPopupTrans = Instantiate(_dmgEnemyPrefab, trans);
-        dmgPopupTrans.GetComponent<DamagePopup>().SetupSO(_soEnemyGetDamage);
-        dmgPopupTrans.SetText(damage.ToString());
+        DamageNumber enemyDmg = _EnemyGetDamage.Spawn(Vector3.zero, damage);
+        enemyDmg.SetAnchoredPosition(trans, new Vector2(0, 0));
     }
 
     private void DoEnemyHealPopup(int heal, Transform trans)
     {
-        TMP_Text dmgPopupTrans = Instantiate(_dmgEnemyPrefab, trans);
-        dmgPopupTrans.GetComponent<DamagePopup>().SetupSO(_soEnemyGetHeal);
-
-        dmgPopupTrans.SetText(heal.ToString());
+        DamageNumber enemyHeal = _EnemyGetHeal.Spawn(Vector3.zero, heal);
+        enemyHeal.SetAnchoredPosition(trans, new Vector2(0, 0));
     }
+    
+    
 
 }

@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0, g: 0, b: 0, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -5668,6 +5668,19 @@ MonoBehaviour:
   _dmgPlayerPrefab: {fileID: 3646399858009977500, guid: b1a104241cbb273469948cc0686c8662,
     type: 3}
   _mainCombatCanvas: {fileID: 0}
+  _healPlayerColor: {r: 0, g: 0, b: 0, a: 0}
+  _blockColor: {r: 0, g: 0, b: 0, a: 0}
+  _manaColor: {r: 0, g: 0, b: 0, a: 0}
+  _healEnemyColor: {r: 0, g: 0, b: 0, a: 0}
+  _soPlayerGetMana: {fileID: 0}
+  _soPlayerGetBlockDamage: {fileID: 0}
+  _soPlayerGetDamage: {fileID: 0}
+  _soPlayerGetHeal: {fileID: 0}
+  _soEnemyGetDamage: {fileID: 0}
+  _soEnemyGetHeal: {fileID: 0}
+  _PlayerHpTrans: {fileID: 0}
+  _PlayerBlockTrans: {fileID: 0}
+  _PlayerMpTrans: {fileID: 0}
 --- !u!1 &864814069
 GameObject:
   m_ObjectHideFlags: 0
@@ -6880,7 +6893,7 @@ Camera:
     y: 0
     width: 1
     height: 1
-  near clip plane: 0.001
+  near clip plane: 0.01
   far clip plane: 1000
   field of view: 52.629913
   orthographic: 0

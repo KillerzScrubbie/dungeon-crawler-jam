@@ -2,8 +2,7 @@ using Pathfinding;
 using UnityEngine;
 
 public class EnemyPathfindingAI : AILerp
-{
-    [Space]
+{ [Space]
     [Header("Custom Fields")]
     [SerializeField] private EnemyStateManager enemyStateManager;
 

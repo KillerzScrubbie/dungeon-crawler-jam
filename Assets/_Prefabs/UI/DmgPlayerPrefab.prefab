@@ -154,5 +154,5 @@ MonoBehaviour:
   _maxLifeDuration: 1
   _popupScale: 1.1
   _popupScaleAfter: 0.95
-  _yAfter: -1.1
+  _finishPosition: {x: 0, y: 0, z: 0}
   _easeType: 0

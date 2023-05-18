@@ -93,3 +93,6 @@ MonoBehaviour:
   potion: {fileID: 0}
   slot: 0
   id: 0
+  promptAnchorTransform: {fileID: 0}
+  highlightPanel: {fileID: 0}
+  useTimeDelay: 1

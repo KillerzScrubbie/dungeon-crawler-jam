@@ -19,6 +19,7 @@ public class DamagePopup : MonoBehaviour
     void OnEnable()
     {
         CombatManager.OnCombatStateChanged += FixVictoryScene;
+        
     }
     void OnDisable()
     {
